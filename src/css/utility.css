@@ -1,0 +1,46 @@
+/* //////////////////////
+    Utility Classes
+    /////////////////////// */
+
+/* select all direct childen of .flow
+     and add margin to the top for proper
+     spacing */
+
+.flow > *:where(:not(:first-child)) {
+  margin-top: var(--flow-spacer, 1em);
+}
+
+.container {
+  margin-inline: auto;
+  padding-inline: 1.5em;
+  max-width: 72rem;
+}
+
+.container--narrow {
+  max-width: 65rem;
+}
+
+.flex-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap, 1em);
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* typgraphy */
+
+.article-title,
+.section-title {
+  color: var(--clr-primary-500);
+}
+
+.article-title {
+  font-size: var(--fs-700);
+}
+
+.section-title {
+  font-size: var(--fs-600);
+}

@@ -1,0 +1,13 @@
+/* //////////////////////
+    Individual article page
+    /////////////////////// */
+
+.main-article {
+  margin-bottom: 3rem;
+}
+
+.main-article__figure figcaption {
+  margin: 1rem 0;
+  font-size: var(--fs-300);
+  opacity: 0.9;
+}
