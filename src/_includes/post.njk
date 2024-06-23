@@ -1,4 +1,12 @@
 ---
 layout: base.njk
 ---
-<article>{{ content | safe}}</article>
+
+<section>
+  <div class="container">
+    <article>
+        <h1 class="article-title">Post Title</h1>
+        {{ content | safe }}
+    </article>
+  </div>
+</section>
