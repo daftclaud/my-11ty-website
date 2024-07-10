@@ -7,6 +7,8 @@
 
   --ff-body: "Roboto", sans-serif;
   --ff-heading: "Playfair Display", serif;
+
+  --clr-background: #ffffe0;
 }
 
 @media (min-width: 35em) {
@@ -105,8 +107,19 @@ select {
     /////////////////////// */
 
 body {
-  font-family: var(--ff-body);
-  font-size: var(--fs-normal);
+  background-color: var(--clr-background);
+  color: #000000;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 3px solid #0000ff;
+  background-color: #ffffff;
 }
 
 h1,
@@ -129,13 +142,8 @@ section {
     Word Curations
    /////////////////////// */
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
 .curation-title {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 section.word-entry {
   background: #fff;

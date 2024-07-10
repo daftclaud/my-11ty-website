@@ -11,7 +11,7 @@ layout: base.njk
   </header>
   {% for entry in latestCuration.data.words %}
   <section class="word-entry">
-    <header class="word">{{ entry.word }}</header>
+    <div class="word">{{ entry.word }}</div>
     <div class="definition">{{ entry.definition }}</div>
     <div class="source">Source: {{ entry.source }}</div>
     <div class="explanation">
@@ -20,9 +20,9 @@ layout: base.njk
     <div class="usage-example">Usage Example: {{ entry.usage_example }}</div>
   </section>
   {% endfor %}
-  <footer class="center-text">
+  <div class="center-text">
     {{ latestCuration.data.date | formatDate }}
-  </footer>
+  </div>
 </article>
 
 <!-- 
