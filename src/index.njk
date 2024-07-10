@@ -3,4 +3,96 @@ title: Home
 layout: base.njk
 ---
 
-Hello 
+<div class="container">
+  <h1>Welcome to My Personal Homepage!</h1>
+  <div class="nav-bar">
+    <a href="/">Home</a>
+    <a href="/about">About Me</a>
+    <a href="/word-curations">Word Curations</a>
+    <a href="/contact">Contact</a>
+  </div>
+  <div class="content clearfix">
+    <img
+      src="https://media1.tenor.com/m/qRC04kNvXAIAAAAC/smiley-clouds.gif"
+      alt="Smiley"
+    />
+    <p>
+      Hello! Welcome to my awesome personal homepage. This site is all about me
+      and my interests. Feel free to explore the different sections using the
+      navigation bar above.
+    </p>
+    <br />
+    <p>
+      Check out my <a href="#">Word Curations</a> where I share interesting
+      words and their meanings!
+    </p>
+    <br />
+    <p>
+      Feel free to <a href="#">Contact me</a> if you want to get in touch.
+      Thanks for visiting!
+    </p>
+  </div>
+  <div class="footer">
+    <p>&copy; 2024 My Personal Homepage | <a href="#">Privacy Policy</a></p>
+  </div>
+</div>
+
+<style>
+  body {
+    background-color: #ffffe0;
+    color: #000000;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  h1 {
+    color: #ff4500;
+    text-shadow: 2px 2px #000000;
+  }
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    border: 3px solid #0000ff;
+    padding: 10px;
+    background-color: #ffffff;
+  }
+
+  .nav-bar {
+    background-color: #00ffff;
+    padding: 10px;
+    margin: 20px 0;
+    border: 3px dashed #ff00ff;
+  }
+  .nav-bar a {
+    color: #ff00ff;
+    text-decoration: none;
+    margin: 0 15px;
+  }
+  
+  .content {
+    text-align: left;
+    padding: 10px;
+  }
+  .content img {
+    max-width: 50%;
+    float: left;
+    margin-right: 10px;
+  }
+  .clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .footer {
+    background-color: #00ffff;
+    padding: 5px;
+    margin-top: 20px;
+    border-top: 3px dashed #ff00ff;
+  }
+  .footer a {
+    color: #ff00ff;
+    text-decoration: none;
+  }
+</style>
