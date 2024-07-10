@@ -5,8 +5,8 @@
   --fs-xl: 1.875rem;
   --fs-xxl: 2rem;
 
-  --ff-body: "Roboto", sans-serif;
-  --ff-heading: "Playfair Display", serif;
+  --ff-body: "Comic Sans MS", cursive, sans-serif;
+  --ff-heading: "Verdana", Geneva, sans-serif;
 
   --clr-background: #ffffe0;
 }
@@ -109,7 +109,7 @@ select {
 body {
   background-color: var(--clr-background);
   color: #000000;
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: var(--ff-body);
   margin: 0;
   padding: 0;
 }
