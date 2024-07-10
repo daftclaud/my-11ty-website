@@ -5,7 +5,7 @@ layout: base.njk
 
 {% set latestCuration = collections.curation[0] %}
 
-<article class="container">
+<article class="content">
   <header class="curation-title center-text">
     {{ latestCuration.data.title }}
   </header>
@@ -35,3 +35,38 @@ Thoughts:
   2. Think about how to create word pages in order to see all the documented uses.
 
 -->
+
+<style>
+  .curation-title {
+    font-family: "Courier New", Courier, monospace;
+  }
+  section.word-entry {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .word {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+  }
+  .definition {
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  .source {
+    font-size: 14px;
+    color: #555;
+  }
+  .explanation {
+    margin-top: 10px;
+  }
+  .usage-example {
+    margin-top: 10px;
+    font-style: italic;
+    color: #555;
+  }
+</style>

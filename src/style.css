@@ -139,45 +139,13 @@ section {
 }
 
 /* //////////////////////
-    Word Curations
-   /////////////////////// */
-
-.curation-title {
-  font-family: "Courier New", Courier, monospace;
-}
-section.word-entry {
-  background: #fff;
-  border: 1px solid #ddd;
-  padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-.word {
-  font-size: 24px;
-  font-weight: bold;
-  color: #007bff;
-}
-.definition {
-  font-style: italic;
-  margin-bottom: 10px;
-}
-.source {
-  font-size: 14px;
-  color: #555;
-}
-.explanation {
-  margin-top: 10px;
-}
-.usage-example {
-  margin-top: 10px;
-  font-style: italic;
-  color: #555;
-}
-
-/* //////////////////////
     Utility Classes
    /////////////////////// */
+
+.content {
+  text-align: left;
+  padding: 20px;
+}
 
 .center-text {
   text-align: center;
