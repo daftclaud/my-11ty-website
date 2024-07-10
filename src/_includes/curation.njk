@@ -1,0 +1,20 @@
+---
+layout: base.njk
+title: title
+---
+
+<article class="container">
+    {% for entry in words %}
+    <section class="word-entry">
+        <header class="word">{{entry.word}}</header>
+        <div class="definition">{{entry.definition}}</div>
+        <div class="source">Source: {{entry.source}}</div>
+        <div class="explanation">
+            {{entry.explanation}}
+        </div>
+        <div class="usage-example">
+            Usage Example: {{entry.usage_example}}
+        </div>
+    </section>
+    {% endfor %}
+</article> 

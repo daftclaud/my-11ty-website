@@ -1,0 +1,22 @@
+---
+title: Word Curations
+layout: base.njk
+---
+
+<h1 class="center-text">Latest Word Curation</h1>
+{% set latestCuration = collections.curation[0] %}
+<h2 class="center-text">{{ latestCuration.data.title }}</h2>
+
+<article class="container">
+  {% for entry in latestCuration.data.words %}
+  <section class="word-entry">
+    <header class="word">{{ entry.word }}</header>
+    <div class="definition">{{ entry.definition }}</div>
+    <div class="source">Source: {{ entry.source }}</div>
+    <div class="explanation">
+      {{ entry.explanation }}
+    </div>
+    <div class="usage-example">Usage Example: {{ entry.usage_example }}</div>
+  </section>
+  {% endfor %}
+</article>
