@@ -1,3 +1,4 @@
 {
-    "layout": "curation.njk"
+    "layout": "curation-page.njk",
+    "tags": "curation"
 }
