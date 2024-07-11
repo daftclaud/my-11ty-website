@@ -18,6 +18,15 @@ eleventyComputed:
   {% endif %}
 </div>
 
+<ul class="curations-list">
+  {% for curation in collections.curation %}
+  <li>
+    <a href="{{ curation.url }}">{{ curation.date | formatDate }}</a>
+  </li>
+  {% endfor %}
+</ul>
+
+
 <style>
   .navigation {
     text-align: center;
