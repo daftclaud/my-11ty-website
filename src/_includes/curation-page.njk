@@ -5,3 +5,21 @@ eleventyComputed:
 ---
 
 {% include 'curation.njk' %}
+
+{% set previousCuration = collections.curation | getPreviousCuration(date) %}
+{% set nextCuration = collections.curation | getNextCuration(date) %}
+
+<div class="navigation">
+  {% if previousCuration %}
+    <a href="{{ previousCuration.url }}">Previous Curation</a>
+  {% endif %}
+  {% if nextCuration %}
+    <a href="{{ nextCuration.url }}">Next Curation</a>
+  {% endif %}
+</div>
+
+<style>
+  .navigation {
+    text-align: center;
+  }
+</style>

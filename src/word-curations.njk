@@ -7,3 +7,21 @@ layout: base.njk
 {% set words = latestCuration.data.words %}
 {% set date = latestCuration.data.date %}
 {% include 'curation.njk' %}
+
+{% set previousCuration = collections.curation | getPreviousCuration(latestCuration.date) %}
+{% set nextCuration = collections.curation | getNextCuration(latestCuration.date) %}
+
+<div class="navigation">
+  {% if previousCuration %}
+    <a href="{{ previousCuration.url }}">Previous Curation</a>
+  {% endif %}
+  {% if nextCuration %}
+    <a href="{{ nextCuration.url }}">Next Curation</a>
+  {% endif %}
+</div>
+
+<style>
+  .navigation {
+    text-align: center;
+  }
+</style>

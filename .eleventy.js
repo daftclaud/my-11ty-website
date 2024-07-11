@@ -16,31 +16,29 @@ module.exports = function (eleventyConfig) {
     return new Date(date).toLocaleDateString(locale, options);
   });
 
-  // Function to find previous curation
   eleventyConfig.addFilter(
     "getPreviousCuration",
-    function (collection, currentUrl) {
+    function (collection, date) {
       const currentIndex = collection.findIndex(
-        (curation) => curation.url === currentUrl
+        (curation) => curation.date === date
       );
       if (currentIndex > 0) {
         return collection[currentIndex - 1];
       }
-      return null; // Return null if no previous curation found
+      return null;
     }
   );
 
-  // Function to find next curation
   eleventyConfig.addFilter(
     "getNextCuration",
-    function (collection, currentUrl) {
+    function (collection, date) {
       const currentIndex = collection.findIndex(
-        (curation) => curation.url === currentUrl
+        (curation) => curation.date === date
       );
       if (currentIndex < collection.length - 1) {
         return collection[currentIndex + 1];
       }
-      return null; // Return null if no next curation found
+      return null;
     }
   );
   
