@@ -1,4 +1,5 @@
 const util = require("util");
+const MyComponent = require("./src/_includes/calendar.11ty.js");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/style.css");
@@ -41,6 +42,11 @@ module.exports = function (eleventyConfig) {
       return null;
     }
   );
+
+  eleventyConfig.addShortcode("calendar", function(data) {
+    const component = new MyComponent();
+    return component.render(data);
+  });
   
 
   return {

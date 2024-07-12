@@ -6,33 +6,8 @@ month: 7
 date: 2024-07-01
 ---
 
-<div class="month">
-    {% set monthName = date.toLocaleString('en-US', { month: 'long' }) %}
-  <div class="month-title">{{ monthName }}</div>
-  <div class="month-body">
-    {% set daysInMonth = date.getDate() %}
-    {% set firstDayOfMonth = date.getDay() %}
-    {% set days = range(1, daysInMonth) %}
 
-    {% for day in days %}
-      {% if loop.index0 % 7 == 0 %}
-        <div class="month-week">
-      {% endif %}
-      
-      {% if loop.index0 < firstDayOfMonth %}
-        <div class="month-blank-day-container"></div>
-      {% else %}
-        <div class="month-day-container">{{ day }}</div>
-      {% endif %}
-      
-      {% if loop.index0 % 7 == 0 %}
-        </div>
-      {% endif %}
-      
-    {% endfor %}
-    
-  </div>
-</div>
+{% calendar %}
 
 <style>
   .month {
@@ -73,4 +48,3 @@ date: 2024-07-01
     width: 30px;
   }
 </style>
-
