@@ -9,6 +9,7 @@ module.exports = class {
 
   render(data) {
     const year = data.year || new Date().getFullYear();
+    const curations = data.collection || [];
     const monthNames = [
       "JAN",
       "FEB",
@@ -29,7 +30,7 @@ module.exports = class {
     <div class="calendar-grid">
       ${monthNames.map((_, index) => {
         const month = new Month();
-        return month.render({ year, month: index });
+        return month.render({ year, month: index, collection: curations });
       })}
     </div>
     `;

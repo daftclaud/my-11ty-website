@@ -6,7 +6,7 @@ module.exports = class {
   }
 
   render(data) {
-    const { year, month } = data; 
+    const { year, month, collection } = data;
     const monthNames = [
       "JAN",
       "FEB",
@@ -21,6 +21,14 @@ module.exports = class {
       "NOV",
       "DEC",
     ];
+
+    const availableDates = collection.map(item => item.fileSlug);
+
+    const getPaddedDate = (year, month, day) => {
+      const paddedMonth = month.toString().padStart(2, "0");
+      const paddedDay = day.toString().padStart(2, "0");
+      return `${year}-${paddedMonth}-${paddedDay}`;
+    };
 
     const firstDay = new Date(year, month, 1).getDay();
     const lastDate = new Date(year, month + 1, 0).getDate();
@@ -40,7 +48,20 @@ module.exports = class {
       if ((firstDay + day - 1) % 7 === 0 && day !== 1) {
         calendarHTML += "</div><div class='month-week'>";
       }
-      calendarHTML += `<div class="month-day-container">${day}</div>`;
+
+      if (availableDates.includes(getPaddedDate(year, month + 1, day))) {
+        calendarHTML += `
+          <div class="month-day-container active">
+            <a href="/curations/${getPaddedDate(year, month + 1, day)}">${day}</a>
+          </div>
+        `;
+      } else {
+        calendarHTML += `
+          <div class="month-day-container">
+            ${day}
+          </div>
+        `;
+      }
     }
 
     calendarHTML += "</div></div></div>";

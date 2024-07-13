@@ -18,17 +18,58 @@ eleventyComputed:
   {% endif %}
 </div>
 
-<ul class="curations-list">
-  {% for curation in collections.curation %}
-  <li>
-    <a href="{{ curation.url }}">{{ curation.date | formatDate }}</a>
-  </li>
-  {% endfor %}
-</ul>
-
+{% calendar { year: 2024, collection: collections.curation } %}
 
 <style>
-  .navigation {
+  .month {
+    border-spacing: 0;
+    display: inline-block;
+    height: 210px;
+    margin: 0;
+    padding: 0 15px;
+    vertical-align: bottom;
+    width: 240px;
+  }
+
+  .month .month-title {
+    font-size: 75%;
+    font-weight: 700;
+    padding: 8px;
     text-align: center;
+    text-transform: uppercase;
+  }
+
+  .month .month-week {
+    display: flex;
+  }
+
+  .month .month-blank-day-container {
+    height: 30px;
+    width: 30px;
+  }
+
+  .month .month-day-container {
+    color: #666;
+    font-size: 75%;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    width: 30px;
+  }
+
+  .calendar-grid {
+    flex-wrap: wrap;
+    margin: 8px auto 0;
+    max-width: 990px;
+    min-height: 642px;
+    text-align: center;
+  }
+
+  .active {
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 4px #085dff;
+    cursor: pointer;
   }
 </style>
