@@ -6,6 +6,7 @@ module.exports = class {
   }
 
   render(data) {
+    const { year, month } = data; 
     const monthNames = [
       "JAN",
       "FEB",
@@ -21,9 +22,6 @@ module.exports = class {
       "DEC",
     ];
 
-    const today = new Date();
-    const year = today.getFullYear();
-    const month = today.getMonth();
     const firstDay = new Date(year, month, 1).getDay();
     const lastDate = new Date(year, month + 1, 0).getDate();
 
