@@ -25,6 +25,7 @@ module.exports = class {
     ];
 
     let gridHTML = `
+    <h2 class="center-text">${year}</h2>
     <div class="calendar-grid">
       ${monthNames.map((_, index) => {
         const month = new Month();
