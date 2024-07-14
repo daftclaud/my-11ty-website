@@ -16,40 +16,40 @@ module.exports = function (eleventyConfig) {
       month: "long",
       day: "numeric",
     };
-    return new Date(date).toLocaleDateString(locale, options);
+
+    // Calculate offset in milliseconds
+    const offsetMs = date.getTimezoneOffset() * 60 * 1000;
+
+    // Create a new Date object adjusted for offset
+    const adjustedDate = new Date(date.getTime() + offsetMs);
+
+    return adjustedDate.toLocaleDateString(locale, options);
   });
 
-  eleventyConfig.addFilter(
-    "getPreviousCuration",
-    function (collection, date) {
-      const currentIndex = collection.findIndex(
-        (curation) => curation.date === date
-      );
-      if (currentIndex > 0) {
-        return collection[currentIndex - 1];
-      }
-      return null;
+  eleventyConfig.addFilter("getPreviousCuration", function (collection, date) {
+    const currentIndex = collection.findIndex(
+      (curation) => curation.date === date
+    );
+    if (currentIndex > 0) {
+      return collection[currentIndex - 1];
     }
-  );
+    return null;
+  });
 
-  eleventyConfig.addFilter(
-    "getNextCuration",
-    function (collection, date) {
-      const currentIndex = collection.findIndex(
-        (curation) => curation.date === date
-      );
-      if (currentIndex < collection.length - 1) {
-        return collection[currentIndex + 1];
-      }
-      return null;
+  eleventyConfig.addFilter("getNextCuration", function (collection, date) {
+    const currentIndex = collection.findIndex(
+      (curation) => curation.date === date
+    );
+    if (currentIndex < collection.length - 1) {
+      return collection[currentIndex + 1];
     }
-  );
+    return null;
+  });
 
-  eleventyConfig.addShortcode("calendar", function(data) {
+  eleventyConfig.addShortcode("calendar", function (data) {
     const grid = new CalendarGrid();
     return grid.render(data);
   });
-  
 
   return {
     dir: {
