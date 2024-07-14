@@ -4,6 +4,7 @@ const CalendarGrid = require("./src/_includes/calendarGrid.11ty.js");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/style.css");
+  eleventyConfig.addPassthroughCopy("./src/assets");
 
   eleventyConfig.addFilter("console", function (value) {
     return util.inspect(value);
