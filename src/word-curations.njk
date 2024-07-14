@@ -4,25 +4,26 @@ layout: base.njk
 ---
 
 {% set latestCuration = collections.curation[collections.curation.length - 1] %}
-{% set words = latestCuration.data.words %}
-{% set date = latestCuration.data.date %}
-{% include 'curation.njk' %}
-
-{% set previousCuration = collections.curation | getPreviousCuration(latestCuration.date) %}
-{% set nextCuration = collections.curation | getNextCuration(latestCuration.date) %}
+{% set words = latestCuration.data.words %} {% set date =
+latestCuration.data.date %} {% include 'curation.njk' %} {% set previousCuration
+= collections.curation | getPreviousCuration(latestCuration.date) %} {% set
+nextCuration = collections.curation | getNextCuration(latestCuration.date) %}
 
 <div class="navigation">
   {% if previousCuration %}
-    <a href="{{ previousCuration.url }}">Previous Curation</a>
-  {% endif %}
-  {% if nextCuration %}
-    <a href="{{ nextCuration.url }}">Next Curation</a>
+  <a href="{{ previousCuration.url }}">Previous Curation</a>
+  {% endif %} {% if nextCuration %}
+  <a href="{{ nextCuration.url }}">Next Curation</a>
   {% endif %}
 </div>
 
 {% calendar { year: 2024, collection: collections.curation } %}
 
 <style>
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+  }
   .month {
     border-spacing: 0;
     display: inline-block;
