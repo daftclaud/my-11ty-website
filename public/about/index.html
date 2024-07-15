@@ -17,7 +17,7 @@
         <a href="/contact">Contact</a>
       </nav>
       
-<div class="content clearfix">
+<div class="content">
   <img
     src="/assets/me.jfif"
     alt="Me"
@@ -41,10 +41,8 @@
     float: left;
     margin-right: 20px;
   }
-  .clearfix::after {
-    content: "";
-    display: table;
-    clear: both;
+  .content {
+    display: flow-root;
   }
 </style>
 

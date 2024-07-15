@@ -3,7 +3,7 @@ title: Home
 layout: base.njk
 ---
 
-<div class="content clearfix">
+<div class="content">
   <img
     src="https://media1.tenor.com/m/qRC04kNvXAIAAAAC/smiley-clouds.gif"
     alt="Smiley"
@@ -31,9 +31,7 @@ layout: base.njk
     float: left;
     margin-right: 20px;
   }
-  .clearfix::after {
-    content: "";
-    display: table;
-    clear: both;
+  .content {
+    display: flow-root;
   }
 </style>
