@@ -3,6 +3,13 @@ title: Word Curations
 layout: base.njk
 ---
 
+<blockquote cite="https://www.goodreads.com/quotes/9894290-our-language-one-of-our-most-precious-natural-resources-in">
+  “Our language, one of our most precious natural resources, deserves at least as much protection as our woodlands, streams and whooping cranes.”
+  <p class="center-text">
+    - James Lipton
+  </p>
+</blockquote>
+
 {% set latestCuration = collections.curation[collections.curation.length - 1] %}
 {% set words = latestCuration.data.words %} {% set date =
 latestCuration.data.date %} {% include 'curation.njk' %} {% set previousCuration
