@@ -4,25 +4,30 @@ eleventyComputed:
   title: "Word Curations | {{ date | formatDate }}"
 ---
 
-{% include 'curation.njk' %}
+<blockquote
+  cite="https://www.goodreads.com/quotes/9894290-our-language-one-of-our-most-precious-natural-resources-in"
+>
+  “Our language, one of our most precious natural resources, deserves at least
+  as much protection as our woodlands, streams and whooping cranes.”
+  <p class="center-text">- James Lipton</p>
+</blockquote>
 
-{% set previousCuration = collections.curation | getPreviousCuration(date) %}
-{% set nextCuration = collections.curation | getNextCuration(date) %}
+{% include 'curation.njk' %} {% set previousCuration = collections.curation |
+getPreviousCuration(date) %} {% set nextCuration = collections.curation |
+getNextCuration(date) %}
 
 <div class="navigation">
   {% if previousCuration %}
-    <a href="{{ previousCuration.url }}">Previous Curation</a>
-  {% endif %}
-  {% if nextCuration %}
-    <a href="{{ nextCuration.url }}">Next Curation</a>
+  <a href="{{ previousCuration.url }}">Previous Curation</a>
+  {% endif %} {% if nextCuration %}
+  <a href="{{ nextCuration.url }}">Next Curation</a>
   {% endif %}
 </div>
 
 {% calendar { year: 2024, collection: collections.curation } %}
 
 <style>
-
-  .navigation { 
+  .navigation {
     display: flex;
     justify-content: space-between;
   }
@@ -73,7 +78,7 @@ eleventyComputed:
     text-align: center;
   }
 
-  .active {
+  div.active {
     border-radius: 50%;
     box-shadow: inset 0 0 0 4px #085dff;
     cursor: pointer;

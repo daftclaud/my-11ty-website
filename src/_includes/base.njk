@@ -11,9 +11,10 @@
     <main>
       <h1>Welcome to My Personal Website!</h1>
       <nav>
-        <a href="/">Home</a>
-        <a href="/about">About Me</a>
-        <a href="/word-curations">Word&nbsp;Curations</a>
+        <a href="/" class="{{ 'active' if '/' ==  page.url }}">Home</a>
+        <a href="/about" class="{{ 'active' if 'about' in  page.url }}">About Me</a>
+        <a href="/word-curations" class="{{ 'active' if 'curations' in  page.url }}">Word&nbsp;Curations</a>
+        <a href="/pens"class="{{ 'active' if 'pens' in  page.url }}">Pens</a>
       </nav>
       {{ content | safe }}
       <footer>
@@ -40,6 +41,9 @@
     color: #ff00ff;
     text-decoration: none;
     margin: 0 15px;
+  }
+  nav a.active {
+    text-decoration: underline;
   }
 
   footer {

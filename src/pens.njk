@@ -24,6 +24,15 @@ layout: base.njk
     collector. This page is a tribute to these cherished instruments and the joy
     they bring to my everyday life.
   </p>
+
+  <section class="pen-list">
+    {% for post in collections.pen %}
+    <article class="pen-item">
+      <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+      <p>{{ post.data.description }}</p>
+    </article>
+    {% endfor %}
+  </section>
 </div>
 
 <style>
@@ -34,5 +43,22 @@ layout: base.njk
   }
   .content {
     display: flow-root;
+  }
+  .pen-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  .pen-item h2 {
+    margin-top: 0;
+  }
+  .pen-item p {
+    margin-top: 5px;
+  }
+  .pen-item a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
   }
 </style>
