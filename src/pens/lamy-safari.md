@@ -1,7 +1,7 @@
 ---
 title: "LAMY Safari: Iconic Design and Versatile Performance"
 description: "The LAMY Safari is a renowned fountain pen celebrated for its distinctive design, reliable performance, and affordability. Its ergonomic features and variety of colors make it a popular choice for both new and experienced fountain pen users."
-image: "/assets/pens/lamy-safari.jpeg"
+image: "/assets/pens/lamy-safari.jpg"
 caption: "The LAMY Safari Fountain Pen"
 ---
 

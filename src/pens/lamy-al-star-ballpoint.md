@@ -1,7 +1,7 @@
 ---
 title: "LAMY AL-star Ballpoint: Modern Simplicity"
 description: "The LAMY AL-star Ballpoint Pen combines modern design with functionality, offering a sleek, lightweight writing instrument ideal for everyday use."
-image: "/assets/pens/lamy-al-star-ballpoint.jpeg"
+image: "/assets/pens/lamy-al-star-ballpoint.jpg"
 caption: "The LAMY AL-star Ballpoint Pen"
 ---
 
