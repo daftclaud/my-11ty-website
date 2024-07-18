@@ -1,16 +1,22 @@
 <article class="content">
   <header>
-    <h2>Words from <time>{{ date | formatDate }}</time></h2>
+    <h2>
+      Words from <time>{{ date | formatDate }}</time>
+    </h2>
   </header>
   {% for entry in words %}
   <section class="word-entry">
     <div class="word">{{ entry.word }}</div>
     <div class="definition">{{ entry.definition }}</div>
+    {% if entry.source %}
     <div class="source">Source: {{ entry.source }}</div>
+    {% endif %}
     <div class="explanation">
       {{ entry.explanation }}
     </div>
+    {% if entry.usage_example %}
     <div class="usage-example">Usage Example: {{ entry.usage_example }}</div>
+    {% endif %}
   </section>
   {% endfor %}
 </article>
