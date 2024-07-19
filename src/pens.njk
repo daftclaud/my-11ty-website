@@ -30,7 +30,9 @@ layout: base.njk
     <article class="pen-item">
       <img src="{{ post.data.image }}" alt="{{ post.data.title }} thumbnail" />
       <div class="pen-info">
-        <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+        <h2>
+          <a href="{{ post.url }}">{{ post.data.title }}</a>
+        </h2>
         <p>{{ post.data.description }}</p>
       </div>
     </article>
@@ -88,6 +90,8 @@ layout: base.njk
     .pen-item img {
       margin: 0 0 10px 0;
       max-width: 100%;
+    }
+    .pen-item img:hover {
       transform: none;
     }
     .pen-info {
