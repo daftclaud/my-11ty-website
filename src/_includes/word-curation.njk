@@ -12,8 +12,8 @@ eleventyComputed:
   <p class="center-text">- James Lipton</p>
 </blockquote>
 
-{% include 'curation.njk' %} {% set previousCuration = collections.curation |
-getPreviousCuration(date) %} {% set nextCuration = collections.curation |
+{% include 'curation.njk' %} {% set previousCuration = collections.word_curation |
+getPreviousCuration(date) %} {% set nextCuration = collections.word_curation |
 getNextCuration(date) %}
 
 <div class="navigation">
@@ -24,7 +24,7 @@ getNextCuration(date) %}
   {% endif %}
 </div>
 
-{% calendar { year: 2024, collection: collections.curation } %}
+{% calendar { year: 2024, collection: collections.word_curation } %}
 
 <style>
   .navigation {

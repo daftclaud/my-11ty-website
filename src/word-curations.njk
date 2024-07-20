@@ -10,11 +10,11 @@ layout: base.njk
   </p>
 </blockquote>
 
-{% set latestCuration = collections.curation[collections.curation.length - 1] %}
+{% set latestCuration = collections.word_curation[collections.word_curation.length - 1] %}
 {% set words = latestCuration.data.words %} {% set date =
 latestCuration.data.date %} {% include 'curation.njk' %} {% set previousCuration
-= collections.curation | getPreviousCuration(latestCuration.date) %} {% set
-nextCuration = collections.curation | getNextCuration(latestCuration.date) %}
+= collections.word_curation | getPreviousCuration(latestCuration.date) %} {% set
+nextCuration = collections.word_curation | getNextCuration(latestCuration.date) %}
 
 <div class="navigation">
   {% if previousCuration %}
@@ -24,7 +24,7 @@ nextCuration = collections.curation | getNextCuration(latestCuration.date) %}
   {% endif %}
 </div>
 
-{% calendar { year: 2024, collection: collections.curation } %}
+{% calendar { year: 2024, collection: collections.word_curation } %}
 
 <style>
   .navigation {

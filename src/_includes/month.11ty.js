@@ -52,7 +52,7 @@ module.exports = class {
       if (availableDates.includes(getPaddedDate(year, month + 1, day))) {
         calendarHTML += `
           <div class="month-day-container active">
-            <a href="/curations/${getPaddedDate(year, month + 1, day)}">${day}</a>
+            <a href="/word-curations/${getPaddedDate(year, month + 1, day)}">${day}</a>
           </div>
         `;
       } else {
