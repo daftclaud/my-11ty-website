@@ -3,18 +3,35 @@ title: Word Curations
 layout: base.njk
 ---
 
-<blockquote cite="https://www.goodreads.com/quotes/9894290-our-language-one-of-our-most-precious-natural-resources-in">
-  “Our language, one of our most precious natural resources, deserves at least as much protection as our woodlands, streams and whooping cranes.”
-  <p class="center-text">
-    - James Lipton
-  </p>
+<blockquote
+  cite="https://www.goodreads.com/quotes/9894290-our-language-one-of-our-most-precious-natural-resources-in"
+>
+  “Our language, one of our most precious natural resources, deserves at least
+  as much protection as our woodlands, streams and whooping cranes.”
+  <p class="center-text">- James Lipton</p>
 </blockquote>
 
-{% set latestCuration = collections.word_curation[collections.word_curation.length - 1] %}
-{% set words = latestCuration.data.words %} {% set date =
-latestCuration.data.date %} {% include 'curation.njk' %} {% set previousCuration
-= collections.word_curation | getPreviousCuration(latestCuration.date) %} {% set
-nextCuration = collections.word_curation | getNextCuration(latestCuration.date) %}
+<p>
+  In this section, you'll find a collection of words that have piqued my
+  interest, accompanied by their definitions and other information.
+</p>
+<br />
+<p>
+  Each entry started out on paper. At first, I began writing words down to
+  improve my vocabulary, but I later grew more enamored with the process itself;
+  specially since it gave me an excuse to use my <a href="/pens">pens</a>.
+</p>
+<br />
+<p>
+  Feel free to explore the curations by date using the calendar below. Enjoy!
+</p>
+
+{% set latestCuration =
+collections.word_curation[collections.word_curation.length - 1] %} {% set words
+= latestCuration.data.words %} {% set date = latestCuration.data.date %} {%
+include 'curation.njk' %} {% set previousCuration = collections.word_curation |
+getPreviousCuration(latestCuration.date) %} {% set nextCuration =
+collections.word_curation | getNextCuration(latestCuration.date) %}
 
 <div class="navigation">
   {% if previousCuration %}
