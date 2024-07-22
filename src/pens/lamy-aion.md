@@ -1,7 +1,7 @@
 ---
 title: "LAMY Aion: Sleek Design and Smooth Writing"
 description: "The LAMY Aion combines sleek design with an exceptional writing experience. Its seamless construction and high-quality materials make it a standout choice for any writing enthusiast."
-image: "/assets/pens/lamy-aion.jpg"
+image: "/assets/pens/lamy-aion.webp"
 caption: "The LAMY Aion Pen"
 ---
 

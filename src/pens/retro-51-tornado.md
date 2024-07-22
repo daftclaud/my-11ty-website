@@ -7,7 +7,7 @@ caption: "The Retro 51 Tornado Rollerball Pen"
 
 ## Design and Build
 
-The Retro 51 Tornado is a celebrated pen known for its unique and recognizable design. This particular edition features a design of an 18th century Chinese rank badge with a tiger from The Met. The pen features a distinctive hexagonal barrel and cap, which not only contributes to its aesthetic appeal but also provides a comfortable grip. The Tornado’s construction is typically made from durable metal, available in various finishes including lacquered, matte, and even limited-edition designs. The twist-action mechanism for extending and retracting the refill is smooth and reliable, adding to the pen's overall usability. Its classic design, combined with a variety of vibrant and artistic finishes, makes the Tornado a versatile and stylish writing instrument.
+The Retro 51 Tornado is a celebrated pen known for its unique and recognizable design. This particular edition features a design of an 18th-century Chinese rank badge with a tiger from The Met. The pen features a cylindrical barrel and cap, which not only contribute to its aesthetic appeal but also provide a comfortable grip. The Tornado’s construction is typically made from durable metal, available in various finishes including lacquered, matte, and even limited-edition designs. The twist-action mechanism for extending and retracting the refill is smooth and reliable, adding to the pen's overall usability. Its classic design, combined with a variety of vibrant and artistic finishes, makes the Tornado a versatile and stylish writing instrument.
 
 ## Writing Experience
 
