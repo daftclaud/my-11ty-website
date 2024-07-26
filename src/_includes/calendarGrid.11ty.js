@@ -24,7 +24,7 @@ module.exports = class {
       "NOV",
       "DEC",
     ];
-    const years = Array.from({ length: 2 }, (_, i) => currentYear - i);
+    const years = Array.from({ length: 5 }, (_, i) => currentYear - i);
 
     // Generate the HTML for all years
     const allYearsHTML = years.map(year => {
