@@ -7,7 +7,7 @@ caption: "The Montblanc Meisterstück LeGrand Pen"
 
 ## Design and Build
 
-The Montblanc Meisterstück LeGrand is an icon in the world of writing instruments, known for its timeless design and exceptional craftsmanship. Made from high-grade resin, the pen features a sleek, glossy finish that exudes sophistication. The gold-plated or platinum-coated details, including the clip and rings, add a touch of elegance to the pen's overall appearance. The distinctive Montblanc emblem on the cap top is a mark of quality and luxury. The Meisterstück LeGrand’s balanced weight ensures a comfortable writing experience, making it a favorite among pen enthusiasts.
+The Montblanc Meisterstück LeGrand is an icon in the world of writing instruments, known for its timeless design and exceptional craftsmanship. Made from high-grade resin, the pen features a sleek, glossy finish that exudes sophistication. The gold-plated details, including the clip and rings, add a touch of elegance to the pen's overall appearance. The distinctive Montblanc emblem on the cap top is a mark of quality and luxury. The Meisterstück LeGrand’s balanced weight ensures a comfortable writing experience, making it a favorite among pen enthusiasts.
 
 ## Writing Experience
 
