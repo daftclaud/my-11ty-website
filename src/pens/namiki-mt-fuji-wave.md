@@ -37,3 +37,5 @@ The pen utilizes a **cartridge/converter filling system**, providing flexibility
 The **Namiki Nippon Art Mt. Fuji and Wave** fountain pen is more than just a writing instrument; it's a fusion of art and functionality. Its intricate design, rooted in traditional Japanese artistry, combined with modern writing performance, makes it a prized possession for collectors and writing enthusiasts alike.
 
 Whether you're penning daily notes or adding to a cherished collection, this fountain pen offers a unique blend of cultural heritage and exceptional craftsmanship.
+
+Generously acquired by my dear friend Guille on his honeymoon in Japan.
