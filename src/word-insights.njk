@@ -74,14 +74,27 @@ layout: base.njk
   </div>
 
   <h2>Top Sources</h2>
-  <div class="sources-grid">
+  <div class="sources-grid" id="sourcesGrid">
     {% for source in stats.topSources %}
-    <div class="source-card">
+    <div class="source-card" data-source="{{ source.name }}">
       <div class="source-name">{{ source.name }}</div>
       <div class="source-count">{{ source.count }} words</div>
     </div>
     {% endfor %}
   </div>
+
+  <div id="sourceWordsSection" class="source-words-section" style="display: none;">
+    <div class="source-words-header">
+      <h3>Words from <span id="selectedSourceName"></span></h3>
+      <button id="closeSourceView" class="close-btn">✕</button>
+    </div>
+    <div id="sourceWordsList" class="source-words-list"></div>
+  </div>
+
+  <!-- Embed word data as JSON in a script tag -->
+  <script type="application/json" id="wordsBySourceDataScript">
+  {{ stats.wordsBySource | dump | safe }}
+  </script>
 
   <h2>Most Repeated Words</h2>
   <div class="repeated-words">
@@ -329,11 +342,25 @@ layout: base.njk
     padding: 15px;
     border-radius: 8px;
     transition: transform 0.2s;
+    cursor: pointer;
   }
 
   .source-card:hover {
     transform: translateY(-5px);
     box-shadow: 4px 4px 0 #000;
+  }
+
+  .source-card.active {
+    background: #ff00ff;
+    color: #fff;
+  }
+
+  .source-card.active .source-name {
+    color: #fff;
+  }
+
+  .source-card.active .source-count {
+    color: #fffacd;
   }
 
   .source-name {
@@ -344,6 +371,78 @@ layout: base.njk
 
   .source-count {
     color: #666;
+  }
+
+  .source-words-section {
+    background: #fff;
+    border: 3px solid #ff00ff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 30px 0;
+    max-height: 600px;
+    overflow-y: auto;
+  }
+
+  .source-words-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #ff00ff;
+  }
+
+  .source-words-header h3 {
+    margin: 0;
+    color: #ff4500;
+  }
+
+  .close-btn {
+    background: #ff00ff;
+    color: #fff;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.2s;
+  }
+
+  .close-btn:hover {
+    background: #ff4500;
+  }
+
+  .source-words-list {
+    display: grid;
+    gap: 15px;
+  }
+
+  .word-item {
+    background: #f9f9f9;
+    border-left: 4px solid #ff4500;
+    padding: 15px;
+    border-radius: 5px;
+  }
+
+  .word-item-title {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #ff4500;
+    margin-bottom: 5px;
+  }
+
+  .word-item-definition {
+    color: #333;
+    margin: 8px 0;
+    line-height: 1.5;
+  }
+
+  .word-item-date {
+    font-size: 0.9em;
+    color: #666;
+    font-style: italic;
   }
 
   .alphabet-chart {
@@ -499,14 +598,114 @@ layout: base.njk
 </style>
 
 <script>
-  // Apply dynamic widths and heights from data attributes
+  // Parse words by source data from embedded JSON script tag
+  let wordsBySourceData = {};
+  
   document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.bar-fill[data-width]').forEach(function(el) {
-      el.style.width = el.getAttribute('data-width') + '%';
-    });
-    
-    document.querySelectorAll('.letter-bar-fill[data-height]').forEach(function(el) {
-      el.style.height = el.getAttribute('data-height') + '%';
-    });
+    try {
+      const dataScript = document.getElementById('wordsBySourceDataScript');
+      if (dataScript) {
+        wordsBySourceData = JSON.parse(dataScript.textContent);
+      }
+      
+      document.querySelectorAll('.bar-fill[data-width]').forEach(function(el) {
+        el.style.width = el.getAttribute('data-width') + '%';
+      });
+      
+      document.querySelectorAll('.letter-bar-fill[data-height]').forEach(function(el) {
+        el.style.height = el.getAttribute('data-height') + '%';
+      });
+
+      // Handle source card clicks
+      document.querySelectorAll('.source-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+          const sourceName = this.getAttribute('data-source');
+          if (sourceName) {
+            showSourceWords(sourceName);
+          }
+        });
+      });
+
+      // Handle close button
+      const closeBtn = document.getElementById('closeSourceView');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+          const section = document.getElementById('sourceWordsSection');
+          if (section) {
+            section.style.display = 'none';
+          }
+          document.querySelectorAll('.source-card').forEach(el => el.classList.remove('active'));
+        });
+      }
+    } catch (e) {
+      console.error('Error initializing insights page:', e);
+    }
   });
+
+  function showSourceWords(sourceName) {
+    if (!wordsBySourceData || typeof wordsBySourceData !== 'object') {
+      console.error('wordsBySourceData is not available');
+      return;
+    }
+
+    const words = wordsBySourceData[sourceName] || [];
+    const section = document.getElementById('sourceWordsSection');
+    const wordsList = document.getElementById('sourceWordsList');
+    const selectedSourceName = document.getElementById('selectedSourceName');
+
+    if (!section || !wordsList || !selectedSourceName) {
+      console.error('Required DOM elements not found');
+      return;
+    }
+
+    selectedSourceName.textContent = sourceName;
+
+    // Clear and populate words list
+    wordsList.innerHTML = '';
+    
+    if (words.length === 0) {
+      wordsList.innerHTML = '<p>No words found for this source.</p>';
+    } else {
+      words.forEach(word => {
+        const wordEl = document.createElement('div');
+        wordEl.className = 'word-item';
+        
+        let dateStr = 'Date unknown';
+        try {
+          dateStr = new Date(word.date).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          });
+        } catch (e) {
+          console.warn('Could not parse date:', word.date);
+        }
+        
+        wordEl.innerHTML = `
+          <div class="word-item-title">${escapeHtml(word.word)}</div>
+          <div class="word-item-definition">${escapeHtml(word.definition || 'No definition provided')}</div>
+          <div class="word-item-date">Collected on ${dateStr}</div>
+        `;
+        wordsList.appendChild(wordEl);
+      });
+    }
+
+    // Update active state - find by data attribute safely
+    document.querySelectorAll('.source-card').forEach(el => {
+      el.classList.remove('active');
+      if (el.getAttribute('data-source') === sourceName) {
+        el.classList.add('active');
+      }
+    });
+
+    // Show section
+    section.style.display = 'block';
+    section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
 </script>

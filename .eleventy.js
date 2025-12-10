@@ -181,6 +181,16 @@ module.exports = function (eleventyConfig) {
       .sort((a, b) => b.count - a.count)
       .slice(0, 10);
 
+    // Build words by source
+    const wordsBySource = {};
+    allWords.forEach((wordData) => {
+      const source = wordData.source || 'Unknown';
+      if (!wordsBySource[source]) {
+        wordsBySource[source] = [];
+      }
+      wordsBySource[source].push(wordData);
+    });
+
     return {
       totalWords: allWords.length,
       distinctWords,
@@ -198,6 +208,7 @@ module.exports = function (eleventyConfig) {
       currentStreak,
       randomWord,
       repeatedWords,
+      wordsBySource,
     };
   });
 
