@@ -22,7 +22,7 @@ layout: base.njk
 <div class="view-toggle-container">
   <div class="view-toggle">
     <button class="view-toggle-btn active" data-view="words">Latest Words</button>
-    <button class="view-toggle-btn" data-view="analytics">Analytics</button>
+    <button class="view-toggle-btn" data-view="overview">Overview</button>
   </div>
 </div>
 
@@ -46,7 +46,7 @@ layout: base.njk
   {% calendar { year: 2025, collection: collections.word_curation } %}
 </div>
 
-<div id="analyticsView" class="content-view" style="display: none;">
+<div id="overviewView" class="content-view" style="display: none;">
   {% set stats = collections.word_curation | getWordStats %}
   
   <h2>Collection Overview</h2>
@@ -68,14 +68,313 @@ layout: base.njk
     </div>
     
     <div class="stat-card">
+      <div class="stat-number">{{ stats.averageWordsPerCuration | round(1) }}</div>
+      <div class="stat-label">Avg Words Per Session</div>
+    </div>
+    
+    <div class="stat-card">
       <div class="stat-number">{{ stats.daysCollecting }}</div>
       <div class="stat-label">Days Collecting</div>
     </div>
   </div>
 
-  <p class="analytics-link">
-    <a href="/word-insights">View detailed analytics →</a>
-  </p>
+  <h2>Collection Timeline</h2>
+  
+  <div class="timeline-view-toggle">
+    <button class="toggle-btn active" data-view="calendar">Calendar View</button>
+    <button class="toggle-btn" data-view="linear">Streak View</button>
+  </div>
+
+  <div class="timeline-chart">
+    <div class="chart-container timeline-calendar" id="calendarView">
+      <div class="calendar-grid">
+        {% set yearCount = stats.yearlyBreakdown | length %}
+        {% for year in stats.yearlyBreakdown %}
+          <div class="year-section">
+            <div class="year-header">
+              <h3>{{ year.year }}</h3>
+              <span class="year-total">{{ year.count }} words</span>
+            </div>
+            <!-- Placeholder for month mini-calendars -->
+            <div class="months-grid">
+              {% for month in range(1, 13) %}
+                <div class="mini-calendar">
+                  <div class="mini-month-label">
+                    {% if month == 1 %}Jan
+                    {% elif month == 2 %}Feb
+                    {% elif month == 3 %}Mar
+                    {% elif month == 4 %}Apr
+                    {% elif month == 5 %}May
+                    {% elif month == 6 %}Jun
+                    {% elif month == 7 %}Jul
+                    {% elif month == 8 %}Aug
+                    {% elif month == 9 %}Sep
+                    {% elif month == 10 %}Oct
+                    {% elif month == 11 %}Nov
+                    {% else %}Dec
+                    {% endif %}
+                  </div>
+                  <div class="mini-days">
+                    {% set daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] %}
+                    {% set isLeapYear = (year.year % 4 == 0 and year.year % 100 != 0) or (year.year % 400 == 0) %}
+                    {% set dayCount = daysInMonth[month - 1] %}
+                    {% if month == 2 and isLeapYear %}{% set dayCount = 29 %}{% endif %}
+                    {% for day in range(1, dayCount + 1) %}
+                      <div class="mini-day" data-year="{{ year.year }}" data-month="{{ month }}" data-day="{{ day }}"></div>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="timeline-legend">
+        <div class="legend-title">Collection Intensity</div>
+        <div class="legend-scale">
+          <div class="legend-item">
+            <div class="legend-box" style="background-color: #e0e0e0;"></div>
+            <span>No words</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-box" style="background-color: #00ffff;"></div>
+            <span>Light</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-box" style="background-color: #ff00ff;"></div>
+            <span>Medium</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-box" style="background-color: #ff0080;"></div>
+            <span>Heavy</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-stats">
+        <div class="timeline-stat-item">
+          <span class="stat-label">Most Active Month</span>
+          <span class="stat-value">
+            {% set topMonth = stats.topMonths[0] %}
+            {{ topMonth.monthName }} ({{ topMonth.wordCount }})
+          </span>
+        </div>
+        <div class="timeline-stat-item">
+          <span class="stat-label">Peak Year</span>
+          <span class="stat-value">
+            {% set peakYear = stats.yearlyBreakdown[0] %}
+            {% for year in stats.yearlyBreakdown %}
+              {% if year.count > peakYear.count %}
+                {% set peakYear = year %}
+              {% endif %}
+            {% endfor %}
+            {{ peakYear.year }} ({{ peakYear.count }})
+          </span>
+        </div>
+        <div class="timeline-stat-item">
+          <span class="stat-label">Average per Year</span>
+          <span class="stat-value">{{ (stats.totalWords / stats.yearlyBreakdown | length) | round(0) }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linear View -->
+    <div class="chart-container timeline-linear" id="linearView" style="display: none;">
+      <div class="linear-days-container" id="linearDaysContainer">
+        <!-- Days will be populated by JavaScript -->
+      </div>
+      <div class="linear-timeline-legend">
+        <div class="legend-title">Collection Intensity</div>
+        <div class="legend-scale">
+          <div class="legend-item">
+            <div class="legend-box" style="background-color: #e0e0e0;"></div>
+            <span>No words</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-box" style="background-color: #00ffff;"></div>
+            <span>Light</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-box" style="background-color: #ff00ff;"></div>
+            <span>Medium</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-box" style="background-color: #ff0080;"></div>
+            <span>Heavy</span>
+          </div>
+        </div>
+      </div>
+      <div class="linear-timeline-stats" id="linearStats">
+        <!-- Stats will be populated by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <h2>Most Active Months</h2>
+  <div class="monthly-activity">
+    <table class="activity-table">
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Words Collected</th>
+          <th>Sessions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for month in stats.topMonths %}
+        <tr>
+          <td>{{ month.monthName }}</td>
+          <td>{{ month.wordCount }}</td>
+          <td>{{ month.sessionCount }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Most Repeated Words</h2>
+  <div class="repeated-words">
+    {% if stats.repeatedWords.length > 0 %}
+    <table class="repeated-table">
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Times Collected</th>
+          <th>Definition</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in stats.repeatedWords %}
+        <tr>
+          <td class="word-column">{{ item.word }}</td>
+          <td class="count-column">{{ item.count }}</td>
+          <td class="definition-column">{{ item.definition or 'N/A' }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>No repeated words yet!</p>
+    {% endif %}
+  </div>
+
+  <h2>Words by First Letter</h2>
+  <div class="alphabet-chart">
+    {% for letter in stats.letterDistribution %}
+    <div class="letter-bar">
+      <div class="letter-label">{{ letter.letter }}</div>
+      <div class="letter-bar-wrapper">
+        <div class="letter-bar-fill" data-height="{{ (letter.count / stats.maxLetterCount * 100) }}">
+          <span class="letter-count">{{ letter.count }}</span>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <h2>All Sources</h2>
+  <div class="all-sources-container">
+    <div class="sources-controls">
+      <div class="control-group">
+        <label for="sourceSearch">Search:</label>
+        <input type="text" id="sourceSearch" class="source-search" placeholder="Search sources...">
+      </div>
+      <div class="control-group">
+        <label for="sourceSort">Sort by:</label>
+        <select id="sourceSort" class="source-sort">
+          <option value="count-desc">Words (High to Low)</option>
+          <option value="count-asc">Words (Low to High)</option>
+          <option value="name-asc">Name (A to Z)</option>
+          <option value="name-desc">Name (Z to A)</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label for="sourceFilter">Minimum words:</label>
+        <input type="number" id="sourceFilter" class="source-filter" min="1" value="1" placeholder="Min words">
+      </div>
+      <div class="control-info">
+        <span id="sourceCount">{{ stats.wordsBySource | length }} sources</span>
+      </div>
+    </div>
+    <div class="all-sources-list" id="allSourcesList">
+      {% for source, words in stats.wordsBySource %}
+      <div class="source-item" data-source="{{ source }}" data-count="{{ words | length }}">
+        <div class="source-item-name">{{ source }}</div>
+        <div class="source-item-count">{{ words | length }} words</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <h2>Top Sources</h2>
+  <div class="sources-grid" id="sourcesGrid">
+    {% for source in stats.topSources %}
+    <div class="source-card" data-source="{{ source.name }}">
+      <div class="source-name">{{ source.name }}</div>
+      <div class="source-count">{{ source.count }} words</div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div id="sourceWordsSection" class="source-words-section" style="display: none;">
+    <div class="source-words-header">
+      <h3>Words from <span id="selectedSourceName"></span></h3>
+      <button id="closeSourceView" class="close-btn">✕</button>
+    </div>
+    <div id="sourceWordsList" class="source-words-list"></div>
+  </div>
+
+  <script type="application/json" id="wordsBySourceDataScript">
+  {{ stats.wordsBySource | dump | safe }}
+  </script>
+
+  <h2>Collection Milestones</h2>
+  <div class="milestones">
+    <ul class="milestone-list">
+      <li class="milestone-item">
+        <span class="milestone-icon">🎯</span>
+        <div class="milestone-text">
+          <strong>First Word:</strong> {{ stats.firstWord.word }} on {{ stats.firstWord.date | formatDate }}
+        </div>
+      </li>
+      <li class="milestone-item">
+        <span class="milestone-icon">🏆</span>
+        <div class="milestone-text">
+          <strong>Latest Word:</strong> {{ stats.latestWord.word }} on {{ stats.latestWord.date | formatDate }}
+        </div>
+      </li>
+      <li class="milestone-item">
+        <span class="milestone-icon">🔥</span>
+        <div class="milestone-text">
+          <strong>Current Streak:</strong> {{ stats.currentStreak }} days in the last 30 days
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <h2>Random Word Discovery</h2>
+  <div class="random-word-section">
+    {% set randomWord = stats.randomWord %}
+    <div class="word-spotlight">
+      <h3 class="spotlight-word">{{ randomWord.word }}</h3>
+      <p class="spotlight-definition">{{ randomWord.definition }}</p>
+      {% if randomWord.source %}
+      <p class="spotlight-source">Source: {{ randomWord.source }}</p>
+      {% endif %}
+      <p class="spotlight-date">Collected on {{ randomWord.date | formatDate }}</p>
+    </div>
+    <p class="refresh-note"><em>Refresh the page to discover a new word!</em></p>
+  </div>
+
+  <!-- Embed daily breakdown data as plain JSON array -->
+  <script type="application/json" id="dailyBreakdownDataScript">
+  [
+  {%- for date, count in stats.dailyBreakdown %}
+    {"date": "{{ date }}", "count": {{ count }}}{{ "," if not loop.last }}
+  {%- endfor %}
+  ]
+  </script>
 </div>
 
 <style>
@@ -166,25 +465,6 @@ layout: base.njk
     margin-top: 30px;
   }
 
-  .analytics-link {
-    text-align: center;
-    margin: 40px 0;
-    font-size: 1.1em;
-  }
-
-  .analytics-link a {
-    color: #ff00ff;
-    font-weight: bold;
-    text-decoration: none;
-    border-bottom: 2px solid #ff00ff;
-    padding-bottom: 2px;
-  }
-
-  .analytics-link a:hover {
-    color: #00ffff;
-    border-bottom-color: #00ffff;
-  }
-
   .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -193,38 +473,750 @@ layout: base.njk
   }
 
   .stat-card {
-    background: linear-gradient(135deg, #fff 0%, #f0f0ff 100%);
+    background: #fff;
     border: 3px solid #ff00ff;
-    padding: 25px;
     border-radius: 10px;
+    padding: 20px;
     text-align: center;
-    transition: transform 0.2s;
-  }
-
-  .stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 4px 4px 0 #00ffff;
+    box-shadow: 4px 4px 0 #000;
   }
 
   .stat-number {
-    font-size: 2.5em;
+    font-size: 3em;
+    font-weight: bold;
+    color: #ff4500;
+    text-shadow: 2px 2px #000;
+  }
+
+  .stat-label {
+    margin-top: 10px;
+    font-size: 1em;
+    color: #333;
+  }
+
+  .timeline-view-toggle {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .toggle-btn {
+    padding: 10px 20px;
+    background: #fff;
+    border: 2px solid #ff00ff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--ff-body);
+    font-weight: bold;
+    color: #ff00ff;
+    transition: all 0.2s;
+  }
+
+  .toggle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 2px 2px 0 rgba(255, 0, 255, 0.3);
+  }
+
+  .toggle-btn.active {
+    background: #ff00ff;
+    color: #fff;
+  }
+
+  .timeline-chart, .monthly-activity, .alphabet-chart {
+    margin: 30px 0;
+  }
+
+  .chart-container {
+    background: #fff;
+    border: 3px solid #ff00ff;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .timeline-calendar {
+    padding: 20px;
+    background: linear-gradient(135deg, #fff9e6 0%, #fff 50%, #e6f7ff 100%);
+  }
+
+  .timeline-linear {
+    padding: 20px;
+    background: linear-gradient(135deg, #fff9e6 0%, #fff 50%, #e6f7ff 100%);
+    border-color: #00ffff;
+  }
+
+  .linear-days-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 0;
+    margin-bottom: 20px;
+  }
+
+  .linear-week-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .linear-week-label {
+    font-size: 0.8em;
+    color: #666;
+    min-width: 180px;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .linear-week-days {
+    display: grid;
+    grid-template-columns: repeat(28, 1fr);
+    gap: 2px;
+    flex: 1;
+  }
+
+  .linear-day {
+    aspect-ratio: 1;
+    min-width: 12px;
+    min-height: 12px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .linear-day:hover {
+    transform: scale(2);
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+    z-index: 10;
+  }
+
+  .linear-timeline-legend {
+    margin: 20px 0;
+    padding: 15px;
+    border-top: 2px solid #00ffff;
+    border-bottom: 2px solid #00ffff;
+  }
+
+  .linear-timeline-legend .legend-title {
     font-weight: bold;
     color: #ff00ff;
     margin-bottom: 10px;
   }
 
-  .stat-label {
-    font-size: 0.9em;
+  .linear-timeline-legend .legend-scale {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .linear-timeline-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    background: rgba(255, 0, 255, 0.05);
+    border-radius: 8px;
+  }
+
+  .linear-stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .linear-stat-item .stat-label {
+    font-size: 0.85em;
     color: #666;
     font-weight: bold;
   }
 
-  .navigation {
+  .linear-stat-item .stat-value {
+    font-size: 1.2em;
+    color: #ff00ff;
+    font-weight: bold;
+  }
+
+  .calendar-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  .year-section {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    border-left: 5px solid #ff00ff;
+  }
+
+  .year-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #ff00ff;
+  }
+
+  .year-header h3 {
+    margin: 0;
+    font-size: 1.8em;
+    color: #ff4500;
+    text-shadow: 1px 1px #000;
+  }
+
+  .year-total {
+    font-weight: bold;
+    font-size: 1.3em;
+    color: #ff00ff;
+    text-shadow: 1px 1px #000;
+  }
+
+  .months-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+  }
+
+  .mini-calendar {
+    background: #fff;
+    border: 2px solid #00ffff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .mini-month-label {
+    font-weight: bold;
+    color: #ff4500;
+    text-align: center;
+    font-size: 0.85em;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .mini-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 3px;
+  }
+
+  .mini-day {
+    aspect-ratio: 1;
+    background-color: #e8e8e8;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid #ddd;
+  }
+
+  .mini-day:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .timeline-legend {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    border: 2px solid #ff00ff;
+    margin-bottom: 30px;
+  }
+
+  .legend-title {
+    font-weight: bold;
+    color: #ff4500;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .legend-scale {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .legend-box {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 1px solid #999;
+  }
+
+  .legend-item span {
+    color: #666;
+    font-size: 0.9em;
+  }
+
+  .timeline-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #ff00ff;
+  }
+
+  .timeline-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    background: rgba(255, 0, 255, 0.05);
+    border-radius: 8px;
+    border-left: 4px solid #ff00ff;
+  }
+
+  .timeline-stat-item .stat-label {
+    font-size: 0.9em;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .timeline-stat-item .stat-value {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ff4500;
+    text-shadow: 1px 1px #000;
+  }
+
+  .activity-table {
+    width: 100%;
+    background: #fff;
+    border: 3px solid #ff00ff;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .activity-table th {
+    background: #00ffff;
+    padding: 15px;
+    text-align: left;
+    border-bottom: 3px solid #ff00ff;
+  }
+
+  .activity-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .activity-table tbody tr:hover {
+    background: #fffacd;
+  }
+
+  .repeated-words {
     margin: 30px 0;
   }
-  
+
+  .repeated-table {
+    width: 100%;
+    background: #fff;
+    border: 3px solid #ff00ff;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .repeated-table th {
+    background: #00ffff;
+    padding: 15px;
+    text-align: left;
+    border-bottom: 3px solid #ff00ff;
+  }
+
+  .repeated-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .repeated-table .word-column {
+    font-weight: bold;
+    color: #ff4500;
+    min-width: 120px;
+  }
+
+  .repeated-table .count-column {
+    text-align: center;
+    width: 100px;
+    background: #fff9e6;
+    font-weight: bold;
+  }
+
+  .repeated-table .definition-column {
+    font-size: 0.95em;
+    color: #555;
+  }
+
+  .repeated-table tbody tr:hover {
+    background: #fffacd;
+  }
+
+  .alphabet-chart {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    background: #fff;
+    border: 3px solid #ff00ff;
+    padding: 20px;
+    border-radius: 10px;
+    height: 250px;
+    overflow-x: auto;
+  }
+
+  .letter-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    min-width: 30px;
+  }
+
+  .letter-label {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #ff4500;
+    font-size: 1.1em;
+  }
+
+  .letter-bar-wrapper {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .letter-bar-fill {
+    width: 80%;
+    background: linear-gradient(180deg, #ff00ff, #00ffff);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 5px 0;
+    border-radius: 5px 5px 0 0;
+    transition: height 0.3s ease;
+  }
+
+  .letter-count {
+    font-size: 0.7em;
+    font-weight: bold;
+    color: #000;
+  }
+
+  .monthly-activity {
+    margin: 30px 0;
+  }
+
+  .all-sources-container {
+    background: #fff;
+    border: 3px solid #00ffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 30px 0;
+  }
+
+  .sources-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #00ffff;
+    align-items: end;
+  }
+
+  .control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .control-group label {
+    font-weight: bold;
+    color: #ff00ff;
+    font-size: 0.9em;
+  }
+
+  .source-search, .source-sort, .source-filter {
+    padding: 8px 12px;
+    border: 2px solid #00ffff;
+    border-radius: 5px;
+    font-family: var(--ff-body);
+    font-size: 1em;
+    transition: border-color 0.2s;
+  }
+
+  .source-search:focus, .source-sort:focus, .source-filter:focus {
+    outline: none;
+    border-color: #ff00ff;
+    box-shadow: 0 0 0 3px rgba(255, 0, 255, 0.1);
+  }
+
+  .control-info {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 8px;
+    color: #666;
+    font-weight: bold;
+  }
+
+  #sourceCount {
+    color: #ff00ff;
+  }
+
+  .all-sources-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    max-height: 500px;
+    overflow-y: auto;
+    padding: 10px;
+  }
+
+  .source-item {
+    background: #f9f9f9;
+    border: 2px solid #00ffff;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .source-item:hover {
+    background: #ffffe0;
+    border-color: #ff00ff;
+    transform: translateY(-2px);
+    box-shadow: 2px 2px 0 rgba(255, 0, 128, 0.3);
+  }
+
+  .source-item-name {
+    font-weight: bold;
+    color: #ff4500;
+    margin-bottom: 5px;
+    word-break: break-word;
+  }
+
+  .source-item-count {
+    color: #00ffff;
+    font-size: 0.9em;
+    font-weight: bold;
+  }
+
+  .sources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin: 30px 0;
+  }
+
+  .source-card {
+    background: #fff;
+    border: 2px solid #ff00ff;
+    padding: 15px;
+    border-radius: 8px;
+    transition: transform 0.2s;
+    cursor: pointer;
+  }
+
+  .source-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 4px 0 #000;
+  }
+
+  .source-card.active {
+    background: #ff00ff;
+    color: #fff;
+  }
+
+  .source-card.active .source-name {
+    color: #fff;
+  }
+
+  .source-card.active .source-count {
+    color: #fffacd;
+  }
+
+  .source-name {
+    font-weight: bold;
+    color: #ff4500;
+    margin-bottom: 5px;
+  }
+
+  .source-count {
+    color: #666;
+  }
+
+  .source-words-section {
+    background: #fff;
+    border: 3px solid #ff00ff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 30px 0;
+    max-height: 600px;
+    overflow-y: auto;
+  }
+
+  .source-words-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #ff00ff;
+  }
+
+  .source-words-header h3 {
+    margin: 0;
+    color: #ff4500;
+  }
+
+  .close-btn {
+    background: #ff00ff;
+    color: #fff;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.2s;
+  }
+
+  .close-btn:hover {
+    background: #ff4500;
+  }
+
+  .source-words-list {
+    display: grid;
+    gap: 15px;
+  }
+
+  .word-item {
+    background: #f9f9f9;
+    border-left: 4px solid #ff4500;
+    padding: 15px;
+    border-radius: 5px;
+  }
+
+  .word-item-title {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #ff4500;
+    margin-bottom: 5px;
+  }
+
+  .word-item-definition {
+    color: #333;
+    margin: 8px 0;
+    line-height: 1.5;
+  }
+
+  .word-item-date {
+    font-size: 0.9em;
+    color: #666;
+    font-style: italic;
+  }
+
+  .milestones {
+    margin: 30px 0;
+  }
+
+  .milestone-list {
+    list-style: none;
+    padding: 0;
+    background: #fff;
+    border: 3px solid #ff00ff;
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  .milestone-item {
+    display: flex;
+    align-items: flex-start;
+    padding: 15px;
+    margin: 10px 0;
+    background: #fffacd;
+    border-radius: 8px;
+  }
+
+  .milestone-icon {
+    font-size: 2em;
+    margin-right: 15px;
+  }
+
+  .milestone-text {
+    flex: 1;
+  }
+
+  .milestone-text strong {
+    color: #ff4500;
+  }
+
+  .random-word-section {
+    background: #fff;
+    border: 3px solid #ff00ff;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    margin: 30px 0;
+  }
+
+  .word-spotlight {
+    background: linear-gradient(135deg, #fffacd, #00ffff);
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  .spotlight-word {
+    font-size: 2.5em;
+    color: #ff4500;
+    text-shadow: 2px 2px #000;
+    margin-bottom: 15px;
+  }
+
+  .spotlight-definition {
+    font-size: 1.2em;
+    margin: 15px 0;
+    line-height: 1.6;
+  }
+
+  .spotlight-source, .spotlight-date {
+    color: #666;
+    font-style: italic;
+    margin: 10px 0;
+  }
+
+  .refresh-note {
+    color: #666;
+    font-size: 0.9em;
+  }
+
+  .year-container .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 30px 0;
+  }
+
   .month {
     border-spacing: 0;
     display: inline-block;
@@ -233,14 +1225,21 @@ layout: base.njk
     padding: 0 15px;
     vertical-align: bottom;
     width: 240px;
+    background: #fff;
+    border: 2px solid #ff00ff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }
 
   .month .month-title {
-    font-size: 75%;
+    font-size: 85%;
     font-weight: 700;
-    padding: 8px;
+    padding: 12px;
     text-align: center;
     text-transform: uppercase;
+    color: #ff4500;
+    border-bottom: 2px solid #ff00ff;
+    background: #f9f9f9;
   }
 
   .month .month-week {
@@ -261,20 +1260,78 @@ layout: base.njk
     text-align: center;
     vertical-align: middle;
     width: 30px;
+    transition: all 0.2s;
   }
 
-  .calendar-grid {
-    flex-wrap: wrap;
-    margin: 8px auto 0;
-    max-width: 990px;
-    min-height: 642px;
-    text-align: center;
+  .month .month-day-container.active {
+    background-color: #ffff00;
+    color: #000;
+    font-weight: bold;
+    border-radius: 3px;
   }
 
-  div.active {
-    border-radius: 50%;
-    box-shadow: inset 0 0 0 4px #085dff;
+  .month .month-day-container.active a {
+    color: #000;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .month .month-day-container.active:hover,
+  .month .month-day-container.active a:hover {
+    background-color: #ff00ff;
+    color: #fff;
+  }
+
+  h2 {
+    color: #ff4500;
+    text-shadow: 1px 1px #000;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-bottom: 3px dashed #ff00ff;
+    padding-bottom: 10px;
+  }
+
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+  }
+
+  #yearSelect {
+    padding: 10px 15px;
+    border: 2px solid #ff00ff;
+    border-radius: 5px;
+    background: #fff;
+    color: #ff00ff;
+    font-weight: bold;
     cursor: pointer;
+    font-family: var(--ff-body);
+    margin: 20px 0 30px 0;
+    transition: all 0.2s;
+  }
+
+  #yearSelect:hover {
+    background: #fff9e6;
+  }
+
+  #yearSelect:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 0, 255, 0.3);
+  }
+
+  @media (max-width: 1200px) {
+    .calendar-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .calendar-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
   }
 </style>
 
@@ -282,7 +1339,7 @@ layout: base.njk
   document.addEventListener('DOMContentLoaded', function() {
     const toggleBtns = document.querySelectorAll('.view-toggle-btn');
     const wordsView = document.getElementById('wordsView');
-    const analyticsView = document.getElementById('analyticsView');
+    const overviewView = document.getElementById('overviewView');
 
     toggleBtns.forEach(btn => {
       btn.addEventListener('click', function() {
@@ -295,12 +1352,391 @@ layout: base.njk
         // Toggle views
         if (view === 'words') {
           wordsView.style.display = '';
-          analyticsView.style.display = 'none';
+          overviewView.style.display = 'none';
         } else {
           wordsView.style.display = 'none';
-          analyticsView.style.display = '';
+          overviewView.style.display = '';
+          
+          // Initialize overview content on first view
+          if (!window.overviewInitialized) {
+            // Slight delay to ensure DOM is fully painted
+            setTimeout(function() {
+              initializeOverview();
+              window.overviewInitialized = true;
+            }, 50);
+          }
         }
       });
     });
   });
+
+  function initializeOverview() {
+    // Parse daily breakdown if needed
+    try {
+      const dataEl = document.getElementById('dailyBreakdownDataScript');
+      if (dataEl && dataEl.textContent.trim()) {
+        const jsonArray = JSON.parse(dataEl.textContent);
+        window.dailyBreakdownData = {};
+        jsonArray.forEach(item => {
+          window.dailyBreakdownData[item.date] = item.count;
+        });
+      }
+    } catch (e) {
+      // Data might already be initialized
+    }
+
+    // Parse words by source data from embedded JSON script tag
+    try {
+      const dataScript = document.getElementById('wordsBySourceDataScript');
+      if (dataScript) {
+        window.wordsBySourceData = JSON.parse(dataScript.textContent);
+      }
+    } catch (e) {
+      console.error('Error parsing source data:', e);
+    }
+
+    // Update width for bar fills (year bars - if any)
+    document.querySelectorAll('#overviewView .bar-fill[data-width]').forEach(function(el) {
+      el.style.width = el.getAttribute('data-width') + '%';
+    });
+    
+    // Update height for letter bar fills
+    document.querySelectorAll('#overviewView .letter-bar-fill[data-height]').forEach(function(el) {
+      el.style.height = el.getAttribute('data-height') + '%';
+    });
+
+    // Initialize timeline features
+    populateMiniCalendars();
+    initializeTimelineToggle();
+    initializeSourcesView();
+  }
+
+  function populateMiniCalendars() {
+    let dailyBreakdown = window.dailyBreakdownData || {};
+
+    const miniDays = document.querySelectorAll('#overviewView .mini-day');
+    
+    miniDays.forEach((dayEl) => {
+      const year = dayEl.getAttribute('data-year');
+      const month = String(dayEl.getAttribute('data-month')).padStart(2, '0');
+      const day = String(dayEl.getAttribute('data-day')).padStart(2, '0');
+      const key = `${year}-${month}-${day}`;
+      const count = dailyBreakdown[key] || 0;
+      
+      if (count > 0) {
+        let color = '#e0e0e0';
+        if (count === 1) {
+          color = '#00ffff';
+        } else if (count >= 2 && count <= 3) {
+          color = '#ff00ff';
+        } else if (count >= 4) {
+          color = '#ff0080';
+        }
+        dayEl.style.backgroundColor = color;
+        dayEl.title = `${count} word${count !== 1 ? 's' : ''}`;
+      } else {
+        dayEl.style.backgroundColor = '#e0e0e0';
+      }
+    });
+  }
+
+  function getColor(count) {
+    if (count === 0) return '#e0e0e0';
+    if (count === 1) return '#00ffff';
+    if (count >= 2 && count <= 3) return '#ff00ff';
+    if (count >= 4) return '#ff0080';
+  }
+
+  function populateLinearView() {
+    let dailyBreakdown = window.dailyBreakdownData || {};
+    
+    const datesWithData = Object.keys(dailyBreakdown).sort();
+    if (!datesWithData.length) return;
+    
+    const firstDate = new Date(datesWithData[0]);
+    const lastDate = new Date(datesWithData[datesWithData.length - 1]);
+    const allDates = [];
+    
+    for (let d = new Date(firstDate); d <= lastDate; d.setDate(d.getDate() + 1)) {
+      allDates.push(d.toISOString().split('T')[0]);
+    }
+    
+    const container = document.getElementById('linearDaysContainer');
+    const statsContainer = document.getElementById('linearStats');
+    
+    if (!container || !allDates.length) return;
+
+    container.innerHTML = '';
+    
+    const daysPerRow = 28;
+    for (let i = 0; i < allDates.length; i += daysPerRow) {
+      const weekRow = document.createElement('div');
+      weekRow.className = 'linear-week-row';
+      
+      const weekLabel = document.createElement('div');
+      weekLabel.className = 'linear-week-label';
+      const startDate = allDates[i];
+      const endDate = allDates[Math.min(i + daysPerRow - 1, allDates.length - 1)];
+      weekLabel.textContent = `${startDate} to ${endDate}`;
+      weekRow.appendChild(weekLabel);
+
+      const daysContainer = document.createElement('div');
+      daysContainer.className = 'linear-week-days';
+      
+      for (let j = 0; j < daysPerRow && i + j < allDates.length; j++) {
+        const date = allDates[i + j];
+        const count = dailyBreakdown[date] || 0;
+        
+        const dayEl = document.createElement('div');
+        dayEl.className = 'linear-day';
+        dayEl.style.backgroundColor = getColor(count);
+        dayEl.title = `${date}: ${count} word${count !== 1 ? 's' : ''}`;
+        daysContainer.appendChild(dayEl);
+      }
+      
+      weekRow.appendChild(daysContainer);
+      container.appendChild(weekRow);
+    }
+
+    let longestStreak = 0;
+    let currentStreak = 0;
+    let longestBreak = 0;
+    let currentBreak = 0;
+
+    allDates.forEach((date) => {
+      const count = dailyBreakdown[date] || 0;
+      
+      if (count > 0) {
+        currentStreak++;
+        longestStreak = Math.max(longestStreak, currentStreak);
+        if (currentBreak > 0) {
+          longestBreak = Math.max(longestBreak, currentBreak);
+          currentBreak = 0;
+        }
+      } else {
+        if (currentStreak > 0) {
+          currentStreak = 0;
+        }
+        currentBreak++;
+      }
+    });
+    
+    if (currentBreak > 0) {
+      longestBreak = Math.max(longestBreak, currentBreak);
+    }
+
+    const activeDays = allDates.filter(d => dailyBreakdown[d] && dailyBreakdown[d] > 0).length;
+    
+    statsContainer.innerHTML = `
+      <div class="linear-stat-item">
+        <span class="stat-label">Longest Streak</span>
+        <span class="stat-value">${longestStreak} days</span>
+      </div>
+      <div class="linear-stat-item">
+        <span class="stat-label">Longest Break</span>
+        <span class="stat-value">${longestBreak} days</span>
+      </div>
+      <div class="linear-stat-item">
+        <span class="stat-label">Days Active</span>
+        <span class="stat-value">${activeDays}/${allDates.length}</span>
+      </div>
+    `;
+  }
+
+  function initializeTimelineToggle() {
+    const toggleBtns = document.querySelectorAll('.toggle-btn');
+    const calendarView = document.getElementById('calendarView');
+    const linearView = document.getElementById('linearView');
+
+    if (!toggleBtns.length || !calendarView || !linearView) return;
+
+    let linearViewPopulated = false;
+
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const view = this.getAttribute('data-view');
+        
+        toggleBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+
+        if (view === 'calendar') {
+          calendarView.style.display = '';
+          linearView.style.display = 'none';
+        } else {
+          if (!linearViewPopulated) {
+            populateLinearView();
+            linearViewPopulated = true;
+          }
+          calendarView.style.display = 'none';
+          linearView.style.display = '';
+        }
+      });
+    });
+  }
+
+  function showSourceWords(sourceName) {
+    if (!window.wordsBySourceData || typeof window.wordsBySourceData !== 'object') {
+      console.error('wordsBySourceData is not available');
+      return;
+    }
+
+    const words = window.wordsBySourceData[sourceName] || [];
+    const section = document.getElementById('sourceWordsSection');
+    const wordsList = document.getElementById('sourceWordsList');
+    const selectedSourceName = document.getElementById('selectedSourceName');
+
+    if (!section || !wordsList || !selectedSourceName) {
+      console.error('Required DOM elements not found');
+      return;
+    }
+
+    selectedSourceName.textContent = sourceName;
+
+    // Clear and populate words list
+    wordsList.innerHTML = '';
+    
+    if (words.length === 0) {
+      wordsList.innerHTML = '<p>No words found for this source.</p>';
+    } else {
+      words.forEach(word => {
+        const wordEl = document.createElement('div');
+        wordEl.className = 'word-item';
+        
+        let dateStr = 'Date unknown';
+        try {
+          dateStr = new Date(word.date).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          });
+        } catch (e) {
+          console.warn('Could not parse date:', word.date);
+        }
+        
+        wordEl.innerHTML = `
+          <div class="word-item-title">${escapeHtml(word.word)}</div>
+          <div class="word-item-definition">${escapeHtml(word.definition || 'No definition provided')}</div>
+          <div class="word-item-date">Collected on ${dateStr}</div>
+        `;
+        wordsList.appendChild(wordEl);
+      });
+    }
+
+    // Update active state
+    document.querySelectorAll('.source-card').forEach(el => {
+      el.classList.remove('active');
+      if (el.getAttribute('data-source') === sourceName) {
+        el.classList.add('active');
+      }
+    });
+
+    // Show section
+    section.style.display = 'block';
+    section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  // Initialize all sources view
+  function initializeSourcesView() {
+    const searchInput = document.getElementById('sourceSearch');
+    const sortSelect = document.getElementById('sourceSort');
+    const filterInput = document.getElementById('sourceFilter');
+    const sourcesList = document.getElementById('allSourcesList');
+    const sourceCountSpan = document.getElementById('sourceCount');
+
+    if (!searchInput || !sortSelect || !filterInput || !sourcesList) return;
+
+    // Store all original items
+    const allItems = Array.from(sourcesList.querySelectorAll('.source-item'));
+
+    function updateSourcesDisplay() {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      const minWords = parseInt(filterInput.value) || 1;
+      const sortMethod = sortSelect.value;
+
+      // Filter from original items
+      let items = allItems.filter(item => {
+        const sourceName = item.getAttribute('data-source').toLowerCase();
+        const wordCount = parseInt(item.getAttribute('data-count'));
+        const matchesSearch = searchTerm === '' || sourceName.includes(searchTerm);
+        const meetsMinWords = wordCount >= minWords;
+        return matchesSearch && meetsMinWords;
+      });
+
+      // Sort
+      items.sort((a, b) => {
+        const countA = parseInt(a.getAttribute('data-count'));
+        const countB = parseInt(b.getAttribute('data-count'));
+        const nameA = a.getAttribute('data-source');
+        const nameB = b.getAttribute('data-source');
+
+        switch (sortMethod) {
+          case 'count-desc':
+            return countB - countA;
+          case 'count-asc':
+            return countA - countB;
+          case 'name-asc':
+            return nameA.localeCompare(nameB);
+          case 'name-desc':
+            return nameB.localeCompare(nameA);
+          default:
+            return 0;
+        }
+      });
+
+      // Update display
+      sourcesList.innerHTML = '';
+      items.forEach(item => {
+        sourcesList.appendChild(item.cloneNode(true));
+      });
+
+      // Update count
+      sourceCountSpan.textContent = `${items.length} source${items.length !== 1 ? 's' : ''}`;
+    }
+
+    // Add event listeners
+    searchInput.addEventListener('keyup', updateSourcesDisplay);
+    searchInput.addEventListener('input', updateSourcesDisplay);
+    sortSelect.addEventListener('change', updateSourcesDisplay);
+    filterInput.addEventListener('input', updateSourcesDisplay);
+    filterInput.addEventListener('change', updateSourcesDisplay);
+
+    // Make source items clickable
+    sourcesList.addEventListener('click', function(e) {
+      const sourceItem = e.target.closest('.source-item');
+      if (sourceItem) {
+        const sourceName = sourceItem.getAttribute('data-source');
+        if (sourceName) {
+          showSourceWords(sourceName);
+        }
+      }
+    });
+
+    // Handle source card clicks
+    document.querySelectorAll('.source-card').forEach(function(card) {
+      card.addEventListener('click', function() {
+        const sourceName = this.getAttribute('data-source');
+        if (sourceName) {
+          showSourceWords(sourceName);
+        }
+      });
+    });
+
+    // Handle close button
+    const closeBtn = document.getElementById('closeSourceView');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function() {
+        const section = document.getElementById('sourceWordsSection');
+        if (section) {
+          section.style.display = 'none';
+        }
+        document.querySelectorAll('.source-card').forEach(el => el.classList.remove('active'));
+      });
+    }
+  }
 </script>
