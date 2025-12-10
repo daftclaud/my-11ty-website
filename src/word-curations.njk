@@ -148,7 +148,9 @@ layout: base.njk
     color: #fff;
   }
 
-  .timeline-chart, .monthly-activity, .alphabet-chart {
+  .timeline-chart,
+  .monthly-activity,
+  .alphabet-chart {
     margin: 30px 0;
   }
 
@@ -577,7 +579,9 @@ layout: base.njk
     font-size: 0.9em;
   }
 
-  .source-search, .source-sort, .source-filter {
+  .source-search,
+  .source-sort,
+  .source-filter {
     padding: 8px 12px;
     border: 2px solid #00ffff;
     border-radius: 5px;
@@ -586,7 +590,9 @@ layout: base.njk
     transition: border-color 0.2s;
   }
 
-  .source-search:focus, .source-sort:focus, .source-filter:focus {
+  .source-search:focus,
+  .source-sort:focus,
+  .source-filter:focus {
     outline: none;
     border-color: #ff00ff;
     box-shadow: 0 0 0 3px rgba(255, 0, 255, 0.1);
@@ -825,7 +831,8 @@ layout: base.njk
     line-height: 1.6;
   }
 
-  .spotlight-source, .spotlight-date {
+  .spotlight-source,
+  .spotlight-date {
     color: #666;
     font-style: italic;
     margin: 10px 0;
@@ -1014,41 +1021,56 @@ layout: base.njk
 </style>
 
 <div class="hero-quote">
-  <blockquote cite="https://www.goodreads.com/quotes/9894290-our-language-one-of-our-most-precious-natural-resources-in">
-    <p class="quote-text">"Our language, one of our most precious natural resources, deserves at least as much protection as our woodlands, streams and whooping cranes."</p>
-    <footer class="quote-author">— James Lipton, An Exaltation of Larks: The Ultimate Edition</footer>
+  <blockquote
+    cite="https://www.goodreads.com/quotes/9894290-our-language-one-of-our-most-precious-natural-resources-in"
+  >
+    <p class="quote-text">
+      "Our language, one of our most precious natural resources, deserves at
+      least as much protection as our woodlands, streams and whooping cranes."
+    </p>
+    <footer class="quote-author">
+      — James Lipton, An Exaltation of Larks: The Ultimate Edition
+    </footer>
   </blockquote>
 </div>
 
 <div class="intro-text">
   <p>
-    This is my collection of words. Each one has caught my attention for its sound, meaning, or something else that caught my interest. You'll find their definitions, sources, and the occasional note about why they resonated with me.
+    Every day, words catch my attention—striking phrases, unfamiliar terms,
+    unexpected uses of language. I document them here to preserve and reflect on
+    the richness of language itself. Here you'll find their definitions,
+    sources, and the occasional note about why each one resonated with me.
   </p>
   <p>
-    I try to document each word on paper. I originally began writing words down to expand my vocabulary, but soon discovered I was more captivated by the ritual itself—the careful consideration of each word, the deliberate act of recording it. It became a perfect excuse to use my <a href="/pens">fountain pens</a>, turning vocabulary building into a meditative practice.
+    I try to write each word on paper. What started as a straightforward effort to
+    expand my vocabulary evolved into a sort of ritual. The deliberate act of recording words on paper
+    transformed vocabulary building into a meditative practice, and it gave me
+    the perfect excuse to use my <a href="/pens">pens</a>.
   </p>
 </div>
 
 <div class="view-toggle-container">
   <div class="view-toggle">
-    <button class="view-toggle-btn active" data-view="words">Latest Words</button>
+    <button class="view-toggle-btn active" data-view="words">
+      Latest Words
+    </button>
     <button class="view-toggle-btn" data-view="overview">Overview</button>
   </div>
 </div>
 
 <div id="wordsView" class="content-view">
-  {% set latestCuration = collections.word_curation[collections.word_curation.length - 1] %}
-  {% set words = latestCuration.data.words %}
-  {% set date = latestCuration.data.date %}
-  {% include 'curation.njk' %}
-  {% set previousCuration = collections.word_curation | getPreviousCuration(latestCuration.date) %}
-  {% set nextCuration = collections.word_curation | getNextCuration(latestCuration.date) %}
+  {% set latestCuration =
+  collections.word_curation[collections.word_curation.length - 1] %} {% set
+  words = latestCuration.data.words %} {% set date = latestCuration.data.date %}
+  {% include 'curation.njk' %} {% set previousCuration =
+  collections.word_curation | getPreviousCuration(latestCuration.date) %} {% set
+  nextCuration = collections.word_curation |
+  getNextCuration(latestCuration.date) %}
 
   <div class="navigation">
     {% if previousCuration %}
     <a href="{{ previousCuration.url }}">Previous Curation</a>
-    {% endif %}
-    {% if nextCuration %}
+    {% endif %} {% if nextCuration %}
     <a href="{{ nextCuration.url }}">Next Curation</a>
     {% endif %}
   </div>
@@ -1056,32 +1078,34 @@ layout: base.njk
   {% calendar { year: 2025, collection: collections.word_curation } %}
 </div>
 
-<div id="overviewView" class="content-view" style="display: none;">
+<div id="overviewView" class="content-view" style="display: none">
   {% set stats = collections.word_curation | getWordStats %}
-  
+
   <h2>Collection Overview</h2>
-  
+
   <div class="stats-grid">
     <div class="stat-card">
       <div class="stat-number">{{ stats.totalWords }}</div>
       <div class="stat-label">Total Words Collected</div>
     </div>
-    
+
     <div class="stat-card">
       <div class="stat-number">{{ stats.distinctWords }}</div>
       <div class="stat-label">Distinct Words</div>
     </div>
-    
+
     <div class="stat-card">
       <div class="stat-number">{{ stats.totalCurations }}</div>
       <div class="stat-label">Curation Sessions</div>
     </div>
-    
+
     <div class="stat-card">
-      <div class="stat-number">{{ stats.averageWordsPerCuration | round(1) }}</div>
+      <div class="stat-number">
+        {{ stats.averageWordsPerCuration | round(1) }}
+      </div>
       <div class="stat-label">Avg Words Per Session</div>
     </div>
-    
+
     <div class="stat-card">
       <div class="stat-number">{{ stats.daysCollecting }}</div>
       <div class="stat-label">Days Collecting</div>
@@ -1089,54 +1113,54 @@ layout: base.njk
   </div>
 
   <h2>Collection Timeline</h2>
-  
+
   <div class="timeline-view-toggle">
-    <button class="toggle-btn active" data-view="calendar">Calendar View</button>
+    <button class="toggle-btn active" data-view="calendar">
+      Calendar View
+    </button>
     <button class="toggle-btn" data-view="linear">Streak View</button>
   </div>
 
   <div class="timeline-chart">
     <div class="chart-container timeline-calendar" id="calendarView">
       <div class="calendar-grid">
-        {% set yearCount = stats.yearlyBreakdown | length %}
-        {% for year in stats.yearlyBreakdown %}
-          <div class="year-section">
-            <div class="year-header">
-              <h3>{{ year.year }}</h3>
-              <span class="year-total">{{ year.count }} words</span>
-            </div>
-            <!-- Placeholder for month mini-calendars -->
-            <div class="months-grid">
-              {% for month in range(1, 13) %}
-                <div class="mini-calendar">
-                  <div class="mini-month-label">
-                    {% if month == 1 %}Jan
-                    {% elif month == 2 %}Feb
-                    {% elif month == 3 %}Mar
-                    {% elif month == 4 %}Apr
-                    {% elif month == 5 %}May
-                    {% elif month == 6 %}Jun
-                    {% elif month == 7 %}Jul
-                    {% elif month == 8 %}Aug
-                    {% elif month == 9 %}Sep
-                    {% elif month == 10 %}Oct
-                    {% elif month == 11 %}Nov
-                    {% else %}Dec
-                    {% endif %}
-                  </div>
-                  <div class="mini-days">
-                    {% set daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31] %}
-                    {% set isLeapYear = (year.year % 4 == 0 and year.year % 100 != 0) or (year.year % 400 == 0) %}
-                    {% set dayCount = daysInMonth[month - 1] %}
-                    {% if month == 2 and isLeapYear %}{% set dayCount = 29 %}{% endif %}
-                    {% for day in range(1, dayCount + 1) %}
-                      <div class="mini-day" data-year="{{ year.year }}" data-month="{{ month }}" data-day="{{ day }}"></div>
-                    {% endfor %}
-                  </div>
-                </div>
-              {% endfor %}
-            </div>
+        {% set yearCount = stats.yearlyBreakdown | length %} {% for year in
+        stats.yearlyBreakdown %}
+        <div class="year-section">
+          <div class="year-header">
+            <h3>{{ year.year }}</h3>
+            <span class="year-total">{{ year.count }} words</span>
           </div>
+          <!-- Placeholder for month mini-calendars -->
+          <div class="months-grid">
+            {% for month in range(1, 13) %}
+            <div class="mini-calendar">
+              <div class="mini-month-label">
+                {% if month == 1 %}Jan {% elif month == 2 %}Feb {% elif month ==
+                3 %}Mar {% elif month == 4 %}Apr {% elif month == 5 %}May {%
+                elif month == 6 %}Jun {% elif month == 7 %}Jul {% elif month ==
+                8 %}Aug {% elif month == 9 %}Sep {% elif month == 10 %}Oct {%
+                elif month == 11 %}Nov {% else %}Dec {% endif %}
+              </div>
+              <div class="mini-days">
+                {% set daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31,
+                30, 31] %} {% set isLeapYear = (year.year % 4 == 0 and year.year
+                % 100 != 0) or (year.year % 400 == 0) %} {% set dayCount =
+                daysInMonth[month - 1] %} {% if month == 2 and isLeapYear %}{%
+                set dayCount = 29 %}{% endif %} {% for day in range(1, dayCount
+                + 1) %}
+                <div
+                  class="mini-day"
+                  data-year="{{ year.year }}"
+                  data-month="{{ month }}"
+                  data-day="{{ day }}"
+                ></div>
+                {% endfor %}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
         {% endfor %}
       </div>
 
@@ -1144,19 +1168,19 @@ layout: base.njk
         <div class="legend-title">Collection Intensity</div>
         <div class="legend-scale">
           <div class="legend-item">
-            <div class="legend-box" style="background-color: #e0e0e0;"></div>
+            <div class="legend-box" style="background-color: #e0e0e0"></div>
             <span>No words</span>
           </div>
           <div class="legend-item">
-            <div class="legend-box" style="background-color: #00ffff;"></div>
+            <div class="legend-box" style="background-color: #00ffff"></div>
             <span>Light</span>
           </div>
           <div class="legend-item">
-            <div class="legend-box" style="background-color: #ff00ff;"></div>
+            <div class="legend-box" style="background-color: #ff00ff"></div>
             <span>Medium</span>
           </div>
           <div class="legend-item">
-            <div class="legend-box" style="background-color: #ff0080;"></div>
+            <div class="legend-box" style="background-color: #ff0080"></div>
             <span>Heavy</span>
           </div>
         </div>
@@ -1173,24 +1197,28 @@ layout: base.njk
         <div class="timeline-stat-item">
           <span class="stat-label">Peak Year</span>
           <span class="stat-value">
-            {% set peakYear = stats.yearlyBreakdown[0] %}
-            {% for year in stats.yearlyBreakdown %}
-              {% if year.count > peakYear.count %}
-                {% set peakYear = year %}
-              {% endif %}
-            {% endfor %}
+            {% set peakYear = stats.yearlyBreakdown[0] %} {% for year in
+            stats.yearlyBreakdown %} {% if year.count > peakYear.count %} {% set
+            peakYear = year %} {% endif %} {% endfor %}
             {{ peakYear.year }} ({{ peakYear.count }})
           </span>
         </div>
         <div class="timeline-stat-item">
           <span class="stat-label">Average per Year</span>
-          <span class="stat-value">{{ (stats.totalWords / stats.yearlyBreakdown | length) | round(0) }}</span>
+          <span
+            class="stat-value"
+            >{{ (stats.totalWords / stats.yearlyBreakdown | length) | round(0) }}</span
+          >
         </div>
       </div>
     </div>
 
     <!-- Linear View -->
-    <div class="chart-container timeline-linear" id="linearView" style="display: none;">
+    <div
+      class="chart-container timeline-linear"
+      id="linearView"
+      style="display: none"
+    >
       <div class="linear-days-container" id="linearDaysContainer">
         <!-- Days will be populated by JavaScript -->
       </div>
@@ -1198,19 +1226,19 @@ layout: base.njk
         <div class="legend-title">Collection Intensity</div>
         <div class="legend-scale">
           <div class="legend-item">
-            <div class="legend-box" style="background-color: #e0e0e0;"></div>
+            <div class="legend-box" style="background-color: #e0e0e0"></div>
             <span>No words</span>
           </div>
           <div class="legend-item">
-            <div class="legend-box" style="background-color: #00ffff;"></div>
+            <div class="legend-box" style="background-color: #00ffff"></div>
             <span>Light</span>
           </div>
           <div class="legend-item">
-            <div class="legend-box" style="background-color: #ff00ff;"></div>
+            <div class="legend-box" style="background-color: #ff00ff"></div>
             <span>Medium</span>
           </div>
           <div class="legend-item">
-            <div class="legend-box" style="background-color: #ff0080;"></div>
+            <div class="legend-box" style="background-color: #ff0080"></div>
             <span>Heavy</span>
           </div>
         </div>
@@ -1275,7 +1303,10 @@ layout: base.njk
     <div class="letter-bar">
       <div class="letter-label">{{ letter.letter }}</div>
       <div class="letter-bar-wrapper">
-        <div class="letter-bar-fill" data-height="{{ (letter.count / stats.maxLetterCount * 100) }}">
+        <div
+          class="letter-bar-fill"
+          data-height="{{ (letter.count / stats.maxLetterCount) * 100 }}"
+        >
           <span class="letter-count">{{ letter.count }}</span>
         </div>
       </div>
@@ -1288,7 +1319,12 @@ layout: base.njk
     <div class="sources-controls">
       <div class="control-group">
         <label for="sourceSearch">Search:</label>
-        <input type="text" id="sourceSearch" class="source-search" placeholder="Search sources...">
+        <input
+          type="text"
+          id="sourceSearch"
+          class="source-search"
+          placeholder="Search sources..."
+        />
       </div>
       <div class="control-group">
         <label for="sourceSort">Sort by:</label>
@@ -1301,7 +1337,14 @@ layout: base.njk
       </div>
       <div class="control-group">
         <label for="sourceFilter">Minimum words:</label>
-        <input type="number" id="sourceFilter" class="source-filter" min="1" value="1" placeholder="Min words">
+        <input
+          type="number"
+          id="sourceFilter"
+          class="source-filter"
+          min="1"
+          value="1"
+          placeholder="Min words"
+        />
       </div>
       <div class="control-info">
         <span id="sourceCount">{{ stats.wordsBySource | length }} sources</span>
@@ -1309,7 +1352,11 @@ layout: base.njk
     </div>
     <div class="all-sources-list" id="allSourcesList">
       {% for source, words in stats.wordsBySource %}
-      <div class="source-item" data-source="{{ source }}" data-count="{{ words | length }}">
+      <div
+        class="source-item"
+        data-source="{{ source }}"
+        data-count="{{ words | length }}"
+      >
         <div class="source-item-name">{{ source }}</div>
         <div class="source-item-count">{{ words | length }} words</div>
       </div>
@@ -1327,7 +1374,11 @@ layout: base.njk
     {% endfor %}
   </div>
 
-  <div id="sourceWordsSection" class="source-words-section" style="display: none;">
+  <div
+    id="sourceWordsSection"
+    class="source-words-section"
+    style="display: none"
+  >
     <div class="source-words-header">
       <h3>Words from <span id="selectedSourceName"></span></h3>
       <button id="closeSourceView" class="close-btn">✕</button>
@@ -1336,7 +1387,7 @@ layout: base.njk
   </div>
 
   <script type="application/json" id="wordsBySourceDataScript">
-  {{ stats.wordsBySource | dump | safe }}
+    {{ stats.wordsBySource | dump | safe }}
   </script>
 
   <h2>Collection Milestones</h2>
@@ -1345,19 +1396,22 @@ layout: base.njk
       <li class="milestone-item">
         <span class="milestone-icon">🎯</span>
         <div class="milestone-text">
-          <strong>First Word:</strong> {{ stats.firstWord.word }} on {{ stats.firstWord.date | formatDate }}
+          <strong>First Word:</strong> {{ stats.firstWord.word }} on
+          {{ stats.firstWord.date | formatDate }}
         </div>
       </li>
       <li class="milestone-item">
         <span class="milestone-icon">🏆</span>
         <div class="milestone-text">
-          <strong>Latest Word:</strong> {{ stats.latestWord.word }} on {{ stats.latestWord.date | formatDate }}
+          <strong>Latest Word:</strong> {{ stats.latestWord.word }} on
+          {{ stats.latestWord.date | formatDate }}
         </div>
       </li>
       <li class="milestone-item">
         <span class="milestone-icon">🔥</span>
         <div class="milestone-text">
-          <strong>Current Streak:</strong> {{ stats.currentStreak }} days in the last 30 days
+          <strong>Current Streak:</strong> {{ stats.currentStreak }} days in the
+          last 30 days
         </div>
       </li>
     </ul>
@@ -1372,47 +1426,51 @@ layout: base.njk
       {% if randomWord.source %}
       <p class="spotlight-source">Source: {{ randomWord.source }}</p>
       {% endif %}
-      <p class="spotlight-date">Collected on {{ randomWord.date | formatDate }}</p>
+      <p class="spotlight-date">
+        Collected on {{ randomWord.date | formatDate }}
+      </p>
     </div>
-    <p class="refresh-note"><em>Refresh the page to discover a new word!</em></p>
+    <p class="refresh-note">
+      <em>Refresh the page to discover a new word!</em>
+    </p>
   </div>
 
   <!-- Embed daily breakdown data as plain JSON array -->
   <script type="application/json" id="dailyBreakdownDataScript">
-  [
-  {%- for date, count in stats.dailyBreakdown %}
-    {"date": "{{ date }}", "count": {{ count }}}{{ "," if not loop.last }}
-  {%- endfor %}
-  ]
+    [
+    {%- for date, count in stats.dailyBreakdown %}
+      {"date": "{{ date }}", "count": {{ count }}}{{ "," if not loop.last }}
+    {%- endfor %}
+    ]
   </script>
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const toggleBtns = document.querySelectorAll('.view-toggle-btn');
-    const wordsView = document.getElementById('wordsView');
-    const overviewView = document.getElementById('overviewView');
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtns = document.querySelectorAll(".view-toggle-btn");
+    const wordsView = document.getElementById("wordsView");
+    const overviewView = document.getElementById("overviewView");
 
-    toggleBtns.forEach(btn => {
-      btn.addEventListener('click', function() {
-        const view = this.getAttribute('data-view');
-        
+    toggleBtns.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        const view = this.getAttribute("data-view");
+
         // Update button states
-        toggleBtns.forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
+        toggleBtns.forEach((b) => b.classList.remove("active"));
+        this.classList.add("active");
 
         // Toggle views
-        if (view === 'words') {
-          wordsView.style.display = '';
-          overviewView.style.display = 'none';
+        if (view === "words") {
+          wordsView.style.display = "";
+          overviewView.style.display = "none";
         } else {
-          wordsView.style.display = 'none';
-          overviewView.style.display = '';
-          
+          wordsView.style.display = "none";
+          overviewView.style.display = "";
+
           // Initialize overview content on first view
           if (!window.overviewInitialized) {
             // Slight delay to ensure DOM is fully painted
-            setTimeout(function() {
+            setTimeout(function () {
               initializeOverview();
               window.overviewInitialized = true;
             }, 50);
@@ -1425,11 +1483,11 @@ layout: base.njk
   function initializeOverview() {
     // Parse daily breakdown if needed
     try {
-      const dataEl = document.getElementById('dailyBreakdownDataScript');
+      const dataEl = document.getElementById("dailyBreakdownDataScript");
       if (dataEl && dataEl.textContent.trim()) {
         const jsonArray = JSON.parse(dataEl.textContent);
         window.dailyBreakdownData = {};
-        jsonArray.forEach(item => {
+        jsonArray.forEach((item) => {
           window.dailyBreakdownData[item.date] = item.count;
         });
       }
@@ -1439,23 +1497,27 @@ layout: base.njk
 
     // Parse words by source data from embedded JSON script tag
     try {
-      const dataScript = document.getElementById('wordsBySourceDataScript');
+      const dataScript = document.getElementById("wordsBySourceDataScript");
       if (dataScript) {
         window.wordsBySourceData = JSON.parse(dataScript.textContent);
       }
     } catch (e) {
-      console.error('Error parsing source data:', e);
+      console.error("Error parsing source data:", e);
     }
 
     // Update width for bar fills (year bars - if any)
-    document.querySelectorAll('#overviewView .bar-fill[data-width]').forEach(function(el) {
-      el.style.width = el.getAttribute('data-width') + '%';
-    });
-    
+    document
+      .querySelectorAll("#overviewView .bar-fill[data-width]")
+      .forEach(function (el) {
+        el.style.width = el.getAttribute("data-width") + "%";
+      });
+
     // Update height for letter bar fills
-    document.querySelectorAll('#overviewView .letter-bar-fill[data-height]').forEach(function(el) {
-      el.style.height = el.getAttribute('data-height') + '%';
-    });
+    document
+      .querySelectorAll("#overviewView .letter-bar-fill[data-height]")
+      .forEach(function (el) {
+        el.style.height = el.getAttribute("data-height") + "%";
+      });
 
     // Initialize timeline features
     populateMiniCalendars();
@@ -1466,86 +1528,91 @@ layout: base.njk
   function populateMiniCalendars() {
     let dailyBreakdown = window.dailyBreakdownData || {};
 
-    const miniDays = document.querySelectorAll('#overviewView .mini-day');
-    
+    const miniDays = document.querySelectorAll("#overviewView .mini-day");
+
     miniDays.forEach((dayEl) => {
-      const year = dayEl.getAttribute('data-year');
-      const month = String(dayEl.getAttribute('data-month')).padStart(2, '0');
-      const day = String(dayEl.getAttribute('data-day')).padStart(2, '0');
+      const year = dayEl.getAttribute("data-year");
+      const month = String(dayEl.getAttribute("data-month")).padStart(2, "0");
+      const day = String(dayEl.getAttribute("data-day")).padStart(2, "0");
       const key = `${year}-${month}-${day}`;
       const count = dailyBreakdown[key] || 0;
-      
+
       if (count > 0) {
-        let color = '#e0e0e0';
+        let color = "#e0e0e0";
         if (count === 1) {
-          color = '#00ffff';
+          color = "#00ffff";
         } else if (count >= 2 && count <= 3) {
-          color = '#ff00ff';
+          color = "#ff00ff";
         } else if (count >= 4) {
-          color = '#ff0080';
+          color = "#ff0080";
         }
         dayEl.style.backgroundColor = color;
-        dayEl.title = `${count} word${count !== 1 ? 's' : ''}`;
+        dayEl.title = `${count} word${count !== 1 ? "s" : ""}`;
       } else {
-        dayEl.style.backgroundColor = '#e0e0e0';
+        dayEl.style.backgroundColor = "#e0e0e0";
       }
     });
   }
 
   function getColor(count) {
-    if (count === 0) return '#e0e0e0';
-    if (count === 1) return '#00ffff';
-    if (count >= 2 && count <= 3) return '#ff00ff';
-    if (count >= 4) return '#ff0080';
+    if (count === 0) return "#e0e0e0";
+    if (count === 1) return "#00ffff";
+    if (count >= 2 && count <= 3) return "#ff00ff";
+    if (count >= 4) return "#ff0080";
   }
 
   function populateLinearView() {
     let dailyBreakdown = window.dailyBreakdownData || {};
-    
+
     const datesWithData = Object.keys(dailyBreakdown).sort();
     if (!datesWithData.length) return;
-    
+
     const firstDate = new Date(datesWithData[0]);
     const lastDate = new Date(datesWithData[datesWithData.length - 1]);
     const allDates = [];
-    
-    for (let d = new Date(firstDate); d <= lastDate; d.setDate(d.getDate() + 1)) {
-      allDates.push(d.toISOString().split('T')[0]);
+
+    for (
+      let d = new Date(firstDate);
+      d <= lastDate;
+      d.setDate(d.getDate() + 1)
+    ) {
+      allDates.push(d.toISOString().split("T")[0]);
     }
-    
-    const container = document.getElementById('linearDaysContainer');
-    const statsContainer = document.getElementById('linearStats');
-    
+
+    const container = document.getElementById("linearDaysContainer");
+    const statsContainer = document.getElementById("linearStats");
+
     if (!container || !allDates.length) return;
 
-    container.innerHTML = '';
-    
+    container.innerHTML = "";
+
     const daysPerRow = 28;
     for (let i = 0; i < allDates.length; i += daysPerRow) {
-      const weekRow = document.createElement('div');
-      weekRow.className = 'linear-week-row';
-      
-      const weekLabel = document.createElement('div');
-      weekLabel.className = 'linear-week-label';
+      const weekRow = document.createElement("div");
+      weekRow.className = "linear-week-row";
+
+      const weekLabel = document.createElement("div");
+      weekLabel.className = "linear-week-label";
       const startDate = allDates[i];
-      const endDate = allDates[Math.min(i + daysPerRow - 1, allDates.length - 1)];
+      const endDate =
+        allDates[Math.min(i + daysPerRow - 1, allDates.length - 1)];
       weekLabel.textContent = `${startDate} to ${endDate}`;
       weekRow.appendChild(weekLabel);
 
-      const daysContainer = document.createElement('div');
-      daysContainer.className = 'linear-week-days';
-      
+      const daysContainer = document.createElement("div");
+      daysContainer.className = "linear-week-days";
+
       for (let j = 0; j < daysPerRow && i + j < allDates.length; j++) {
         const date = allDates[i + j];
         const count = dailyBreakdown[date] || 0;
-        
-        const dayEl = document.createElement('div');
-        dayEl.className = 'linear-day';
+
+        const dayEl = document.createElement("div");
+        dayEl.className = "linear-day";
         dayEl.style.backgroundColor = getColor(count);
-        dayEl.title = `${date}: ${count} word${count !== 1 ? 's' : ''}`;
+        dayEl.title = `${date}: ${count} word${count !== 1 ? "s" : ""}`;
         daysContainer.appendChild(dayEl);
       }
-      
+
       weekRow.appendChild(daysContainer);
       container.appendChild(weekRow);
     }
@@ -1557,7 +1624,7 @@ layout: base.njk
 
     allDates.forEach((date) => {
       const count = dailyBreakdown[date] || 0;
-      
+
       if (count > 0) {
         currentStreak++;
         longestStreak = Math.max(longestStreak, currentStreak);
@@ -1572,13 +1639,15 @@ layout: base.njk
         currentBreak++;
       }
     });
-    
+
     if (currentBreak > 0) {
       longestBreak = Math.max(longestBreak, currentBreak);
     }
 
-    const activeDays = allDates.filter(d => dailyBreakdown[d] && dailyBreakdown[d] > 0).length;
-    
+    const activeDays = allDates.filter(
+      (d) => dailyBreakdown[d] && dailyBreakdown[d] > 0
+    ).length;
+
     statsContainer.innerHTML = `
       <div class="linear-stat-item">
         <span class="stat-label">Longest Streak</span>
@@ -1596,78 +1665,83 @@ layout: base.njk
   }
 
   function initializeTimelineToggle() {
-    const toggleBtns = document.querySelectorAll('.toggle-btn');
-    const calendarView = document.getElementById('calendarView');
-    const linearView = document.getElementById('linearView');
+    const toggleBtns = document.querySelectorAll(".toggle-btn");
+    const calendarView = document.getElementById("calendarView");
+    const linearView = document.getElementById("linearView");
 
     if (!toggleBtns.length || !calendarView || !linearView) return;
 
     let linearViewPopulated = false;
 
-    toggleBtns.forEach(btn => {
-      btn.addEventListener('click', function() {
-        const view = this.getAttribute('data-view');
-        
-        toggleBtns.forEach(b => b.classList.remove('active'));
-        this.classList.add('active');
+    toggleBtns.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        const view = this.getAttribute("data-view");
 
-        if (view === 'calendar') {
-          calendarView.style.display = '';
-          linearView.style.display = 'none';
+        toggleBtns.forEach((b) => b.classList.remove("active"));
+        this.classList.add("active");
+
+        if (view === "calendar") {
+          calendarView.style.display = "";
+          linearView.style.display = "none";
         } else {
           if (!linearViewPopulated) {
             populateLinearView();
             linearViewPopulated = true;
           }
-          calendarView.style.display = 'none';
-          linearView.style.display = '';
+          calendarView.style.display = "none";
+          linearView.style.display = "";
         }
       });
     });
   }
 
   function showSourceWords(sourceName) {
-    if (!window.wordsBySourceData || typeof window.wordsBySourceData !== 'object') {
-      console.error('wordsBySourceData is not available');
+    if (
+      !window.wordsBySourceData ||
+      typeof window.wordsBySourceData !== "object"
+    ) {
+      console.error("wordsBySourceData is not available");
       return;
     }
 
     const words = window.wordsBySourceData[sourceName] || [];
-    const section = document.getElementById('sourceWordsSection');
-    const wordsList = document.getElementById('sourceWordsList');
-    const selectedSourceName = document.getElementById('selectedSourceName');
+    const section = document.getElementById("sourceWordsSection");
+    const wordsList = document.getElementById("sourceWordsList");
+    const selectedSourceName = document.getElementById("selectedSourceName");
 
     if (!section || !wordsList || !selectedSourceName) {
-      console.error('Required DOM elements not found');
+      console.error("Required DOM elements not found");
       return;
     }
 
     selectedSourceName.textContent = sourceName;
 
     // Clear and populate words list
-    wordsList.innerHTML = '';
-    
+    wordsList.innerHTML = "";
+
     if (words.length === 0) {
-      wordsList.innerHTML = '<p>No words found for this source.</p>';
+      wordsList.innerHTML = "<p>No words found for this source.</p>";
     } else {
-      words.forEach(word => {
-        const wordEl = document.createElement('div');
-        wordEl.className = 'word-item';
-        
-        let dateStr = 'Date unknown';
+      words.forEach((word) => {
+        const wordEl = document.createElement("div");
+        wordEl.className = "word-item";
+
+        let dateStr = "Date unknown";
         try {
-          dateStr = new Date(word.date).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
+          dateStr = new Date(word.date).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
           });
         } catch (e) {
-          console.warn('Could not parse date:', word.date);
+          console.warn("Could not parse date:", word.date);
         }
-        
+
         wordEl.innerHTML = `
           <div class="word-item-title">${escapeHtml(word.word)}</div>
-          <div class="word-item-definition">${escapeHtml(word.definition || 'No definition provided')}</div>
+          <div class="word-item-definition">${escapeHtml(
+            word.definition || "No definition provided"
+          )}</div>
           <div class="word-item-date">Collected on ${dateStr}</div>
         `;
         wordsList.appendChild(wordEl);
@@ -1675,36 +1749,36 @@ layout: base.njk
     }
 
     // Update active state
-    document.querySelectorAll('.source-card').forEach(el => {
-      el.classList.remove('active');
-      if (el.getAttribute('data-source') === sourceName) {
-        el.classList.add('active');
+    document.querySelectorAll(".source-card").forEach((el) => {
+      el.classList.remove("active");
+      if (el.getAttribute("data-source") === sourceName) {
+        el.classList.add("active");
       }
     });
 
     // Show section
-    section.style.display = 'block';
-    section.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    section.style.display = "block";
+    section.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
 
   function escapeHtml(text) {
-    const div = document.createElement('div');
+    const div = document.createElement("div");
     div.textContent = text;
     return div.innerHTML;
   }
 
   // Initialize all sources view
   function initializeSourcesView() {
-    const searchInput = document.getElementById('sourceSearch');
-    const sortSelect = document.getElementById('sourceSort');
-    const filterInput = document.getElementById('sourceFilter');
-    const sourcesList = document.getElementById('allSourcesList');
-    const sourceCountSpan = document.getElementById('sourceCount');
+    const searchInput = document.getElementById("sourceSearch");
+    const sortSelect = document.getElementById("sourceSort");
+    const filterInput = document.getElementById("sourceFilter");
+    const sourcesList = document.getElementById("allSourcesList");
+    const sourceCountSpan = document.getElementById("sourceCount");
 
     if (!searchInput || !sortSelect || !filterInput || !sourcesList) return;
 
     // Store all original items
-    const allItems = Array.from(sourcesList.querySelectorAll('.source-item'));
+    const allItems = Array.from(sourcesList.querySelectorAll(".source-item"));
 
     function updateSourcesDisplay() {
       const searchTerm = searchInput.value.toLowerCase().trim();
@@ -1712,29 +1786,30 @@ layout: base.njk
       const sortMethod = sortSelect.value;
 
       // Filter from original items
-      let items = allItems.filter(item => {
-        const sourceName = item.getAttribute('data-source').toLowerCase();
-        const wordCount = parseInt(item.getAttribute('data-count'));
-        const matchesSearch = searchTerm === '' || sourceName.includes(searchTerm);
+      let items = allItems.filter((item) => {
+        const sourceName = item.getAttribute("data-source").toLowerCase();
+        const wordCount = parseInt(item.getAttribute("data-count"));
+        const matchesSearch =
+          searchTerm === "" || sourceName.includes(searchTerm);
         const meetsMinWords = wordCount >= minWords;
         return matchesSearch && meetsMinWords;
       });
 
       // Sort
       items.sort((a, b) => {
-        const countA = parseInt(a.getAttribute('data-count'));
-        const countB = parseInt(b.getAttribute('data-count'));
-        const nameA = a.getAttribute('data-source');
-        const nameB = b.getAttribute('data-source');
+        const countA = parseInt(a.getAttribute("data-count"));
+        const countB = parseInt(b.getAttribute("data-count"));
+        const nameA = a.getAttribute("data-source");
+        const nameB = b.getAttribute("data-source");
 
         switch (sortMethod) {
-          case 'count-desc':
+          case "count-desc":
             return countB - countA;
-          case 'count-asc':
+          case "count-asc":
             return countA - countB;
-          case 'name-asc':
+          case "name-asc":
             return nameA.localeCompare(nameB);
-          case 'name-desc':
+          case "name-desc":
             return nameB.localeCompare(nameA);
           default:
             return 0;
@@ -1742,27 +1817,29 @@ layout: base.njk
       });
 
       // Update display
-      sourcesList.innerHTML = '';
-      items.forEach(item => {
+      sourcesList.innerHTML = "";
+      items.forEach((item) => {
         sourcesList.appendChild(item.cloneNode(true));
       });
 
       // Update count
-      sourceCountSpan.textContent = `${items.length} source${items.length !== 1 ? 's' : ''}`;
+      sourceCountSpan.textContent = `${items.length} source${
+        items.length !== 1 ? "s" : ""
+      }`;
     }
 
     // Add event listeners
-    searchInput.addEventListener('keyup', updateSourcesDisplay);
-    searchInput.addEventListener('input', updateSourcesDisplay);
-    sortSelect.addEventListener('change', updateSourcesDisplay);
-    filterInput.addEventListener('input', updateSourcesDisplay);
-    filterInput.addEventListener('change', updateSourcesDisplay);
+    searchInput.addEventListener("keyup", updateSourcesDisplay);
+    searchInput.addEventListener("input", updateSourcesDisplay);
+    sortSelect.addEventListener("change", updateSourcesDisplay);
+    filterInput.addEventListener("input", updateSourcesDisplay);
+    filterInput.addEventListener("change", updateSourcesDisplay);
 
     // Make source items clickable
-    sourcesList.addEventListener('click', function(e) {
-      const sourceItem = e.target.closest('.source-item');
+    sourcesList.addEventListener("click", function (e) {
+      const sourceItem = e.target.closest(".source-item");
       if (sourceItem) {
-        const sourceName = sourceItem.getAttribute('data-source');
+        const sourceName = sourceItem.getAttribute("data-source");
         if (sourceName) {
           showSourceWords(sourceName);
         }
@@ -1770,9 +1847,9 @@ layout: base.njk
     });
 
     // Handle source card clicks
-    document.querySelectorAll('.source-card').forEach(function(card) {
-      card.addEventListener('click', function() {
-        const sourceName = this.getAttribute('data-source');
+    document.querySelectorAll(".source-card").forEach(function (card) {
+      card.addEventListener("click", function () {
+        const sourceName = this.getAttribute("data-source");
         if (sourceName) {
           showSourceWords(sourceName);
         }
@@ -1780,14 +1857,16 @@ layout: base.njk
     });
 
     // Handle close button
-    const closeBtn = document.getElementById('closeSourceView');
+    const closeBtn = document.getElementById("closeSourceView");
     if (closeBtn) {
-      closeBtn.addEventListener('click', function() {
-        const section = document.getElementById('sourceWordsSection');
+      closeBtn.addEventListener("click", function () {
+        const section = document.getElementById("sourceWordsSection");
         if (section) {
-          section.style.display = 'none';
+          section.style.display = "none";
         }
-        document.querySelectorAll('.source-card').forEach(el => el.classList.remove('active'));
+        document
+          .querySelectorAll(".source-card")
+          .forEach((el) => el.classList.remove("active"));
       });
     }
   }
