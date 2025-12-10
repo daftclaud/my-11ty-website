@@ -196,7 +196,7 @@ layout: base.njk
 
   .linear-week-days {
     display: grid;
-    grid-template-columns: repeat(28, 1fr);
+    grid-template-columns: repeat(7, 1fr);
     gap: 2px;
     flex: 1;
   }
@@ -302,8 +302,8 @@ layout: base.njk
 
   .months-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
   }
 
   .mini-calendar {
@@ -1524,11 +1524,19 @@ layout: base.njk
     background: #fff9e6;
     border: 2px solid #ff00ff;
     border-radius: 8px;
-    padding: 20px;
+    padding: 10px;
     margin-bottom: 30px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  @media (min-width: 600px) {
+    .search-filters {
+      padding: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+    }
   }
 
   .filter-group {
@@ -1549,6 +1557,8 @@ layout: base.njk
     border-radius: 5px;
     font-family: var(--ff-body);
     font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .filter-group input:focus,
@@ -1701,6 +1711,27 @@ layout: base.njk
     font-weight: bold;
     color: #333;
     white-space: nowrap;
+  }
+
+  @media (max-width: 600px) {
+    .linear-week-label {
+      min-width: 80px;
+      font-size: 0.65em;
+    }
+
+    .linear-week-row {
+      gap: 8px;
+    }
+
+    .months-grid {
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      gap: 8px;
+    }
+
+    .month-box {
+      padding: 10px;
+      font-size: 0.9em;
+    }
   }
 
   @media (max-width: 768px) {
