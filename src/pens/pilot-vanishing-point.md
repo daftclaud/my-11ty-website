@@ -1,9 +1,17 @@
 ---
+title: "Pilot Vanishing Point: Innovative Convenience"
+description: "The Pilot Vanishing Point is a fountain pen known for its innovative retractable nib. Its convenience and smooth writing make it a favorite among those who value both form and function."
+image: "/assets/pens/pilot-vanishing-point.webp"
+caption: "The Pilot Vanishing Point Fountain Pen"
+brand: "Pilot"
+type: "Fountain"
+---
 title: "Pilot Vanishing Point: Innovation in Writing"
 description: "The Pilot Vanishing Point is a revolutionary fountain pen with a retractable nib, offering a seamless blend of innovation, functionality, and elegance."
 image: "/assets/pens/pilot-vanishing-point.webp"
 caption: "The Pilot Vanishing Point Fountain Pen"
----
+brand: "Pilot"
+type: "Fountain"
 
 ## Design and Build
 

@@ -1,9 +1,17 @@
 ---
+title: "TWSBI Diamond 580 Iris: Transparent Beauty"
+description: "The TWSBI Diamond 580 Iris is a fountain pen known for its transparent body and iridescent accents. Its piston filling system and smooth nib make it a favorite among those who appreciate both form and function."
+image: "/assets/pens/twsbi-diamond-580-iris.webp"
+caption: "The TWSBI Diamond 580 Iris Fountain Pen"
+brand: "TWSBI"
+type: "Fountain"
+---
 title: "TWSBI Diamond 580 Iris: Radiant Innovation"
 description: "The TWSBI Diamond 580 Iris is a striking fountain pen that combines innovative design with vibrant, colorful aesthetics. Its unique demonstrator design and exceptional performance make it a standout choice for fountain pen enthusiasts."
 image: "/assets/pens/twsbi-diamond-580-iris.webp"
 caption: "The TWSBI Diamond 580 Iris Fountain Pen"
----
+brand: "TWSBI"
+type: "Fountain"
 
 ## Design and Build
 

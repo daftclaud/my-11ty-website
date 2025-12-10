@@ -1,9 +1,17 @@
 ---
+title: "Montblanc Victor Hugo: Literary Tribute"
+description: "The Montblanc Victor Hugo is a limited edition pen that pays tribute to the legendary French writer. Its intricate design and exceptional craftsmanship make it a collector's dream."
+image: "/assets/pens/montblanc-victor-hugo.webp"
+caption: "The Montblanc Victor Hugo Pen"
+brand: "Montblanc"
+type: "Fountain"
+---
 title: "Montblanc Writers Edition Homage to Victor Hugo Limited Edition"
 description: "The Montblanc Writers Edition Homage to Victor Hugo Limited Edition is a tribute to the great French writer Victor Hugo, celebrating his literary genius and his lasting impact on the world of literature."
 image: "/assets/pens/montblanc-victor-hugo.webp"
 caption: "The Montblanc Writers Edition Homage to Victor Hugo Pen"
----
+brand: "Montblanc"
+type: "Fountain"
 
 ## Design and Build
 

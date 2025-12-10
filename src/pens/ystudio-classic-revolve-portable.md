@@ -1,15 +1,23 @@
 ---
+title: "Ystudio Classic Revolve Portable: Portable Artistry"
+description: "The Ystudio Classic Revolve Portable is a pen designed for those who appreciate art on the go. Its compact size and elegant design make it a stylish companion for travel and daily use."
+image: "/assets/pens/ystudio-classic-revolve-portable.webp"
+caption: "The Ystudio Classic Revolve Portable Pen"
+brand: "Ystudio"
+type: "Ballpoint"
+---
 title: "YSTUDIO Classic Revolve Portable: Tradition Meets Modernity"
 description: "The YSTUDIO Classic Revolve Portable pen blends traditional craftsmanship with modern design, offering a unique writing experience in a compact and elegant form."
 image: "/assets/pens/ystudio-classic-revolve-portable.webp"
 caption: "The YSTUDIO Classic Revolve Portable Pen"
----
-
-## Design and Build
-
-The YSTUDIO Classic Revolve Portable pen is a stunning example of how traditional craftsmanship can be combined with modern design elements. The pen features a hexagonal brass body, giving it a solid and robust feel while ensuring durability. The elegant design is further enhanced by a matte black finish, which not only adds a touch of sophistication but also provides a comfortable grip. The compact size makes it an ideal pen for those who are always on the go, easily fitting into pockets and bags. The pen's minimalist aesthetic is complemented by the YSTUDIO logo subtly engraved on the body, adding to its overall elegance.
-
-## Writing Experience
+brand: "YSTUDIO"
+type: "Rollerball"
+title: "YSTUDIO Classic Revolve Portable: Tradition Meets Modernity"
+description: "The YSTUDIO Classic Revolve Portable pen blends traditional craftsmanship with modern design, offering a unique writing experience in a compact and elegant form."
+image: "/assets/pens/ystudio-classic-revolve-portable.webp"
+caption: "The YSTUDIO Classic Revolve Portable Pen"
+brand: "YSTUDIO"
+type: "Rollerball"
 
 Writing with the YSTUDIO Classic Revolve Portable pen is a delightful experience. The pen uses a high-quality Schmidt rollerball refill, known for its smooth and consistent ink flow. The brass body provides a balanced weight, making the pen comfortable to hold and write with for extended periods. The precise machining and attention to detail ensure that every stroke is smooth and effortless, making it perfect for both quick notes and detailed writing. The ergonomic design and the well-balanced weight contribute to a writing experience that is both comfortable and enjoyable.
 

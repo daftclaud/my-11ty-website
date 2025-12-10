@@ -1,9 +1,17 @@
 ---
+title: "Parker IM Monochrome Fountain: Sleek Simplicity"
+description: "The Parker IM Monochrome Fountain Pen offers a minimalist design with reliable performance. Its monochrome finish and smooth nib make it a favorite for those who appreciate understated elegance."
+image: "/assets/pens/parker-im-monochrome-fountain.avif"
+caption: "The Parker IM Monochrome Fountain Pen"
+brand: "Parker"
+type: "Fountain"
+---
 title: "Parker IM Monochrome Fountain Pen: Burgundy Elegance"
 description: "The Parker IM Monochrome fountain pen in burgundy combines sophisticated color with smooth writing performance, offering a refined writing experience for fountain pen enthusiasts."
 image: "/assets/pens/parker-im-monochrome-fountain.avif"
 caption: "The Parker IM Monochrome Fountain Pen in Burgundy"
----
+brand: "Parker"
+type: "Fountain"
 
 ## Design and Build
 

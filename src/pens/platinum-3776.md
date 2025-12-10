@@ -1,9 +1,17 @@
 ---
+title: "Platinum 3776: Japanese Tradition"
+description: "The Platinum 3776 is a fountain pen that embodies Japanese tradition and quality. Its gold nib and classic design make it a cherished writing instrument for enthusiasts and collectors."
+image: "/assets/pens/platinum-3776.webp"
+caption: "The Platinum 3776 Fountain Pen"
+brand: "Platinum"
+type: "Fountain"
+---
 title: "Platinum #3776: Excellence in Writing"
 description: "The Platinum #3776 is a masterpiece of Japanese craftsmanship, known for its superior writing experience and elegant design. It is a favorite among pen enthusiasts for its precision and reliability."
 image: "/assets/pens/platinum-3776.webp"
 caption: "The Platinum #3776 Pen"
----
+brand: "Platinum"
+type: "Fountain"
 
 ## Design and Build
 

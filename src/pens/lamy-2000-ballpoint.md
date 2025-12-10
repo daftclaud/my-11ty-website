@@ -3,6 +3,8 @@ title: "Lamy 2000 Ballpoint: Timeless Precision"
 description: "The Lamy 2000 Ballpoint Pen is a masterclass in design and functionality. With its Bauhaus-inspired aesthetics, durable materials, and smooth writing experience, it remains a top choice for professionals and pen enthusiasts."
 image: "/assets/pens/lamy-2000-ballpoint.jpg"
 caption: "The Lamy 2000 Ballpoint Pen in Makrolon and Stainless Steel"
+brand: "Lamy"
+type: "Ballpoint"
 ---
 
 ## Design and Build

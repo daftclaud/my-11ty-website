@@ -1,9 +1,17 @@
 ---
+title: "OHTO CR01: Japanese Precision"
+description: "The OHTO CR01 is a ballpoint pen that exemplifies Japanese engineering and precision. Its compact design and reliable performance make it a practical choice for everyday writing."
+image: "/assets/pens/ohto-cr01.jpg"
+caption: "The OHTO CR01 Ballpoint Pen"
+brand: "OHTO"
+type: "Ballpoint"
+---
 title: "Ohto CR01: Precision and Durability in a Ceramic Roller Pen"
 description: "The Ohto CR01 is a ceramic roller pen that combines cutting-edge technology with a bold and solid design. Known for its non-dry refill and high-quality SiC ceramic ball, this pen offers a smooth and reliable writing experience."
 image: "/assets/pens/ohto-cr01.jpg"
 caption: "The Ohto CR01 Ceramic Roller Pen"
----
+brand: "Ohto"
+type: "Rollerball"
 
 ## Design and Build
 

@@ -1,9 +1,17 @@
 ---
+title: "Lamy Aion: Modern Minimalism"
+description: "The Lamy Aion is a modern pen that exemplifies minimalism and functionality. Its sleek design and smooth writing performance make it a standout choice for those who appreciate contemporary aesthetics."
+image: "/assets/pens/lamy-aion.webp"
+caption: "The Lamy Aion Ballpoint Pen"
+brand: "Lamy"
+type: "Ballpoint"
+---
 title: "LAMY Aion: Sleek Design and Smooth Writing"
 description: "The LAMY Aion combines sleek design with an exceptional writing experience. Its seamless construction and high-quality materials make it a standout choice for any writing enthusiast."
 image: "/assets/pens/lamy-aion.webp"
 caption: "The LAMY Aion Pen"
----
+brand: "LAMY"
+type: "Rollerball"
 
 ## Design and Build
 

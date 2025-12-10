@@ -1,9 +1,17 @@
 ---
+title: "rOtring 800 Ballpoint: Engineering Excellence"
+description: "The rOtring 800 Ballpoint is a pen designed for precision and durability. Its engineering-focused design and reliable performance make it a top choice for professionals and technical users."
+image: "/assets/pens/rotring-800-ballpoint.jpg"
+caption: "The rOtring 800 Ballpoint Pen"
+brand: "rOtring"
+type: "Ballpoint"
+---
 title: "Rotring 800 Ballpoint: Precision and Engineering Excellence"
 description: "The Rotring 800 Ballpoint Pen is a premium writing instrument combining German engineering with a robust metal design. With its knurled grip, retractable tip, and impeccable build quality, it stands as a top choice for professionals and enthusiasts."
 image: "/assets/pens/rotring-800-ballpoint.jpg"
 caption: "The Rotring 800 Ballpoint Pen in Black with Gold Accents"
----
+brand: "Rotring"
+type: "Ballpoint"
 
 ## Design and Build
 

@@ -1,9 +1,18 @@
 ---
 title: "Montblanc StarWalker Doué: Futuristic Elegance"
+description: "The Montblanc StarWalker Doué combines futuristic design with timeless elegance. Its innovative features and premium materials make it a favorite among discerning writers."
+image: "/assets/pens/montblanc-starwalker-doue.webp"
+caption: "The Montblanc StarWalker Doué Pen"
+brand: "Montblanc"
+type: "Ballpoint"
+---
+ 
+title: "Montblanc StarWalker Doué: Futuristic Elegance"
 description: "The Montblanc StarWalker Doué is a sophisticated writing instrument that combines futuristic design with Montblanc's renowned craftsmanship, offering a unique and elegant writing experience."
 image: "/assets/pens/montblanc-starwalker-doue.webp"
 caption: "The Montblanc StarWalker Doué Pen"
----
+brand: "Montblanc"
+type: "Rollerball"
 
 ## Design and Build
 

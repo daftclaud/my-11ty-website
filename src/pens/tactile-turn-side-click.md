@@ -1,9 +1,17 @@
 ---
+title: "Tactile Turn Side Click: Precision Engineering"
+description: "The Tactile Turn Side Click is a ballpoint pen that showcases precision engineering and a unique side-click mechanism. Its tactile feel and robust construction make it a favorite among pen enthusiasts."
+image: "/assets/pens/tactile-turn-side-click.webp"
+caption: "The Tactile Turn Side Click Ballpoint Pen"
+brand: "Tactile Turn"
+type: "Ballpoint"
+---
 title: "Tactile Turn Side Click: Precision and Durability"
 description: "The Tactile Turn Side Click pen is a marvel of engineering and design, offering a unique side click mechanism and exceptional build quality. Perfect for those who appreciate precision and durability in their writing instruments."
 image: "/assets/pens/tactile-turn-side-click.webp"
 caption: "The Tactile Turn Side Click Pen"
----
+brand: "Tactile Turn"
+type: "Ballpoint"
 
 ## Design and Build
 

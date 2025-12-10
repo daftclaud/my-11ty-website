@@ -1,9 +1,17 @@
 ---
+title: "Trekker Space Pen: Adventure-Ready Writing"
+description: "The Trekker Space Pen is designed for adventure, offering reliable writing in extreme conditions. Its compact size and durable build make it a must-have for outdoor enthusiasts and travelers."
+image: "/assets/pens/trekker-space-pen.webp"
+caption: "The Trekker Space Pen"
+brand: "Fisher"
+type: "Ballpoint"
+---
 title: "Trekker Space Pen: Durable and Versatile"
 description: "The Trekker Space Pen is designed for adventurers and outdoor enthusiasts, offering reliable performance in extreme conditions. Its rugged build and innovative design make it the perfect companion for writing anywhere, anytime."
 image: "/assets/pens/trekker-space-pen.webp"
 caption: "The Trekker Space Pen in Matte Black"
----
+brand: "Fisher"
+type: "Ballpoint"
 
 ## Design and Build
 

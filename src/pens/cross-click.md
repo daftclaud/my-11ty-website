@@ -3,6 +3,8 @@ title: "Cross Click: Sleek and Modern"
 description: "The Cross Click is a contemporary writing instrument designed for those who value style and functionality. Its sleek design and smooth writing experience make it a popular choice among professionals and pen enthusiasts alike."
 image: "/assets/pens/cross-click.webp"
 caption: "The Cross Click"
+brand: "Cross"
+type: "Ballpoint"
 ---
 
 ## Design and Build

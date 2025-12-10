@@ -1,9 +1,17 @@
 ---
+title: "Ystudio Glamour Evolve Bihex: Geometric Elegance"
+description: "The Ystudio Glamour Evolve Bihex is a pen that features geometric elegance and modern design. Its unique shape and premium materials make it a standout piece for collectors and enthusiasts."
+image: "/assets/pens/ystudio-glamour-evolve-bihex.webp"
+caption: "The Ystudio Glamour Evolve Bihex Pen"
+brand: "Ystudio"
+type: "Ballpoint"
+---
 title: "YSTUDIO Glamour Evolve-Bihex: Elegance and Innovation"
 description: "Celebrating a decade of creativity, YSTUDIO introduces the Glamour Evolve-Bihex, a bold and stylish writing instrument that combines classic brass with modern composite materials."
 image: "/assets/pens/ystudio-glamour-evolve-bihex.webp"
 caption: "The YSTUDIO Glamour Evolve-Bihex"
----
+brand: "YSTUDIO"
+type: "Rollerball"
 
 ## Design and Build
 

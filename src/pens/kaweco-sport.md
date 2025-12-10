@@ -3,6 +3,8 @@ title: "Kaweco Sport: Compact and Timeless"
 description: "The Kaweco Sport is a beloved classic in the world of writing instruments, known for its compact design and reliable performance. Its timeless appeal and practical features make it a favorite among pen enthusiasts."
 image: "/assets/pens/kaweco-sport.jpg"
 caption: "The Kaweco Sport Pen"
+brand: "Kaweco"
+type: "Fountain"
 ---
 
 ## Design and Build

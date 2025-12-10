@@ -1,9 +1,17 @@
 ---
+title: "Uni-ball Zento Signature: Executive Elegance"
+description: "The Uni-ball Zento Signature is a ballpoint pen designed for executives. Its elegant design and smooth writing make it a premium choice for those who value both style and substance."
+image: "/assets/pens/uniball-zento-signature.webp"
+caption: "The Uni-ball Zento Signature Ballpoint Pen"
+brand: "Uni-ball"
+type: "Ballpoint"
+---
 title: "Uniball Zento Signature Gel Pen: Sleek Precision in Writing"
 description: "The Uniball Zento Signature Gel Pen in 0.5mm black is designed to elevate everyday writing moments. With its refined construction, magnetic cap, and revolutionary ink, it blends calm creativity with precision and style."
 image: "/assets/pens/uniball-zento-signature.webp"
 caption: "The Uniball Zento Signature Gel Pen in Black 0.5mm"
----
+brand: "Uniball"
+type: "Gel"
 
 ## Design and Build
 

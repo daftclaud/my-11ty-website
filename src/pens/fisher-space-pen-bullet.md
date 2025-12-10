@@ -3,6 +3,8 @@ title: "Fisher Space Pen Bullet: Writing Anywhere, Anytime"
 description: "The Fisher Space Pen Bullet is renowned for its durability and ability to write in extreme conditions. Its compact and elegant design makes it a reliable and stylish choice for any writing task."
 image: "/assets/pens/fisher-space-pen-bullet.png"
 caption: "The Fisher Space Pen Bullet"
+brand: "Fisher"
+type: "Ballpoint"
 ---
 
 ## Design and Build

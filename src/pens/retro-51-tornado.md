@@ -1,9 +1,17 @@
 ---
+title: "Retro 51 Tornado: Playful Versatility"
+description: "The Retro 51 Tornado is a rollerball pen known for its playful designs and versatile writing experience. Its smooth ink flow and comfortable grip make it a fun and functional addition to any collection."
+image: "/assets/pens/retro-51-tornado.webp"
+caption: "The Retro 51 Tornado Rollerball Pen"
+brand: "Retro 51"
+type: "Rollerball"
+---
 title: "Retro 51 Tornado: Classic and Versatile"
 description: "The Retro 51 Tornado is a timeless rollerball pen known for its distinctive design and smooth writing performance. Its classic appearance and variety of finishes make it a favorite among pen enthusiasts and professionals alike."
 image: "/assets/pens/retro-51-tornado.webp"
 caption: "The Retro 51 Tornado Rollerball Pen"
----
+brand: "Retro 51"
+type: "Rollerball"
 
 ## Design and Build
 

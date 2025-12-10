@@ -1,9 +1,17 @@
 ---
+title: "Parker IM Monochrome: Modern Professionalism"
+description: "The Parker IM Monochrome is a ballpoint pen designed for modern professionals. Its sleek, monochromatic finish and smooth writing experience make it a stylish and reliable companion for work and everyday use."
+image: "/assets/pens/parker-im-monochrome.webp"
+caption: "The Parker IM Monochrome Ballpoint Pen"
+brand: "Parker"
+type: "Ballpoint"
+---
 title: "Parker IM Monochrome Ballpoint: Modern Elegance"
 description: "The Parker IM Monochrome Ballpoint is a modern writing instrument that combines contemporary design with reliable performance, making it a perfect companion for both professional and personal use."
 image: "/assets/pens/parker-im-monochrome.webp"
 caption: "The Parker IM Monochrome Ballpoint"
----
+brand: "Parker"
+type: "Ballpoint"
 
 ## Design and Build
 

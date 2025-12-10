@@ -3,6 +3,8 @@ title: "Baron Fig Squire: Stylish and Functional"
 description: "The Baron Fig Squire is a modern rollerball pen that blends style with functionality. Known for its sleek design and smooth writing performance, it's a favorite among professionals and writing enthusiasts alike."
 image: "/assets/pens/baron-fig-squire.webp"
 caption: "The Baron Fig Squire Ballpoint Pen"
+brand: "Baron Fig"
+type: "Rollerball"
 ---
 
 ## Design and Build

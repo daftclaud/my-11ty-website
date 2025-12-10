@@ -1,9 +1,17 @@
 ---
+title: "Pilot Custom 823: Japanese Excellence"
+description: "The Pilot Custom 823 is a fountain pen that exemplifies Japanese craftsmanship and innovation. Its vacuum filling system and smooth nib make it a top choice for serious writers and collectors."
+image: "/assets/pens/pilot-custom-823.jpg"
+caption: "The Pilot Custom 823 Fountain Pen"
+brand: "Pilot"
+type: "Fountain"
+---
 title: "Pilot Custom 823: A Demonstrator of Elegance and Performance"
 description: "The Pilot Custom 823 is a luxury fountain pen that combines exceptional craftsmanship, a unique vacuum filling system, and a sleek demonstrator design. Renowned for its smooth writing and substantial ink capacity, the Custom 823 is a favorite among fountain pen enthusiasts."
 image: "/assets/pens/pilot-custom-823.jpg"
 caption: "The Pilot Custom 823 Fountain Pen"
----
+brand: "Pilot"
+type: "Fountain"
 
 ## Design and Build
 

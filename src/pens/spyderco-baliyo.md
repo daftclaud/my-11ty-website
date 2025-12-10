@@ -1,8 +1,10 @@
 ---
-title: "Spyderco BaliYo: The Unique Fusion of Function and Play"
-description: "The Spyderco BaliYo is a unique pen that combines the functionality of a writing instrument with the playful elements of a balisong (butterfly knife). Its innovative design makes it a fascinating addition to any collection."
+title: "Spyderco BaliYo: Fidget-Friendly Writing"
+description: "The Spyderco BaliYo is a unique pen that doubles as a fidget toy. Its playful design and smooth writing make it a fun and functional addition to any desk or pocket."
 image: "/assets/pens/spyderco-baliyo.jpg"
 caption: "The Spyderco BaliYo Pen"
+brand: "Spyderco"
+type: "Ballpoint"
 ---
 
 ## Design and Build

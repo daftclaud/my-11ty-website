@@ -1,9 +1,17 @@
 ---
+title: "Lamy Safari: Iconic and Accessible"
+description: "The Lamy Safari is an iconic pen, celebrated for its ergonomic design and vibrant color options. Its affordability and reliability make it a popular choice for students and professionals alike."
+image: "/assets/pens/lamy-safari.jpg"
+caption: "The Lamy Safari Ballpoint Pen in Yellow"
+brand: "Lamy"
+type: "Ballpoint"
+---
 title: "LAMY Safari: Iconic Design and Versatile Performance"
 description: "The LAMY Safari is a renowned fountain pen celebrated for its distinctive design, reliable performance, and affordability. Its ergonomic features and variety of colors make it a popular choice for both new and experienced fountain pen users."
 image: "/assets/pens/lamy-safari.jpg"
 caption: "The LAMY Safari Fountain Pen"
----
+brand: "LAMY"
+type: "Fountain"
 
 ## Design and Build
 

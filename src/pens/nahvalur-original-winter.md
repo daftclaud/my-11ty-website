@@ -1,9 +1,17 @@
 ---
+title: "Nahvalur Original Winter: Frosty Elegance"
+description: "The Nahvalur Original Winter is a fountain pen inspired by the serene beauty of winter. Its frosty design and smooth writing experience make it a favorite among those who appreciate seasonal aesthetics."
+image: "/assets/pens/nahvalur-original-winter.webp"
+caption: "The Nahvalur Original Winter Fountain Pen"
+brand: "Nahvalur"
+type: "Fountain"
+---
 title: "Nahvalur Original Winter: Serene Elegance in Ice Blue"
 description: "The Nahvalur Original Winter fountain pen captures the tranquil beauty of winter with its stunning ice blue resin and silver chrome accents. A piston-filling fountain pen that combines aesthetic appeal with reliable performance."
 image: "/assets/pens/nahvalur-original-winter.webp"
 caption: "The Nahvalur Original Winter Fountain Pen"
----
+brand: "Nahvalur"
+type: "Fountain"
 
 ## Design and Inspiration
 

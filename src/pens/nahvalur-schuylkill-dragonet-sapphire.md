@@ -1,9 +1,17 @@
 ---
+title: "Nahvalur Schuylkill Dragonet Sapphire: Aquatic Inspiration"
+description: "The Nahvalur Schuylkill Dragonet Sapphire is a fountain pen inspired by aquatic life and the vibrant hues of sapphire. Its unique design and smooth writing performance make it a standout piece for collectors."
+image: "/assets/pens/nahvalur-schuylkill-dragonet-sapphire.webp"
+caption: "The Nahvalur Schuylkill Dragonet Sapphire Fountain Pen"
+brand: "Nahvalur"
+type: "Fountain"
+---
 title: "Nahvalur Schuylkill Dragonet Sapphire: A Radiant Limited Edition"
 description: "The Nahvalur Schuylkill Dragonet Sapphire fountain pen captures the beauty of tropical seas in its exclusive resin design. Limited to 2000 pieces, it combines craftsmanship, elegance, and a piston-filling mechanism for a remarkable writing experience."
 image: "/assets/pens/nahvalur-schuylkill-dragonet-sapphire.webp"
 caption: "The Nahvalur Schuylkill Dragonet Sapphire Limited Edition Fountain Pen"
----
+brand: "Nahvalur"
+type: "Fountain"
 
 ## Design and Inspiration
 

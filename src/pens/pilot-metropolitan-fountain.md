@@ -1,9 +1,17 @@
 ---
+title: "Pilot Metropolitan Fountain: Affordable Quality"
+description: "The Pilot Metropolitan Fountain Pen is celebrated for its affordability and quality. Its sleek design and smooth writing experience make it an excellent choice for beginners and seasoned writers alike."
+image: "/assets/pens/pilot-metropolitan-fountain.jpg"
+caption: "The Pilot Metropolitan Fountain Pen"
+brand: "Pilot"
+type: "Fountain"
+---
 title: "Pilot Metropolitan Fountain Pen: Affordable Elegance"
 description: "The Pilot Metropolitan Fountain Pen is a perfect blend of style, performance, and affordability, making it an excellent choice for both beginners and experienced writers."
 image: "/assets/pens/pilot-metropolitan-fountain.jpg"
 caption: "The Pilot Metropolitan Fountain Pen"
----
+brand: "Pilot"
+type: "Fountain"
 
 ## Design and Build
 

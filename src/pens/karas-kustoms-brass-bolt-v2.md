@@ -3,6 +3,8 @@ title: "Karas Kustoms Brass Bolt V2: Rugged Precision"
 description: "The Karas Kustoms Brass Bolt V2 is a robust and meticulously crafted pen, known for its unique bolt-action mechanism and solid brass construction. It offers a writing experience that combines durability with precision."
 image: "/assets/pens/karas-kustoms-brass-bolt-v2.png"
 caption: "The Karas Kustoms Brass Bolt V2 Pen"
+brand: "Karas Kustoms"
+type: "Ballpoint"
 ---
 
 ## Design and Build

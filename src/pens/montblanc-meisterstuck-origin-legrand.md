@@ -3,6 +3,8 @@ title: "Montblanc Meisterstück The Origin Collection LeGrand: A Century of Exce
 description: "The Montblanc Meisterstück The Origin Collection LeGrand celebrates 100 years of the Meisterstück, blending historical design elements with modern craftsmanship. This limited-edition pen pays tribute to Montblanc's rich heritage while offering a timeless writing experience."
 image: "/assets/pens/montblanc-meisterstuck-origin-legrand.webp"
 caption: "Montblanc Meisterstück The Origin Collection LeGrand Pen"
+brand: "Montblanc"
+type: "Fountain"
 ---
 
 ## Design and Build

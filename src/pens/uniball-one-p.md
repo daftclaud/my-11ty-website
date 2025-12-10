@@ -1,9 +1,17 @@
 ---
+title: "Uni-ball One P: Vibrant Writing"
+description: "The Uni-ball One P is a gel pen that delivers vibrant colors and smooth writing. Its modern design and reliable performance make it a popular choice for students and professionals."
+image: "/assets/pens/uniball-one-p.webp"
+caption: "The Uni-ball One P Gel Pen"
+brand: "Uni-ball"
+type: "Gel"
+---
 title: "Uniball One P: Precision and Simplicity"
 description: "The Uniball One P is a reliable and stylish ballpoint pen known for its precision and smooth writing experience. Its sleek design and high-quality performance make it a great choice for everyday use."
 image: "/assets/pens/uniball-one-p.webp"
 caption: "The Uniball One P Ballpoint Pen"
----
+brand: "Uniball"
+type: "Ballpoint"
 
 ## Design and Build
 

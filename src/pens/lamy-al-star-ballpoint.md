@@ -1,8 +1,10 @@
 ---
-title: "LAMY AL-star Ballpoint: Modern Simplicity"
-description: "The LAMY AL-star Ballpoint Pen combines modern design with functionality, offering a sleek, lightweight writing instrument ideal for everyday use."
+title: "Lamy AL-star Ballpoint: Lightweight and Versatile"
+description: "The Lamy AL-star Ballpoint Pen is known for its lightweight aluminum body and versatile design. It offers a comfortable writing experience and is available in a range of vibrant colors."
 image: "/assets/pens/lamy-al-star-ballpoint.jpg"
-caption: "The LAMY AL-star Ballpoint Pen"
+caption: "The Lamy AL-star Ballpoint Pen in Graphite"
+brand: "Lamy"
+type: "Ballpoint"
 ---
 
 ## Design and Build

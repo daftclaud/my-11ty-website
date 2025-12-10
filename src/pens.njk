@@ -4,6 +4,16 @@ layout: base.njk
 ---
 
 <div class="content">
+  <div class="pen-filters" style="margin-bottom: 2em;">
+      <label for="brandFilter">Brand:</label>
+      <select id="brandFilter">
+        <option value="">All Brands</option>
+      </select>
+      <label for="typeFilter" style="margin-left:1em;">Type:</label>
+      <select id="typeFilter">
+        <option value="">All Types</option>
+      </select>
+  </div>
   <img src="/assets/pens.jpeg" alt="Pens" />
   <p>
     Whether it’s a classic Parker Jotter, a special edition Montblanc, or even a
@@ -26,19 +36,64 @@ layout: base.njk
   </p>
 
   <section class="pen-list">
-    {% for post in collections.pen %}
-    <article class="pen-item">
-      <img src="{{ post.data.image }}" alt="{{ post.data.title }} thumbnail" />
-      <div class="pen-info">
-        <h2>
-          <a href="{{ post.url }}">{{ post.data.title }}</a>
-        </h2>
-        <p>{{ post.data.description }}</p>
-      </div>
-    </article>
-    {% endfor %}
+      {% for post in collections.pen %}
+      <article class="pen-item" data-brand="{{ post.data.brand }}" data-type="{{ post.data.type }}">
+        <img src="{{ post.data.image }}" alt="{{ post.data.title }} thumbnail" />
+        <div class="pen-info">
+          <h2>
+            <a href="{{ post.url }}">{{ post.data.title }}</a>
+          </h2>
+          <p>{{ post.data.description }}</p>
+        </div>
+      </article>
+      {% endfor %}
   </section>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const brandFilter = document.getElementById('brandFilter');
+  const typeFilter = document.getElementById('typeFilter');
+  const penItems = document.querySelectorAll('.pen-item');
+
+  // Collect unique brands and types from pen items
+  const brandsSet = new Set();
+  const typesSet = new Set();
+  penItems.forEach(item => {
+    if (item.dataset.brand) brandsSet.add(item.dataset.brand);
+    if (item.dataset.type) typesSet.add(item.dataset.type);
+  });
+
+  // Populate brand dropdown
+  brandsSet.forEach(brand => {
+    const option = document.createElement('option');
+    option.value = brand;
+    option.textContent = brand;
+    brandFilter.appendChild(option);
+  });
+
+  // Populate type dropdown
+  typesSet.forEach(type => {
+    const option = document.createElement('option');
+    option.value = type;
+    option.textContent = type;
+    typeFilter.appendChild(option);
+  });
+
+  function filterPens() {
+    const brand = brandFilter.value;
+    const type = typeFilter.value;
+    penItems.forEach(item => {
+      const matchesBrand = !brand || item.dataset.brand === brand;
+      const matchesType = !type || item.dataset.type === type;
+      item.style.display = (matchesBrand && matchesType) ? '' : 'none';
+    });
+  }
+
+  brandFilter.addEventListener('change', filterPens);
+  typeFilter.addEventListener('change', filterPens);
+});
+</script>
 
 <style>
   .content img {

@@ -1,8 +1,10 @@
 ---
-title: "Montblanc Meisterstück LeGrand: The Pinnacle of Elegance"
-description: "The Montblanc Meisterstück LeGrand is a symbol of luxury and sophistication, renowned for its impeccable craftsmanship and timeless design. It is the ultimate writing instrument for those who appreciate the finer things in life."
+title: "Montblanc Meisterstück LeGrand: Luxury and Legacy"
+description: "The Montblanc Meisterstück LeGrand is a symbol of luxury and craftsmanship. Its classic design and exceptional writing performance make it a prized possession for collectors and professionals."
 image: "/assets/pens/montblanc-meisterstuck-legrand.png"
 caption: "The Montblanc Meisterstück LeGrand Pen"
+brand: "Montblanc"
+type: "Fountain"
 ---
 
 ## Design and Build

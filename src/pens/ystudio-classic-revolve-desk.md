@@ -1,9 +1,17 @@
 ---
+title: "Ystudio Classic Revolve Desk: Artistic Statement"
+description: "The Ystudio Classic Revolve Desk is a pen that doubles as an artistic statement. Its bold design and premium materials make it a centerpiece for any desk."
+image: "/assets/pens/ystudio-classic-revolve-desk.webp"
+caption: "The Ystudio Classic Revolve Desk Pen"
+brand: "Ystudio"
+type: "Ballpoint"
+---
 title: "YSTUDIO Classic Revolve-Desk: A Blend of Elegance and Functionality"
 description: "The YSTUDIO Classic Revolve-Desk pen exemplifies a perfect blend of elegant design and practical functionality. Its brass construction and timeless aesthetics make it an ideal addition to any desk."
 image: "/assets/pens/ystudio-classic-revolve-desk.webp"
 caption: "The YSTUDIO Classic Revolve-Desk Pen"
----
+brand: "YSTUDIO"
+type: "Rollerball"
 
 ## Design and Build
 

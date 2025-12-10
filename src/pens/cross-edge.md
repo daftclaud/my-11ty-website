@@ -3,6 +3,8 @@ title: "Cross Edge: Innovative Design Meets Smooth Writing"
 description: "The Cross Edge is a modern writing instrument that combines an innovative slide-open design with a smooth writing experience. Its bold and contemporary look makes it a standout in any collection."
 image: "/assets/pens/cross-edge.webp"
 caption: "The Cross Edge Pen"
+brand: "Cross"
+type: "Gel"
 ---
 
 ## Design and Build
