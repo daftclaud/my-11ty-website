@@ -55,4 +55,20 @@
     font-style: italic;
     color: #555;
   }
+
+  /* Dark mode overrides */
+  [data-theme="dark"] section.word-entry {
+    background: var(--clr-main-bg);
+    border-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .word {
+    color: var(--clr-link);
+  }
+
+  [data-theme="dark"] .source,
+  [data-theme="dark"] .usage-example {
+    color: var(--clr-text);
+    opacity: 0.8;
+  }
 </style>

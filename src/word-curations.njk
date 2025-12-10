@@ -921,6 +921,314 @@ layout: base.njk
       gap: 20px;
     }
   }
+
+  /* Dark mode overrides */
+  [data-theme="dark"] .hero-quote {
+    background: var(--clr-main-bg);
+    border-left-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .quote-text {
+    color: var(--clr-text);
+  }
+
+  [data-theme="dark"] .quote-author {
+    color: var(--clr-link);
+  }
+
+  [data-theme="dark"] .view-toggle {
+    background: var(--clr-main-bg);
+    border-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .view-toggle-btn {
+    background: var(--clr-main-bg);
+    color: var(--clr-link);
+    border-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .view-toggle-btn:hover {
+    background: var(--clr-nav-bg);
+  }
+
+  [data-theme="dark"] .view-toggle-btn.active {
+    background: var(--clr-border);
+    color: var(--clr-main-bg);
+  }
+
+  [data-theme="dark"] .stat-card {
+    background: var(--clr-main-bg);
+    border-color: var(--clr-border);
+    box-shadow: 4px 4px 0 var(--clr-border);
+  }
+
+  [data-theme="dark"] .stat-label {
+    color: var(--clr-text);
+  }
+
+  [data-theme="dark"] .toggle-btn {
+    background: var(--clr-main-bg);
+    border-color: var(--clr-border);
+    color: var(--clr-link);
+  }
+
+  [data-theme="dark"] .toggle-btn.active {
+    background: var(--clr-border);
+    color: var(--clr-main-bg);
+  }
+
+  [data-theme="dark"] .chart-container {
+    background: var(--clr-main-bg);
+    border-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .timeline-calendar {
+    background: var(--clr-background);
+  }
+
+  [data-theme="dark"] .year-section {
+    background: var(--clr-main-bg);
+    border-left-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .year-header {
+    border-bottom-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .year-total {
+    color: var(--clr-link);
+  }
+
+  [data-theme="dark"] .mini-calendar {
+    background: var(--clr-main-bg);
+    border-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .mini-day {
+    background-color: #2a2a3e;
+    border-color: #3a3a4e;
+  }
+
+  [data-theme="dark"] .timeline-legend {
+    background: var(--clr-main-bg);
+    border-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .timeline-stat-item {
+    background: rgba(0, 212, 255, 0.1);
+    border-left-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .timeline-stat-item .stat-label {
+    color: var(--clr-text);
+  }
+
+  [data-theme="dark"] .activity-table,
+  [data-theme="dark"] .repeated-table {
+    background: var(--clr-main-bg);
+    border-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .activity-table th,
+  [data-theme="dark"] .repeated-table th {
+    background: var(--clr-nav-bg);
+    border-bottom-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .activity-table td,
+  [data-theme="dark"] .repeated-table td {
+    border-bottom-color: #3a3a4e;
+  }
+
+  [data-theme="dark"] .activity-table tbody tr:hover,
+  [data-theme="dark"] .repeated-table tbody tr:hover {
+    background: var(--clr-nav-bg);
+  }
+
+  [data-theme="dark"] .repeated-table .count-column {
+    background: var(--clr-nav-bg);
+  }
+
+  [data-theme="dark"] .repeated-table .definition-column {
+    color: var(--clr-text);
+  }
+
+  [data-theme="dark"] .alphabet-chart {
+    background: var(--clr-main-bg);
+    border-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .letter-count {
+    color: var(--clr-text);
+  }
+
+  [data-theme="dark"] .all-sources-container,
+  [data-theme="dark"] .source-words-section,
+  [data-theme="dark"] .random-word-section {
+    background: var(--clr-main-bg);
+    border-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .sources-controls {
+    border-bottom-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .control-group label {
+    color: var(--clr-link);
+  }
+
+  [data-theme="dark"] .source-search,
+  [data-theme="dark"] .source-sort,
+  [data-theme="dark"] .source-filter {
+    background: var(--clr-main-bg);
+    color: var(--clr-text);
+    border-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .control-info {
+    color: var(--clr-text);
+  }
+
+  [data-theme="dark"] #sourceCount {
+    color: var(--clr-link);
+  }
+
+  [data-theme="dark"] .source-item {
+    background: var(--clr-main-bg);
+    border-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .source-item:hover {
+    background: var(--clr-nav-bg);
+    border-color: var(--clr-link);
+  }
+
+  [data-theme="dark"] .source-card {
+    background: var(--clr-main-bg);
+    border-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .source-card:hover {
+    box-shadow: 4px 4px 0 var(--clr-border);
+  }
+
+  [data-theme="dark"] .source-card.active {
+    background: var(--clr-border);
+    color: var(--clr-main-bg);
+  }
+
+  [data-theme="dark"] .source-card.active .source-name {
+    color: var(--clr-main-bg);
+  }
+
+  [data-theme="dark"] .source-card.active .source-count {
+    color: var(--clr-text);
+  }
+
+  [data-theme="dark"] .source-count {
+    color: var(--clr-text);
+  }
+
+  [data-theme="dark"] .source-words-header {
+    border-bottom-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .close-btn {
+    background: var(--clr-border);
+  }
+
+  [data-theme="dark"] .close-btn:hover {
+    background: var(--clr-heading);
+  }
+
+  [data-theme="dark"] .word-item {
+    background: var(--clr-main-bg);
+    border-left-color: var(--clr-heading);
+  }
+
+  [data-theme="dark"] .word-item-definition {
+    color: var(--clr-text);
+  }
+
+  [data-theme="dark"] .word-item-date {
+    color: var(--clr-text);
+    opacity: 0.7;
+  }
+
+  [data-theme="dark"] .milestone-list {
+    background: var(--clr-main-bg);
+    border-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .milestone-item {
+    background: var(--clr-nav-bg);
+  }
+
+  [data-theme="dark"] .word-spotlight {
+    background: linear-gradient(135deg, var(--clr-nav-bg), var(--clr-border));
+  }
+
+  [data-theme="dark"] .spotlight-source,
+  [data-theme="dark"] .spotlight-date {
+    color: var(--clr-text);
+    opacity: 0.8;
+  }
+
+  [data-theme="dark"] .refresh-note {
+    color: var(--clr-text);
+    opacity: 0.7;
+  }
+
+  [data-theme="dark"] .month {
+    background: var(--clr-main-bg);
+    border-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .month .month-title {
+    background: var(--clr-nav-bg);
+  }
+
+  [data-theme="dark"] .month .month-day-container {
+    color: var(--clr-text);
+  }
+
+  [data-theme="dark"] .month .month-day-container.active {
+    background-color: var(--clr-border);
+    color: var(--clr-main-bg);
+  }
+
+  [data-theme="dark"] .month .month-day-container.active a {
+    color: var(--clr-main-bg);
+  }
+
+  [data-theme="dark"] .month .month-day-container.active:hover,
+  [data-theme="dark"] .month .month-day-container.active a:hover {
+    background-color: var(--clr-link);
+    color: var(--clr-main-bg);
+  }
+
+  [data-theme="dark"] h2 {
+    border-bottom-color: var(--clr-border-dashed);
+  }
+
+  [data-theme="dark"] #yearSelect {
+    background: var(--clr-main-bg);
+    color: var(--clr-link);
+    border-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] #yearSelect:hover {
+    background: var(--clr-nav-bg);
+  }
+
+  [data-theme="dark"] .calendar-hint {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .calendar-hint p {
+    color: var(--clr-text);
+  }
 </style>
 
 <div class="hero-quote">
