@@ -36,8 +36,14 @@ layout: base.njk
   </div>
 
   <h2>Collection Timeline</h2>
+  
+  <div class="timeline-view-toggle">
+    <button class="toggle-btn active" data-view="calendar">Calendar View</button>
+    <button class="toggle-btn" data-view="linear">Linear View</button>
+  </div>
+
   <div class="timeline-chart">
-    <div class="chart-container timeline-calendar">
+    <div class="chart-container timeline-calendar" id="calendarView">
       <div class="calendar-grid">
         {% set yearCount = stats.yearlyBreakdown | length %}
         {% for year in stats.yearlyBreakdown %}
@@ -127,6 +133,37 @@ layout: base.njk
           <span class="stat-label">Average per Year</span>
           <span class="stat-value">{{ (stats.totalWords / stats.yearlyBreakdown | length) | round(0) }}</span>
         </div>
+      </div>
+    </div>
+
+    <!-- Linear View -->
+    <div class="chart-container timeline-linear" id="linearView" style="display: none;">
+      <div class="linear-days-container" id="linearDaysContainer">
+        <!-- Days will be populated by JavaScript -->
+      </div>
+      <div class="linear-timeline-legend">
+        <div class="legend-title">Collection Intensity</div>
+        <div class="legend-scale">
+          <div class="legend-item">
+            <div class="legend-box" style="background-color: #e0e0e0;"></div>
+            <span>No words</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-box" style="background-color: #00ffff;"></div>
+            <span>Light</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-box" style="background-color: #ff00ff;"></div>
+            <span>Medium</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-box" style="background-color: #ff0080;"></div>
+            <span>Heavy</span>
+          </div>
+        </div>
+      </div>
+      <div class="linear-timeline-stats" id="linearStats">
+        <!-- Stats will be populated by JavaScript -->
       </div>
     </div>
   </div>
@@ -352,6 +389,34 @@ layout: base.njk
     color: #333;
   }
 
+  .timeline-view-toggle {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .toggle-btn {
+    padding: 10px 20px;
+    background: #fff;
+    border: 2px solid #ff00ff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--ff-body);
+    font-weight: bold;
+    color: #ff00ff;
+    transition: all 0.2s;
+  }
+
+  .toggle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 2px 2px 0 rgba(255, 0, 255, 0.3);
+  }
+
+  .toggle-btn.active {
+    background: #ff00ff;
+    color: #fff;
+  }
+
   .timeline-chart, .monthly-activity, .sources-grid, .alphabet-chart, .milestones, .random-word-section {
     margin: 30px 0;
   }
@@ -366,6 +431,103 @@ layout: base.njk
   .timeline-calendar {
     padding: 20px;
     background: linear-gradient(135deg, #fff9e6 0%, #fff 50%, #e6f7ff 100%);
+  }
+
+  .timeline-linear {
+    padding: 20px;
+    background: linear-gradient(135deg, #fff9e6 0%, #fff 50%, #e6f7ff 100%);
+    border-color: #00ffff;
+  }
+
+  .linear-days-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 0;
+    margin-bottom: 20px;
+  }
+
+  .linear-week-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .linear-week-label {
+    font-size: 0.8em;
+    color: #666;
+    min-width: 180px;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .linear-week-days {
+    display: grid;
+    grid-template-columns: repeat(28, 1fr);
+    gap: 2px;
+    flex: 1;
+  }
+
+  .linear-day {
+    aspect-ratio: 1;
+    min-width: 12px;
+    min-height: 12px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .linear-day:hover {
+    transform: scale(2);
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+    z-index: 10;
+  }
+
+  .linear-timeline-legend {
+    margin: 20px 0;
+    padding: 15px;
+    border-top: 2px solid #00ffff;
+    border-bottom: 2px solid #00ffff;
+  }
+
+  .linear-timeline-legend .legend-title {
+    font-weight: bold;
+    color: #ff00ff;
+    margin-bottom: 10px;
+  }
+
+  .linear-timeline-legend .legend-scale {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .linear-timeline-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    background: rgba(255, 0, 255, 0.05);
+    border-radius: 8px;
+  }
+
+  .linear-stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .linear-stat-item .stat-label {
+    font-size: 0.85em;
+    color: #666;
+    font-weight: bold;
+  }
+
+  .linear-stat-item .stat-value {
+    font-size: 1.2em;
+    color: #ff00ff;
+    font-weight: bold;
   }
 
   .calendar-grid {
@@ -1112,6 +1274,9 @@ layout: base.njk
         });
       }
 
+      // Initialize timeline view toggle
+      initializeTimelineToggle();
+
       // Initialize all sources view
       initializeSourcesView();
     } catch (e) {
@@ -1148,6 +1313,133 @@ layout: base.njk
       } else {
         dayEl.style.backgroundColor = '#e0e0e0'; // No words
       }
+    });
+  }
+
+  function getColor(count) {
+    if (count === 0) return '#e0e0e0';
+    if (count === 1) return '#00ffff';
+    if (count >= 2 && count <= 3) return '#ff00ff';
+    if (count >= 4) return '#ff0080';
+  }
+
+  function populateLinearView() {
+    let dailyBreakdown = window.dailyBreakdownData || {};
+    
+    // Get all dates and sort them
+    const allDates = Object.keys(dailyBreakdown).sort();
+    const container = document.getElementById('linearDaysContainer');
+    const statsContainer = document.getElementById('linearStats');
+    
+    if (!container || !allDates.length) return;
+
+    container.innerHTML = '';
+    
+    // Create rows of 28 days (4 weeks)
+    const daysPerRow = 28;
+    for (let i = 0; i < allDates.length; i += daysPerRow) {
+      const weekRow = document.createElement('div');
+      weekRow.className = 'linear-week-row';
+      
+      // Week number/label
+      const weekLabel = document.createElement('div');
+      weekLabel.className = 'linear-week-label';
+      const startDate = allDates[i];
+      const endDate = allDates[Math.min(i + daysPerRow - 1, allDates.length - 1)];
+      weekLabel.textContent = `${startDate} to ${endDate}`;
+      weekRow.appendChild(weekLabel);
+
+      // Days container
+      const daysContainer = document.createElement('div');
+      daysContainer.className = 'linear-week-days';
+      
+      // Add days for this 4-week block
+      for (let j = 0; j < daysPerRow && i + j < allDates.length; j++) {
+        const date = allDates[i + j];
+        const count = dailyBreakdown[date];
+        
+        const dayEl = document.createElement('div');
+        dayEl.className = 'linear-day';
+        dayEl.style.backgroundColor = getColor(count);
+        dayEl.title = `${date}: ${count} word${count !== 1 ? 's' : ''}`;
+        daysContainer.appendChild(dayEl);
+      }
+      
+      weekRow.appendChild(daysContainer);
+      container.appendChild(weekRow);
+    }
+
+    // Calculate stats
+    let longestStreak = 0;
+    let currentStreak = 0;
+    let longestBreak = 0;
+    let currentBreak = 0;
+
+    allDates.forEach((date) => {
+      const count = dailyBreakdown[date];
+      
+      if (count > 0) {
+        currentStreak++;
+        longestStreak = Math.max(longestStreak, currentStreak);
+        currentBreak = 0;
+      } else {
+        currentStreak = 0;
+        currentBreak++;
+        longestBreak = Math.max(longestBreak, currentBreak);
+      }
+    });
+
+    // Calculate days active
+    const activeDays = allDates.filter(d => dailyBreakdown[d] > 0).length;
+    
+    // Render stats (without first/last collection)
+    statsContainer.innerHTML = `
+      <div class="linear-stat-item">
+        <span class="stat-label">Longest Streak</span>
+        <span class="stat-value">${longestStreak} days</span>
+      </div>
+      <div class="linear-stat-item">
+        <span class="stat-label">Longest Break</span>
+        <span class="stat-value">${longestBreak} days</span>
+      </div>
+      <div class="linear-stat-item">
+        <span class="stat-label">Days Active</span>
+        <span class="stat-value">${activeDays}/${allDates.length}</span>
+      </div>
+    `;
+  }
+
+  function initializeTimelineToggle() {
+    const toggleBtns = document.querySelectorAll('.toggle-btn');
+    const calendarView = document.getElementById('calendarView');
+    const linearView = document.getElementById('linearView');
+
+    if (!toggleBtns.length || !calendarView || !linearView) return;
+
+    // Populate linear view on first toggle
+    let linearViewPopulated = false;
+
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const view = this.getAttribute('data-view');
+        
+        // Update active button
+        toggleBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+
+        // Toggle views
+        if (view === 'calendar') {
+          calendarView.style.display = '';
+          linearView.style.display = 'none';
+        } else {
+          if (!linearViewPopulated) {
+            populateLinearView();
+            linearViewPopulated = true;
+          }
+          calendarView.style.display = 'none';
+          linearView.style.display = '';
+        }
+      });
     });
   }
 
