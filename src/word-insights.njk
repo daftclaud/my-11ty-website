@@ -153,6 +153,40 @@ layout: base.njk
     </table>
   </div>
 
+  <h2>All Sources</h2>
+  <div class="all-sources-container">
+    <div class="sources-controls">
+      <div class="control-group">
+        <label for="sourceSearch">Search:</label>
+        <input type="text" id="sourceSearch" class="source-search" placeholder="Search sources...">
+      </div>
+      <div class="control-group">
+        <label for="sourceSort">Sort by:</label>
+        <select id="sourceSort" class="source-sort">
+          <option value="count-desc">Words (High to Low)</option>
+          <option value="count-asc">Words (Low to High)</option>
+          <option value="name-asc">Name (A to Z)</option>
+          <option value="name-desc">Name (Z to A)</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label for="sourceFilter">Minimum words:</label>
+        <input type="number" id="sourceFilter" class="source-filter" min="1" value="1" placeholder="Min words">
+      </div>
+      <div class="control-info">
+        <span id="sourceCount">{{ stats.wordsBySource | length }} sources</span>
+      </div>
+    </div>
+    <div class="all-sources-list" id="allSourcesList">
+      {% for source, words in stats.wordsBySource %}
+      <div class="source-item" data-source="{{ source }}" data-count="{{ words | length }}">
+        <div class="source-item-name">{{ source }}</div>
+        <div class="source-item-count">{{ words | length }} words</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
   <h2>Top Sources</h2>
   <div class="sources-grid" id="sourcesGrid">
     {% for source in stats.topSources %}
@@ -641,6 +675,113 @@ layout: base.njk
     gap: 15px;
   }
 
+  .all-sources-container {
+    background: #fff;
+    border: 3px solid #00ffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 30px 0;
+  }
+
+  .sources-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #00ffff;
+    align-items: end;
+  }
+
+  .control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .control-group label {
+    font-weight: bold;
+    color: #ff00ff;
+    font-size: 0.9em;
+  }
+
+  .source-search {
+    padding: 8px 12px;
+    border: 2px solid #00ffff;
+    border-radius: 5px;
+    font-family: var(--ff-body);
+    font-size: 1em;
+    transition: border-color 0.2s;
+  }
+
+  .source-sort, .source-filter {
+    padding: 8px 12px;
+    border: 2px solid #00ffff;
+    border-radius: 5px;
+    font-family: var(--ff-body);
+    font-size: 1em;
+    transition: border-color 0.2s;
+  }
+
+  .source-search:focus, .source-sort:focus, .source-filter:focus {
+    outline: none;
+    border-color: #ff00ff;
+    box-shadow: 0 0 0 3px rgba(255, 0, 255, 0.1);
+  }
+
+  .control-info {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 8px;
+    color: #666;
+    font-weight: bold;
+  }
+
+  #sourceCount {
+    color: #ff00ff;
+  }
+
+  .all-sources-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    max-height: 500px;
+    overflow-y: auto;
+    padding: 10px;
+  }
+
+  .source-item {
+    background: #f9f9f9;
+    border: 2px solid #00ffff;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .source-item:hover {
+    background: #ffffe0;
+    border-color: #ff00ff;
+    transform: translateY(-2px);
+    box-shadow: 2px 2px 0 rgba(255, 0, 128, 0.3);
+  }
+
+  .source-item-name {
+    font-weight: bold;
+    color: #ff4500;
+    margin-bottom: 5px;
+    word-break: break-word;
+  }
+
+  .source-item-count {
+    color: #00ffff;
+    font-size: 0.9em;
+    font-weight: bold;
+  }
+
   .source-card {
     background: #fff;
     border: 2px solid #ff00ff;
@@ -970,6 +1111,9 @@ layout: base.njk
           document.querySelectorAll('.source-card').forEach(el => el.classList.remove('active'));
         });
       }
+
+      // Initialize all sources view
+      initializeSourcesView();
     } catch (e) {
       console.error('Error initializing insights page:', e);
     }
@@ -1073,4 +1217,82 @@ layout: base.njk
     div.textContent = text;
     return div.innerHTML;
   }
+
+  // Initialize all sources view
+  function initializeSourcesView() {
+    const searchInput = document.getElementById('sourceSearch');
+    const sortSelect = document.getElementById('sourceSort');
+    const filterInput = document.getElementById('sourceFilter');
+    const sourcesList = document.getElementById('allSourcesList');
+    const sourceCountSpan = document.getElementById('sourceCount');
+
+    if (!searchInput || !sortSelect || !filterInput || !sourcesList) return;
+
+    // Store all original items
+    const allItems = Array.from(sourcesList.querySelectorAll('.source-item'));
+
+    function updateSourcesDisplay() {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      const minWords = parseInt(filterInput.value) || 1;
+      const sortMethod = sortSelect.value;
+
+      // Filter from original items
+      let items = allItems.filter(item => {
+        const sourceName = item.getAttribute('data-source').toLowerCase();
+        const wordCount = parseInt(item.getAttribute('data-count'));
+        const matchesSearch = searchTerm === '' || sourceName.includes(searchTerm);
+        const meetsMinWords = wordCount >= minWords;
+        return matchesSearch && meetsMinWords;
+      });
+
+      // Sort
+      items.sort((a, b) => {
+        const countA = parseInt(a.getAttribute('data-count'));
+        const countB = parseInt(b.getAttribute('data-count'));
+        const nameA = a.getAttribute('data-source');
+        const nameB = b.getAttribute('data-source');
+
+        switch (sortMethod) {
+          case 'count-desc':
+            return countB - countA;
+          case 'count-asc':
+            return countA - countB;
+          case 'name-asc':
+            return nameA.localeCompare(nameB);
+          case 'name-desc':
+            return nameB.localeCompare(nameA);
+          default:
+            return 0;
+        }
+      });
+
+      // Update display
+      sourcesList.innerHTML = '';
+      items.forEach(item => {
+        sourcesList.appendChild(item.cloneNode(true));
+      });
+
+      // Update count
+      sourceCountSpan.textContent = `${items.length} source${items.length !== 1 ? 's' : ''}`;
+    }
+
+    // Add event listeners
+    searchInput.addEventListener('keyup', updateSourcesDisplay);
+    searchInput.addEventListener('input', updateSourcesDisplay);
+    sortSelect.addEventListener('change', updateSourcesDisplay);
+    filterInput.addEventListener('input', updateSourcesDisplay);
+    filterInput.addEventListener('change', updateSourcesDisplay);
+
+    // Make source items clickable
+    sourcesList.addEventListener('click', function(e) {
+      const sourceItem = e.target.closest('.source-item');
+      if (sourceItem) {
+        const sourceName = sourceItem.getAttribute('data-source');
+        if (sourceName) {
+          showSourceWords(sourceName);
+        }
+      }
+    });
+  }
 </script>
+
