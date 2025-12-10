@@ -166,103 +166,6 @@ layout: base.njk
     background: linear-gradient(135deg, #fff9e6 0%, #fff 50%, #e6f7ff 100%);
   }
 
-  .timeline-linear {
-    padding: 20px;
-    background: linear-gradient(135deg, #fff9e6 0%, #fff 50%, #e6f7ff 100%);
-    border-color: #00ffff;
-  }
-
-  .linear-days-container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding: 20px 0;
-    margin-bottom: 20px;
-  }
-
-  .linear-week-row {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .linear-week-label {
-    font-size: 0.8em;
-    color: #666;
-    min-width: 180px;
-    text-align: right;
-    white-space: nowrap;
-  }
-
-  .linear-week-days {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
-    flex: 1;
-  }
-
-  .linear-day {
-    aspect-ratio: 1;
-    min-width: 12px;
-    min-height: 12px;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: all 0.2s;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .linear-day:hover {
-    transform: scale(2);
-    box-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
-    z-index: 10;
-  }
-
-  .linear-timeline-legend {
-    margin: 20px 0;
-    padding: 15px;
-    border-top: 2px solid #00ffff;
-    border-bottom: 2px solid #00ffff;
-  }
-
-  .linear-timeline-legend .legend-title {
-    font-weight: bold;
-    color: #ff00ff;
-    margin-bottom: 10px;
-  }
-
-  .linear-timeline-legend .legend-scale {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  .linear-timeline-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    padding: 20px;
-    background: rgba(255, 0, 255, 0.05);
-    border-radius: 8px;
-  }
-
-  .linear-stat-item {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .linear-stat-item .stat-label {
-    font-size: 0.85em;
-    color: #666;
-    font-weight: bold;
-  }
-
-  .linear-stat-item .stat-value {
-    font-size: 1.2em;
-    color: #ff00ff;
-    font-weight: bold;
-  }
-
   .calendar-grid {
     display: flex;
     flex-direction: column;
@@ -1118,12 +1021,7 @@ layout: base.njk
 
   <h2>Collection Timeline</h2>
 
-  <div class="timeline-view-toggle">
-    <button class="toggle-btn active" data-view="calendar">
-      Calendar View
-    </button>
-    <button class="toggle-btn" data-view="linear">Streak View</button>
-  </div>
+
 
   <div class="timeline-chart">
     <div class="chart-container timeline-calendar" id="calendarView">
@@ -1190,7 +1088,7 @@ layout: base.njk
         </div>
       </div>
 
-      <div class="timeline-stats">
+      <div class="timeline-stats" id="calendarStats">
         <div class="timeline-stat-item">
           <span class="stat-label">Most Active Month</span>
           <span class="stat-value">
@@ -1214,43 +1112,18 @@ layout: base.njk
             >{{ (stats.totalWords / stats.yearlyBreakdown | length) | round(0) }}</span
           >
         </div>
+        <div class="timeline-stat-item">
+          <span class="stat-label">Longest Streak</span>
+          <span class="stat-value" id="longestStreakValue">--</span>
+        </div>
+        <div class="timeline-stat-item">
+          <span class="stat-label">Current Streak</span>
+          <span class="stat-value" id="currentStreakValue">--</span>
+        </div>
       </div>
     </div>
 
-    <!-- Linear View -->
-    <div
-      class="chart-container timeline-linear"
-      id="linearView"
-      style="display: none"
-    >
-      <div class="linear-days-container" id="linearDaysContainer">
-        <!-- Days will be populated by JavaScript -->
-      </div>
-      <div class="linear-timeline-legend">
-        <div class="legend-title">Collection Intensity</div>
-        <div class="legend-scale">
-          <div class="legend-item">
-            <div class="legend-box" style="background-color: #e0e0e0"></div>
-            <span>No words</span>
-          </div>
-          <div class="legend-item">
-            <div class="legend-box" style="background-color: #00ffff"></div>
-            <span>Light</span>
-          </div>
-          <div class="legend-item">
-            <div class="legend-box" style="background-color: #ff00ff"></div>
-            <span>Medium</span>
-          </div>
-          <div class="legend-item">
-            <div class="legend-box" style="background-color: #ff0080"></div>
-            <span>Heavy</span>
-          </div>
-        </div>
-      </div>
-      <div class="linear-timeline-stats" id="linearStats">
-        <!-- Stats will be populated by JavaScript -->
-      </div>
-    </div>
+
   </div>
 
   <h2>Most Active Months</h2>
@@ -1714,15 +1587,6 @@ layout: base.njk
   }
 
   @media (max-width: 600px) {
-    .linear-week-label {
-      min-width: 80px;
-      font-size: 0.65em;
-    }
-
-    .linear-week-row {
-      gap: 8px;
-    }
-
     .months-grid {
       grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
       gap: 8px;
@@ -2049,7 +1913,7 @@ layout: base.njk
 
     // Initialize timeline features
     populateMiniCalendars();
-    initializeTimelineToggle();
+    populateStreakStats();
     initializeSourcesView();
   }
 
@@ -2087,6 +1951,50 @@ layout: base.njk
     if (count === 1) return "#00ffff";
     if (count >= 2 && count <= 3) return "#ff00ff";
     if (count >= 4) return "#ff0080";
+  }
+
+  function populateStreakStats() {
+    let dailyBreakdown = window.dailyBreakdownData || {};
+
+    const datesWithData = Object.keys(dailyBreakdown).sort();
+    if (!datesWithData.length) return;
+
+    const firstDate = new Date(datesWithData[0]);
+    const lastDate = new Date(datesWithData[datesWithData.length - 1]);
+    const allDates = [];
+
+    for (
+      let d = new Date(firstDate);
+      d <= lastDate;
+      d.setDate(d.getDate() + 1)
+    ) {
+      allDates.push(d.toISOString().split("T")[0]);
+    }
+
+    let longestStreak = 0;
+    let currentStreak = 0;
+
+    allDates.forEach((date) => {
+      const count = dailyBreakdown[date] || 0;
+
+      if (count > 0) {
+        currentStreak++;
+        longestStreak = Math.max(longestStreak, currentStreak);
+      } else {
+        currentStreak = 0;
+      }
+    });
+
+    // Update the streak stat elements in the calendar view
+    const longestStreakEl = document.getElementById("longestStreakValue");
+    const currentStreakEl = document.getElementById("currentStreakValue");
+
+    if (longestStreakEl) {
+      longestStreakEl.textContent = `${longestStreak} days`;
+    }
+    if (currentStreakEl) {
+      currentStreakEl.textContent = `${currentStreak} days`;
+    }
   }
 
   function populateLinearView() {
@@ -2190,37 +2098,6 @@ layout: base.njk
         <span class="stat-value">${activeDays}/${allDates.length}</span>
       </div>
     `;
-  }
-
-  function initializeTimelineToggle() {
-    const toggleBtns = document.querySelectorAll(".toggle-btn");
-    const calendarView = document.getElementById("calendarView");
-    const linearView = document.getElementById("linearView");
-
-    if (!toggleBtns.length || !calendarView || !linearView) return;
-
-    let linearViewPopulated = false;
-
-    toggleBtns.forEach((btn) => {
-      btn.addEventListener("click", function () {
-        const view = this.getAttribute("data-view");
-
-        toggleBtns.forEach((b) => b.classList.remove("active"));
-        this.classList.add("active");
-
-        if (view === "calendar") {
-          calendarView.style.display = "";
-          linearView.style.display = "none";
-        } else {
-          if (!linearViewPopulated) {
-            populateLinearView();
-            linearViewPopulated = true;
-          }
-          calendarView.style.display = "none";
-          linearView.style.display = "";
-        }
-      });
-    });
   }
 
   function showSourceWords(sourceName) {
