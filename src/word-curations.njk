@@ -1088,18 +1088,21 @@ layout: base.njk
       <div class="stat-number">{{ stats.totalWords }}</div>
       <div class="stat-label">Total Words Collected</div>
     </div>
-
+    
     <div class="stat-card">
       <div class="stat-number">{{ stats.distinctWords }}</div>
       <div class="stat-label">Distinct Words</div>
     </div>
-
+    
+    <div class="stat-card">
+      <div class="stat-number">{{ stats.spanishWordCount }}</div>
+      <div class="stat-label">Spanish Words</div>
+    </div>
+    
     <div class="stat-card">
       <div class="stat-number">{{ stats.totalCurations }}</div>
       <div class="stat-label">Curation Sessions</div>
-    </div>
-
-    <div class="stat-card">
+    </div>    <div class="stat-card">
       <div class="stat-number">
         {{ stats.averageWordsPerCuration | round(1) }}
       </div>

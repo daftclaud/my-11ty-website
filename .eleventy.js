@@ -1,6 +1,27 @@
 const util = require("util");
+const { execSync } = require("child_process");
+const path = require("path");
+const fs = require("fs");
 const Month = require("./src/_includes/month.11ty.js");
 const CalendarGrid = require("./src/_includes/calendarGrid.11ty.js");
+
+// Run Spanish word detection before build
+function runSpanishWordDetection() {
+  const scriptPath = path.join(__dirname, "detect_spanish_words.py");
+  const pythonExecutable = path.join(__dirname, ".venv", "Scripts", "python.exe");
+  
+  try {
+    if (fs.existsSync(scriptPath) && fs.existsSync(pythonExecutable)) {
+      console.log("📊 Running Spanish word detection...");
+      execSync(`"${pythonExecutable}" "${scriptPath}"`, { stdio: "inherit" });
+    }
+  } catch (error) {
+    console.warn("⚠️ Spanish word detection failed:", error.message);
+  }
+}
+
+// Run detection before build starts
+runSpanishWordDetection();
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/style.css");
@@ -205,6 +226,20 @@ module.exports = function (eleventyConfig) {
     console.log('Daily breakdown generated with', Object.keys(dailyBreakdown).length, 'days');
     console.log('Sample daily breakdown entries:', Object.entries(dailyBreakdown).slice(0, 5));
 
+    // Load Spanish words count from JSON
+    let spanishWordCount = 0;
+    try {
+      const fs = require('fs');
+      const path = require('path');
+      const spanishWordsFile = path.join(__dirname, 'spanish_words_found.json');
+      if (fs.existsSync(spanishWordsFile)) {
+        const spanishWordsData = JSON.parse(fs.readFileSync(spanishWordsFile, 'utf-8'));
+        spanishWordCount = spanishWordsData.length;
+      }
+    } catch (e) {
+      console.warn('Could not load Spanish words count:', e.message);
+    }
+
     return {
       totalWords: allWords.length,
       distinctWords,
@@ -224,6 +259,7 @@ module.exports = function (eleventyConfig) {
       repeatedWords,
       wordsBySource,
       dailyBreakdown,
+      spanishWordCount,
     };
   });
 
