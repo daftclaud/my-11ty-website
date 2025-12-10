@@ -191,6 +191,20 @@ module.exports = function (eleventyConfig) {
       wordsBySource[source].push(wordData);
     });
 
+    // Build daily breakdown
+    const dailyBreakdown = {};
+    allWords.forEach((wordData) => {
+      const date = wordData.date;
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const key = `${year}-${month}-${day}`;
+      dailyBreakdown[key] = (dailyBreakdown[key] || 0) + 1;
+    });
+
+    console.log('Daily breakdown generated with', Object.keys(dailyBreakdown).length, 'days');
+    console.log('Sample daily breakdown entries:', Object.entries(dailyBreakdown).slice(0, 5));
+
     return {
       totalWords: allWords.length,
       distinctWords,
@@ -209,6 +223,7 @@ module.exports = function (eleventyConfig) {
       randomWord,
       repeatedWords,
       wordsBySource,
+      dailyBreakdown,
     };
   });
 
