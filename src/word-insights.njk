@@ -15,6 +15,11 @@ layout: base.njk
     </div>
     
     <div class="stat-card">
+      <div class="stat-number">{{ stats.distinctWords }}</div>
+      <div class="stat-label">Distinct Words</div>
+    </div>
+    
+    <div class="stat-card">
       <div class="stat-number">{{ stats.totalCurations }}</div>
       <div class="stat-label">Curation Sessions</div>
     </div>
@@ -78,6 +83,32 @@ layout: base.njk
     {% endfor %}
   </div>
 
+  <h2>Most Repeated Words</h2>
+  <div class="repeated-words">
+    {% if stats.repeatedWords.length > 0 %}
+    <table class="repeated-table">
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Times Collected</th>
+          <th>Definition</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in stats.repeatedWords %}
+        <tr>
+          <td class="word-column">{{ item.word }}</td>
+          <td class="count-column">{{ item.count }}</td>
+          <td class="definition-column">{{ item.definition or 'N/A' }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>No repeated words yet!</p>
+    {% endif %}
+  </div>
+
   <h2>Words by First Letter</h2>
   <div class="alphabet-chart">
     {% for letter in stats.letterDistribution %}
@@ -105,12 +136,6 @@ layout: base.njk
         <span class="milestone-icon">🏆</span>
         <div class="milestone-text">
           <strong>Latest Word:</strong> {{ stats.latestWord.word }} on {{ stats.latestWord.date | formatDate }}
-        </div>
-      </li>
-      <li class="milestone-item">
-        <span class="milestone-icon">📅</span>
-        <div class="milestone-text">
-          <strong>Most Productive Day:</strong> {{ stats.mostProductiveDay.date | formatDate }} ({{ stats.mostProductiveDay.count }} words)
         </div>
       </li>
       <li class="milestone-item">
@@ -242,6 +267,53 @@ layout: base.njk
   }
 
   .activity-table tbody tr:hover {
+    background: #fffacd;
+  }
+
+  .repeated-words {
+    margin: 30px 0;
+  }
+
+  .repeated-table {
+    width: 100%;
+    background: #fff;
+    border: 3px solid #ff00ff;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .repeated-table th {
+    background: #00ffff;
+    padding: 15px;
+    text-align: left;
+    border-bottom: 3px solid #ff00ff;
+  }
+
+  .repeated-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .repeated-table .word-column {
+    font-weight: bold;
+    color: #ff4500;
+    min-width: 120px;
+  }
+
+  .repeated-table .count-column {
+    text-align: center;
+    width: 100px;
+    background: #fff9e6;
+    font-weight: bold;
+  }
+
+  .repeated-table .definition-column {
+    font-size: 0.95em;
+    color: #555;
+  }
+
+  .repeated-table tbody tr:hover {
     background: #fffacd;
   }
 

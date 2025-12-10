@@ -138,19 +138,6 @@ module.exports = function (eleventyConfig) {
     const firstWord = sortedWords[0];
     const latestWord = sortedWords[sortedWords.length - 1];
 
-    // Find most productive day
-    const dailyCount = {};
-    collection.forEach((curation) => {
-      const dateStr = curation.data.date.toISOString().split("T")[0];
-      dailyCount[dateStr] = curation.data.words.length;
-    });
-    const mostProductiveDay = Object.entries(dailyCount)
-      .map(([dateStr, count]) => ({
-        date: new Date(dateStr + "T00:00:00"),
-        count,
-      }))
-      .sort((a, b) => b.count - a.count)[0];
-
     // Calculate current streak (last 30 days)
     const thirtyDaysAgo = new Date(now);
     thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
@@ -169,8 +156,34 @@ module.exports = function (eleventyConfig) {
       (lastDate - firstDate) / (1000 * 60 * 60 * 24)
     );
 
+    // Count distinct words and find most repeated
+    const wordFrequency = {};
+    allWords.forEach((wordData) => {
+      const wordLower = wordData.word.toLowerCase();
+      wordFrequency[wordLower] = (wordFrequency[wordLower] || 0) + 1;
+    });
+
+    const distinctWords = Object.keys(wordFrequency).length;
+    const repeatedWords = Object.entries(wordFrequency)
+      .filter(([_, count]) => count > 1)
+      .map(([word, count]) => {
+        // Find the original word entry with proper casing
+        const originalEntry = allWords.find(
+          (w) => w.word.toLowerCase() === word
+        );
+        return {
+          word: originalEntry?.word || word,
+          count,
+          definition: originalEntry?.definition,
+          source: originalEntry?.source,
+        };
+      })
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 10);
+
     return {
       totalWords: allWords.length,
+      distinctWords,
       totalCurations: collection.length,
       averageWordsPerCuration: allWords.length / collection.length,
       daysCollecting,
@@ -182,9 +195,9 @@ module.exports = function (eleventyConfig) {
       maxLetterCount,
       firstWord,
       latestWord,
-      mostProductiveDay,
       currentStreak,
       randomWord,
+      repeatedWords,
     };
   });
 
