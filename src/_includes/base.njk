@@ -34,14 +34,30 @@
     text-align: center;
     background-color: #00ffff;
     padding: 10px;
-    margin: 20px 0;
+    margin: 10px 0;
     border: 3px dashed #ff00ff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
   }
   nav a {
     color: #ff00ff;
     text-decoration: none;
-    margin: 0 15px;
+    padding: 8px;
+    display: inline-block;
   }
+  
+  @media (min-width: 600px) {
+    nav {
+      margin: 20px 0;
+    }
+    nav a {
+      margin: 0 15px;
+      padding: 0;
+    }
+  }
+  
   nav a.active {
     text-decoration: underline;
   }

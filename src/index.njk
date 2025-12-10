@@ -26,11 +26,19 @@ layout: base.njk
 
 <style>
   .content img {
-    max-width: 50%;
-    float: left;
-    margin-right: 20px;
+    max-width: 100%;
+    margin-bottom: 20px;
   }
-  .content {
-    display: flow-root;
+  
+  @media (min-width: 600px) {
+    .content img {
+      max-width: 50%;
+      float: left;
+      margin-right: 20px;
+      margin-bottom: 0;
+    }
+    .content {
+      display: flow-root;
+    }
   }
 </style>
