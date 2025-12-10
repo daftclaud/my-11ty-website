@@ -21,6 +21,67 @@ layout: base.njk
   </p>
 </div>
 
+{% if rocket_league_stats %}
+<section class="rocket-league-stats">
+  <h2>🚗 Rocket League Stats</h2>
+  
+  <div class="stats-header">
+    <a href="https://rocketleague.tracker.network/rocket-league/profile/epic/TKNclaudette/overview" target="_blank" class="profile-link">
+      View Full Profile on Tracker Network →
+    </a>
+  </div>
+
+  <div class="ranks-section">
+    <h3>Current Rank - Ranked Duel 1v1</h3>
+    <div class="rank-card-large">
+      <div class="rank-tier">{{ rocket_league_stats.rankedDuel.rank }}</div>
+      <div class="rank-rating">{{ rocket_league_stats.rankedDuel.rating }} MMR</div>
+      <div class="rank-percentile">{{ rocket_league_stats.rankedDuel.percentile }}</div>
+    </div>
+  </div>
+
+  <div class="lifetime-stats">
+    <h3>Lifetime Stats</h3>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-value">{{ rocket_league_stats.lifetime.wins | formatNumber }}</div>
+        <div class="stat-label">Wins</div>
+        <div class="stat-rank">{{ rocket_league_stats.lifetime.winsRank }}</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">{{ rocket_league_stats.lifetime.goals | formatNumber }}</div>
+        <div class="stat-label">Goals</div>
+        <div class="stat-rank">{{ rocket_league_stats.lifetime.goalsRank }}</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">{{ rocket_league_stats.lifetime.shots | formatNumber }}</div>
+        <div class="stat-label">Shots</div>
+        <div class="stat-rank">{{ rocket_league_stats.lifetime.shotsRank }}</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">{{ rocket_league_stats.lifetime.saves | formatNumber }}</div>
+        <div class="stat-label">Saves</div>
+        <div class="stat-rank">{{ rocket_league_stats.lifetime.savesRank }}</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">{{ rocket_league_stats.lifetime.goalShotRatio }}%</div>
+        <div class="stat-label">Goal Shot Ratio</div>
+        <div class="stat-rank">{{ rocket_league_stats.lifetime.goalShotRatioRank }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="peak-rating">
+    <h3>🏆 Peak Rating</h3>
+    <div class="peak-card">
+      <div class="peak-rank">{{ rocket_league_stats.peakRating.rank }}</div>
+      <div class="peak-mmr">{{ rocket_league_stats.peakRating.rating }} MMR</div>
+      <div class="peak-season">{{ rocket_league_stats.peakRating.season }}</div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
 <style>
   .content img {
     max-width: 100%;
@@ -36,6 +97,180 @@ layout: base.njk
     }
     .content {
       display: flow-root;
+    }
+  }
+
+  .rocket-league-stats {
+    margin-top: 40px;
+    padding: 25px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border: 3px solid #0f3460;
+    border-radius: 15px;
+    color: #e4e4e4;
+  }
+
+  .rocket-league-stats h2 {
+    color: #00d9ff;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    text-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+  }
+
+  .rocket-league-stats h3 {
+    color: #00d9ff;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+  }
+
+  .stats-header {
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .profile-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0f3460;
+    color: #00d9ff;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 2px solid #00d9ff;
+    transition: all 0.3s;
+    font-weight: bold;
+  }
+
+  .profile-link:hover {
+    background-color: #00d9ff;
+    color: #1a1a2e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 217, 255, 0.4);
+  }
+
+  .ranks-section {
+    margin-bottom: 25px;
+  }
+
+  .ranks-section h3 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .rank-card-large {
+    background: linear-gradient(135deg, rgba(77, 166, 255, 0.3) 0%, rgba(15, 52, 96, 0.6) 100%);
+    border: 3px solid #4da6ff;
+    border-radius: 15px;
+    padding: 35px;
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .rank-card-large:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 217, 255, 0.4);
+  }
+
+  .rank-tier {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin: 15px 0;
+    color: #4da6ff;
+    text-shadow: 0 0 15px rgba(77, 166, 255, 0.8);
+  }
+
+  .rank-rating {
+    font-size: 1.8em;
+    color: #00d9ff;
+    font-weight: bold;
+    margin: 15px 0;
+  }
+
+  .rank-percentile {
+    font-size: 1.1em;
+    color: #ffd700;
+    font-weight: bold;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  .stat-item {
+    background: rgba(15, 52, 96, 0.5);
+    border: 2px solid #0f3460;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+
+  .stat-item:hover {
+    transform: scale(1.05);
+    border-color: #00d9ff;
+  }
+
+  .stat-value {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #00d9ff;
+    margin-bottom: 5px;
+  }
+
+  .stat-label {
+    font-size: 0.9em;
+    color: #b0b0b0;
+    margin-bottom: 5px;
+  }
+
+  .stat-rank {
+    font-size: 0.85em;
+    color: #ffd700;
+    font-weight: bold;
+  }
+
+  .peak-card {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(15, 52, 96, 0.5) 100%);
+    border: 3px solid #ffd700;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    margin-top: 15px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .peak-rank {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffd700;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+  }
+
+  .peak-mmr {
+    font-size: 1.6em;
+    color: #00d9ff;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .peak-season {
+    font-size: 1em;
+    color: #b0b0b0;
+  }
+
+  @media (max-width: 768px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 </style>

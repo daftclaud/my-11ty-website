@@ -20,8 +20,23 @@ function runSpanishWordDetection() {
   }
 }
 
+// Fetch Rocket League stats before build
+function fetchRocketLeagueStats() {
+  const fetchScript = path.join(__dirname, "fetch_rocket_league_stats.js");
+  
+  try {
+    if (fs.existsSync(fetchScript)) {
+      console.log("🚗 Fetching Rocket League stats...");
+      execSync(`node "${fetchScript}"`, { stdio: "inherit" });
+    }
+  } catch (error) {
+    console.warn("⚠️ Rocket League stats fetch failed:", error.message);
+  }
+}
+
 // Run detection before build starts
 runSpanishWordDetection();
+fetchRocketLeagueStats();
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/style.css");
@@ -45,6 +60,24 @@ module.exports = function (eleventyConfig) {
     const adjustedDate = new Date(date.getTime() + offsetMs);
 
     return adjustedDate.toLocaleDateString(locale, options);
+  });
+
+  eleventyConfig.addFilter("formatNumber", function (num) {
+    if (!num) return '0';
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  });
+
+  eleventyConfig.addGlobalData("rocket_league_stats", function() {
+    try {
+      const statsPath = path.join(__dirname, 'rocket_league_stats.json');
+      if (fs.existsSync(statsPath)) {
+        const data = fs.readFileSync(statsPath, 'utf-8');
+        return JSON.parse(data);
+      }
+    } catch (error) {
+      console.warn('⚠️ Could not load Rocket League stats:', error.message);
+    }
+    return null;
   });
 
   eleventyConfig.addFilter("getPreviousCuration", function (collection, date) {
