@@ -252,7 +252,8 @@ section {
   .theme-toggle {
     width: 45px;
     height: 45px;
-    top: 15px;
+    top: auto;
+    bottom: 20px;
     right: 15px;
     font-size: 1.25rem;
   }
