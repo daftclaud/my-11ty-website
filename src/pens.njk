@@ -67,8 +67,6 @@ layout: base.njk
           <h2>
             <a href="{{ post.url }}">{{ post.data.title }}</a>
           </h2>
-          <p>{{ post.data.description }}</p>
-          <a href="{{ post.url }}" class="read-more">Learn more →</a>
         </div>
       </article>
       {% endfor %}
@@ -186,9 +184,9 @@ document.addEventListener('DOMContentLoaded', function() {
   /* Filters */
   .pen-filters {
     background: #f8f9fa;
-    padding: 1.5em;
-    border-radius: 8px;
-    margin-bottom: 2.5em;
+      padding: 1em;
+      border-radius: 8px;
+      margin-bottom: 1em;
   }
 
   .filters-container {
