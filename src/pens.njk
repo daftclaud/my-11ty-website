@@ -6,7 +6,7 @@ layout: base.njk
 <div class="content">
   <div class="pen-header">
     <div class="pen-intro">
-      <img src="/assets/pens.jpeg" alt="Pens" class="pen-hero-img" />
+      <img src="/assets/pens.jpeg" alt="Pens" class="pen-hero-img" loading="eager" decoding="async" />
       <div class="pen-text">
         <p>
           Whether it's a classic Parker Jotter, a special edition Montblanc, or even a
@@ -53,7 +53,7 @@ layout: base.njk
       {% for post in collections.pen %}
       <article class="pen-item" data-brand="{{ post.data.brand }}" data-type="{{ post.data.type }}">
         <div class="pen-item-image">
-          <img src="{{ post.data.image }}" alt="{{ post.data.title }} thumbnail" />
+          <img src="{{ post.data.image }}" alt="{{ post.data.title }} thumbnail" loading="lazy" decoding="async" />
         </div>
         <div class="pen-info">
           <div class="pen-badges">

@@ -7,6 +7,8 @@ layout: base.njk
   <img
     src="https://media1.tenor.com/m/qRC04kNvXAIAAAAC/smiley-clouds.gif"
     alt="Smiley"
+    loading="lazy"
+    decoding="async"
   />
   <p>
     Hello! Welcome to my awesome personal homepage. This site is all about me
@@ -53,7 +55,7 @@ layout: base.njk
       <div class="pens-grid">
         {% for pen in collections.recentPens %}
           <a href="{{ pen.url }}" class="pen-card">
-            <img src="{{ pen.data.image }}" alt="{{ pen.data.brand }}" class="pen-thumbnail">
+            <img src="{{ pen.data.image }}" alt="{{ pen.data.brand }}" class="pen-thumbnail" loading="lazy" decoding="async">
             <div class="pen-info">
               <div class="pen-brand">{{ pen.data.brand }}</div>
               <div class="pen-type">{{ pen.data.type }}</div>
@@ -87,10 +89,32 @@ layout: base.njk
 
   .recent-activity {
     margin-top: 40px;
-    padding: 20px;
+    padding: 15px;
     background-color: #f0f0f0;
     border: 3px dashed #ff00ff;
     border-radius: 10px;
+  }
+  
+  @media (min-width: 600px) {
+    .recent-activity {
+      padding: 20px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .recent-activity {
+      padding: 30px;
+    }
+  }
+  
+  [data-theme="dark"] .recent-activity {
+    background-color: #0f3460;
+    border-color: #ff6b35;
+  }
+  
+  [data-theme="dark"] .latest-curation,
+  [data-theme="dark"] .pen-card {
+    background-color: #1a1a2e;
   }
 
   .recent-activity h2 {
@@ -99,6 +123,11 @@ layout: base.njk
     margin-top: 0;
     margin-bottom: 20px;
     text-shadow: 1px 1px #000000;
+  }
+  
+  [data-theme="dark"] .recent-activity h2 {
+    color: #ff6b35;
+    text-shadow: 1px 1px #0f3460;
   }
 
   .activity-section {
@@ -114,13 +143,27 @@ layout: base.njk
     margin-bottom: 15px;
     font-size: 1.2em;
   }
+  
+  [data-theme="dark"] .activity-section h3 {
+    color: #00d4ff;
+  }
 
   /* Word Curation Styles */
   .latest-curation {
     background-color: #ffffff;
-    padding: 20px;
+    padding: 15px;
     border-radius: 8px;
     border-left: 4px solid #00ffff;
+  }
+  
+  @media (min-width: 600px) {
+    .latest-curation {
+      padding: 20px;
+    }
+  }
+  
+  [data-theme="dark"] .latest-curation {
+    border-left-color: #00d4ff;
   }
 
   .curation-date {
@@ -135,6 +178,16 @@ layout: base.njk
   .curation-date:hover {
     text-decoration: underline;
   }
+  
+  .curation-date:focus {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  
+  [data-theme="dark"] .curation-date {
+    color: #00d4ff;
+  }
 
   .words-list {
     list-style: none;
@@ -146,6 +199,10 @@ layout: base.njk
     padding: 10px 0;
     border-bottom: 1px solid #e0e0e0;
   }
+  
+  [data-theme="dark"] .words-list li {
+    border-bottom-color: #333;
+  }
 
   .words-list li:last-child {
     border-bottom: none;
@@ -155,6 +212,10 @@ layout: base.njk
     color: #ff00ff;
     font-size: 1.05em;
   }
+  
+  [data-theme="dark"] .words-list strong {
+    color: #ff6b35;
+  }
 
   .word-source {
     display: block;
@@ -163,12 +224,29 @@ layout: base.njk
     margin-top: 5px;
     font-style: italic;
   }
+  
+  [data-theme="dark"] .word-source {
+    color: #999;
+  }
 
   /* Pens Grid Styles */
   .pens-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  
+  @media (min-width: 480px) {
+    .pens-grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 15px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .pens-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   .pen-card {
@@ -180,12 +258,29 @@ layout: base.njk
     transition: transform 0.2s, box-shadow 0.2s;
     display: flex;
     flex-direction: column;
+    min-height: 200px;
   }
-
-  .pen-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(255, 0, 255, 0.3);
-    border-color: #ff00ff;
+  
+  @media (hover: hover) {
+    .pen-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(255, 0, 255, 0.3);
+      border-color: #ff00ff;
+    }
+  }
+  
+  .pen-card:focus {
+    outline: 3px solid #ff00ff;
+    outline-offset: 2px;
+  }
+  
+  [data-theme="dark"] .pen-card {
+    border-color: #00d4ff;
+  }
+  
+  [data-theme="dark"] .pen-card:hover {
+    border-color: #ff6b35;
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
   }
 
   .pen-thumbnail {
@@ -193,6 +288,10 @@ layout: base.njk
     height: 150px;
     object-fit: cover;
     background-color: #f5f5f5;
+  }
+  
+  [data-theme="dark"] .pen-thumbnail {
+    background-color: #2a2a3e;
   }
 
   .pen-info {
@@ -206,19 +305,17 @@ layout: base.njk
     font-size: 0.95em;
     margin-bottom: 3px;
   }
+  
+  [data-theme="dark"] .pen-brand {
+    color: #00d4ff;
+  }
 
   .pen-type {
     font-size: 0.85em;
     color: #666;
   }
-
-  @media (min-width: 768px) {
-    .recent-activity {
-      padding: 30px;
-    }
-
-    .pens-grid {
-      grid-template-columns: repeat(5, 1fr);
-    }
+  
+  [data-theme="dark"] .pen-type {
+    color: #aaa;
   }
 </style>

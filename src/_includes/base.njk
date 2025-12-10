@@ -3,14 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ title }}</title>
+    
+    {# Primary Meta Tags #}
+    <title>{% if title %}{{ title }} | {% endif %}Claudio Del Valle</title>
+    <meta name="title" content="{% if title %}{{ title }} | {% endif %}Claudio Del Valle">
+    <meta name="description" content="{% if description %}{{ description }}{% else %}Personal website featuring word curations, pen collection, and insights from Monterrey, Mexico. Exploring language, writing instruments, and Rocket League.{% endif %}">
+    <meta name="author" content="Claudio Del Valle">
+    <link rel="canonical" href="https://daftclaud.github.io{{ page.url }}">
+    
+    {# Open Graph / Facebook #}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://daftclaud.github.io{{ page.url }}">
+    <meta property="og:title" content="{% if title %}{{ title }} | {% endif %}Claudio Del Valle">
+    <meta property="og:description" content="{% if description %}{{ description }}{% else %}Personal website featuring word curations, pen collection, and insights from Monterrey, Mexico.{% endif %}">
+    <meta property="og:image" content="https://daftclaud.github.io/assets/me.jfif">
+    <meta property="og:site_name" content="Claudio Del Valle">
+    
+    {# Twitter #}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://daftclaud.github.io{{ page.url }}">
+    <meta name="twitter:title" content="{% if title %}{{ title }} | {% endif %}Claudio Del Valle">
+    <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}Personal website featuring word curations, pen collection, and insights from Monterrey, Mexico.{% endif %}">
+    <meta name="twitter:image" content="https://daftclaud.github.io/assets/me.jfif">
+    
+    {# Theme & Icons #}
+    <meta name="theme-color" content="#ffffe0" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1a1a2e" media="(prefers-color-scheme: dark)">
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <main>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+      <span class="theme-icon theme-icon-sun">☀️</span>
+      <span class="theme-icon theme-icon-moon">🌙</span>
+    </button>
+    <main id="main-content">
       <h1>Welcome to My Personal Website!</h1>
-      <nav>
+      <nav aria-label="Main navigation">
         <a href="/" class="{{ 'active' if '/' ==  page.url }}">Home</a>
         <a href="/about" class="{{ 'active' if 'about' in  page.url }}">About Me</a>
         <a href="/word-curations" class="{{ 'active' if 'curations' in  page.url }}">Word&nbsp;Curations</a>
@@ -21,56 +51,134 @@
         <p>&copy; 2025 Claudio Del Valle</p>
       </footer>
     </main>
+    
+    <script>
+      // Dark mode toggle functionality
+      (function() {
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Check for saved theme preference or default to system preference
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme) {
+          html.setAttribute('data-theme', savedTheme);
+        } else if (systemPrefersDark) {
+          html.setAttribute('data-theme', 'dark');
+        }
+        
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+          const currentTheme = html.getAttribute('data-theme');
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          
+          html.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+        });
+        
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+          if (!localStorage.getItem('theme')) {
+            html.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
 
 <style>
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--clr-nav-bg);
+    color: var(--clr-nav-text);
+    padding: 8px 16px;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 10000;
+    border-radius: 0 0 4px 0;
+  }
+  
+  .skip-link:focus {
+    top: 0;
+    outline: 3px solid var(--clr-nav-text);
+    outline-offset: 2px;
+  }
+  
   h1 {
-    color: #ff4500;
-    text-shadow: 2px 2px #000000;
+    color: var(--clr-heading);
+    text-shadow: 2px 2px var(--clr-heading-shadow);
     text-align: center;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
   }
   nav {
     text-align: center;
-    background-color: #00ffff;
+    background-color: var(--clr-nav-bg);
     padding: 10px;
     margin: 10px 0;
-    border: 3px dashed #ff00ff;
+    border: 3px dashed var(--clr-border-dashed);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
   nav a {
-    color: #ff00ff;
+    color: var(--clr-nav-text);
     text-decoration: none;
     padding: 8px;
     display: inline-block;
+    transition: color 0.3s ease;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @media (min-width: 600px) {
+    nav a {
+      margin: 0 15px;
+      padding: 0;
+      min-height: auto;
+    }
+  }
+  
+  nav a:hover,
+  nav a:focus {
+    opacity: 0.7;
+  }
+  
+  nav a:focus {
+    outline: 2px solid var(--clr-nav-text);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
   
   @media (min-width: 600px) {
     nav {
       margin: 20px 0;
     }
-    nav a {
-      margin: 0 15px;
-      padding: 0;
-    }
   }
   
   nav a.active {
     text-decoration: underline;
+    font-weight: bold;
   }
 
   footer {
     text-align: center;
-    background-color: #00ffff;
+    background-color: var(--clr-nav-bg);
     padding: 5px;
     margin-top: 20px;
-    border-top: 3px dashed #ff00ff;
+    border-top: 3px dashed var(--clr-border-dashed);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
   }
   footer a {
-    color: #ff00ff;
+    color: var(--clr-link);
     text-decoration: none;
+    transition: color 0.3s ease;
   }
 </style>
