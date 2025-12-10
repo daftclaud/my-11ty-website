@@ -24,6 +24,49 @@ layout: base.njk
   </p>
 </div>
 
+<section class="recent-activity">
+  <h2>Recent Activity</h2>
+  
+  <div class="activity-section word-curation-section">
+    <h3>Latest Word Curation</h3>
+    {% if collections.recentWordCurations.length > 0 %}
+      {% set curation = collections.recentWordCurations[0] %}
+      <div class="latest-curation">
+        <a href="{{ curation.url }}" class="curation-date">{{ curation.data.date | formatDate }}</a>
+        <ul class="words-list">
+          {% for word in curation.data.words %}
+            <li>
+              <strong>{{ word.word }}</strong> - {{ word.definition }}
+              {% if word.source %}<span class="word-source">Source: {{ word.source }}</span>{% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% else %}
+      <p>No recent curations found.</p>
+    {% endif %}
+  </div>
+
+  <div class="activity-section pens-section">
+    <h3>Latest Pens Added</h3>
+    {% if collections.recentPens.length > 0 %}
+      <div class="pens-grid">
+        {% for pen in collections.recentPens %}
+          <a href="{{ pen.url }}" class="pen-card">
+            <img src="{{ pen.data.image }}" alt="{{ pen.data.brand }}" class="pen-thumbnail">
+            <div class="pen-info">
+              <div class="pen-brand">{{ pen.data.brand }}</div>
+              <div class="pen-type">{{ pen.data.type }}</div>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No pens found.</p>
+    {% endif %}
+  </div>
+</section>
+
 <style>
   .content img {
     max-width: 100%;
@@ -39,6 +82,143 @@ layout: base.njk
     }
     .content {
       display: flow-root;
+    }
+  }
+
+  .recent-activity {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 3px dashed #ff00ff;
+    border-radius: 10px;
+  }
+
+  .recent-activity h2 {
+    color: #ff4500;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px #000000;
+  }
+
+  .activity-section {
+    margin-bottom: 30px;
+  }
+
+  .activity-section:last-child {
+    margin-bottom: 0;
+  }
+
+  .activity-section h3 {
+    color: #00a0a0;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+  }
+
+  /* Word Curation Styles */
+  .latest-curation {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #00ffff;
+  }
+
+  .curation-date {
+    display: block;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #0066cc;
+    text-decoration: none;
+    margin-bottom: 15px;
+  }
+
+  .curation-date:hover {
+    text-decoration: underline;
+  }
+
+  .words-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .words-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .words-list li:last-child {
+    border-bottom: none;
+  }
+
+  .words-list strong {
+    color: #ff00ff;
+    font-size: 1.05em;
+  }
+
+  .word-source {
+    display: block;
+    font-size: 0.85em;
+    color: #888;
+    margin-top: 5px;
+    font-style: italic;
+  }
+
+  /* Pens Grid Styles */
+  .pens-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+  }
+
+  .pen-card {
+    background-color: #ffffff;
+    border: 2px solid #00ffff;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pen-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 0, 255, 0.3);
+    border-color: #ff00ff;
+  }
+
+  .pen-thumbnail {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    background-color: #f5f5f5;
+  }
+
+  .pen-info {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .pen-brand {
+    font-weight: bold;
+    color: #0066cc;
+    font-size: 0.95em;
+    margin-bottom: 3px;
+  }
+
+  .pen-type {
+    font-size: 0.85em;
+    color: #666;
+  }
+
+  @media (min-width: 768px) {
+    .recent-activity {
+      padding: 30px;
+    }
+
+    .pens-grid {
+      grid-template-columns: repeat(5, 1fr);
     }
   }
 </style>

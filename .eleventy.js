@@ -229,7 +229,6 @@ module.exports = function (eleventyConfig) {
     });
 
     console.log('Daily breakdown generated with', Object.keys(dailyBreakdown).length, 'days');
-    console.log('Sample daily breakdown entries:', Object.entries(dailyBreakdown).slice(0, 5));
 
     // Load Spanish words count from JSON
     let spanishWordCount = 0;
@@ -267,6 +266,19 @@ module.exports = function (eleventyConfig) {
       dailyBreakdown,
       spanishWordCount,
     };
+  });
+
+  // Add collections for recent items
+  eleventyConfig.addCollection("recentWordCurations", function(collectionApi) {
+    return collectionApi.getFilteredByTag("word_curation")
+      .sort((a, b) => b.data.date - a.data.date)
+      .slice(0, 1);
+  });
+
+  eleventyConfig.addCollection("recentPens", function(collectionApi) {
+    return collectionApi.getFilteredByTag("pen")
+      .reverse()
+      .slice(0, 5);
   });
 
   return {
