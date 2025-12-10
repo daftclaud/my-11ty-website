@@ -1326,8 +1326,19 @@ layout: base.njk
   function populateLinearView() {
     let dailyBreakdown = window.dailyBreakdownData || {};
     
-    // Get all dates and sort them
-    const allDates = Object.keys(dailyBreakdown).sort();
+    // Get dates with data
+    const datesWithData = Object.keys(dailyBreakdown).sort();
+    if (!datesWithData.length) return;
+    
+    // Generate all dates from first to last collection
+    const firstDate = new Date(datesWithData[0]);
+    const lastDate = new Date(datesWithData[datesWithData.length - 1]);
+    const allDates = [];
+    
+    for (let d = new Date(firstDate); d <= lastDate; d.setDate(d.getDate() + 1)) {
+      allDates.push(d.toISOString().split('T')[0]);
+    }
+    
     const container = document.getElementById('linearDaysContainer');
     const statsContainer = document.getElementById('linearStats');
     
@@ -1356,7 +1367,7 @@ layout: base.njk
       // Add days for this 4-week block
       for (let j = 0; j < daysPerRow && i + j < allDates.length; j++) {
         const date = allDates[i + j];
-        const count = dailyBreakdown[date];
+        const count = dailyBreakdown[date] || 0;
         
         const dayEl = document.createElement('div');
         dayEl.className = 'linear-day';
@@ -1376,21 +1387,30 @@ layout: base.njk
     let currentBreak = 0;
 
     allDates.forEach((date) => {
-      const count = dailyBreakdown[date];
+      const count = dailyBreakdown[date] || 0;
       
       if (count > 0) {
         currentStreak++;
         longestStreak = Math.max(longestStreak, currentStreak);
-        currentBreak = 0;
+        if (currentBreak > 0) {
+          longestBreak = Math.max(longestBreak, currentBreak);
+          currentBreak = 0;
+        }
       } else {
-        currentStreak = 0;
+        if (currentStreak > 0) {
+          currentStreak = 0;
+        }
         currentBreak++;
-        longestBreak = Math.max(longestBreak, currentBreak);
       }
     });
+    
+    // Don't forget to check final break
+    if (currentBreak > 0) {
+      longestBreak = Math.max(longestBreak, currentBreak);
+    }
 
     // Calculate days active
-    const activeDays = allDates.filter(d => dailyBreakdown[d] > 0).length;
+    const activeDays = allDates.filter(d => dailyBreakdown[d] && dailyBreakdown[d] > 0).length;
     
     // Render stats (without first/last collection)
     statsContainer.innerHTML = `
