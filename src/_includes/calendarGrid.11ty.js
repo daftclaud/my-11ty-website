@@ -44,11 +44,16 @@ module.exports = class {
     }).join('');
 
     return `
-      <select id="yearSelect">
-        ${years.map(
-          y => `<option value="${y}" ${y === currentYear ? "selected" : ""}>${y}</option>`
-        ).join('')}
-      </select>
+      <div class="calendar-controls">
+        <select id="yearSelect">
+          ${years.map(
+            y => `<option value="${y}" ${y === currentYear ? "selected" : ""}>${y}</option>`
+          ).join('')}
+        </select>
+        <div class="calendar-hint">
+          <p>💡 Click on any highlighted date to view that day's word curation</p>
+        </div>
+      </div>
       ${allYearsHTML}
       <script>
         document.getElementById('yearSelect').addEventListener('change', function() {
