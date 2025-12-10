@@ -25,6 +25,10 @@ layout: base.njk
 <section class="rocket-league-stats">
   <h2>🚗 Rocket League Stats</h2>
   
+  <div class="rl-hero-image">
+    <img src="/assets/rocket_league.png" alt="My Rocket League car in a face off" />
+  </div>
+  
   <div class="stats-header">
     <a href="https://rocketleague.tracker.network/rocket-league/profile/epic/TKNclaudette/overview" target="_blank" class="profile-link">
       View Full Profile on Tracker Network →
@@ -116,6 +120,20 @@ layout: base.njk
     margin-bottom: 20px;
     font-size: 1.8em;
     text-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+  }
+
+  .rl-hero-image {
+    margin: 20px 0 30px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 3px solid #00d9ff;
+    box-shadow: 0 8px 25px rgba(0, 217, 255, 0.3);
+  }
+
+  .rl-hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   .rocket-league-stats h3 {
