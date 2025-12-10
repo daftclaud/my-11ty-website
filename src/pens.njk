@@ -4,46 +4,71 @@ layout: base.njk
 ---
 
 <div class="content">
-  <div class="pen-filters" style="margin-bottom: 2em;">
-      <label for="brandFilter">Brand:</label>
-      <select id="brandFilter">
-        <option value="">All Brands</option>
-      </select>
-      <label for="typeFilter" style="margin-left:1em;">Type:</label>
-      <select id="typeFilter">
-        <option value="">All Types</option>
-      </select>
+  <div class="pen-header">
+    <div class="pen-intro">
+      <img src="/assets/pens.jpeg" alt="Pens" class="pen-hero-img" />
+      <div class="pen-text">
+        <p>
+          Whether it's a classic Parker Jotter, a special edition Montblanc, or even a
+          humble but reliable Pilot G2, I always feel better with a pen and paper
+          nearby.
+        </p>
+        <p>
+          It started around the same time I began writing down my <a href="/word-curations">word curations</a>. But
+          it wasn't until my college roommate Austin gifted me a Pilot Metropolitan
+          that I officially began collecting.
+        </p>
+        <p>
+          Over the years, my collection has grown to include a variety of pens. From
+          the smooth feel of a fountain pen to the dependable click of a ballpoint,
+          every pen I own represents a chapter in my journey as a writer and
+          collector. This page is a tribute to these cherished instruments and the joy
+          they bring to my everyday life.
+        </p>
+      </div>
+    </div>
   </div>
-  <img src="/assets/pens.jpeg" alt="Pens" />
-  <p>
-    Whether it’s a classic Parker Jotter, a special edition Montblanc, or even a
-    humble but reliable Pilot G2, I always feel better with a pen and paper
-    nearby.
-  </p>
-  <br />
-  <p>
-    It started around the same time I began writing down my <a href="/word-curations">word curations</a>. But
-    it wasn't until my college roommate Austin gifted me a Pilot Metropolitan
-    that I officially began collecting.
-  </p>
-  <br />
-  <p>
-    Over the years, my collection has grown to include a variety of pens. From
-    the smooth feel of a fountain pen to the dependable click of a ballpoint,
-    every pen I own represents a chapter in my journey as a writer and
-    collector. This page is a tribute to these cherished instruments and the joy
-    they bring to my everyday life.
-  </p>
+
+  <div class="pen-filters">
+    <div class="filters-container">
+      <div class="filter-group">
+        <label for="brandFilter">Brand:</label>
+        <select id="brandFilter">
+          <option value="">All Brands</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="typeFilter">Type:</label>
+        <select id="typeFilter">
+          <option value="">All Types</option>
+        </select>
+      </div>
+      <div class="filter-results">
+        <span id="resultCount">Showing all pens</span>
+      </div>
+    </div>
+  </div>
 
   <section class="pen-list">
       {% for post in collections.pen %}
       <article class="pen-item" data-brand="{{ post.data.brand }}" data-type="{{ post.data.type }}">
-        <img src="{{ post.data.image }}" alt="{{ post.data.title }} thumbnail" />
+        <div class="pen-item-image">
+          <img src="{{ post.data.image }}" alt="{{ post.data.title }} thumbnail" />
+        </div>
         <div class="pen-info">
+          <div class="pen-badges">
+            {% if post.data.brand %}
+              <span class="badge badge-brand">{{ post.data.brand }}</span>
+            {% endif %}
+            {% if post.data.type %}
+              <span class="badge badge-type">{{ post.data.type }}</span>
+            {% endif %}
+          </div>
           <h2>
             <a href="{{ post.url }}">{{ post.data.title }}</a>
           </h2>
           <p>{{ post.data.description }}</p>
+          <a href="{{ post.url }}" class="read-more">Learn more →</a>
         </div>
       </article>
       {% endfor %}
@@ -54,6 +79,7 @@ layout: base.njk
 document.addEventListener('DOMContentLoaded', function() {
   const brandFilter = document.getElementById('brandFilter');
   const typeFilter = document.getElementById('typeFilter');
+  const resultCountSpan = document.getElementById('resultCount');
   const penItems = document.querySelectorAll('.pen-item');
 
   // Collect unique brands and types from pen items
@@ -65,7 +91,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Populate brand dropdown
-  brandsSet.forEach(brand => {
+  const sortedBrands = Array.from(brandsSet).sort();
+  sortedBrands.forEach(brand => {
     const option = document.createElement('option');
     option.value = brand;
     option.textContent = brand;
@@ -73,7 +100,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Populate type dropdown
-  typesSet.forEach(type => {
+  const sortedTypes = Array.from(typesSet).sort();
+  sortedTypes.forEach(type => {
     const option = document.createElement('option');
     option.value = type;
     option.textContent = type;
@@ -83,101 +111,287 @@ document.addEventListener('DOMContentLoaded', function() {
   function filterPens() {
     const brand = brandFilter.value;
     const type = typeFilter.value;
+    let visibleCount = 0;
+    
     penItems.forEach(item => {
       const matchesBrand = !brand || item.dataset.brand === brand;
       const matchesType = !type || item.dataset.type === type;
-      item.style.display = (matchesBrand && matchesType) ? '' : 'none';
+      const shouldShow = matchesBrand && matchesType;
+      item.style.display = shouldShow ? '' : 'none';
+      if (shouldShow) visibleCount++;
     });
+
+    // Update result count
+    const total = penItems.length;
+    if (visibleCount === total) {
+      resultCountSpan.textContent = `Showing all ${total} pens`;
+    } else {
+      resultCountSpan.textContent = `Showing ${visibleCount} of ${total} pens`;
+    }
   }
 
   brandFilter.addEventListener('change', filterPens);
   typeFilter.addEventListener('change', filterPens);
+  
+  // Initial count
+  filterPens();
 });
 </script>
 
 <style>
-  .content img {
-    max-width: 100%;
-    margin-bottom: 20px;
+  /* Header Section */
+  .pen-header {
+    margin-bottom: 3em;
   }
-  
-  @media (min-width: 600px) {
-    .content img {
-      max-width: 50%;
-      float: left;
-      margin-right: 20px;
-      margin-bottom: 0;
-    }
-    .content {
-      display: flow-root;
-    }
-  }
-  .pen-item {
+
+  .pen-intro {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #ddd;
+    gap: 2em;
   }
-  
-  @media (min-width: 600px) {
-    .pen-item {
-      flex-direction: row;
-      align-items: center;
-    }
-  }
-  
-  .pen-info {
-    flex: 1;
-  }
-  .pen-item img {
+
+  .pen-hero-img {
+    width: 100%;
     max-width: 100%;
-    margin-bottom: 10px;
-    margin-right: 0;
-    border-radius: 15px;
-    box-shadow: 0 0 10px #d400ff;
-    transition: transform 0.3s ease;
-    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
-  
-  @media (min-width: 600px) {
-    .pen-item img {
-      max-width: 100px;
-      margin-bottom: 0;
-      margin-right: 20px;
+
+  @media (min-width: 768px) {
+    .pen-intro {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 3em;
+    }
+
+    .pen-hero-img {
+      flex: 0 0 40%;
+      max-width: 40%;
+    }
+
+    .pen-text {
+      flex: 1;
     }
   }
-  
-  .pen-item img:hover {
-    transform: scale(1.1);
+
+  .pen-text p {
+    margin-bottom: 1.5em;
+    line-height: 1.6;
   }
-  .pen-item h2 {
-    margin-top: 0;
+
+  .pen-text p:last-child {
+    margin-bottom: 0;
   }
-  .pen-item p {
-    margin-top: 5px;
+
+  /* Filters */
+  .pen-filters {
+    background: #f8f9fa;
+    padding: 1.5em;
+    border-radius: 8px;
+    margin-bottom: 2.5em;
   }
-  .pen-item a {
-    display: inline-block;
-    margin-top: 10px;
-    color: #007bff;
+
+  .filters-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+    align-items: center;
+  }
+
+  .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+  }
+
+  .filter-group label {
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+  }
+
+  .filter-group select {
+    padding: 0.5em 0.75em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+    cursor: pointer;
+    font-size: 0.95em;
+  }
+
+  .filter-group select:hover {
+    border-color: #999;
+  }
+
+  .filter-group select:focus {
+    outline: none;
+    border-color: #d400ff;
+    box-shadow: 0 0 0 2px rgba(212, 0, 255, 0.1);
+  }
+
+  .filter-results {
+    margin-left: auto;
+    color: #666;
+    font-size: 0.95em;
+    font-weight: 500;
   }
 
   @media (max-width: 600px) {
-    .pen-item {
+    .filters-container {
       flex-direction: column;
       align-items: flex-start;
+      gap: 1em;
     }
-    .pen-item img {
-      margin: 0 0 10px 0;
-      max-width: 100%;
+
+    .filter-results {
+      margin-left: 0;
     }
-    .pen-item img:hover {
-      transform: none;
+  }
+
+  /* Pen Grid Layout */
+  .pen-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2em;
+    margin-bottom: 2em;
+  }
+
+  @media (min-width: 600px) {
+    .pen-list {
+      grid-template-columns: repeat(2, 1fr);
     }
+  }
+
+  @media (min-width: 1024px) {
+    .pen-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* Pen Item Cards */
+  .pen-item {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pen-item:hover {
+    box-shadow: 0 8px 16px rgba(212, 0, 255, 0.15);
+    transform: translateY(-4px);
+  }
+
+  .pen-item-image {
+    width: 100%;
+    height: 200px;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .pen-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    background: white;
+  }
+
+  .pen-item:hover .pen-item-image img {
+    transform: scale(1.05);
+  }
+
+  .pen-info {
+    padding: 1.5em;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pen-badges {
+    display: flex;
+    gap: 0.5em;
+    margin-bottom: 1em;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.35em 0.75em;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .badge-brand {
+    background: rgba(212, 0, 255, 0.15);
+    color: #8b008b;
+  }
+
+  .badge-type {
+    background: rgba(100, 150, 255, 0.15);
+    color: #1e40af;
+  }
+
+  .pen-item h2 {
+    font-size: 1.1em;
+    margin: 0 0 0.5em 0;
+    line-height: 1.3;
+  }
+
+  .pen-item h2 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .pen-item h2 a:hover {
+    color: #d400ff;
+  }
+
+  .pen-item p {
+    font-size: 0.95em;
+    line-height: 1.5;
+    color: #666;
+    margin: 0;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .read-more {
+    display: inline-block;
+    margin-top: 1em;
+    color: #d400ff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .read-more:hover {
+    color: #8b008b;
+    transform: translateX(2px);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .pen-item-image {
+      height: 180px;
+    }
+
     .pen-info {
-      width: 100%;
+      padding: 1.25em;
+    }
+
+    .pen-item h2 {
+      font-size: 1em;
     }
   }
 </style>
