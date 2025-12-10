@@ -416,6 +416,37 @@ document.addEventListener('DOMContentLoaded', function() {
     color: var(--clr-text);
   }
 
+  [data-theme="dark"] .pen-item {
+    background: var(--clr-main-bg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  }
+
+  [data-theme="dark"] .pen-item:hover {
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
+  }
+
+  [data-theme="dark"] .pen-item-image {
+    background: #1f1f2f;
+  }
+
+  [data-theme="dark"] .pen-item-image img {
+    background: var(--clr-main-bg);
+  }
+
+  [data-theme="dark"] .badge-brand {
+    background: rgba(255, 107, 53, 0.2);
+    color: var(--clr-heading);
+  }
+
+  [data-theme="dark"] .badge-type {
+    background: rgba(0, 212, 255, 0.2);
+    color: var(--clr-link);
+  }
+
+  [data-theme="dark"] .pen-item h2 a:hover {
+    color: var(--clr-link);
+  }
+
   [data-theme="dark"] .pen-item p {
     color: var(--clr-text);
   }

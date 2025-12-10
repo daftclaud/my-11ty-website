@@ -61,26 +61,36 @@
         // Check for saved theme preference or default to system preference
         const savedTheme = localStorage.getItem('theme');
         const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
+
+        const setTheme = (theme, persist = true) => {
+          html.setAttribute('data-theme', theme);
+          if (persist) {
+            localStorage.setItem('theme', theme);
+          }
+          const label = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+          themeToggle.setAttribute('aria-label', label);
+          themeToggle.setAttribute('title', label);
+        };
+
         if (savedTheme) {
-          html.setAttribute('data-theme', savedTheme);
+          setTheme(savedTheme);
         } else if (systemPrefersDark) {
-          html.setAttribute('data-theme', 'dark');
+          setTheme('dark');
+        } else {
+          setTheme('light');
         }
         
         // Toggle theme
         themeToggle.addEventListener('click', () => {
           const currentTheme = html.getAttribute('data-theme');
           const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-          
-          html.setAttribute('data-theme', newTheme);
-          localStorage.setItem('theme', newTheme);
+          setTheme(newTheme);
         });
         
         // Listen for system theme changes
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
           if (!localStorage.getItem('theme')) {
-            html.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+            setTheme(e.matches ? 'dark' : 'light', false);
           }
         });
       })();

@@ -21,38 +21,40 @@ eleventyComputed:
 
 <style>
   header {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--clr-nav-bg);
+    color: var(--clr-nav-text);
     padding: 10px 0;
     text-align: center;
   }
 
   h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   main {
-    max-width: 800px;
+    max-width: 900px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--clr-main-bg);
+    border: 3px solid var(--clr-border);
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
   }
 
   article {
-    padding: 20px;
+    padding: 10px 0;
   }
 
   h2 {
-    color: #333;
-    border-bottom: 2px solid #333;
+    color: var(--clr-heading);
+    border-bottom: 2px solid var(--clr-border);
     padding-bottom: 5px;
   }
 
   p {
     margin: 10px 0;
+    color: var(--clr-text);
   }
 
   figure {
@@ -64,17 +66,23 @@ eleventyComputed:
     margin: auto;
     max-width: 100%;
     height: auto;
-    border: 1px solid #ddd;
+    border: 1px solid var(--clr-border);
     border-radius: 5px;
+    background: var(--clr-main-bg);
   }
 
   figcaption {
     margin-top: 10px;
     font-style: italic;
-    color: #555;
+    color: var(--clr-text);
+    opacity: 0.85;
   }
 
   .center-text {
     text-align: center;
+  }
+
+  [data-theme="dark"] main {
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.4);
   }
 </style>

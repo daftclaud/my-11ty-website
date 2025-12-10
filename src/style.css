@@ -225,26 +225,34 @@ section {
 
 .theme-icon {
   position: absolute;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .theme-icon-sun {
   opacity: 1;
+  visibility: visible;
   transform: rotate(0deg);
 }
 
 .theme-icon-moon {
   opacity: 0;
+  visibility: hidden;
   transform: rotate(180deg);
 }
 
-[data-theme=\"dark\"] .theme-icon-sun {
+[data-theme="dark"] .theme-icon-sun,
+[data-theme="light"] .theme-icon-moon {
   opacity: 0;
+  visibility: hidden;
   transform: rotate(-180deg);
 }
 
-[data-theme=\"dark\"] .theme-icon-moon {
+[data-theme="dark"] .theme-icon-moon,
+[data-theme="light"] .theme-icon-sun {
   opacity: 1;
+  visibility: visible;
   transform: rotate(0deg);
 }
 
