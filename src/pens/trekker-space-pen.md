@@ -5,6 +5,7 @@ image: "/assets/pens/trekker-space-pen.webp"
 caption: "The Trekker Space Pen"
 brand: "Fisher"
 type: "Ballpoint"
+date: 2024-01-01
 ---
 title: "Trekker Space Pen: Durable and Versatile"
 description: "The Trekker Space Pen is designed for adventurers and outdoor enthusiasts, offering reliable performance in extreme conditions. Its rugged build and innovative design make it the perfect companion for writing anywhere, anytime."

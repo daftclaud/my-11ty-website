@@ -5,6 +5,7 @@ image: "/assets/pens/lamy-2000-ballpoint.jpg"
 caption: "The Lamy 2000 Ballpoint Pen in Makrolon and Stainless Steel"
 brand: "Lamy"
 type: "Ballpoint"
+date: 2024-01-01
 ---
 
 ## Design and Build

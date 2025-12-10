@@ -5,6 +5,7 @@ image: "/assets/pens/montblanc-meisterstuck-legrand.png"
 caption: "The Montblanc Meisterstück LeGrand Pen"
 brand: "Montblanc"
 type: "Fountain"
+date: 2024-01-01
 ---
 
 ## Design and Build

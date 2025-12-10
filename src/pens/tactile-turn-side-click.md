@@ -5,6 +5,7 @@ image: "/assets/pens/tactile-turn-side-click.webp"
 caption: "The Tactile Turn Side Click Ballpoint Pen"
 brand: "Tactile Turn"
 type: "Ballpoint"
+date: 2024-01-01
 ---
 title: "Tactile Turn Side Click: Precision and Durability"
 description: "The Tactile Turn Side Click pen is a marvel of engineering and design, offering a unique side click mechanism and exceptional build quality. Perfect for those who appreciate precision and durability in their writing instruments."

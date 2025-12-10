@@ -5,6 +5,7 @@ image: "/assets/pens/karas-kustoms-brass-bolt-v2.png"
 caption: "The Karas Kustoms Brass Bolt V2 Pen"
 brand: "Karas Kustoms"
 type: "Ballpoint"
+date: 2024-01-01
 ---
 
 ## Design and Build

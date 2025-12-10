@@ -5,6 +5,7 @@ image: "/assets/pens/fisher-space-pen-bullet.png"
 caption: "The Fisher Space Pen Bullet"
 brand: "Fisher"
 type: "Ballpoint"
+date: 2024-01-01
 ---
 
 ## Design and Build

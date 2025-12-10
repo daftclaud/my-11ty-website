@@ -5,6 +5,7 @@ image: "/assets/pens/namiki-mt-fuji-wave.webp"
 caption: "The Namiki Mt. Fuji Wave Fountain Pen"
 brand: "Namiki"
 type: "Fountain"
+date: 2025-12-07
 ---
 title: "Namiki Nippon Art: Mt. Fuji and Wave Fountain Pen"
 description: "The Namiki Nippon Art Mt. Fuji and Wave fountain pen is a masterful blend of traditional Japanese artistry and modern functionality. Featuring intricate Maki-e design, a 14k gold nib, and a lacquered finish, this pen offers a luxurious writing experience."

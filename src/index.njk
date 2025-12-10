@@ -55,10 +55,10 @@ layout: base.njk
       <div class="pens-grid">
         {% for pen in collections.recentPens %}
           <a href="{{ pen.url }}" class="pen-card">
-            <img src="{{ pen.data.image }}" alt="{{ pen.data.brand }}" class="pen-thumbnail" loading="lazy" decoding="async">
+            <img src="{{ pen.data.image }}" alt="{{ pen.data.title }}" class="pen-thumbnail" loading="lazy" decoding="async">
             <div class="pen-info">
               <div class="pen-brand">{{ pen.data.brand }}</div>
-              <div class="pen-type">{{ pen.data.type }}</div>
+              <div class="pen-model">{{ pen.data.title | replace(pen.data.brand, "") | replace(":", "") | trim }}</div>
             </div>
           </a>
         {% endfor %}
@@ -310,12 +310,13 @@ layout: base.njk
     color: #00d4ff;
   }
 
-  .pen-type {
-    font-size: 0.85em;
+  .pen-model {
+    font-size: 0.8em;
     color: #666;
+    line-height: 1.2;
   }
   
-  [data-theme="dark"] .pen-type {
+  [data-theme="dark"] .pen-model {
     color: #aaa;
   }
 </style>

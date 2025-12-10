@@ -5,6 +5,7 @@ image: "/assets/pens/platinum-3776.webp"
 caption: "The Platinum 3776 Fountain Pen"
 brand: "Platinum"
 type: "Fountain"
+date: 2024-01-01
 ---
 title: "Platinum #3776: Excellence in Writing"
 description: "The Platinum #3776 is a masterpiece of Japanese craftsmanship, known for its superior writing experience and elegant design. It is a favorite among pen enthusiasts for its precision and reliability."

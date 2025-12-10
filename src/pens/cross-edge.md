@@ -5,6 +5,7 @@ image: "/assets/pens/cross-edge.webp"
 caption: "The Cross Edge Pen"
 brand: "Cross"
 type: "Gel"
+date: 2024-01-01
 ---
 
 ## Design and Build

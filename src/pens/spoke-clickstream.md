@@ -5,6 +5,7 @@ image: "/assets/pens/spoke-clickstream.webp"
 caption: "The Spoke Clickstream Ballpoint Pen"
 brand: "Spoke"
 type: "Ballpoint"
+date: 2025-12-06
 ---
 title: "Spoke Clickstream: A Sleek and Functional EDC Pen"
 description: "The Spoke Clickstream is a precision-crafted click pen that blends modern design with everyday reliability. Featuring an aluminum body, a smooth click mechanism, and a refined grip, it's an excellent choice for writers, professionals, and pen enthusiasts."

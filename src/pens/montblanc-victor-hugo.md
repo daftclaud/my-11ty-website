@@ -5,6 +5,7 @@ image: "/assets/pens/montblanc-victor-hugo.webp"
 caption: "The Montblanc Victor Hugo Pen"
 brand: "Montblanc"
 type: "Fountain"
+date: 2024-01-01
 ---
 title: "Montblanc Writers Edition Homage to Victor Hugo Limited Edition"
 description: "The Montblanc Writers Edition Homage to Victor Hugo Limited Edition is a tribute to the great French writer Victor Hugo, celebrating his literary genius and his lasting impact on the world of literature."

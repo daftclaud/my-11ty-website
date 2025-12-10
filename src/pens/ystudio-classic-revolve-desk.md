@@ -5,6 +5,7 @@ image: "/assets/pens/ystudio-classic-revolve-desk.webp"
 caption: "The Ystudio Classic Revolve Desk Pen"
 brand: "Ystudio"
 type: "Ballpoint"
+date: 2024-01-01
 ---
 title: "YSTUDIO Classic Revolve-Desk: A Blend of Elegance and Functionality"
 description: "The YSTUDIO Classic Revolve-Desk pen exemplifies a perfect blend of elegant design and practical functionality. Its brass construction and timeless aesthetics make it an ideal addition to any desk."

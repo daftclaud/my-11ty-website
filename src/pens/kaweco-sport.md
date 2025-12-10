@@ -5,6 +5,7 @@ image: "/assets/pens/kaweco-sport.jpg"
 caption: "The Kaweco Sport Pen"
 brand: "Kaweco"
 type: "Fountain"
+date: 2024-01-01
 ---
 
 ## Design and Build

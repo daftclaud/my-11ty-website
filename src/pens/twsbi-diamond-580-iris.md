@@ -5,6 +5,7 @@ image: "/assets/pens/twsbi-diamond-580-iris.webp"
 caption: "The TWSBI Diamond 580 Iris Fountain Pen"
 brand: "TWSBI"
 type: "Fountain"
+date: 2024-01-01
 ---
 title: "TWSBI Diamond 580 Iris: Radiant Innovation"
 description: "The TWSBI Diamond 580 Iris is a striking fountain pen that combines innovative design with vibrant, colorful aesthetics. Its unique demonstrator design and exceptional performance make it a standout choice for fountain pen enthusiasts."

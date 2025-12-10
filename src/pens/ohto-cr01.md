@@ -5,6 +5,7 @@ image: "/assets/pens/ohto-cr01.jpg"
 caption: "The OHTO CR01 Ballpoint Pen"
 brand: "OHTO"
 type: "Ballpoint"
+date: 2024-01-01
 ---
 title: "Ohto CR01: Precision and Durability in a Ceramic Roller Pen"
 description: "The Ohto CR01 is a ceramic roller pen that combines cutting-edge technology with a bold and solid design. Known for its non-dry refill and high-quality SiC ceramic ball, this pen offers a smooth and reliable writing experience."

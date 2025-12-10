@@ -5,6 +5,7 @@ image: "/assets/pens/montblanc-starwalker-doue.webp"
 caption: "The Montblanc StarWalker Doué Pen"
 brand: "Montblanc"
 type: "Ballpoint"
+date: 2024-01-01
 ---
  
 title: "Montblanc StarWalker Doué: Futuristic Elegance"

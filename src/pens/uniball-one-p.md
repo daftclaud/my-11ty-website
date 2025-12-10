@@ -5,6 +5,7 @@ image: "/assets/pens/uniball-one-p.webp"
 caption: "The Uni-ball One P Gel Pen"
 brand: "Uni-ball"
 type: "Gel"
+date: 2024-01-01
 ---
 title: "Uniball One P: Precision and Simplicity"
 description: "The Uniball One P is a reliable and stylish ballpoint pen known for its precision and smooth writing experience. Its sleek design and high-quality performance make it a great choice for everyday use."

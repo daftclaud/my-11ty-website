@@ -5,6 +5,7 @@ image: "/assets/pens/montblanc-meisterstuck-origin-legrand.webp"
 caption: "Montblanc Meisterstück The Origin Collection LeGrand Pen"
 brand: "Montblanc"
 type: "Fountain"
+date: 2024-01-01
 ---
 
 ## Design and Build

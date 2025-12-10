@@ -5,6 +5,7 @@ image: "/assets/pens/parker-im-monochrome.webp"
 caption: "The Parker IM Monochrome Ballpoint Pen"
 brand: "Parker"
 type: "Ballpoint"
+date: 2024-01-01
 ---
 title: "Parker IM Monochrome Ballpoint: Modern Elegance"
 description: "The Parker IM Monochrome Ballpoint is a modern writing instrument that combines contemporary design with reliable performance, making it a perfect companion for both professional and personal use."

@@ -5,6 +5,7 @@ image: "/assets/pens/rotring-800-ballpoint.jpg"
 caption: "The rOtring 800 Ballpoint Pen"
 brand: "rOtring"
 type: "Ballpoint"
+date: 2024-01-01
 ---
 title: "Rotring 800 Ballpoint: Precision and Engineering Excellence"
 description: "The Rotring 800 Ballpoint Pen is a premium writing instrument combining German engineering with a robust metal design. With its knurled grip, retractable tip, and impeccable build quality, it stands as a top choice for professionals and enthusiasts."

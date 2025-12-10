@@ -5,6 +5,7 @@ image: "/assets/pens/nahvalur-original-winter.webp"
 caption: "The Nahvalur Original Winter Fountain Pen"
 brand: "Nahvalur"
 type: "Fountain"
+date: 2025-12-10
 ---
 title: "Nahvalur Original Winter: Serene Elegance in Ice Blue"
 description: "The Nahvalur Original Winter fountain pen captures the tranquil beauty of winter with its stunning ice blue resin and silver chrome accents. A piston-filling fountain pen that combines aesthetic appeal with reliable performance."

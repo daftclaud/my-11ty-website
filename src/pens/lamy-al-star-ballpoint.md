@@ -5,6 +5,7 @@ image: "/assets/pens/lamy-al-star-ballpoint.jpg"
 caption: "The Lamy AL-star Ballpoint Pen in Graphite"
 brand: "Lamy"
 type: "Ballpoint"
+date: 2024-01-01
 ---
 
 ## Design and Build

@@ -5,6 +5,7 @@ image: "/assets/pens/ystudio-classic-revolve-portable.webp"
 caption: "The Ystudio Classic Revolve Portable Pen"
 brand: "Ystudio"
 type: "Ballpoint"
+date: 2024-01-01
 ---
 title: "YSTUDIO Classic Revolve Portable: Tradition Meets Modernity"
 description: "The YSTUDIO Classic Revolve Portable pen blends traditional craftsmanship with modern design, offering a unique writing experience in a compact and elegant form."

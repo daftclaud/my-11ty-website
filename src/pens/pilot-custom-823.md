@@ -5,6 +5,7 @@ image: "/assets/pens/pilot-custom-823.jpg"
 caption: "The Pilot Custom 823 Fountain Pen"
 brand: "Pilot"
 type: "Fountain"
+date: 2024-01-01
 ---
 title: "Pilot Custom 823: A Demonstrator of Elegance and Performance"
 description: "The Pilot Custom 823 is a luxury fountain pen that combines exceptional craftsmanship, a unique vacuum filling system, and a sleek demonstrator design. Renowned for its smooth writing and substantial ink capacity, the Custom 823 is a favorite among fountain pen enthusiasts."

@@ -5,6 +5,7 @@ image: "/assets/pens/spyderco-baliyo.jpg"
 caption: "The Spyderco BaliYo Pen"
 brand: "Spyderco"
 type: "Ballpoint"
+date: 2024-01-01
 ---
 
 ## Design and Build

@@ -5,6 +5,7 @@ image: "/assets/pens/uniball-zento-signature.webp"
 caption: "The Uni-ball Zento Signature Ballpoint Pen"
 brand: "Uni-ball"
 type: "Ballpoint"
+date: 2025-12-08
 ---
 title: "Uniball Zento Signature Gel Pen: Sleek Precision in Writing"
 description: "The Uniball Zento Signature Gel Pen in 0.5mm black is designed to elevate everyday writing moments. With its refined construction, magnetic cap, and revolutionary ink, it blends calm creativity with precision and style."

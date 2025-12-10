@@ -5,6 +5,7 @@ image: "/assets/pens/baron-fig-squire.webp"
 caption: "The Baron Fig Squire Ballpoint Pen"
 brand: "Baron Fig"
 type: "Rollerball"
+date: 2024-01-01
 ---
 
 ## Design and Build

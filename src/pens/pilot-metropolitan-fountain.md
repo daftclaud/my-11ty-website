@@ -5,6 +5,7 @@ image: "/assets/pens/pilot-metropolitan-fountain.jpg"
 caption: "The Pilot Metropolitan Fountain Pen"
 brand: "Pilot"
 type: "Fountain"
+date: 2024-01-01
 ---
 title: "Pilot Metropolitan Fountain Pen: Affordable Elegance"
 description: "The Pilot Metropolitan Fountain Pen is a perfect blend of style, performance, and affordability, making it an excellent choice for both beginners and experienced writers."

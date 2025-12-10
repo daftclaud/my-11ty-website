@@ -5,6 +5,7 @@ image: "/assets/pens/parker-jotter.jpeg"
 caption: "The Parker Jotter Ballpoint Pen"
 brand: "Parker"
 type: "Ballpoint"
+date: 2024-01-01
 ---
 title: "Parker Jotter: A Timeless Classic"
 description: "The Parker Jotter, an iconic writing instrument introduced in 1954 by the Parker Pen Company, holds a special place in the hearts of pen enthusiasts. Its enduring popularity stems from a perfect blend of form and function, making it a staple in the world of fine writing."

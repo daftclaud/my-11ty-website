@@ -5,6 +5,7 @@ image: "/assets/pens/ystudio-glamour-evolve-bihex.webp"
 caption: "The Ystudio Glamour Evolve Bihex Pen"
 brand: "Ystudio"
 type: "Ballpoint"
+date: 2024-01-01
 ---
 title: "YSTUDIO Glamour Evolve-Bihex: Elegance and Innovation"
 description: "Celebrating a decade of creativity, YSTUDIO introduces the Glamour Evolve-Bihex, a bold and stylish writing instrument that combines classic brass with modern composite materials."

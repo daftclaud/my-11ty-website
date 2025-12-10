@@ -5,6 +5,7 @@ image: "/assets/pens/parker-im-monochrome-fountain.avif"
 caption: "The Parker IM Monochrome Fountain Pen"
 brand: "Parker"
 type: "Fountain"
+date: 2025-12-09
 ---
 title: "Parker IM Monochrome Fountain Pen: Burgundy Elegance"
 description: "The Parker IM Monochrome fountain pen in burgundy combines sophisticated color with smooth writing performance, offering a refined writing experience for fountain pen enthusiasts."

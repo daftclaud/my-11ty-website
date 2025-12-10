@@ -5,6 +5,7 @@ image: "/assets/pens/nahvalur-schuylkill-dragonet-sapphire.webp"
 caption: "The Nahvalur Schuylkill Dragonet Sapphire Fountain Pen"
 brand: "Nahvalur"
 type: "Fountain"
+date: 2024-01-01
 ---
 title: "Nahvalur Schuylkill Dragonet Sapphire: A Radiant Limited Edition"
 description: "The Nahvalur Schuylkill Dragonet Sapphire fountain pen captures the beauty of tropical seas in its exclusive resin design. Limited to 2000 pieces, it combines craftsmanship, elegance, and a piston-filling mechanism for a remarkable writing experience."

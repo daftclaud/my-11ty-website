@@ -5,6 +5,7 @@ image: "/assets/pens/pilot-vanishing-point.webp"
 caption: "The Pilot Vanishing Point Fountain Pen"
 brand: "Pilot"
 type: "Fountain"
+date: 2024-01-01
 ---
 title: "Pilot Vanishing Point: Innovation in Writing"
 description: "The Pilot Vanishing Point is a revolutionary fountain pen with a retractable nib, offering a seamless blend of innovation, functionality, and elegance."
