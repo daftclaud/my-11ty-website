@@ -1455,8 +1455,8 @@ layout: base.njk
         <label for="searchSourceFilter">Filter by Source:</label>
         <select id="searchSourceFilter">
           <option value="">All Sources</option>
-          {% for source in stats.topSources %}
-            <option value="{{ source.name }}">{{ source.name }}</option>
+          {% for source in stats.allSources %}
+            <option value="{{ source.name }}">{{ source.name }} ({{ source.count }})</option>
           {% endfor %}
         </select>
       </div>

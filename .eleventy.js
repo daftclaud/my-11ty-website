@@ -212,6 +212,11 @@ module.exports = function (eleventyConfig) {
       wordsBySource[source].push(wordData);
     });
 
+    // Get all sources sorted by count
+    const allSources = Object.entries(wordsBySource)
+      .map(([name, words]) => ({ name, count: words.length }))
+      .sort((a, b) => b.count - a.count);
+
     // Build daily breakdown
     const dailyBreakdown = {};
     allWords.forEach((wordData) => {
@@ -250,6 +255,7 @@ module.exports = function (eleventyConfig) {
       maxYearlyCount,
       topMonths,
       topSources,
+      allSources,
       letterDistribution,
       maxLetterCount,
       firstWord,
