@@ -30,7 +30,11 @@ layout: base.njk
   </div>
 
   <div class="pen-filters">
-    <div class="filters-container">
+    <button class="filter-toggle" id="filterToggle" aria-label="Toggle filters" aria-expanded="false">
+      <span class="filter-toggle-icon">⚙️</span>
+      <span class="filter-toggle-text">Filters</span>
+    </button>
+    <div class="filters-container" id="filtersContainer">
       <div class="filter-group">
         <label for="brandFilter">Brand:</label>
         <select id="brandFilter">
@@ -79,6 +83,26 @@ document.addEventListener('DOMContentLoaded', function() {
   const typeFilter = document.getElementById('typeFilter');
   const resultCountSpan = document.getElementById('resultCount');
   const penItems = document.querySelectorAll('.pen-item');
+  const filterToggle = document.getElementById('filterToggle');
+  const filtersContainer = document.getElementById('filtersContainer');
+
+  // Mobile filter toggle functionality
+  filterToggle.addEventListener('click', function() {
+    const isExpanded = filtersContainer.classList.toggle('expanded');
+    filterToggle.setAttribute('aria-expanded', isExpanded);
+  });
+
+  // Close filters when user interacts with select on mobile
+  const selectElements = filtersContainer.querySelectorAll('select');
+  selectElements.forEach(select => {
+    select.addEventListener('change', function() {
+      // Keep filters open on desktop, close on mobile
+      if (window.innerWidth < 600) {
+        filtersContainer.classList.remove('expanded');
+        filterToggle.setAttribute('aria-expanded', false);
+      }
+    });
+  });
 
   // Collect unique brands and types from pen items
   const brandsSet = new Set();
@@ -184,9 +208,41 @@ document.addEventListener('DOMContentLoaded', function() {
   /* Filters */
   .pen-filters {
     background: #f8f9fa;
-      padding: 1em;
-      border-radius: 8px;
-      margin-bottom: 1em;
+    border-radius: 8px;
+    margin-bottom: 1em;
+  }
+
+  .filter-toggle {
+    display: none;
+    width: 100%;
+    padding: 1em;
+    background: #f8f9fa;
+    border: 2px solid #ddd;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    font-family: var(--ff-body);
+    font-size: 1em;
+    font-weight: 600;
+    color: #ff00ff;
+    transition: all 0.3s ease;
+    align-items: center;
+    gap: 0.5em;
+    justify-content: center;
+  }
+
+  .filter-toggle:hover {
+    background: #efefef;
+    border-color: #999;
+  }
+
+  .filter-toggle:focus {
+    outline: none;
+    border-color: #ff00ff;
+    box-shadow: 0 0 0 2px rgba(255, 0, 255, 0.2);
+  }
+
+  .filter-toggle-icon {
+    font-size: 1.2em;
   }
 
   .filters-container {
@@ -194,6 +250,7 @@ document.addEventListener('DOMContentLoaded', function() {
     flex-wrap: wrap;
     gap: 1.5em;
     align-items: center;
+    padding: 1em;
   }
 
   .filter-group {
@@ -234,15 +291,67 @@ document.addEventListener('DOMContentLoaded', function() {
     font-weight: 500;
   }
 
+  /* Mobile filter toggle */
   @media (max-width: 600px) {
+    .pen-filters {
+      padding: 0;
+      background: white;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+    }
+
+    .filter-toggle {
+      display: flex;
+    }
+
     .filters-container {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: stretch;
       gap: 1em;
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .filters-container.expanded {
+      max-height: 500px;
+      opacity: 1;
+      padding: 1em;
+      border-top: 2px solid #ddd;
+    }
+
+    .filter-group {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .filter-group label {
+      margin-bottom: 0.5em;
+    }
+
+    .filter-group select {
+      width: 100%;
     }
 
     .filter-results {
       margin-left: 0;
+      padding-top: 1em;
+      border-top: 1px solid #eee;
+      text-align: center;
+    }
+  }
+
+  @media (min-width: 601px) {
+    .filters-container {
+      flex-direction: row;
+      align-items: center;
+      gap: 1.5em;
+    }
+
+    .filter-results {
+      margin-left: auto;
     }
   }
 

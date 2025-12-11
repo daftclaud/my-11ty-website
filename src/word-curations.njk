@@ -50,6 +50,26 @@ layout: base.njk
   .view-toggle-container {
     margin: 40px 0 30px 0;
     text-align: center;
+    /* Sticky on mobile */
+    position: sticky;
+    top: 60px;
+    z-index: 50;
+    background: linear-gradient(180deg, rgba(255, 255, 224, 0.95) 0%, rgba(255, 255, 224, 0.9) 100%);
+    padding: 15px 0;
+    border-bottom: 2px solid #ff00ff;
+  }
+
+  [data-theme="dark"] .view-toggle-container {
+    background: linear-gradient(180deg, rgba(26, 26, 46, 0.95) 0%, rgba(26, 26, 46, 0.9) 100%);
+  }
+
+  @media (min-width: 600px) {
+    .view-toggle-container {
+      position: static;
+      background: transparent;
+      border-bottom: none;
+      margin: 40px 0 30px 0;
+    }
   }
 
   .view-toggle {
@@ -187,6 +207,12 @@ layout: base.njk
     margin-bottom: 20px;
     padding-bottom: 15px;
     border-bottom: 2px solid #ff00ff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .year-header:hover {
+    opacity: 0.85;
   }
 
   .year-header h3 {
@@ -203,10 +229,50 @@ layout: base.njk
     text-shadow: 1px 1px #000;
   }
 
+  .year-toggle-icon {
+    display: none;
+    font-size: 1.2em;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+  }
+
   .months-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 10px;
+    transition: all 0.3s ease;
+  }
+
+  /* Mobile collapsible years */
+  @media (max-width: 600px) {
+    .year-header {
+      cursor: pointer;
+    }
+
+    .year-toggle-icon {
+      display: inline-block;
+    }
+
+    .year-section.collapsed .months-grid {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      margin: 0;
+    }
+
+    .year-section.expanded .months-grid {
+      max-height: 2000px;
+      opacity: 1;
+      margin: 20px 0 0 0;
+    }
+
+    .year-section.collapsed .year-toggle-icon {
+      transform: rotate(0deg);
+    }
+
+    .year-section.expanded .year-toggle-icon {
+      transform: rotate(180deg);
+    }
   }
 
   .mini-calendar {
@@ -1432,10 +1498,15 @@ layout: base.njk
       <div class="calendar-grid">
         {% set yearCount = stats.yearlyBreakdown | length %} {% for year in
         stats.yearlyBreakdown %}
-        <div class="year-section">
+        <div class="year-section expanded">
           <div class="year-header">
-            <h3>{{ year.year }}</h3>
-            <span class="year-total">{{ year.count }} words</span>
+            <div>
+              <h3>{{ year.year }}</h3>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span class="year-total">{{ year.count }} words</span>
+              <span class="year-toggle-icon">▼</span>
+            </div>
           </div>
           <!-- Placeholder for month mini-calendars -->
           <div class="months-grid">
@@ -2044,6 +2115,34 @@ layout: base.njk
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+    // Handle collapsible year sections on mobile
+    const yearSections = document.querySelectorAll(".year-section");
+    const isMobile = window.innerWidth <= 600;
+
+    yearSections.forEach((section) => {
+      const header = section.querySelector(".year-header");
+      if (header) {
+        header.addEventListener("click", function() {
+          // Only collapse on mobile
+          if (window.innerWidth <= 600) {
+            section.classList.toggle("collapsed");
+            section.classList.toggle("expanded");
+          }
+        });
+      }
+    });
+
+    // Initialize mobile state
+    if (isMobile) {
+      yearSections.forEach((section, index) => {
+        // Keep first year expanded, collapse others on mobile
+        if (index > 0) {
+          section.classList.remove("expanded");
+          section.classList.add("collapsed");
+        }
+      });
+    }
+
     const toggleBtns = document.querySelectorAll(".view-toggle-btn");
     const wordsView = document.getElementById("wordsView");
     const searchView = document.getElementById("searchView");
