@@ -1,18 +1,15 @@
 {
   "total_entries": 3062,
-  "unique_sources": 100,
+  "unique_sources": 99,
   "categories": {
     "Personal": {
-      "total": 1982,
+      "total": 1961,
       "sources": {
         "My old website": 1951,
-        "Stories of Your Life and Others - Ted Chiang": 18,
         "Honey": 5,
-        "Paint - Lee Hee-Young": 3,
         "Mi papá": 2,
-        "Me :)": 1,
-        "My friend Paty": 1,
-        "Yo": 1
+        "Yo": 2,
+        "Paty Alvarez": 1
       }
     },
     "Non-fiction Books": {
@@ -24,13 +21,12 @@
       }
     },
     "Books/Novels": {
-      "total": 895,
+      "total": 826,
       "sources": {
         "Children of Memory - Novel by Adrian Tchaikovsky": 131,
         "Nexus - Yuval Noah Harari": 86,
         "Benjamin Franklin - Walter Isaacson": 70,
         "Anna Karenina - Novel by Leo Tolstoy": 63,
-        "El Juego del Angel - Carlos Ruiz Zafón": 61,
         "The Physician - Novel by Noah Gordon": 59,
         "Zen and the Art of Motorcycle Maintenance - Robert M. Pirsig": 52,
         "El Fin del Mundo y un Despiadado País de las Maravillas - Haruki Murakami": 50,
@@ -41,19 +37,17 @@
         "The Road - Novel by Cormac McCarthy": 21,
         "The Wind-Up Bird Chronicle - Haruki Murakami": 21,
         "Never Let Me Go - Kazuo Ishiguro": 18,
-        "How High We Go in the Dark - Sequoia Nagamatsu": 13,
+        "Stories of Your Life and Others - Ted Chiang": 18,
         "The Language Instinct - Steven Pinker": 13,
         "Anarchy, State, and Utopia - Robert Nozick": 11,
-        "Harry Potter and the Half-blood Prince": 11,
         "La Sombra del viento - Novel by Carlos Ruiz Zafón": 11,
         "Not the End of the World - Hannah Ritchie": 9,
         "Balanced Scorecard Evolution - Book by Paul R. Niven": 5,
         "The Singularity is Nearer - Ray Kurzweil": 5,
-        "Harry Potter and the Goblet of Fire": 4,
         "The Catcher in the Rye - J.D. Salinger": 4,
+        "Paint - Lee Hee-Young": 3,
         "The Real Daft Punk - Book by Harris Rosen": 3,
-        "El Gigante Enterrado - Kazuo Ishiguro": 1,
-        "Harry Potter and the Prisoner of Azkaban": 1
+        "El Gigante Enterrado - Kazuo Ishiguro": 1
       }
     },
     "Short Stories": {
@@ -94,10 +88,14 @@
       }
     },
     "Uncategorized": {
-      "total": 66,
+      "total": 156,
       "sources": {
+        "El Juego del Angel - Carlos Ruiz Zafón": 61,
         "Around the World in Eighty Days - Jules Verne": 19,
+        "How High We Go in the Dark - Sequoia Nagamatsu": 13,
+        "Harry Potter and the Half-blood Prince": 11,
         "Libro sobre Responsabilidad Social Empresarial": 8,
+        "Harry Potter and the Goblet of Fire": 4,
         "Love is Blind - Mexico": 3,
         "A Few Good Men": 2,
         "El Infinito en un Junco - Irene Vallejo": 2,
@@ -119,6 +117,7 @@
         "Elon Musk": 1,
         "Fox NFL": 1,
         "Frieren": 1,
+        "Harry Potter and the Prisoner of Azkaban": 1,
         "House of Guinness": 1,
         "Juan Gabriel - Debo, puedo y quiero": 1,
         "La Paty": 1,
