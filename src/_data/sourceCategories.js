@@ -6,6 +6,7 @@ const canonical = {
   'Children of Memory - Adrian Tchaikovsky': 'Children of Memory - Novel by Adrian Tchaikovsky',
   'Love is Blind Mexico': 'Love is Blind - Mexico',
   'Mi Honey': 'Honey',
+  'Mi Honey ': 'Honey',
   'Yo a mi Honey': 'Honey',
   'Liga MX futbol': 'Liga MX',
   'Sombra del viento - Novel by Carlos Ruiz Zafón': 'La Sombra del viento - Novel by Carlos Ruiz Zafón',
@@ -36,16 +37,16 @@ const categoryKeywords = {
     'El Infinito en un Junco - Irene Vallejo',
     'El Juego del Angel - Carlos Ruiz Zafón',
     'How High We Go in the Dark - Sequoia Nagamatsu',
-    'Harry Potter',
-  ],
-  'Non-fiction Books': [
+    'Harry Potter', 'Stories of Your Life and Others - Ted Chiang',
+    'Tres enigmas para la Organización - Eduardo Mendoza',
+    // Former Non-fiction Books keywords merged here
     'Evolution', 'Instinct', 'Anarchy', 'Nexus', 'Ruido', 'Singularity', 'Reviewed', 'Project',
     'The Phoenix Project - Gene Kim', 'Balanced Scorecard Evolution',
     'The Real Daft Punk', 'This is Lean', 'Designing the Future', 'Libro sobre Responsabilidad Social Empresarial'
   ],
   'Movies/TV/Anime': [
     'TV', 'Anime', 'Movie', 'Podcast', 'Love is Blind', 'Last Week Tonight', 'Netflix',
-    'A Few Good Men', 'Exhuma', 'PRI - Crónica del Fin', 'Frieren'
+    'A Few Good Men', 'Exhuma', 'PRI - Crónica del Fin', 'Frieren', 'Debo, puedo y quiero'
   ],
   'News/Press': ['Periódico', 'NYT', 'New York Times', 'Milenio', 'El Horizonte', 'Magazine', 'El noticiero'],
   'Web/Social/Apps': [
@@ -56,15 +57,16 @@ const categoryKeywords = {
   'Music': ['Song', 'Juan Gabriel'],
   'Personal': [
     'My old website', 'Yo', 'Honey', 'Mi papá', 'Paty Alvarez', 'Alan Zorrilla', 'Thomas Ojeda',
-    'Adrian Marcelo', 'Elon Musk', 'Work'
+    'Adrian Marcelo', 'Elon Musk', 'Work', 'Coty - Globant', 'Alejandro - Guia en Cusco'
   ],
   'Events/Sports': ['soccer game', 'Rayados', 'Mazatlán', 'NBA', 'Baseball', 'Fox NFL', 'Liga MX'],
   'Academic/Work': ['Masters class', 'homework', 'Paper', 'Tarea de maestría'],
-  'Museums/Places': ['Museo', 'Vinicola', 'House of Guinness', 'Coty - Globant', 'Alejandro - Guia en Cusco']
+  'Museums/Places': ['Museo', 'Vinicola', 'House of Guinness']
 };
 
 function canonicalize(source) {
-  return canonical[source] || source;
+  const normalized = (source || '').trim();
+  return canonical[normalized] || normalized;
 }
 
 function categorizeSource(source) {
@@ -103,8 +105,9 @@ module.exports = function() {
         const line = lines[i];
         if (line.match(/^\s+source:/)) {
           const source = line.replace(/^\s+source:\s*/, '').trim();
-          if (source && !mapping[source]) {
-            mapping[source] = categorizeSource(source);
+          const canonicalSource = canonicalize(source);
+          if (canonicalSource && !mapping[canonicalSource]) {
+            mapping[canonicalSource] = categorizeSource(canonicalSource);
           }
         }
       }
