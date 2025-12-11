@@ -505,6 +505,23 @@ document.addEventListener('DOMContentLoaded', function() {
   /* Dark mode overrides */
   [data-theme="dark"] .pen-filters {
     background: var(--clr-nav-bg);
+    border-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .filter-toggle {
+    background: var(--clr-nav-bg);
+    border-color: var(--clr-border);
+    color: var(--clr-link);
+  }
+
+  [data-theme="dark"] .filter-toggle:hover {
+    background: #2a2a3e;
+    border-color: var(--clr-link);
+  }
+
+  [data-theme="dark"] .filter-toggle:focus {
+    border-color: var(--clr-link);
+    box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
   }
 
   [data-theme="dark"] .filter-group label {
@@ -521,8 +538,19 @@ document.addEventListener('DOMContentLoaded', function() {
     border-color: var(--clr-link);
   }
 
+  [data-theme="dark"] .filter-group select:focus {
+    border-color: var(--clr-link);
+    box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.1);
+  }
+
   [data-theme="dark"] .filter-results {
     color: var(--clr-text);
+  }
+
+  @media (max-width: 600px) {
+    [data-theme="dark"] .filters-container.expanded {
+      border-top-color: var(--clr-border);
+    }
   }
 
   [data-theme="dark"] .pen-item {

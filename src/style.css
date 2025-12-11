@@ -377,3 +377,31 @@ footer a {
   transition: color 0.3s ease;
 }
 
+/* Link Styles */
+a:not([class]) {
+  color: var(--clr-link);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+a:not([class]):hover,
+a:not([class]):focus {
+  opacity: 0.8;
+  outline: none;
+}
+
+a:not([class]):focus {
+  outline: 2px solid var(--clr-link);
+  outline-offset: 2px;
+}
+
+/* Improve link contrast in dark mode */
+[data-theme="dark"] a:not([class]) {
+  color: #00ffff;
+  font-weight: 500;
+}
+
+[data-theme="dark"] a:not([class]):hover {
+  color: #66ffff;
+}
+

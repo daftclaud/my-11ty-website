@@ -33,17 +33,19 @@ layout: base.njk
     <h3>Latest Word Curation</h3>
     {% if collections.recentWordCurations.length > 0 %}
       {% set curation = collections.recentWordCurations[0] %}
-      <div class="latest-curation">
-        <a href="{{ curation.url }}" class="curation-date">{{ curation.data.date | formatDate }}</a>
-        <ul class="words-list">
-          {% for word in curation.data.words %}
-            <li>
-              <strong>{{ word.word }}</strong> - {{ word.definition }}
-              {% if word.source %}<span class="word-source">Source: {{ word.source }}</span>{% endif %}
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
+      <a href="{{ curation.url }}" class="latest-curation-link">
+        <div class="latest-curation">
+          <div class="curation-date">{{ curation.data.date | formatDate }}</div>
+          <ul class="words-list">
+            {% for word in curation.data.words %}
+              <li>
+                <strong>{{ word.word }}</strong> - {{ word.definition }}
+                {% if word.source %}<span class="word-source">Source: {{ word.source }}</span>{% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </a>
     {% else %}
       <p>No recent curations found.</p>
     {% endif %}
@@ -149,11 +151,34 @@ layout: base.njk
   }
 
   /* Word Curation Styles */
+  .latest-curation-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+  }
+
+  .latest-curation-link:hover .latest-curation {
+    box-shadow: 0 4px 12px rgba(0, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .latest-curation-link:focus {
+    outline: 2px solid #00ffff;
+    outline-offset: 4px;
+    border-radius: 8px;
+  }
+
+  [data-theme="dark"] .latest-curation-link:focus {
+    outline-color: #00d4ff;
+  }
+
   .latest-curation {
     background-color: #ffffff;
     padding: 15px;
     border-radius: 8px;
     border-left: 4px solid #00ffff;
+    transition: all 0.2s ease;
   }
   
   @media (min-width: 600px) {
@@ -171,22 +196,20 @@ layout: base.njk
     font-size: 1.1em;
     font-weight: bold;
     color: #0066cc;
-    text-decoration: none;
     margin-bottom: 15px;
+    transition: color 0.2s ease;
   }
 
-  .curation-date:hover {
-    text-decoration: underline;
-  }
-  
-  .curation-date:focus {
-    outline: 2px solid #0066cc;
-    outline-offset: 2px;
-    border-radius: 2px;
+  .latest-curation-link:hover .curation-date {
+    color: #0080ff;
   }
   
   [data-theme="dark"] .curation-date {
     color: #00d4ff;
+  }
+
+  [data-theme="dark"] .latest-curation-link:hover .curation-date {
+    color: #66ffff;
   }
 
   .words-list {

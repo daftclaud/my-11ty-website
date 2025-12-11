@@ -168,6 +168,80 @@ layout: base.njk
     color: #fff;
   }
 
+  /* Overview Section Collapsible */
+  .overview-section {
+    background: #fff;
+    border: 2px solid #ff00ff;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+
+  .overview-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #fff9e6 0%, #fff 100%);
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 2px solid #ff00ff;
+    transition: all 0.2s ease;
+  }
+
+  .overview-section-header:hover {
+    background: linear-gradient(135deg, #ffedcc 0%, #fff9e6 100%);
+  }
+
+  .overview-section-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #ff4500;
+    text-shadow: 1px 1px #000;
+  }
+
+  .overview-toggle-icon {
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+    display: inline-block;
+  }
+
+  .overview-section-content {
+    padding: 20px;
+    max-height: 5000px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .overview-section.collapsed .overview-section-content {
+    max-height: 0;
+    padding: 0 20px;
+    overflow: hidden;
+  }
+
+  .overview-section.collapsed .overview-toggle-icon {
+    transform: rotate(-90deg);
+  }
+
+  .overview-section.expanded .overview-toggle-icon {
+    transform: rotate(0deg);
+  }
+
+  /* Dark mode adjustments */
+  [data-theme="dark"] .overview-section {
+    background: #16213e;
+    border-color: #ff6b35;
+  }
+
+  [data-theme="dark"] .overview-section-header {
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+    border-bottom-color: #ff6b35;
+  }
+
+  [data-theme="dark"] .overview-section-header:hover {
+    background: linear-gradient(135deg, #163a5a 0%, #1d4a70 100%);
+  }
+
   .timeline-chart,
   .monthly-activity,
   .alphabet-chart {
@@ -1457,7 +1531,14 @@ layout: base.njk
 
   <h2>Collection Overview</h2>
 
-  <div class="stats-grid">
+  <!-- Stats Section -->
+  <div class="overview-section expanded">
+    <div class="overview-section-header">
+      <h3>📊 Statistics</h3>
+      <span class="overview-toggle-icon">▼</span>
+    </div>
+    <div class="overview-section-content">
+      <div class="stats-grid">
     <div class="stat-card">
       <div class="stat-number">{{ stats.totalWords }}</div>
       <div class="stat-label">Total Words Collected</div>
@@ -1488,16 +1569,22 @@ layout: base.njk
       <div class="stat-label">Days Collecting</div>
     </div>
   </div>
+    </div>
+  </div>
 
-  <h2>Collection Timeline</h2>
-
-
+  <!-- Timeline Section -->
+  <div class="overview-section expanded">
+    <div class="overview-section-header">
+      <h3>📅 Collection Timeline</h3>
+      <span class="overview-toggle-icon">▼</span>
+    </div>
+    <div class="overview-section-content">
 
   <div class="timeline-chart">
     <div class="chart-container timeline-calendar" id="calendarView">
       <div class="calendar-grid">
         {% set yearCount = stats.yearlyBreakdown | length %} {% for year in
-        stats.yearlyBreakdown %}
+        stats.yearlyBreakdown | reverse %}
         <div class="year-section expanded">
           <div class="year-header">
             <div>
@@ -1741,8 +1828,16 @@ layout: base.njk
   <script type="application/json" id="wordsBySourceDataScript">
     {{ stats.wordsBySource | dump | safe }}
   </script>
+    </div>
+  </div>
 
-  <h2>Collection Milestones</h2>
+  <!-- Milestones Section -->
+  <div class="overview-section expanded">
+    <div class="overview-section-header">
+      <h3>🎯 Collection Milestones</h3>
+      <span class="overview-toggle-icon">▼</span>
+    </div>
+    <div class="overview-section-content">
   <div class="milestones">
     <ul class="milestone-list">
       <li class="milestone-item">
@@ -1768,8 +1863,16 @@ layout: base.njk
       </li>
     </ul>
   </div>
+    </div>
+  </div>
 
-  <h2>Random Word Discovery</h2>
+  <!-- Random Word Section -->
+  <div class="overview-section expanded">
+    <div class="overview-section-header">
+      <h3>🎲 Random Word Discovery</h3>
+      <span class="overview-toggle-icon">▼</span>
+    </div>
+    <div class="overview-section-content">
   <div class="random-word-section">
     {% set randomWord = stats.randomWord %}
     <div class="word-spotlight">
@@ -1785,6 +1888,8 @@ layout: base.njk
     <p class="refresh-note">
       <em>Refresh the page to discover a new word!</em>
     </p>
+  </div>
+    </div>
   </div>
 
 </div>
@@ -2142,6 +2247,18 @@ layout: base.njk
         }
       });
     }
+
+    // Handle collapsible overview sections
+    const overviewSections = document.querySelectorAll(".overview-section");
+    overviewSections.forEach((section) => {
+      const header = section.querySelector(".overview-section-header");
+      if (header) {
+        header.addEventListener("click", function() {
+          section.classList.toggle("collapsed");
+          section.classList.toggle("expanded");
+        });
+      }
+    });
 
     const toggleBtns = document.querySelectorAll(".view-toggle-btn");
     const wordsView = document.getElementById("wordsView");
