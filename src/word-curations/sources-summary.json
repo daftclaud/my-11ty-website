@@ -1,6 +1,6 @@
 {
-  "total_entries": 3066,
-  "unique_sources": 96,
+  "total_entries": 3067,
+  "unique_sources": 97,
   "categories": {
     "Personal": {
       "total": 1990,
@@ -31,7 +31,7 @@
       }
     },
     "Books/Novels": {
-      "total": 917,
+      "total": 918,
       "sources": {
         "Children of Memory - Novel by Adrian Tchaikovsky": 131,
         "Nexus - Yuval Noah Harari": 86,
@@ -63,7 +63,8 @@
         "El Infinito en un Junco - Irene Vallejo": 2,
         "El Gigante Enterrado - Kazuo Ishiguro": 1,
         "Harry Potter Wiki": 1,
-        "Harry Potter and the Prisoner of Azkaban": 1
+        "Harry Potter and the Prisoner of Azkaban": 1,
+        "Tres enigmas para la Organización - Eduardo Mendoza": 1
       }
     },
     "Short Stories": {
