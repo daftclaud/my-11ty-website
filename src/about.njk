@@ -109,18 +109,31 @@ layout: base.njk
   .rocket-league-stats {
     margin-top: 40px;
     padding: 25px;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    border: 3px solid #0f3460;
+    background: linear-gradient(135deg, #e6f3ff 0%, #cce7ff 100%);
+    border: 3px solid #0066cc;
     border-radius: 15px;
+    color: #1a1a2e;
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+
+  [data-theme="dark"] .rocket-league-stats {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-color: #0f3460;
     color: #e4e4e4;
   }
 
   .rocket-league-stats h2 {
-    color: #00d9ff;
+    color: #0066cc;
     text-align: center;
     margin-top: 0;
     margin-bottom: 20px;
     font-size: 1.8em;
+    text-shadow: 0 0 10px rgba(0, 102, 204, 0.3);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+
+  [data-theme="dark"] .rocket-league-stats h2 {
+    color: #00d9ff;
     text-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
   }
 
@@ -128,7 +141,13 @@ layout: base.njk
     margin: 20px 0 30px;
     border-radius: 12px;
     overflow: hidden;
-    border: 3px solid #00d9ff;
+    border: 3px solid #0066cc;
+    box-shadow: 0 8px 25px rgba(0, 102, 204, 0.3);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  [data-theme="dark"] .rl-hero-image {
+    border-color: #00d9ff;
     box-shadow: 0 8px 25px rgba(0, 217, 255, 0.3);
   }
 
@@ -139,10 +158,15 @@ layout: base.njk
   }
 
   .rocket-league-stats h3 {
-    color: #00d9ff;
+    color: #0066cc;
     margin-top: 25px;
     margin-bottom: 15px;
     font-size: 1.3em;
+    transition: color 0.3s ease;
+  }
+
+  [data-theme="dark"] .rocket-league-stats h3 {
+    color: #00d9ff;
   }
 
   .stats-header {
@@ -153,19 +177,31 @@ layout: base.njk
   .profile-link {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #0f3460;
-    color: #00d9ff;
+    background-color: #0066cc;
+    color: #ffffff;
     text-decoration: none;
     border-radius: 8px;
-    border: 2px solid #00d9ff;
+    border: 2px solid #0066cc;
     transition: all 0.3s;
     font-weight: bold;
   }
 
   .profile-link:hover {
+    background-color: #ffffff;
+    color: #0066cc;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 102, 204, 0.4);
+  }
+
+  [data-theme="dark"] .profile-link {
+    background-color: #0f3460;
+    color: #00d9ff;
+    border-color: #00d9ff;
+  }
+
+  [data-theme="dark"] .profile-link:hover {
     background-color: #00d9ff;
     color: #1a1a2e;
-    transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 217, 255, 0.4);
   }
 
@@ -179,19 +215,29 @@ layout: base.njk
   }
 
   .rank-card-large {
-    background: linear-gradient(135deg, rgba(77, 166, 255, 0.3) 0%, rgba(15, 52, 96, 0.6) 100%);
-    border: 3px solid #4da6ff;
+    background: linear-gradient(135deg, rgba(0, 150, 255, 0.15) 0%, rgba(230, 243, 255, 0.8) 100%);
+    border: 3px solid #3399ff;
     border-radius: 15px;
     padding: 35px;
     text-align: center;
     max-width: 400px;
     margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0, 102, 204, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
+  }
+
+  [data-theme="dark"] .rank-card-large {
+    background: linear-gradient(135deg, rgba(77, 166, 255, 0.3) 0%, rgba(15, 52, 96, 0.6) 100%);
+    border-color: #4da6ff;
     box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
   }
 
   .rank-card-large:hover {
     transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 102, 204, 0.4);
+  }
+
+  [data-theme="dark"] .rank-card-large:hover {
     box-shadow: 0 15px 40px rgba(0, 217, 255, 0.4);
   }
 
@@ -199,21 +245,37 @@ layout: base.njk
     font-size: 2.5em;
     font-weight: bold;
     margin: 15px 0;
+    color: #0066cc;
+    text-shadow: 0 0 15px rgba(0, 102, 204, 0.5);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+
+  [data-theme="dark"] .rank-tier {
     color: #4da6ff;
     text-shadow: 0 0 15px rgba(77, 166, 255, 0.8);
   }
 
   .rank-rating {
     font-size: 1.8em;
-    color: #00d9ff;
+    color: #0066cc;
     font-weight: bold;
     margin: 15px 0;
+    transition: color 0.3s ease;
+  }
+
+  [data-theme="dark"] .rank-rating {
+    color: #00d9ff;
   }
 
   .rank-percentile {
     font-size: 1.1em;
-    color: #ffd700;
+    color: #cc8800;
     font-weight: bold;
+    transition: color 0.3s ease;
+  }
+
+  [data-theme="dark"] .rank-percentile {
+    color: #ffd700;
   }
 
   .stats-grid {
@@ -224,41 +286,65 @@ layout: base.njk
   }
 
   .stat-item {
-    background: rgba(15, 52, 96, 0.5);
-    border: 2px solid #0f3460;
+    background: rgba(230, 243, 255, 0.6);
+    border: 2px solid #66a3d2;
     border-radius: 10px;
     padding: 15px;
     text-align: center;
-    transition: transform 0.2s;
+    transition: transform 0.2s, background 0.3s, border-color 0.3s;
+  }
+
+  [data-theme="dark"] .stat-item {
+    background: rgba(15, 52, 96, 0.5);
+    border-color: #0f3460;
   }
 
   .stat-item:hover {
     transform: scale(1.05);
+    border-color: #0066cc;
+  }
+
+  [data-theme="dark"] .stat-item:hover {
     border-color: #00d9ff;
   }
 
   .stat-value {
     font-size: 1.8em;
     font-weight: bold;
-    color: #00d9ff;
+    color: #0066cc;
     margin-bottom: 5px;
+    transition: color 0.3s ease;
+  }
+
+  [data-theme="dark"] .stat-value {
+    color: #00d9ff;
   }
 
   .stat-label {
     font-size: 0.9em;
-    color: #b0b0b0;
+    color: #555555;
     margin-bottom: 5px;
+    transition: color 0.3s ease;
+  }
+
+  [data-theme="dark"] .stat-label {
+    color: #b0b0b0;
   }
 
   .stat-rank {
     font-size: 0.85em;
-    color: #ffd700;
+    color: #cc8800;
     font-weight: bold;
+    transition: color 0.3s ease;
+  }
+
+  [data-theme="dark"] .stat-rank {
+    color: #ffd700;
   }
 
   .peak-card {
-    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(15, 52, 96, 0.5) 100%);
-    border: 3px solid #ffd700;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.25) 0%, rgba(230, 243, 255, 0.6) 100%);
+    border: 3px solid #cc8800;
     border-radius: 12px;
     padding: 25px;
     text-align: center;
@@ -266,25 +352,47 @@ layout: base.njk
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
+
+  [data-theme="dark"] .peak-card {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(15, 52, 96, 0.5) 100%);
+    border-color: #ffd700;
   }
 
   .peak-rank {
     font-size: 2em;
     font-weight: bold;
     margin-bottom: 10px;
+    color: #cc8800;
+    text-shadow: 0 0 15px rgba(204, 136, 0, 0.4);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+
+  [data-theme="dark"] .peak-rank {
     color: #ffd700;
     text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
   }
 
   .peak-mmr {
     font-size: 1.6em;
-    color: #00d9ff;
+    color: #0066cc;
     font-weight: bold;
     margin-bottom: 8px;
+    transition: color 0.3s ease;
+  }
+
+  [data-theme="dark"] .peak-mmr {
+    color: #00d9ff;
   }
 
   .peak-season {
     font-size: 1em;
+    color: #666666;
+    transition: color 0.3s ease;
+  }
+
+  [data-theme="dark"] .peak-season {
     color: #b0b0b0;
   }
 
