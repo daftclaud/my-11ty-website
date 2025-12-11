@@ -1,27 +1,27 @@
 {
-  "total_entries": 3062,
-  "unique_sources": 99,
+  "total_entries": 3066,
+  "unique_sources": 98,
   "categories": {
     "Personal": {
-      "total": 1961,
+      "total": 1962,
       "sources": {
         "My old website": 1951,
-        "Honey": 5,
+        "Honey": 6,
         "Mi papá": 2,
         "Yo": 2,
         "Paty Alvarez": 1
       }
     },
     "Non-fiction Books": {
-      "total": 41,
+      "total": 42,
       "sources": {
         "Ruido - Daniel Kahneman, Oliver Siboney, Cass R. Sunstein": 27,
-        "The Phoenix Project - Gene Kim": 10,
+        "The Phoenix Project - Gene Kim": 11,
         "\"John Green's Anthropocene: Reviewed\"": 4
       }
     },
     "Books/Novels": {
-      "total": 826,
+      "total": 847,
       "sources": {
         "Children of Memory - Novel by Adrian Tchaikovsky": 131,
         "Nexus - Yuval Noah Harari": 86,
@@ -36,6 +36,7 @@
         "Children of Ruin - Novel by Adrian Tchaikovsky": 32,
         "The Road - Novel by Cormac McCarthy": 21,
         "The Wind-Up Bird Chronicle - Haruki Murakami": 21,
+        "Around the World in Eighty Days - Jules Verne": 19,
         "Never Let Me Go - Kazuo Ishiguro": 18,
         "Stories of Your Life and Others - Ted Chiang": 18,
         "The Language Instinct - Steven Pinker": 13,
@@ -47,6 +48,7 @@
         "The Catcher in the Rye - J.D. Salinger": 4,
         "Paint - Lee Hee-Young": 3,
         "The Real Daft Punk - Book by Harris Rosen": 3,
+        "El Infinito en un Junco - Irene Vallejo": 2,
         "El Gigante Enterrado - Kazuo Ishiguro": 1
       }
     },
@@ -67,14 +69,12 @@
     "Web/Social/Apps": {
       "total": 25,
       "sources": {
-        "TikTok": 10,
-        "Wordle": 7,
+        "TikTok": 11,
+        "Wordle": 9,
         "Reddit": 2,
-        "Today's Wordle": 2,
         "Harry Potter Wiki": 1,
         "Instagram reels": 1,
-        "Panadero TikTok": 1,
-        "Used in a Slack message I sent": 1
+        "Slack": 1
       }
     },
     "News/Press": {
@@ -88,20 +88,19 @@
       }
     },
     "Uncategorized": {
-      "total": 156,
+      "total": 137,
       "sources": {
         "El Juego del Angel - Carlos Ruiz Zafón": 61,
-        "Around the World in Eighty Days - Jules Verne": 19,
         "How High We Go in the Dark - Sequoia Nagamatsu": 13,
         "Harry Potter and the Half-blood Prince": 11,
         "Libro sobre Responsabilidad Social Empresarial": 8,
         "Harry Potter and the Goblet of Fire": 4,
         "Love is Blind - Mexico": 3,
         "A Few Good Men": 2,
-        "El Infinito en un Junco - Irene Vallejo": 2,
         "Exhuma - Korean horror movie": 2,
         "Juan Gabriel - Netflix": 2,
         "Liga MX": 2,
+        "NBA": 2,
         "PRI - Crónica del Fin": 2,
         "Adrian Marcelo": 1,
         "Alan Zorrilla": 1,
