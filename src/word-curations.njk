@@ -1229,6 +1229,102 @@ layout: base.njk
   [data-theme="dark"] .calendar-hint p {
     color: var(--clr-text);
   }
+
+  /* Search component dark mode */
+  [data-theme="dark"] .search-filters {
+    background: var(--clr-nav-bg);
+    border-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .filter-group label {
+    color: var(--clr-text);
+  }
+
+  [data-theme="dark"] .filter-group input,
+  [data-theme="dark"] .filter-group select {
+    background: var(--clr-main-bg);
+    color: var(--clr-text);
+    border-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .filter-group input:focus,
+  [data-theme="dark"] .filter-group select:focus {
+    background: var(--clr-main-bg);
+    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.3);
+  }
+
+  [data-theme="dark"] .reset-btn {
+    background: var(--clr-border);
+    color: var(--clr-main-bg);
+  }
+
+  [data-theme="dark"] .reset-btn:hover {
+    background: var(--clr-link);
+    box-shadow: 3px 3px 0 var(--clr-border);
+  }
+
+  [data-theme="dark"] .results-info {
+    color: var(--clr-text);
+  }
+
+  [data-theme="dark"] .word-item {
+    background: var(--clr-main-bg);
+    border-color: var(--clr-border);
+    box-shadow: 2px 2px 0 var(--clr-border);
+  }
+
+  [data-theme="dark"] .word-item-source,
+  [data-theme="dark"] .word-item-language {
+    background: var(--clr-nav-bg);
+    color: var(--clr-text);
+  }
+
+  [data-theme="dark"] .word-item-language.spanish {
+    background: rgba(255, 107, 53, 0.2);
+    color: var(--clr-heading);
+  }
+
+  [data-theme="dark"] .word-item-language.english {
+    background: rgba(0, 212, 255, 0.2);
+    color: var(--clr-link);
+  }
+
+  [data-theme="dark"] .word-item-definition {
+    color: var(--clr-text);
+  }
+
+  [data-theme="dark"] .word-item-date {
+    color: var(--clr-text);
+    opacity: 0.7;
+  }
+
+  [data-theme="dark"] .no-results {
+    color: var(--clr-text);
+    opacity: 0.7;
+  }
+
+  [data-theme="dark"] .pagination {
+    background: var(--clr-nav-bg);
+    border-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .pagination-btn {
+    background: var(--clr-border);
+    color: var(--clr-main-bg);
+  }
+
+  [data-theme="dark"] .pagination-btn:hover:not(:disabled) {
+    background: var(--clr-link);
+  }
+
+  [data-theme="dark"] .pagination-btn:disabled {
+    background: #3a3a4e;
+    opacity: 0.5;
+  }
+
+  [data-theme="dark"] #pageInfo {
+    color: var(--clr-text);
+  }
 </style>
 
 <div class="hero-quote">
