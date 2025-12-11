@@ -1,0 +1,166 @@
+{
+  "total_entries": 3062,
+  "unique_sources": 100,
+  "categories": {
+    "Personal": {
+      "total": 1982,
+      "sources": {
+        "My old website": 1951,
+        "Stories of Your Life and Others - Ted Chiang": 18,
+        "Honey": 5,
+        "Paint - Lee Hee-Young": 3,
+        "Mi papá": 2,
+        "Me :)": 1,
+        "My friend Paty": 1,
+        "Yo": 1
+      }
+    },
+    "Non-fiction Books": {
+      "total": 41,
+      "sources": {
+        "Ruido - Daniel Kahneman, Oliver Siboney, Cass R. Sunstein": 27,
+        "The Phoenix Project - Gene Kim": 10,
+        "\"John Green's Anthropocene: Reviewed\"": 4
+      }
+    },
+    "Books/Novels": {
+      "total": 805,
+      "sources": {
+        "Children of Memory - Novel by Adrian Tchaikovsky": 131,
+        "Nexus - Yuval Noah Harari": 86,
+        "Benjamin Franklin - Walter Isaacson": 70,
+        "Anna Karenina - Novel by Leo Tolstoy": 63,
+        "The Physician - Novel by Noah Gordon": 59,
+        "Zen and the Art of Motorcycle Maintenance - Robert M. Pirsig": 52,
+        "El Fin del Mundo y un Despiadado País de las Maravillas - Haruki Murakami": 50,
+        "La Caza del Carnero Salvaje - Haruki Murakami": 49,
+        "Sophie's World - Jostein Gaarder": 49,
+        "Children of Time - Novel by Adrian Tchaikovsky": 42,
+        "Children of Ruin - Novel by Adrian Tchaikovsky": 32,
+        "The Road - Novel by Cormac McCarthy": 21,
+        "The Wind-Up Bird Chronicle - Haruki Murakami": 21,
+        "Never Let Me Go - Kazuo Ishiguro": 18,
+        "The Language Instinct - Steven Pinker": 13,
+        "Anarchy, State, and Utopia - Robert Nozick": 11,
+        "La Sombra del viento - Novel by Carlos Ruiz Zafón": 11,
+        "Not the End of the World - Hannah Ritchie": 9,
+        "Balanced Scorecard Evolution - Book by Paul R. Niven": 5,
+        "The Singularity is Nearer - Ray Kurzweil": 5,
+        "The Catcher in the Rye - J.D. Salinger": 4,
+        "The Real Daft Punk - Book by Harris Rosen": 3,
+        "El Gigante Enterrado - Kazuo Ishiguro": 1
+      }
+    },
+    "Short Stories": {
+      "total": 7,
+      "sources": {
+        "After the Quake - Short story by Haruki Murakami": 7
+      }
+    },
+    "Academic/Work": {
+      "total": 4,
+      "sources": {
+        "Paper on Strategy by Michael E. Porter": 2,
+        "Data Visualization - Masters class": 1,
+        "NLP homework": 1
+      }
+    },
+    "Web/Social/Apps": {
+      "total": 25,
+      "sources": {
+        "TikTok": 10,
+        "Wordle": 7,
+        "Reddit": 2,
+        "Today's Wordle": 2,
+        "Harry Potter Wiki": 1,
+        "Instagram reels": 1,
+        "Panadero TikTok": 1,
+        "Used in a Slack message I sent": 1
+      }
+    },
+    "News/Press": {
+      "total": 24,
+      "sources": {
+        "El Horizonte": 17,
+        "Milenio - Crucigrama": 3,
+        "NYT Magazine": 2,
+        "NYT Puzzle": 1,
+        "New York Times - Article": 1
+      }
+    },
+    "Uncategorized": {
+      "total": 156,
+      "sources": {
+        "El Juego del Angel - Carlos Ruiz Zafón": 61,
+        "Around the World in Eighty Days - Jules Verne": 19,
+        "How High We Go in the Dark - Sequoia Nagamatsu": 13,
+        "Harry Potter and the Half-blood Prince": 11,
+        "Libro sobre Responsabilidad Social Empresarial": 8,
+        "Harry Potter and the Goblet of Fire": 4,
+        "Love is Blind - Mexico": 3,
+        "A Few Good Men": 2,
+        "El Infinito en un Junco - Irene Vallejo": 2,
+        "Exhuma - Korean horror movie": 2,
+        "Juan Gabriel - Netflix": 2,
+        "Liga MX": 2,
+        "PRI - Crónica del Fin": 2,
+        "Adrian Marcelo": 1,
+        "Alan Zorrilla": 1,
+        "Alejandro - Guia en Cusco": 1,
+        "AltavozMX": 1,
+        "Baseball": 1,
+        "Chamba": 1,
+        "ChatGPT": 1,
+        "Coty - Globant": 1,
+        "Definition of imbue": 1,
+        "Designing the Future - Jay W. Forrester": 1,
+        "El noticiero": 1,
+        "Elon Musk": 1,
+        "Fox NFL": 1,
+        "Frieren": 1,
+        "Harry Potter and the Prisoner of Azkaban": 1,
+        "House of Guinness": 1,
+        "Juan Gabriel - Debo, puedo y quiero": 1,
+        "La Paty": 1,
+        "Last Week Tonight": 1,
+        "Mi mentee Thomas": 1,
+        "Netflix - Pasta Chefs Table": 1,
+        "Tarea de maestría": 1,
+        "This is Lean - Niklas Modig and Pär Åhlström": 1,
+        "Video Deep Learning con Pepe Cantoral PhD.": 1,
+        "Work": 1
+      }
+    },
+    "Museums/Places": {
+      "total": 5,
+      "sources": {
+        "Museo Leonora Carrington - San Luis Potosí": 3,
+        "Museo Marco": 1,
+        "Vinicola Clos de Tres Cantos": 1
+      }
+    },
+    "Movies/TV/Anime": {
+      "total": 10,
+      "sources": {
+        "Mashle - Anime": 3,
+        "Jujutsu Kaisen - Anime": 2,
+        "Severance - TV Show": 2,
+        "House - TV Series": 1,
+        "Sherlock Holmes Movie": 1,
+        "The Basement Yard Podcast": 1
+      }
+    },
+    "Music": {
+      "total": 1,
+      "sources": {
+        "Lady Gaga - Song by Peso Pluma": 1
+      }
+    },
+    "Events/Sports": {
+      "total": 2,
+      "sources": {
+        "Rayados vs Mazatlán soccer game": 2
+      }
+    }
+  }
+}
