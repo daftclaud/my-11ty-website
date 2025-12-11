@@ -1,17 +1,22 @@
 {
   "total_entries": 3066,
-  "unique_sources": 98,
+  "unique_sources": 96,
   "categories": {
     "Personal": {
-      "total": 1983,
+      "total": 1990,
       "sources": {
         "My old website": 1951,
         "Stories of Your Life and Others - Ted Chiang": 18,
         "Honey": 6,
         "Paint - Lee Hee-Young": 3,
         "Mi papá": 2,
+        "Paty Alvarez": 2,
+        "Work": 2,
         "Yo": 2,
-        "Paty Alvarez": 1
+        "Adrian Marcelo": 1,
+        "Alan Zorrilla": 1,
+        "Elon Musk": 1,
+        "Thomas Ojeda": 1
       }
     },
     "Non-fiction Books": {
@@ -26,7 +31,7 @@
       }
     },
     "Books/Novels": {
-      "total": 916,
+      "total": 917,
       "sources": {
         "Children of Memory - Novel by Adrian Tchaikovsky": 131,
         "Nexus - Yuval Noah Harari": 86,
@@ -57,6 +62,7 @@
         "The Real Daft Punk - Book by Harris Rosen": 3,
         "El Infinito en un Junco - Irene Vallejo": 2,
         "El Gigante Enterrado - Kazuo Ishiguro": 1,
+        "Harry Potter Wiki": 1,
         "Harry Potter and the Prisoner of Azkaban": 1
       }
     },
@@ -76,15 +82,17 @@
       }
     },
     "Web/Social/Apps": {
-      "total": 26,
+      "total": 28,
       "sources": {
         "TikTok": 11,
         "Wordle": 9,
         "Reddit": 2,
+        "AltavozMX": 1,
         "ChatGPT": 1,
-        "Harry Potter Wiki": 1,
+        "Definition of imbue": 1,
         "Instagram reels": 1,
-        "Slack": 1
+        "Slack": 1,
+        "Video Deep Learning con Pepe Cantoral PhD.": 1
       }
     },
     "News/Press": {
@@ -109,51 +117,36 @@
         "Vinicola Clos de Tres Cantos": 1
       }
     },
-    "Uncategorized": {
-      "total": 20,
-      "sources": {
-        "A Few Good Men": 2,
-        "Exhuma - Korean horror movie": 2,
-        "Liga MX": 2,
-        "PRI - Crónica del Fin": 2,
-        "Adrian Marcelo": 1,
-        "Alan Zorrilla": 1,
-        "AltavozMX": 1,
-        "Chamba": 1,
-        "Definition of imbue": 1,
-        "Elon Musk": 1,
-        "Frieren": 1,
-        "La Paty": 1,
-        "Mi mentee Thomas": 1,
-        "Netflix - Pasta Chefs Table": 1,
-        "Video Deep Learning con Pepe Cantoral PhD.": 1,
-        "Work": 1
-      }
-    },
     "Movies/TV/Anime": {
-      "total": 14,
+      "total": 24,
       "sources": {
         "Love is Blind - Mexico": 3,
         "Mashle - Anime": 3,
+        "A Few Good Men": 2,
+        "Exhuma - Korean horror movie": 2,
+        "Juan Gabriel - Netflix": 2,
         "Jujutsu Kaisen - Anime": 2,
+        "PRI - Crónica del Fin": 2,
         "Severance - TV Show": 2,
+        "Frieren": 1,
         "House - TV Series": 1,
         "Last Week Tonight": 1,
+        "Netflix - Pasta Chefs Table": 1,
         "Sherlock Holmes Movie": 1,
         "The Basement Yard Podcast": 1
       }
     },
     "Music": {
-      "total": 4,
+      "total": 2,
       "sources": {
-        "Juan Gabriel - Netflix": 2,
         "Juan Gabriel - Debo, puedo y quiero": 1,
         "Lady Gaga - Song by Peso Pluma": 1
       }
     },
     "Events/Sports": {
-      "total": 6,
+      "total": 8,
       "sources": {
+        "Liga MX": 2,
         "NBA": 2,
         "Rayados vs Mazatlán soccer game": 2,
         "Baseball": 1,
