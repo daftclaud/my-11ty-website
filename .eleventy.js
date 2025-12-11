@@ -42,6 +42,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/style.css");
   eleventyConfig.addPassthroughCopy("./src/assets");
 
+  // Load filters
+  require("./src/_includes/filters.js")(eleventyConfig);
+
   eleventyConfig.addFilter("console", function (value) {
     return util.inspect(value);
   });

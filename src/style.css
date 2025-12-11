@@ -256,6 +256,38 @@ section {
   transform: rotate(0deg);
 }
 
+/* Category Badge Styles */
+.category-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  margin-left: 8px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.category-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.5);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+[data-theme="dark"] .category-badge {
+  background: linear-gradient(135deg, #5568d3 0%, #663399 100%);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+}
+
+[data-theme="dark"] .category-badge:hover {
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, #663399 0%, #5568d3 100%);
+}
+
 @media (max-width: 600px) {
   .theme-toggle {
     width: 45px;
@@ -266,3 +298,4 @@ section {
     font-size: 1.25rem;
   }
 }
+

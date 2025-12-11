@@ -9,7 +9,11 @@
     <div class="word">{{ entry.word }}</div>
     <div class="definition">{{ entry.definition }}</div>
     {% if entry.source %}
-    <div class="source">Source: {{ entry.source }}</div>
+    <div class="source">
+      Source: {{ entry.source }}
+      {% import 'macros/categoryBadge.njk' as badge %}
+      {{ badge.categoryBadge(entry.source, sourceCategories) }}
+    </div>
     {% endif %}
     <div class="explanation">
       {{ entry.explanation }}
