@@ -311,7 +311,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("recentPens", function(collectionApi) {
     return collectionApi.getFilteredByTag("pen")
       .sort((a, b) => b.data.date - a.data.date)
-      .slice(0, 5);
+      .slice(0, 6);
   });
 
   return {
