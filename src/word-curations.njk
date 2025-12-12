@@ -227,6 +227,36 @@ layout: base.njk
     transform: rotate(0deg);
   }
 
+  /* Mobile overview optimization */
+  @media (max-width: 600px) {
+    .overview-section {
+      margin-bottom: 12px;
+      border-radius: 6px;
+      border-width: 1.5px;
+    }
+
+    .overview-section-header {
+      padding: 12px 15px;
+      border-bottom-width: 1.5px;
+    }
+
+    .overview-section-header h3 {
+      font-size: 1em;
+    }
+
+    .overview-toggle-icon {
+      font-size: 1em;
+    }
+
+    .overview-section-content {
+      padding: 12px;
+    }
+
+    .overview-section.collapsed .overview-section-content {
+      padding: 0 12px;
+    }
+  }
+
   /* Dark mode adjustments */
   [data-theme="dark"] .overview-section {
     background: #16213e;
@@ -260,6 +290,20 @@ layout: base.njk
     background: linear-gradient(135deg, #fff9e6 0%, #fff 50%, #e6f7ff 100%);
   }
 
+  /* Mobile container optimization */
+  @media (max-width: 600px) {
+    .chart-container {
+      border-width: 2px;
+      padding: 12px;
+      border-radius: 6px;
+    }
+
+    .timeline-calendar {
+      padding: 12px;
+      border-radius: 6px;
+    }
+  }
+
   .calendar-grid {
     display: flex;
     flex-direction: column;
@@ -283,6 +327,50 @@ layout: base.njk
     border-bottom: 2px solid #ff00ff;
     cursor: pointer;
     transition: all 0.3s ease;
+  }
+
+  /* Mobile timeline optimization */
+  @media (max-width: 600px) {
+    .calendar-grid {
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .year-section {
+      padding: 12px;
+      border-radius: 6px;
+    }
+
+    .year-header {
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      gap: 8px;
+    }
+
+    .year-header h3 {
+      font-size: 1.3em;
+    }
+
+    .year-total {
+      font-size: 1em;
+    }
+
+    .months-grid {
+      gap: 6px;
+    }
+
+    .mini-calendar {
+      padding: 8px;
+    }
+
+    .mini-month-label {
+      font-size: 0.75em;
+      margin-bottom: 5px;
+    }
+
+    .mini-days {
+      gap: 2px;
+    }
   }
 
   .year-header:hover {
