@@ -1,6 +1,6 @@
 {%- macro categoryBadge(source, categories) -%}
   {%- set category = source | getCategory(categories) -%}
-  <a href="/word-categories/#{{ category | slugify }}" class="category-badge" data-category="{{ category }}" title="View all words from {{ category }}">
+  <a href="/sources/#{{ category | slugify }}" class="category-badge" data-category="{{ category }}" title="View all words from {{ category }}">
     {{ category }}
   </a>
 {%- endmacro -%}
