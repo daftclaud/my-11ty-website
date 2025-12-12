@@ -1,10 +1,31 @@
 ---
 layout: base
-title: Word Categories
-permalink: /word-categories/
+title: Sources
+permalink: /sources/
 ---
 
 <style>
+  .search-bar-container {
+    margin: 20px 0;
+  }
+
+  .source-search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px 20px;
+    border: 2px solid var(--clr-border);
+    border-radius: 25px;
+    font-size: 16px;
+    background: var(--clr-main-bg);
+    color: var(--clr-text);
+    transition: border-color 0.3s ease;
+  }
+
+  .source-search-input:focus {
+    outline: none;
+    border-color: var(--clr-link);
+  }
+
   .categories-container {
     display: flex;
     gap: 20px;
@@ -200,8 +221,12 @@ permalink: /word-categories/
   }
 </style>
 
-<h1>Word Categories</h1>
-<p>Browse words organized by their source category. Click a category to filter.</p>
+<h1>Sources</h1>
+<p>Browse and search all sources where words were collected. Filter by category to narrow your search.</p>
+
+<div class="search-bar-container">
+  <input type="text" id="sourceSearchInput" class="source-search-input" placeholder="Search sources...">
+</div>
 
 <div class="categories-container">
   <div class="category-nav">
@@ -229,6 +254,7 @@ permalink: /word-categories/
   let currentView = 'sources'; // 'sources' or 'words'
   let currentCategory = 'all';
   let currentSource = null;
+  let searchTerm = '';
 
   function slugify(str) {
     return str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -267,11 +293,24 @@ permalink: /word-categories/
       }
     }
 
-    const sourceArray = Object.entries(sources).sort((a, b) => a[0].localeCompare(b[0]));
+    // Filter by search term
+    let sourceArray = Object.entries(sources);
+    if (searchTerm) {
+      sourceArray = sourceArray.filter(([source, words]) => 
+        source.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+    
+    sourceArray.sort((a, b) => a[0].localeCompare(b[0]));
     
     document.getElementById('categoryTitle').textContent = displayTitle;
     document.getElementById('itemCount').textContent = sourceArray.length;
     document.getElementById('itemType').textContent = 'sources';
+    
+    if (sourceArray.length === 0) {
+      container.innerHTML = '<p style="text-align: center; padding: 40px; color: var(--clr-text); opacity: 0.6;">No sources found matching your search.</p>';
+      return;
+    }
     
     container.innerHTML = sourceArray
       .map(([source, words]) => `
@@ -322,6 +361,15 @@ permalink: /word-categories/
           <div class="date">${w.date}</div>
         </div>
       `).join('');
+  }
+
+  // Search input handler
+  const searchInput = document.getElementById('sourceSearchInput');
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchTerm = e.target.value;
+      renderSources(currentCategory);
+    });
   }
 
   document.querySelectorAll('.category-btn').forEach(btn => {

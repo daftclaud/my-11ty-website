@@ -1657,6 +1657,131 @@ layout: base.njk
       <div class="stat-label">Days Collecting</div>
     </div>
   </div>
+
+  <div class="timeline-stats" id="calendarStats" style="margin-top: 30px;">
+    <div class="timeline-stat-item">
+      <span class="stat-label">Most Active Month</span>
+      <span class="stat-value">
+        {% set topMonth = stats.topMonths[0] %}
+        {{ topMonth.monthName }} ({{ topMonth.wordCount }})
+      </span>
+    </div>
+    <div class="timeline-stat-item">
+      <span class="stat-label">Peak Year</span>
+      <span class="stat-value">
+        {% set peakYear = stats.yearlyBreakdown[0] %} {% for year in
+        stats.yearlyBreakdown %} {% if year.count > peakYear.count %} {% set
+        peakYear = year %} {% endif %} {% endfor %}
+        {{ peakYear.year }} ({{ peakYear.count }})
+      </span>
+    </div>
+    <div class="timeline-stat-item">
+      <span class="stat-label">Average per Year</span>
+      <span
+        class="stat-value"
+        >{{ (stats.totalWords / stats.yearlyBreakdown | length) | round(0) }}</span
+      >
+    </div>
+    <div class="timeline-stat-item">
+      <span class="stat-label">Longest Streak</span>
+      <span class="stat-value" id="longestStreakValue">--</span>
+    </div>
+    <div class="timeline-stat-item">
+      <span class="stat-label">Current Streak</span>
+      <span class="stat-value" id="currentStreakValue">--</span>
+    </div>
+  </div>
+
+  <h2 style="margin-top: 40px;">Most Active Months</h2>
+  <div class="monthly-activity">
+    <table class="activity-table">
+      <thead>
+        <tr>
+          <th>Month</th>
+          <th>Words Collected</th>
+          <th>Sessions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for month in stats.topMonths %}
+        <tr>
+          <td>{{ month.monthName }}</td>
+          <td>{{ month.wordCount }}</td>
+          <td>{{ month.sessionCount }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Most Repeated Words</h2>
+  <div class="repeated-words">
+    {% if stats.repeatedWords.length > 0 %}
+    <table class="repeated-table">
+      <thead>
+        <tr>
+          <th>Word</th>
+          <th>Times Collected</th>
+          <th>Definition</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in stats.repeatedWords %}
+        <tr>
+          <td class="word-column">{{ item.word }}</td>
+          <td class="count-column">{{ item.count }}</td>
+          <td class="definition-column">{{ item.definition or 'N/A' }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>No repeated words yet!</p>
+    {% endif %}
+  </div>
+
+  <h2>Words by First Letter</h2>
+  <div class="alphabet-chart">
+    {% for letter in stats.letterDistribution %}
+    <div class="letter-bar">
+      <div class="letter-label">{{ letter.letter }}</div>
+      <div class="letter-bar-wrapper">
+        <div
+          class="letter-bar-fill"
+          data-height="{{ (letter.count / stats.maxLetterCount) * 100 }}"
+        >
+          <span class="letter-count">{{ letter.count }}</span>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <h2>Top Sources</h2>
+  <div class="sources-grid" id="sourcesGrid">
+    {% for source in stats.topSources %}
+    <div class="source-card" data-source="{{ source.name }}">
+      <div class="source-name">{{ source.name }}</div>
+      <div class="source-count">{{ source.count }} words</div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div
+    id="sourceWordsSection"
+    class="source-words-section"
+    style="display: none"
+  >
+    <div class="source-words-header">
+      <h3>Words from <span id="selectedSourceName"></span></h3>
+      <button id="closeSourceView" class="close-btn">✕</button>
+    </div>
+    <div id="sourceWordsList" class="source-words-list"></div>
+  </div>
+
+  <script type="application/json" id="wordsBySourceDataScript">
+    {{ stats.wordsBySource | dump | safe }}
+  </script>
     </div>
   </div>
 
@@ -1737,185 +1862,10 @@ layout: base.njk
           </div>
         </div>
       </div>
-
-      <div class="timeline-stats" id="calendarStats">
-        <div class="timeline-stat-item">
-          <span class="stat-label">Most Active Month</span>
-          <span class="stat-value">
-            {% set topMonth = stats.topMonths[0] %}
-            {{ topMonth.monthName }} ({{ topMonth.wordCount }})
-          </span>
-        </div>
-        <div class="timeline-stat-item">
-          <span class="stat-label">Peak Year</span>
-          <span class="stat-value">
-            {% set peakYear = stats.yearlyBreakdown[0] %} {% for year in
-            stats.yearlyBreakdown %} {% if year.count > peakYear.count %} {% set
-            peakYear = year %} {% endif %} {% endfor %}
-            {{ peakYear.year }} ({{ peakYear.count }})
-          </span>
-        </div>
-        <div class="timeline-stat-item">
-          <span class="stat-label">Average per Year</span>
-          <span
-            class="stat-value"
-            >{{ (stats.totalWords / stats.yearlyBreakdown | length) | round(0) }}</span
-          >
-        </div>
-        <div class="timeline-stat-item">
-          <span class="stat-label">Longest Streak</span>
-          <span class="stat-value" id="longestStreakValue">--</span>
-        </div>
-        <div class="timeline-stat-item">
-          <span class="stat-label">Current Streak</span>
-          <span class="stat-value" id="currentStreakValue">--</span>
-        </div>
-      </div>
     </div>
 
 
   </div>
-
-  <h2>Most Active Months</h2>
-  <div class="monthly-activity">
-    <table class="activity-table">
-      <thead>
-        <tr>
-          <th>Month</th>
-          <th>Words Collected</th>
-          <th>Sessions</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for month in stats.topMonths %}
-        <tr>
-          <td>{{ month.monthName }}</td>
-          <td>{{ month.wordCount }}</td>
-          <td>{{ month.sessionCount }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
-
-  <h2>Most Repeated Words</h2>
-  <div class="repeated-words">
-    {% if stats.repeatedWords.length > 0 %}
-    <table class="repeated-table">
-      <thead>
-        <tr>
-          <th>Word</th>
-          <th>Times Collected</th>
-          <th>Definition</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for item in stats.repeatedWords %}
-        <tr>
-          <td class="word-column">{{ item.word }}</td>
-          <td class="count-column">{{ item.count }}</td>
-          <td class="definition-column">{{ item.definition or 'N/A' }}</td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-    {% else %}
-    <p>No repeated words yet!</p>
-    {% endif %}
-  </div>
-
-  <h2>Words by First Letter</h2>
-  <div class="alphabet-chart">
-    {% for letter in stats.letterDistribution %}
-    <div class="letter-bar">
-      <div class="letter-label">{{ letter.letter }}</div>
-      <div class="letter-bar-wrapper">
-        <div
-          class="letter-bar-fill"
-          data-height="{{ (letter.count / stats.maxLetterCount) * 100 }}"
-        >
-          <span class="letter-count">{{ letter.count }}</span>
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-
-  <h2>All Sources</h2>
-  <div class="all-sources-container">
-    <div class="sources-controls">
-      <div class="control-group">
-        <label for="sourceSearch">Search:</label>
-        <input
-          type="text"
-          id="sourceSearch"
-          class="source-search"
-          placeholder="Search sources..."
-        />
-      </div>
-      <div class="control-group">
-        <label for="sourceSort">Sort by:</label>
-        <select id="sourceSort" class="source-sort">
-          <option value="count-desc">Words (High to Low)</option>
-          <option value="count-asc">Words (Low to High)</option>
-          <option value="name-asc">Name (A to Z)</option>
-          <option value="name-desc">Name (Z to A)</option>
-        </select>
-      </div>
-      <div class="control-group">
-        <label for="sourceFilter">Minimum words:</label>
-        <input
-          type="number"
-          id="sourceFilter"
-          class="source-filter"
-          min="1"
-          value="1"
-          placeholder="Min words"
-        />
-      </div>
-      <div class="control-info">
-        <span id="sourceCount">{{ stats.wordsBySource | length }} sources</span>
-      </div>
-    </div>
-    <div class="all-sources-list" id="allSourcesList">
-      {% for source, words in stats.wordsBySource %}
-      <div
-        class="source-item"
-        data-source="{{ source }}"
-        data-count="{{ words | length }}"
-      >
-        <div class="source-item-name">{{ source }}</div>
-        <div class="source-item-count">{{ words | length }} words</div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-
-  <h2>Top Sources</h2>
-  <div class="sources-grid" id="sourcesGrid">
-    {% for source in stats.topSources %}
-    <div class="source-card" data-source="{{ source.name }}">
-      <div class="source-name">{{ source.name }}</div>
-      <div class="source-count">{{ source.count }} words</div>
-    </div>
-    {% endfor %}
-  </div>
-
-  <div
-    id="sourceWordsSection"
-    class="source-words-section"
-    style="display: none"
-  >
-    <div class="source-words-header">
-      <h3>Words from <span id="selectedSourceName"></span></h3>
-      <button id="closeSourceView" class="close-btn">✕</button>
-    </div>
-    <div id="sourceWordsList" class="source-words-list"></div>
-  </div>
-
-  <script type="application/json" id="wordsBySourceDataScript">
-    {{ stats.wordsBySource | dump | safe }}
-  </script>
     </div>
   </div>
 
@@ -2441,6 +2391,9 @@ layout: base.njk
       displaySearchResults();
     }
 
+    // Alias for performSearch
+    const performSearch = updateSearchResults;
+
     // Display paginated results
     function displaySearchResults() {
       const resultsList = document.getElementById("searchResultsList");
@@ -2578,6 +2531,45 @@ layout: base.njk
         }
       });
     });
+
+    // Handle URL parameters for automatic filtering
+    const urlParams = new URLSearchParams(window.location.search);
+    const sourceParam = urlParams.get('source');
+    
+    if (sourceParam) {
+      // Switch to search view
+      const searchBtn = document.querySelector('.view-toggle-btn[data-view="search"]');
+      if (searchBtn) {
+        // Update button states
+        toggleBtns.forEach((b) => b.classList.remove("active"));
+        searchBtn.classList.add("active");
+        
+        // Show search view
+        wordsView.style.display = "none";
+        searchView.style.display = "";
+        overviewView.style.display = "none";
+        
+        // Set the source filter
+        const sourceFilterEl = document.getElementById("searchSourceFilter");
+        if (sourceFilterEl) {
+          sourceFilterEl.value = sourceParam;
+        }
+        
+        // Initialize and run search with filter
+        if (allWords && allWords.length > 0) {
+          updateSearchResults();
+          window.searchInitialized = true;
+          
+          // Scroll to search results after results are populated
+          setTimeout(() => {
+            const searchResultsList = document.getElementById("searchResultsList");
+            if (searchResultsList) {
+              searchResultsList.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }, 100);
+        }
+      }
+    }
   });
 
   function initializeOverview() {

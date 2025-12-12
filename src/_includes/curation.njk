@@ -10,7 +10,7 @@
     <div class="definition">{{ entry.definition }}</div>
     {% if entry.source %}
     <div class="source">
-      Source: {{ entry.source }}
+      Source: <a href="/word-curations/?source={{ entry.source | urlencode }}" class="source-link">{{ entry.source }}</a>
       {% import 'macros/categoryBadge.njk' as badge %}
       {{ badge.categoryBadge(entry.source, sourceCategories) }}
     </div>
@@ -51,6 +51,17 @@
     font-size: 14px;
     color: #555;
   }
+
+  .source-link {
+    color: var(--clr-link);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .source-link:hover {
+    text-decoration: underline;
+  }
+
   .explanation {
     margin-top: 10px;
   }
