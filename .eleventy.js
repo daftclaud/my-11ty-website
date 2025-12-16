@@ -195,13 +195,44 @@ module.exports = function (eleventyConfig) {
     const firstWord = sortedWords[0];
     const latestWord = sortedWords[sortedWords.length - 1];
 
-    // Calculate current streak (last 30 days)
-    const thirtyDaysAgo = new Date(now);
-    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
-    const recentCurations = collection.filter(
-      (c) => c.data.date >= thirtyDaysAgo
-    );
-    const currentStreak = recentCurations.length;
+    // Build daily breakdown (date string -> count)
+    const dailyBreakdown = {};
+    allWords.forEach((wordData) => {
+      const date = wordData.date;
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      const key = `${year}-${month}-${day}`;
+      dailyBreakdown[key] = (dailyBreakdown[key] || 0) + 1;
+    });
+
+    console.log('Daily breakdown generated with', Object.keys(dailyBreakdown).length, 'days');
+
+    // Calculate streaks (consecutive days based on dailyBreakdown)
+    let currentStreak = 0;
+    let longestStreak = 0;
+    const dateKeys = Object.keys(dailyBreakdown).sort();
+    if (dateKeys.length) {
+      const firstDate = new Date(dateKeys[0]);
+      const lastDate = new Date(dateKeys[dateKeys.length - 1]);
+      const allDates = [];
+
+      for (let d = new Date(firstDate); d <= lastDate; d.setDate(d.getDate() + 1)) {
+        allDates.push(d.toISOString().split("T")[0]);
+      }
+
+      let streak = 0;
+      allDates.forEach((date) => {
+        const count = dailyBreakdown[date] || 0;
+        if (count > 0) {
+          streak++;
+          if (streak > longestStreak) longestStreak = streak;
+        } else {
+          streak = 0;
+        }
+      });
+      currentStreak = streak;
+    }
 
     // Random word
     const randomWord = allWords[Math.floor(Math.random() * allWords.length)];
@@ -253,19 +284,6 @@ module.exports = function (eleventyConfig) {
       .map(([name, words]) => ({ name, count: words.length }))
       .sort((a, b) => b.count - a.count);
 
-    // Build daily breakdown
-    const dailyBreakdown = {};
-    allWords.forEach((wordData) => {
-      const date = wordData.date;
-      const year = date.getFullYear();
-      const month = String(date.getMonth() + 1).padStart(2, '0');
-      const day = String(date.getDate()).padStart(2, '0');
-      const key = `${year}-${month}-${day}`;
-      dailyBreakdown[key] = (dailyBreakdown[key] || 0) + 1;
-    });
-
-    console.log('Daily breakdown generated with', Object.keys(dailyBreakdown).length, 'days');
-
     // Load Spanish words count from JSON
     let spanishWordCount = 0;
     try {
@@ -296,6 +314,7 @@ module.exports = function (eleventyConfig) {
       firstWord,
       latestWord,
       currentStreak,
+      longestStreak,
       randomWord,
       repeatedWords,
       wordsBySource,
