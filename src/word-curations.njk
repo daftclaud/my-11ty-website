@@ -1895,7 +1895,7 @@ layout: base.njk
       <li class="milestone-item">
         <span class="milestone-icon">🔥</span>
         <div class="milestone-text">
-          <strong>Current Streak:</strong> {{ stats.currentStreak }} days
+          <strong>Current Streak:</strong> <span id="milestoneCurrentStreakValue">{{ stats.currentStreak }} days</span>
         </div>
       </li>
     </ul>
@@ -2693,6 +2693,12 @@ layout: base.njk
     }
     if (currentStreakEl) {
       currentStreakEl.textContent = `${currentStreak} days`;
+    }
+
+    // Also update the milestone value to keep UI consistent with client computation
+    const milestoneStreakEl = document.getElementById("milestoneCurrentStreakValue");
+    if (milestoneStreakEl) {
+      milestoneStreakEl.textContent = `${currentStreak} days`;
     }
   }
 
