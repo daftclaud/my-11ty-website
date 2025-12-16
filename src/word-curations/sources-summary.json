@@ -1,5 +1,5 @@
 {
-  "total_entries": 3068,
+  "total_entries": 3069,
   "unique_sources": 97,
   "categories": {
     "Personal": {
@@ -20,10 +20,10 @@
       }
     },
     "Non-fiction Books": {
-      "total": 53,
+      "total": 54,
       "sources": {
         "Ruido - Daniel Kahneman, Oliver Siboney, Cass R. Sunstein": 27,
-        "The Phoenix Project - Gene Kim": 12,
+        "The Phoenix Project - Gene Kim": 13,
         "Libro sobre Responsabilidad Social Empresarial": 8,
         "\"John Green's Anthropocene: Reviewed\"": 4,
         "Designing the Future - Jay W. Forrester": 1,
