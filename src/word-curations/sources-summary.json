@@ -1,6 +1,6 @@
 {
-  "total_entries": 3071,
-  "unique_sources": 97,
+  "total_entries": 3072,
+  "unique_sources": 98,
   "categories": {
     "Personal": {
       "total": 1991,
@@ -31,7 +31,7 @@
       }
     },
     "Books/Novels": {
-      "total": 918,
+      "total": 919,
       "sources": {
         "Children of Memory - Novel by Adrian Tchaikovsky": 131,
         "Nexus - Yuval Noah Harari": 86,
@@ -64,7 +64,8 @@
         "El Gigante Enterrado - Kazuo Ishiguro": 1,
         "Harry Potter Wiki": 1,
         "Harry Potter and the Prisoner of Azkaban": 1,
-        "Tres enigmas para la Organización - Eduardo Mendoza": 1
+        "Tres enigmas para la Organización - Eduardo Mendoza": 1,
+        "The Phoenix Project - Gene Kim": 1
       }
     },
     "Short Stories": {
