@@ -1,6 +1,6 @@
 {
-  "total_entries": 3072,
-  "unique_sources": 98,
+  "total_entries": 3073,
+  "unique_sources": 99,
   "categories": {
     "Personal": {
       "total": 1991,
@@ -98,14 +98,15 @@
       }
     },
     "News/Press": {
-      "total": 25,
+      "total": 26,
       "sources": {
         "El Horizonte": 17,
         "Milenio - Crucigrama": 3,
         "NYT Magazine": 2,
         "El noticiero": 1,
         "NYT Puzzle": 1,
-        "New York Times - Article": 1
+        "New York Times - Article": 1,
+        "Milenio - Periódico": 1
       }
     },
     "Museums/Places": {
