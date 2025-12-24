@@ -18,7 +18,7 @@ Your bilingual site is now fully operational:
 - **Inicio**: `/es/` → [public/es/index.html](public/es/index.html)
 - **Sobre Mí**: `/es/about/` → [public/es/about/index.html](public/es/about/index.html)
 - **Plumas**: `/es/pens/` → [public/es/pens/](public/es/pens/)
-- **Palabras Curadas**: `/es/word-curations/` → [public/es/word-curations/](public/es/word-curations/)
+- **Colección de Palabras**: `/es/word-curations/` → [public/es/word-curations/](public/es/word-curations/)
 
 ## Language Switcher
 

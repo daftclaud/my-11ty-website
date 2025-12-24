@@ -5,13 +5,13 @@
     "home": "Inicio",
     "about": "Sobre Mí",
     "pens": "Plumas",
-    "wordCurations": "Palabras Curadas"
+    "wordCurations": "Colección de Palabras"
   },
   "home": {
-    "heroTitle": "¡Bienvenido a mi sitio web personal!",
+    "heroTitle": "¡Bienvenido a mi página!",
     "welcome": "¡Hola! Bienvenido a mi increíble página personal. Este sitio trata sobre mí y mis intereses.",
     "checkoutWords": "Echa un vistazo a mi página de",
-    "wordCurationsPage": "Palabras Curadas",
+    "wordCurationsPage": "Colección de Palabras",
     "wordCurationsText": "donde comparto palabras interesantes y sus significados!",
     "takeLook": "Dale una mirada a mi página de",
     "pensPage": "Plumas",
@@ -52,7 +52,7 @@
     "noPensFound": "No se encontraron plumas que coincidan con tus filtros"
   },
   "wordCurations": {
-    "title": "Palabras Curadas",
+    "title": "Colección de Palabras",
     "intro": "Una colección de palabras interesantes y sus significados que he reunido a lo largo de los años.",
     "source": "Fuente",
     "stats": "Estadísticas",
