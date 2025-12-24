@@ -58,7 +58,7 @@
       </button>
     </div>
     <main id="main-content">
-      <h1>Welcome to My Personal Website!</h1>
+      <h1>{{ 'home.heroTitle' | t(locale or 'en') }}</h1>
       <nav aria-label="Main navigation">
         {% set baseUrl = '/es' if locale == 'es' else '' %}
         <a href="{{ baseUrl }}/" class="{{ 'active' if '/' ==  page.url or '/es/' == page.url }}">{{ 'nav.home' | t(locale or 'en') }}</a>
