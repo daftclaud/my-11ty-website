@@ -17,9 +17,9 @@
     "pensPage": "Plumas",
     "pensText": "para explorar mi colección.",
     "recentActivity": "Actividad Reciente",
-    "latestWordCuration": "Última Curaduría de Palabras",
-    "latestPens": "Últimas Plumas",
-    "noRecentCurations": "No se encontraron curadurías recientes."
+    "latestWordCuration": "Palabras añadidas recientemente",
+    "latestPens": "Últimas Plumas añadidas",
+    "noRecentCurations": "No se encontraron palabras recientes."
   },
   "about": {
     "intro1": "Soy un desarrollador web de Monterrey, México.",
@@ -40,7 +40,7 @@
     "title": "Plumas",
     "intro1": "Ya sea un clásico Parker Jotter, un Montblanc de edición especial, o incluso un humilde pero confiable Pilot G2, siempre me siento mejor con una pluma y papel cerca.",
     "intro2": "Comenzó casi al mismo tiempo que empecé a escribir mis",
-    "wordCurations": "curadurías de palabras",
+    "wordCurations": "colección de palabras",
     "intro3": "Pero no fue hasta que mi compañero de cuarto en la universidad, Austin, me regaló un Pilot Metropolitan que oficialmente comencé a coleccionar.",
     "intro4": "Con los años, mi colección ha crecido para incluir una variedad de plumas. Desde la sensación suave de una pluma fuente hasta el clic confiable de un bolígrafo, cada pluma que poseo representa un capítulo en mi viaje como escritor y coleccionista. Esta página es un tributo a estos preciados instrumentos y la alegría que traen a mi vida diaria.",
     "filters": "Filtros",
@@ -57,9 +57,9 @@
     "source": "Fuente",
     "stats": "Estadísticas",
     "totalWords": "Total de Palabras",
-    "totalCurations": "Total de Curadurías",
+    "totalCurations": "Total de Colecciones",
     "distinctWords": "Palabras Distintas",
-    "avgPerCuration": "Promedio por Curaduría",
+    "avgPerCuration": "Promedio por Colección",
     "daysCollecting": "Días Coleccionando",
     "spanishWords": "Palabras en Español",
     "currentStreak": "Racha Actual",
