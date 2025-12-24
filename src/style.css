@@ -317,11 +317,14 @@ section {
   bottom: auto;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1400px), (pointer: coarse) {
   .top-controls {
-    top: 10px;
-    right: 10px;
+    top: auto !important;
+    bottom: 20px;
+    right: 16px;
     gap: 8px;
+    justify-content: flex-end;
+    left: auto;
   }
   .top-controls .theme-toggle {
     position: static;
