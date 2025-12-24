@@ -1,52 +1,52 @@
+---
 layout: base.njk
-permalink: /pens/
+locale: es
+permalink: /es/pens/
+---
 
 <div class="content">
   <div class="pen-header">
     <div class="pen-intro">
-      <img src="/assets/pens.jpeg" alt="Pens" class="pen-hero-img" loading="eager" decoding="async" />
+      <img src="/assets/pens.jpeg" alt="Plumas" class="pen-hero-img" loading="eager" decoding="async" />
       <div class="pen-text">
         <p>
-          Whether it's a classic Parker Jotter, a special edition Montblanc, or even a
-          humble but reliable Pilot G2, I always feel better with a pen and paper
-          nearby.
+          Ya sea un clásico Parker Jotter, un Montblanc de edición especial o incluso un humilde pero confiable
+          Pilot G2, siempre me siento mejor con una pluma y papel cerca.
         </p>
         <p>
-          It started around the same time I began writing down my <a href="/word-curations">word curations</a>. But
-          it wasn't until my college roommate Austin gifted me a Pilot Metropolitan
-          that I officially began collecting.
+          Comenzó casi al mismo tiempo que empecé a escribir mis <a href="/es/word-curations">curadurías de palabras</a>.
+          Pero no fue hasta que mi compañero de cuarto en la universidad, Austin, me regaló una Pilot Metropolitan
+          que oficialmente comencé a coleccionar.
         </p>
         <p>
-          Over the years, my collection has grown to include a variety of pens. From
-          the smooth feel of a fountain pen to the dependable click of a ballpoint,
-          every pen I own represents a chapter in my journey as a writer and
-          collector. This page is a tribute to these cherished instruments and the joy
-          they bring to my everyday life.
+          Con los años, mi colección ha crecido para incluir una variedad de plumas. Desde la suavidad de una pluma
+          fuente hasta el clic confiable de un bolígrafo, cada pluma representa un capítulo de mi viaje como escritor
+          y coleccionista. Esta página es un tributo a estos preciados instrumentos y a la alegría que aportan a mi vida diaria.
         </p>
       </div>
     </div>
   </div>
 
   <div class="pen-filters">
-    <button class="filter-toggle" id="filterToggle" aria-label="Toggle filters" aria-expanded="false">
+    <button class="filter-toggle" id="filterToggle" aria-label="Mostrar/ocultar filtros" aria-expanded="false">
       <span class="filter-toggle-icon">⚙️</span>
-      <span class="filter-toggle-text">Filters</span>
+      <span class="filter-toggle-text">Filtros</span>
     </button>
     <div class="filters-container" id="filtersContainer">
       <div class="filter-group">
-        <label for="brandFilter">Brand:</label>
+        <label for="brandFilter">Marca:</label>
         <select id="brandFilter">
-          <option value="">All Brands</option>
+          <option value="">Todas las marcas</option>
         </select>
       </div>
       <div class="filter-group">
-        <label for="typeFilter">Type:</label>
+        <label for="typeFilter">Tipo:</label>
         <select id="typeFilter">
-          <option value="">All Types</option>
+          <option value="">Todos los tipos</option>
         </select>
       </div>
       <div class="filter-results">
-        <span id="resultCount">Showing all pens</span>
+        <span id="resultCount">Mostrando todas las plumas</span>
       </div>
     </div>
   </div>
@@ -55,7 +55,7 @@ permalink: /pens/
       {% for post in collections.pen %}
       <article class="pen-item" data-brand="{{ post.data.brand }}" data-type="{{ post.data.type }}">
         <div class="pen-item-image">
-          <img src="{{ post.data.image }}" alt="{{ post.data.title }} thumbnail" loading="lazy" decoding="async" />
+          <img src="{{ post.data.image }}" alt="{{ post.data.title }} miniatura" loading="lazy" decoding="async" />
         </div>
         <div class="pen-info">
           <div class="pen-badges">
@@ -144,9 +144,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Update result count
     const total = penItems.length;
     if (visibleCount === total) {
-      resultCountSpan.textContent = `Showing all ${total} pens`;
+      resultCountSpan.textContent = `Mostrando todas las ${total} plumas`;
     } else {
-      resultCountSpan.textContent = `Showing ${visibleCount} of ${total} pens`;
+      resultCountSpan.textContent = `Mostrando ${visibleCount} de ${total} plumas`;
     }
   }
 
@@ -406,133 +406,77 @@ document.addEventListener('DOMContentLoaded', function() {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
   }
 
   .pen-item-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-    background: white;
-  }
-
-  .pen-item:hover .pen-item-image img {
-    transform: scale(1.05);
+    max-height: 100%;
+    object-fit: contain;
   }
 
   .pen-info {
-    padding: 1.5em;
-    flex: 1;
+    padding: 1em;
     display: flex;
     flex-direction: column;
+    gap: 0.5em;
+    flex: 1;
   }
 
   .pen-badges {
     display: flex;
     gap: 0.5em;
-    margin-bottom: 1em;
     flex-wrap: wrap;
   }
 
   .badge {
     display: inline-block;
     padding: 0.35em 0.75em;
-    border-radius: 20px;
-    font-size: 0.8em;
+    border-radius: 999px;
+    font-size: 0.85em;
     font-weight: 600;
-    white-space: nowrap;
   }
 
   .badge-brand {
-    background: rgba(212, 0, 255, 0.15);
+    background: rgba(212, 0, 255, 0.1);
     color: #8b008b;
   }
 
   .badge-type {
-    background: rgba(100, 150, 255, 0.15);
-    color: #1e40af;
+    background: rgba(0, 123, 255, 0.1);
+    color: #0056b3;
   }
 
-  .pen-item h2 {
-    font-size: 1.1em;
-    margin: 0 0 0.5em 0;
-    line-height: 1.3;
+  h2 {
+    margin: 0;
+    font-size: 1.2em;
   }
 
-  .pen-item h2 a {
+  h2 a {
     color: inherit;
     text-decoration: none;
   }
 
-  .pen-item h2 a:hover {
+  h2 a:hover {
     color: #d400ff;
   }
 
-  .pen-item p {
-    font-size: 0.95em;
-    line-height: 1.5;
-    color: #666;
-    margin: 0;
-    flex: 1;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .read-more {
-    display: inline-block;
-    margin-top: 1em;
-    color: #d400ff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.2s ease;
-  }
-
-  .read-more:hover {
-    color: #8b008b;
-    transform: translateX(2px);
-  }
-
-  /* Responsive adjustments */
-  @media (max-width: 600px) {
-    .pen-item-image {
-      height: 180px;
-    }
-
-    .pen-info {
-      padding: 1.25em;
-    }
-
-    .pen-item h2 {
-      font-size: 1em;
-    }
-  }
-
-  /* Dark mode overrides */
+  /* Dark mode tweaks */
   [data-theme="dark"] .pen-filters {
-    background: var(--clr-nav-bg);
-    border-color: var(--clr-border);
+    background: var(--clr-main-bg);
+    border: 2px solid var(--clr-border);
   }
 
   [data-theme="dark"] .filter-toggle {
-    background: var(--clr-nav-bg);
+    background: var(--clr-main-bg);
     border-color: var(--clr-border);
     color: var(--clr-link);
   }
 
-  [data-theme="dark"] .filter-toggle:hover {
-    background: #2a2a3e;
-    border-color: var(--clr-link);
+  [data-theme="dark"] .filters-container {
+    background: var(--clr-main-bg);
   }
 
-  [data-theme="dark"] .filter-toggle:focus {
-    border-color: var(--clr-link);
-    box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
-  }
-
-  [data-theme="dark"] .filter-group label {
+  [data-theme="dark"] .filter-group label,
+  [data-theme="dark"] .filter-results {
     color: var(--clr-text);
   }
 
@@ -542,57 +486,22 @@ document.addEventListener('DOMContentLoaded', function() {
     border-color: var(--clr-border);
   }
 
-  [data-theme="dark"] .filter-group select:hover {
-    border-color: var(--clr-link);
-  }
-
-  [data-theme="dark"] .filter-group select:focus {
-    border-color: var(--clr-link);
-    box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.1);
-  }
-
-  [data-theme="dark"] .filter-results {
-    color: var(--clr-text);
-  }
-
-  @media (max-width: 600px) {
-    [data-theme="dark"] .filters-container.expanded {
-      border-top-color: var(--clr-border);
-    }
-  }
-
   [data-theme="dark"] .pen-item {
     background: var(--clr-main-bg);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
   }
 
   [data-theme="dark"] .pen-item:hover {
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
-  }
-
-  [data-theme="dark"] .pen-item-image {
-    background: #1f1f2f;
-  }
-
-  [data-theme="dark"] .pen-item-image img {
-    background: var(--clr-main-bg);
+    box-shadow: 0 8px 16px rgba(212, 0, 255, 0.25);
   }
 
   [data-theme="dark"] .badge-brand {
-    background: rgba(255, 107, 53, 0.2);
-    color: var(--clr-heading);
+    background: rgba(212, 0, 255, 0.2);
+    color: #f0c0ff;
   }
 
   [data-theme="dark"] .badge-type {
-    background: rgba(0, 212, 255, 0.2);
-    color: var(--clr-link);
-  }
-
-  [data-theme="dark"] .pen-item h2 a:hover {
-    color: var(--clr-link);
-  }
-
-  [data-theme="dark"] .pen-item p {
-    color: var(--clr-text);
+    background: rgba(0, 123, 255, 0.2);
+    color: #c6e2ff;
   }
 </style>

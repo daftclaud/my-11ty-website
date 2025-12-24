@@ -1,6 +1,7 @@
 ---
-permalink: false
-eleventyExcludeFromCollections: true
+layout: base.njk
+locale: es
+permalink: /es/word-curations/
 ---
 
 <style>
@@ -1560,37 +1561,39 @@ eleventyExcludeFromCollections: true
     cite="https://www.goodreads.com/quotes/9894290-our-language-one-of-our-most-precious-natural-resources-in"
   >
     <p class="quote-text">
-      "Our language, one of our most precious natural resources, deserves at
-      least as much protection as our woodlands, streams and whooping cranes."
+      "Nuestro idioma, uno de nuestros recursos naturales más preciados, merece
+      al menos tanta protección como nuestros bosques, arroyos y grullas
+      trompeteras."
     </p>
     <footer class="quote-author">
-      — James Lipton, An Exaltation of Larks: The Ultimate Edition
+      — James Lipton, An Exaltation of Larks: Edición definitiva
     </footer>
   </blockquote>
 </div>
 
 <div class="intro-text">
   <p>
-    Every day, words catch my attention—striking phrases, unfamiliar terms,
-    unexpected uses of language. I document them here to preserve and reflect on
-    the richness of language itself. Here you'll find their definitions,
-    sources, and the occasional note about why each one resonated with me.
+    Cada día, ciertas palabras llaman mi atención: frases llamativas, términos
+    desconocidos o usos inesperados. Las documento aquí para preservar y
+    reflexionar sobre la riqueza del lenguaje. Encontrarás sus definiciones,
+    fuentes y, a veces, una nota de por qué resonaron conmigo.
   </p>
   <p>
-    I try to write each word on paper. What started as a straightforward effort to
-    expand my vocabulary evolved into a sort of ritual. The deliberate act of recording words on paper
-    transformed vocabulary building into a meditative practice, and it gave me
-    the perfect excuse to use my <a href="/pens">pens</a>.
+    Intento escribir cada palabra en papel. Lo que comenzó como un esfuerzo
+    sencillo por ampliar mi vocabulario se convirtió en un pequeño ritual. El
+    acto deliberado de registrar palabras en papel convirtió el proceso en una
+    práctica meditativa y me dio la excusa perfecta para usar mis
+    <a href="/es/pens">plumas</a>.
   </p>
 </div>
 
 <div class="view-toggle-container">
   <div class="view-toggle">
     <button class="view-toggle-btn active" data-view="words">
-      Latest Words
+      Palabras recientes
     </button>
-    <button class="view-toggle-btn" data-view="search">Search</button>
-    <button class="view-toggle-btn" data-view="overview">Overview</button>
+    <button class="view-toggle-btn" data-view="search">Buscar</button>
+    <button class="view-toggle-btn" data-view="overview">Resumen</button>
   </div>
 </div>
 
@@ -1605,9 +1608,9 @@ eleventyExcludeFromCollections: true
 
   <div class="navigation">
     {% if previousCuration %}
-    <a href="{{ previousCuration.url }}">Previous Curation</a>
+    <a href="{{ previousCuration.url }}">Curación anterior</a>
     {% endif %} {% if nextCuration %}
-    <a href="{{ nextCuration.url }}">Next Curation</a>
+    <a href="{{ nextCuration.url }}">Curación siguiente</a>
     {% endif %}
   </div>
 
@@ -1617,57 +1620,57 @@ eleventyExcludeFromCollections: true
 <div id="overviewView" class="content-view" style="display: none">
   {% set stats = collections.word_curation | getWordStats %}
 
-  <h2>Collection Overview</h2>
+  <h2>Resumen de la colección</h2>
 
   <!-- Stats Section -->
   <div class="overview-section expanded">
     <div class="overview-section-header">
-      <h3>📊 Statistics</h3>
+      <h3>📊 Estadísticas</h3>
       <span class="overview-toggle-icon">▼</span>
     </div>
     <div class="overview-section-content">
       <div class="stats-grid">
     <div class="stat-card">
       <div class="stat-number">{{ stats.totalWords }}</div>
-      <div class="stat-label">Total Words Collected</div>
+      <div class="stat-label">Palabras totales</div>
     </div>
     
     <div class="stat-card">
       <div class="stat-number">{{ stats.distinctWords }}</div>
-      <div class="stat-label">Distinct Words</div>
+      <div class="stat-label">Palabras distintas</div>
     </div>
     
     <div class="stat-card">
       <div class="stat-number">{{ stats.spanishWordCount }}</div>
-      <div class="stat-label">Spanish Words</div>
+      <div class="stat-label">Palabras en español</div>
     </div>
     
     <div class="stat-card">
       <div class="stat-number">{{ stats.totalCurations }}</div>
-      <div class="stat-label">Curation Sessions</div>
+      <div class="stat-label">Sesiones de curación</div>
     </div>    <div class="stat-card">
       <div class="stat-number">
         {{ stats.averageWordsPerCuration | round(1) }}
       </div>
-      <div class="stat-label">Avg Words Per Session</div>
+      <div class="stat-label">Promedio por sesión</div>
     </div>
 
     <div class="stat-card">
       <div class="stat-number">{{ stats.daysCollecting }}</div>
-      <div class="stat-label">Days Collecting</div>
+      <div class="stat-label">Días registrando</div>
     </div>
   </div>
 
   <div class="timeline-stats" id="calendarStats" style="margin-top: 30px;">
     <div class="timeline-stat-item">
-      <span class="stat-label">Most Active Month</span>
+      <span class="stat-label">Mes más activo</span>
       <span class="stat-value">
         {% set topMonth = stats.topMonths[0] %}
         {{ topMonth.monthName }} ({{ topMonth.wordCount }})
       </span>
     </div>
     <div class="timeline-stat-item">
-      <span class="stat-label">Peak Year</span>
+      <span class="stat-label">Año pico</span>
       <span class="stat-value">
         {% set peakYear = stats.yearlyBreakdown[0] %} {% for year in
         stats.yearlyBreakdown %} {% if year.count > peakYear.count %} {% set
@@ -1676,30 +1679,30 @@ eleventyExcludeFromCollections: true
       </span>
     </div>
     <div class="timeline-stat-item">
-      <span class="stat-label">Average per Year</span>
+      <span class="stat-label">Promedio por año</span>
       <span
         class="stat-value"
         >{{ (stats.totalWords / stats.yearlyBreakdown | length) | round(0) }}</span
       >
     </div>
     <div class="timeline-stat-item">
-      <span class="stat-label">Longest Streak</span>
+      <span class="stat-label">Racha más larga</span>
       <span class="stat-value" id="longestStreakValue">--</span>
     </div>
     <div class="timeline-stat-item">
-      <span class="stat-label">Current Streak</span>
+      <span class="stat-label">Racha actual</span>
       <span class="stat-value" id="currentStreakValue">--</span>
     </div>
   </div>
 
-  <h2 style="margin-top: 40px;">Most Active Months</h2>
+  <h2 style="margin-top: 40px;">Meses con más actividad</h2>
   <div class="monthly-activity">
     <table class="activity-table">
       <thead>
         <tr>
-          <th>Month</th>
-          <th>Words Collected</th>
-          <th>Sessions</th>
+          <th>Mes</th>
+          <th>Palabras</th>
+          <th>Sesiones</th>
         </tr>
       </thead>
       <tbody>
@@ -1714,15 +1717,15 @@ eleventyExcludeFromCollections: true
     </table>
   </div>
 
-  <h2>Most Repeated Words</h2>
+  <h2>Palabras más repetidas</h2>
   <div class="repeated-words">
     {% if stats.repeatedWords.length > 0 %}
     <table class="repeated-table">
       <thead>
         <tr>
-          <th>Word</th>
-          <th>Times Collected</th>
-          <th>Definition</th>
+          <th>Palabra</th>
+          <th>Veces</th>
+          <th>Definición</th>
         </tr>
       </thead>
       <tbody>
@@ -1736,11 +1739,11 @@ eleventyExcludeFromCollections: true
       </tbody>
     </table>
     {% else %}
-    <p>No repeated words yet!</p>
+    <p>¡Aún no hay palabras repetidas!</p>
     {% endif %}
   </div>
 
-  <h2>Words by First Letter</h2>
+  <h2>Palabras por letra inicial</h2>
   <div class="alphabet-chart">
     {% for letter in stats.letterDistribution %}
     <div class="letter-bar">
@@ -1757,12 +1760,12 @@ eleventyExcludeFromCollections: true
     {% endfor %}
   </div>
 
-  <h2>Top Sources</h2>
+  <h2>Fuentes principales</h2>
   <div class="sources-grid" id="sourcesGrid">
     {% for source in stats.topSources %}
     <div class="source-card" data-source="{{ source.name }}">
       <div class="source-name">{{ source.name }}</div>
-      <div class="source-count">{{ source.count }} words</div>
+      <div class="source-count">{{ source.count }} palabras</div>
     </div>
     {% endfor %}
   </div>
@@ -1773,7 +1776,7 @@ eleventyExcludeFromCollections: true
     style="display: none"
   >
     <div class="source-words-header">
-      <h3>Words from <span id="selectedSourceName"></span></h3>
+      <h3>Palabras de <span id="selectedSourceName"></span></h3>
       <button id="closeSourceView" class="close-btn">✕</button>
     </div>
     <div id="sourceWordsList" class="source-words-list"></div>
@@ -1788,7 +1791,7 @@ eleventyExcludeFromCollections: true
   <!-- Timeline Section -->
   <div class="overview-section expanded">
     <div class="overview-section-header">
-      <h3>📅 Collection Timeline</h3>
+      <h3>📅 Cronología de la colección</h3>
       <span class="overview-toggle-icon">▼</span>
     </div>
     <div class="overview-section-content">
@@ -1804,7 +1807,7 @@ eleventyExcludeFromCollections: true
               <h3>{{ year.year }}</h3>
             </div>
             <div style="display: flex; align-items: center; gap: 10px;">
-              <span class="year-total">{{ year.count }} words</span>
+              <span class="year-total">{{ year.count }} palabras</span>
               <span class="year-toggle-icon">▼</span>
             </div>
           </div>
@@ -1813,11 +1816,11 @@ eleventyExcludeFromCollections: true
             {% for month in range(1, 13) %}
             <div class="mini-calendar">
               <div class="mini-month-label">
-                {% if month == 1 %}Jan {% elif month == 2 %}Feb {% elif month ==
-                3 %}Mar {% elif month == 4 %}Apr {% elif month == 5 %}May {%
+                {% if month == 1 %}Ene {% elif month == 2 %}Feb {% elif month ==
+                3 %}Mar {% elif month == 4 %}Abr {% elif month == 5 %}May {%
                 elif month == 6 %}Jun {% elif month == 7 %}Jul {% elif month ==
-                8 %}Aug {% elif month == 9 %}Sep {% elif month == 10 %}Oct {%
-                elif month == 11 %}Nov {% else %}Dec {% endif %}
+                8 %}Ago {% elif month == 9 %}Sep {% elif month == 10 %}Oct {%
+                elif month == 11 %}Nov {% else %}Dic {% endif %}
               </div>
               <div class="mini-days">
                 {% set daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31,
@@ -1842,23 +1845,23 @@ eleventyExcludeFromCollections: true
       </div>
 
       <div class="timeline-legend">
-        <div class="legend-title">Collection Intensity</div>
+            <div class="legend-title">Intensidad de la colección</div>
         <div class="legend-scale">
           <div class="legend-item">
             <div class="legend-box" style="background-color: #e0e0e0"></div>
-            <span>No words</span>
+            <span>Sin palabras</span>
           </div>
           <div class="legend-item">
             <div class="legend-box" style="background-color: #00ffff"></div>
-            <span>Light</span>
+            <span>Baja</span>
           </div>
           <div class="legend-item">
             <div class="legend-box" style="background-color: #ff00ff"></div>
-            <span>Medium</span>
+            <span>Media</span>
           </div>
           <div class="legend-item">
             <div class="legend-box" style="background-color: #ff0080"></div>
-            <span>Heavy</span>
+            <span>Alta</span>
           </div>
         </div>
       </div>
@@ -1872,7 +1875,7 @@ eleventyExcludeFromCollections: true
   <!-- Milestones Section -->
   <div class="overview-section expanded">
     <div class="overview-section-header">
-      <h3>🎯 Collection Milestones</h3>
+      <h3>🎯 Hitos de la colección</h3>
       <span class="overview-toggle-icon">▼</span>
     </div>
     <div class="overview-section-content">
@@ -1881,21 +1884,21 @@ eleventyExcludeFromCollections: true
       <li class="milestone-item">
         <span class="milestone-icon">🎯</span>
         <div class="milestone-text">
-          <strong>First Word:</strong> {{ stats.firstWord.word }} on
+          <strong>Primera palabra:</strong> {{ stats.firstWord.word }} el
           {{ stats.firstWord.date | formatDate }}
         </div>
       </li>
       <li class="milestone-item">
         <span class="milestone-icon">🏆</span>
         <div class="milestone-text">
-          <strong>Latest Word:</strong> {{ stats.latestWord.word }} on
+          <strong>Última palabra:</strong> {{ stats.latestWord.word }} el
           {{ stats.latestWord.date | formatDate }}
         </div>
       </li>
       <li class="milestone-item">
         <span class="milestone-icon">🔥</span>
         <div class="milestone-text">
-          <strong>Current Streak:</strong> <span id="milestoneCurrentStreakValue">{{ stats.currentStreak }} days</span>
+          <strong>Racha actual:</strong> <span id="milestoneCurrentStreakValue">{{ stats.currentStreak }} días</span>
         </div>
       </li>
     </ul>
@@ -1906,7 +1909,7 @@ eleventyExcludeFromCollections: true
   <!-- Random Word Section -->
   <div class="overview-section expanded">
     <div class="overview-section-header">
-      <h3>🎲 Random Word Discovery</h3>
+      <h3>🎲 Palabra al azar</h3>
       <span class="overview-toggle-icon">▼</span>
     </div>
     <div class="overview-section-content">
@@ -1916,14 +1919,14 @@ eleventyExcludeFromCollections: true
       <h3 class="spotlight-word">{{ randomWord.word }}</h3>
       <p class="spotlight-definition">{{ randomWord.definition }}</p>
       {% if randomWord.source %}
-      <p class="spotlight-source">Source: {{ randomWord.source }}</p>
+      <p class="spotlight-source">Fuente: {{ randomWord.source }}</p>
       {% endif %}
       <p class="spotlight-date">
-        Collected on {{ randomWord.date | formatDate }}
+        Recogida el {{ randomWord.date | formatDate }}
       </p>
     </div>
     <p class="refresh-note">
-      <em>Refresh the page to discover a new word!</em>
+      <em>¡Recarga la página para descubrir una nueva palabra!</em>
     </p>
   </div>
     </div>
@@ -1932,19 +1935,19 @@ eleventyExcludeFromCollections: true
 </div>
 
 <div id="searchView" class="content-view" style="display: none">
-  <h2>Search Words</h2>
+  <h2>Buscar palabras</h2>
   
   <div class="search-container">
     <div class="search-filters">
       <div class="filter-group">
-        <label for="wordSearch">Search by Word:</label>
-        <input type="text" id="wordSearch" placeholder="Type a word..." />
+        <label for="wordSearch">Buscar por palabra:</label>
+        <input type="text" id="wordSearch" placeholder="Escribe una palabra..." />
       </div>
 
       <div class="filter-group">
-        <label for="searchSourceFilter">Filter by Source:</label>
+        <label for="searchSourceFilter">Filtrar por fuente:</label>
         <select id="searchSourceFilter">
-          <option value="">All Sources</option>
+          <option value="">Todas las fuentes</option>
           {% for source in stats.allSources %}
             <option value="{{ source.name }}">{{ source.name }} ({{ source.count }})</option>
           {% endfor %}
@@ -1952,38 +1955,38 @@ eleventyExcludeFromCollections: true
       </div>
 
       <div class="filter-group">
-        <label for="searchLanguageFilter">Filter by Language:</label>
+        <label for="searchLanguageFilter">Filtrar por idioma:</label>
         <select id="searchLanguageFilter">
-          <option value="">All Languages</option>
-          <option value="spanish">Spanish</option>
-          <option value="english">English</option>
+          <option value="">Todos los idiomas</option>
+          <option value="spanish">Español</option>
+          <option value="english">Inglés</option>
         </select>
       </div>
 
       <div class="filter-group">
-        <label for="searchSortBy">Sort by:</label>
+        <label for="searchSortBy">Ordenar por:</label>
         <select id="searchSortBy">
-          <option value="relevance">Relevance</option>
-          <option value="word-az">Word (A-Z)</option>
-          <option value="word-za">Word (Z-A)</option>
-          <option value="newest">Newest First</option>
-          <option value="oldest">Oldest First</option>
+          <option value="relevance">Relevancia</option>
+          <option value="word-az">Palabra (A-Z)</option>
+          <option value="word-za">Palabra (Z-A)</option>
+          <option value="newest">Más recientes</option>
+          <option value="oldest">Más antiguas</option>
         </select>
       </div>
 
-      <button id="searchResetFilters" class="reset-btn">Reset Filters</button>
+      <button id="searchResetFilters" class="reset-btn">Restablecer filtros</button>
     </div>
 
     <div class="search-results">
       <div class="results-info">
-        <p>Found <span id="resultCount">0</span> words</p>
+        <p>Encontradas <span id="resultCount">0</span> palabras</p>
       </div>
       <div id="searchResultsList" class="words-list"></div>
       
       <div id="paginationControls" class="pagination" style="display: none">
-        <button id="prevPage" class="pagination-btn">← Previous</button>
-        <span id="pageInfo">Page <span id="currentPage">1</span> of <span id="totalPages">1</span></span>
-        <button id="nextPage" class="pagination-btn">Next →</button>
+        <button id="prevPage" class="pagination-btn">← Anterior</button>
+        <span id="pageInfo">Página <span id="currentPage">1</span> de <span id="totalPages">1</span></span>
+        <button id="nextPage" class="pagination-btn">Siguiente →</button>
       </div>
     </div>
   </div>
@@ -2402,7 +2405,7 @@ eleventyExcludeFromCollections: true
       resultCount.textContent = filteredResults.length;
 
       if (filteredResults.length === 0) {
-        resultsList.innerHTML = '<div class="no-results">No words found matching your filters.</div>';
+        resultsList.innerHTML = '<div class="no-results">No se encontraron palabras con tus filtros.</div>';
         paginationControls.style.display = 'none';
         return;
       }
@@ -2416,7 +2419,7 @@ eleventyExcludeFromCollections: true
       // Display results
       resultsList.innerHTML = pageResults.map(word => {
         const lang = detectLanguage(word.definition);
-        const langLabel = lang.charAt(0).toUpperCase() + lang.slice(1);
+        const langLabel = lang === 'spanish' ? 'Español' : lang === 'english' ? 'Inglés' : lang.charAt(0).toUpperCase() + lang.slice(1);
         return `
           <div class="word-item">
             <div class="word-item-header">
@@ -2427,7 +2430,7 @@ eleventyExcludeFromCollections: true
               </div>
             </div>
             <div class="word-item-definition">${word.definition}</div>
-            <div class="word-item-date">Found on ${word.date}</div>
+            <div class="word-item-date">Encontrada el ${word.date}</div>
           </div>
         `;
       }).join('');

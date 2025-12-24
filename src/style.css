@@ -299,6 +299,35 @@ section {
   }
 }
 
+/* Place toggles side-by-side when wrapped in top-controls */
+.top-controls {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.top-controls .theme-toggle {
+  position: static;
+  top: auto;
+  right: auto;
+  bottom: auto;
+}
+
+@media (max-width: 600px) {
+  .top-controls {
+    top: 10px;
+    right: 10px;
+    gap: 8px;
+  }
+  .top-controls .theme-toggle {
+    position: static;
+  }
+}
+
 /* Navigation Styles */
 nav {
   text-align: center;

@@ -10,9 +10,9 @@
     <div class="definition">{{ entry.definition }}</div>
     {% if entry.source %}
     <div class="source">
-      Source: <a href="/word-curations/?source={{ entry.source | urlencode }}" class="source-link">{{ entry.source }}</a>
+      {{ 'wordCurations.source' | t(locale or 'en') }}: <a href="/word-curations/?source={{ entry.source | urlencode }}" class="source-link">{{ entry.source }}</a>
       {% import 'macros/categoryBadge.njk' as badge %}
-      {{ badge.categoryBadge(entry.source, sourceCategories) }}
+      {{ badge.categoryBadge(entry.source, sourceCategories, locale) }}
     </div>
     {% endif %}
     <div class="explanation">

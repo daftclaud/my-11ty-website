@@ -1,3 +1,4 @@
+require('dotenv').config();
 const util = require("util");
 const { execSync } = require("child_process");
 const path = require("path");
@@ -34,16 +35,63 @@ function fetchRocketLeagueStats() {
   }
 }
 
-// Run detection before build starts
+// Run content translation before build
+function runContentTranslation() {
+  const translateScript = path.join(__dirname, "translate-content.js");
+  
+  try {
+    if (fs.existsSync(translateScript)) {
+      console.log("🌐 Running content translation...");
+      execSync(`node "${translateScript}"`, { stdio: "inherit" });
+    }
+  } catch (error) {
+    console.warn("⚠️ Content translation failed:", error.message);
+  }
+}
+
+// Run detection and translation before build starts
 runSpanishWordDetection();
 fetchRocketLeagueStats();
+runContentTranslation();
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/style.css");
   eleventyConfig.addPassthroughCopy("./src/assets");
 
+  // Load i18n translations
+  const i18nEn = require("./src/_data/i18n/en.json");
+  const i18nEs = require("./src/_data/i18n/es-MX.json");
+  const { loadCachedTranslation } = require("./translate-content.js");
+
   // Load filters
   require("./src/_includes/filters.js")(eleventyConfig);
+
+  // Add i18n filter
+  eleventyConfig.addFilter("t", function(key, locale = "en") {
+    const translations = locale === "es" ? i18nEs : i18nEn;
+    const keys = key.split(".");
+    let value = translations;
+    
+    for (const k of keys) {
+      if (value && typeof value === "object" && k in value) {
+        value = value[k];
+      } else {
+        return key; // Return key if translation not found
+      }
+    }
+    
+    return value;
+  });
+
+  // Add filter to get translated pen data
+  eleventyConfig.addFilter("getPenTranslation", function(penSlug, locale = "en") {
+    if (locale === "en") {
+      return null; // No translation needed for English
+    }
+    
+    const cached = loadCachedTranslation(penSlug);
+    return cached;
+  });
 
   eleventyConfig.addFilter("console", function (value) {
     return util.inspect(value);

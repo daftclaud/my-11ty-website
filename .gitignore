@@ -1,2 +1,8 @@
 node_modules/
 public/
+
+# Environment variables
+.env
+
+# Translation cache (optional - you may want to commit these)
+# src/_translations/

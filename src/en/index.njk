@@ -1,6 +1,7 @@
 ---
-permalink: false
-eleventyExcludeFromCollections: true
+layout: base.njk
+locale: en
+permalink: /
 ---
 
 <div class="content">
@@ -11,48 +12,45 @@ eleventyExcludeFromCollections: true
     decoding="async"
   />
   <p>
-    Hello! Welcome to my awesome personal homepage. This site is all about me
-    and my interests.
+    {{ 'home.welcome' | t(locale) }}
   </p>
   <br />
   <p>
-    Check out my <a href="/word-curations">Word Curations</a> page where I share
-    interesting words and their meanings!
+    {{ 'home.checkoutWords' | t(locale) }} <a href="/word-curations">{{ 'home.wordCurationsPage' | t(locale) }}</a> {{ 'home.wordCurationsText' | t(locale) }}
   </p>
   <br />
   <p>
-    Take a look at my <a href="/pens">Pens</a> page
-    to explore my collection.
+    {{ 'home.takeLook' | t(locale) }} <a href="/pens">{{ 'home.pensPage' | t(locale) }}</a> {{ 'home.pensText' | t(locale) }}
   </p>
 </div>
 
 <section class="recent-activity">
-  <h2>Recent Activity</h2>
+  <h2>{{ 'home.recentActivity' | t(locale) }}</h2>
   
   <div class="activity-section word-curation-section">
-    <h3>Latest Word Curation</h3>
+    <h3>{{ 'home.latestWordCuration' | t(locale) }}</h3>
     {% if collections.recentWordCurations.length > 0 %}
       {% set curation = collections.recentWordCurations[0] %}
       <a href="{{ curation.url }}" class="latest-curation-link">
         <div class="latest-curation">
-          <div class="curation-date">{{ curation.data.date | formatDate }}</div>
+          <div class="curation-date">{{ curation.data.date | formatDate('en-US') }}</div>
           <ul class="words-list">
             {% for word in curation.data.words %}
               <li>
                 <strong>{{ word.word }}</strong> - {{ word.definition }}
-                {% if word.source %}<span class="word-source">Source: {{ word.source }}</span>{% endif %}
+                {% if word.source %}<span class="word-source">{{ 'wordCurations.source' | t(locale) }}: {{ word.source }}</span>{% endif %}
               </li>
             {% endfor %}
           </ul>
         </div>
       </a>
     {% else %}
-      <p>No recent curations found.</p>
+      <p>{{ 'home.noRecentCurations' | t(locale) }}</p>
     {% endif %}
   </div>
 
   <div class="activity-section pens-section">
-    <h3>Latest Pens Added</h3>
+    <h3>{{ 'home.latestPens' | t(locale) }}</h3>
     {% if collections.recentPens.length > 0 %}
       <div class="pens-grid">
         {% for pen in collections.recentPens %}
@@ -66,7 +64,7 @@ eleventyExcludeFromCollections: true
         {% endfor %}
       </div>
     {% else %}
-      <p>No pens found.</p>
+      <p>{{ 'home.noRecentCurations' | t(locale) }}</p>
     {% endif %}
   </div>
 </section>

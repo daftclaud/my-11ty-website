@@ -1,6 +1,7 @@
 ---
-permalink: false
-eleventyExcludeFromCollections: true
+layout: base.njk
+locale: en
+permalink: /about/
 ---
 
 <div class="content">
@@ -11,21 +12,21 @@ eleventyExcludeFromCollections: true
     decoding="async"
   />
   <p>
-    I'm a web developer from Monterrey, Mexico.
+    {{ 'about.intro1' | t(locale) }}
   </p>
   <br />
   <p>
-    I have a deep passion for words and pens.
+    {{ 'about.intro2' | t(locale) }}
   </p>
   <br />
   <p>
-   Rocket League is my favorite video game of all time.
+    {{ 'about.intro3' | t(locale) }}
   </p>
 </div>
 
 {% if rocket_league_stats %}
 <section class="rocket-league-stats">
-  <h2>🚗 Rocket League Stats</h2>
+  <h2>🚗 {{ 'about.rlStats' | t(locale) }}</h2>
   
   <div class="rl-hero-image">
     <img src="/assets/rocket_league.png" alt="My Rocket League car in a face off" loading="lazy" decoding="async" />
@@ -33,12 +34,12 @@ eleventyExcludeFromCollections: true
   
   <div class="stats-header">
     <a href="https://rocketleague.tracker.network/rocket-league/profile/epic/TKNclaudette/overview" target="_blank" class="profile-link">
-      View Full Profile on Tracker Network →
+      {{ 'about.viewFullProfile' | t(locale) }}
     </a>
   </div>
 
   <div class="ranks-section">
-    <h3>Current Rank - Ranked Duel 1v1</h3>
+    <h3>{{ 'about.currentRank' | t(locale) }}</h3>
     <div class="rank-card-large">
       <div class="rank-tier">{{ rocket_league_stats.rankedDuel.rank }}</div>
       <div class="rank-rating">{{ rocket_league_stats.rankedDuel.rating }} MMR</div>
@@ -47,26 +48,26 @@ eleventyExcludeFromCollections: true
   </div>
 
   <div class="lifetime-stats">
-    <h3>Lifetime Stats</h3>
+    <h3>{{ 'about.lifetimeStats' | t(locale) }}</h3>
     <div class="stats-grid">
       <div class="stat-item">
         <div class="stat-value">{{ rocket_league_stats.lifetime.wins | formatNumber }}</div>
-        <div class="stat-label">Wins</div>
+        <div class="stat-label">{{ 'about.wins' | t(locale) }}</div>
         <div class="stat-rank">{{ rocket_league_stats.lifetime.winsRank }}</div>
       </div>
       <div class="stat-item">
         <div class="stat-value">{{ rocket_league_stats.lifetime.goals | formatNumber }}</div>
-        <div class="stat-label">Goals</div>
+        <div class="stat-label">{{ 'about.goals' | t(locale) }}</div>
         <div class="stat-rank">{{ rocket_league_stats.lifetime.goalsRank }}</div>
       </div>
       <div class="stat-item">
         <div class="stat-value">{{ rocket_league_stats.lifetime.shots | formatNumber }}</div>
-        <div class="stat-label">Shots</div>
+        <div class="stat-label">{{ 'about.shots' | t(locale) }}</div>
         <div class="stat-rank">{{ rocket_league_stats.lifetime.shotsRank }}</div>
       </div>
       <div class="stat-item">
         <div class="stat-value">{{ rocket_league_stats.lifetime.saves | formatNumber }}</div>
-        <div class="stat-label">Saves</div>
+        <div class="stat-label">{{ 'about.saves' | t(locale) }}</div>
         <div class="stat-rank">{{ rocket_league_stats.lifetime.savesRank }}</div>
       </div>
       <div class="stat-item">

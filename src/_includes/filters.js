@@ -1,7 +1,7 @@
 module.exports = function(eleventyConfig) {
-  eleventyConfig.addNunjucksFilter("getCategory", function(source, sourceCategories) {
+  eleventyConfig.addNunjucksFilter("getCategory", function(source, sourceCategories, fallback = 'Uncategorized') {
     if (!source || !sourceCategories) return '';
-    return sourceCategories[source] || 'Uncategorized';
+    return sourceCategories[source] || fallback;
   });
 
   eleventyConfig.addNunjucksFilter("slugify", function(str) {

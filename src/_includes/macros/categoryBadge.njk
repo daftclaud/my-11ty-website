@@ -1,5 +1,6 @@
-{%- macro categoryBadge(source, categories) -%}
-  {%- set category = source | getCategory(categories) -%}
+{%- macro categoryBadge(source, categories, locale) -%}
+  {%- set uncategorizedLabel = 'wordCurations.uncategorized' | t(locale or 'en') -%}
+  {%- set category = source | getCategory(categories, uncategorizedLabel) -%}
   <a href="/sources/#{{ category | slugify }}" class="category-badge" data-category="{{ category }}" title="View all words from {{ category }}">
     {{ category }}
   </a>
