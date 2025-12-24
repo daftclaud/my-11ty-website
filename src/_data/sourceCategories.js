@@ -32,6 +32,7 @@ const categoryKeywords = {
     'Novel', 'Book', 'J.D. Salinger', 'Haruki Murakami', 'Adrian Tchaikovsky',
     'Kazuo Ishiguro', 'Jostein Gaarder', 'Noah Gordon', 'Cormac McCarthy',
     'Robert M. Pirsig', 'Walter Isaacson', 'Steven Pinker', 'Robert Nozick',
+    'Isaac Asimov',
     'Yuval Noah Harari', 'Ray Kurzweil', 'Hannah Ritchie',
     'Around the World in Eighty Days - Jules Verne',
     'El Infinito en un Junco - Irene Vallejo',
