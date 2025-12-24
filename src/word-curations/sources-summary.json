@@ -1,5 +1,5 @@
 {
-  "total_entries": 3079,
+  "total_entries": 3080,
   "unique_sources": 100,
   "categories": {
     "Personal": {
@@ -31,7 +31,7 @@
       }
     },
     "Books/Novels": {
-      "total": 924,
+      "total": 925,
       "sources": {
         "Children of Memory - Novel by Adrian Tchaikovsky": 131,
         "Nexus - Yuval Noah Harari": 86,
@@ -66,7 +66,7 @@
         "Harry Potter and the Prisoner of Azkaban": 1,
         "Tres enigmas para la Organización - Eduardo Mendoza": 1,
         "The Phoenix Project - Gene Kim": 1,
-        "Foundation - Isaac Asimov": 5
+        "Foundation - Isaac Asimov": 6
       }
     },
     "Short Stories": {
