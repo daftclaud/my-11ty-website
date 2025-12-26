@@ -67,6 +67,28 @@ async function translateText(text, targetLang = 'es') {
   }
 }
 
+// Split long bodies into safe chunks for translation requests
+function chunkText(text, size = 4000) {
+  const chunks = [];
+  for (let i = 0; i < text.length; i += size) {
+    chunks.push(text.slice(i, i + size));
+  }
+  return chunks;
+}
+
+async function translateLongText(text, targetLang = 'es') {
+  if (!translate || !text) return null;
+  const chunks = chunkText(text, 4000);
+  const translated = [];
+  for (const chunk of chunks) {
+    const part = await translateText(chunk, targetLang);
+    if (part) translated.push(part);
+    // brief pause to reduce rate-limit risk
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+  return translated.join('\n\n');
+}
+
 /**
  * Translate a pen's content
  */
@@ -109,10 +131,7 @@ async function translatePen(penFile) {
   // Translate content sections (optional - we'll do a simple translation)
   let contentEs = null;
   if (content && content.trim().length > 0) {
-    // For very long content, you might want to split it or skip it
-    // For now, we'll translate up to first 2000 characters
-    const contentToTranslate = content.substring(0, 2000);
-    contentEs = await translateText(contentToTranslate);
+    contentEs = await translateLongText(content);
   }
   
   // Prepare translation cache

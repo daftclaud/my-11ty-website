@@ -1,0 +1,21 @@
+---
+pagination:
+  data: collections.pen
+  size: 1
+  alias: pen
+layout: pen.njk
+locale: es
+permalink: "/es/pens/{{ pen.fileSlug }}/"
+eleventyComputed:
+  title: "{{ (pen.fileSlug | getPenTranslation(locale)) and (pen.fileSlug | getPenTranslation(locale)).title_es or pen.data.title }}"
+  description: "{{ (pen.fileSlug | getPenTranslation(locale)) and (pen.fileSlug | getPenTranslation(locale)).description_es or pen.data.description }}"
+  image: "{{ pen.data.image }}"
+  caption: "{{ pen.data.caption }}"
+---
+
+{% set translation = pen.fileSlug | getPenTranslation(locale) %}
+{% if translation and translation.content_es %}
+  {{ translation.content_es | md | safe }}
+{% else %}
+  {{ pen.templateContent | safe }}
+{% endif %}

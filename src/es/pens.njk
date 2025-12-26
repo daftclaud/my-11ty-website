@@ -62,8 +62,9 @@ permalink: /es/pens/
               <span class="badge badge-type">{{ post.data.type }}</span>
             {% endif %}
           </div>
+          {% set penTranslation = post.fileSlug | getPenTranslation(locale) %}
           <h2>
-            <a href="{{ post.url }}">{{ post.data.title }}</a>
+            <a href="/es/pens/{{ post.fileSlug }}/">{{ penTranslation and penTranslation.title_es or post.data.title }}</a>
           </h2>
         </div>
       </article>
