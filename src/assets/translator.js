@@ -12,6 +12,7 @@
   }
 
   const docLang = normalizeLang(document.documentElement.lang || navigator.language || 'en');
+  const fallbackSource = docLang === 'es' ? 'en' : docLang;
 
   function getLangDisplay(lang) {
     try {
@@ -21,7 +22,8 @@
     }
   }
 
-  const defaultTarget = docLang === 'es' ? 'en' : 'es';
+  // Default target: Spanish for English pages; otherwise match page language
+  const defaultTarget = docLang === 'en' ? 'es' : docLang;
 
   const translatorCache = new Map(); // key: `${source}|${target}` -> Promise<Translator>
   async function getTranslator(sourceLanguage, targetLanguage, monitorHandler) {
@@ -53,7 +55,7 @@
   let languageDetectorPromise = null;
   async function detectSourceLanguage(text) {
     const sample = (text || '').slice(0, 4000);
-    if (!hasLanguageDetector) return docLang;
+    if (!hasLanguageDetector) return fallbackSource;
     try {
       if (!languageDetectorPromise) {
         languageDetectorPromise = self.LanguageDetector.create();
@@ -66,14 +68,15 @@
       if (result && result.language) {
         return normalizeLang(result.language);
       }
-      return docLang;
+      return fallbackSource;
     } catch {
-      return docLang;
+      return fallbackSource;
     }
   }
 
   function makeButtonLabel(targetLang) {
     const name = getLangDisplay(targetLang);
+    if (docLang === 'es') return `Traducir a ${name}`;
     return `Translate to ${name}`;
   }
 
@@ -150,7 +153,11 @@
           btn.disabled = true;
           btn.textContent = 'Preparing…';
 
-          const sourceLang = await detectSourceLanguage(original.textContent || original.innerText || '');
+          let sourceLang = await detectSourceLanguage(original.textContent || original.innerText || '');
+          // Avoid source==target which yields unavailable; assume English if clash on ES pages
+          if (sourceLang === lastTargetLang) {
+            sourceLang = sourceLang === 'es' ? 'en' : fallbackSource;
+          }
           lastSourceLang = sourceLang;
 
           const translator = await getTranslator(sourceLang, lastTargetLang, (e) => {
@@ -163,7 +170,7 @@
           translated.textContent = out;
           translated.style.display = '';
           original.style.display = 'none';
-          btn.textContent = 'Show original';
+          btn.textContent = docLang === 'es' ? 'Ver original' : 'Show original';
           btn.disabled = false;
           hasTranslated = true;
           showingTranslated = true;
@@ -196,7 +203,7 @@
           translated.style.display = '';
           original.style.display = 'none';
           showingTranslated = true;
-          btn.textContent = 'Show original';
+          btn.textContent = docLang === 'es' ? 'Ver original' : 'Show original';
         } else {
           await doTranslate();
         }
