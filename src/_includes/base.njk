@@ -56,6 +56,7 @@
         <span class="theme-icon theme-icon-sun">☀️</span>
         <span class="theme-icon theme-icon-moon">🌙</span>
       </button>
+      {# removed translate-all-controls per request #}
     </div>
     <main id="main-content">
       <h1>{{ 'home.heroTitle' | t(locale or 'en') }}</h1>
@@ -115,6 +116,7 @@
         });
       })();
     </script>
+    <script type="module" src="/assets/translator.js"></script>
   </body>
 </html>
 
@@ -251,4 +253,6 @@
     }
   }
 </style>
+
+{# removed translate-all-controls styles per request #}
 
