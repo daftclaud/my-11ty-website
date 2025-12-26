@@ -78,26 +78,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const typeFilter = document.getElementById('typeFilter');
   const resultCountSpan = document.getElementById('resultCount');
   const penItems = document.querySelectorAll('.pen-item');
-  const filterToggle = document.getElementById('filterToggle');
-  const filtersContainer = document.getElementById('filtersContainer');
-
-  // Mobile filter toggle functionality
-  filterToggle.addEventListener('click', function() {
-    const isExpanded = filtersContainer.classList.toggle('expanded');
-    filterToggle.setAttribute('aria-expanded', isExpanded);
-  });
-
-  // Close filters when user interacts with select on mobile
-  const selectElements = filtersContainer.querySelectorAll('select');
-  selectElements.forEach(select => {
-    select.addEventListener('change', function() {
-      // Keep filters open on desktop, close on mobile
-      if (window.innerWidth < 600) {
-        filtersContainer.classList.remove('expanded');
-        filterToggle.setAttribute('aria-expanded', false);
-      }
-    });
-  });
 
   // Collect unique brands and types from pen items
   const brandsSet = new Set();
