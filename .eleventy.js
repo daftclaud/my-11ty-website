@@ -98,6 +98,13 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("formatDate", function (date, locale = "en-US") {
+    if (!date) return "";
+
+    // Coerce strings or other objects into Date
+    const dateObj = date instanceof Date ? date : new Date(date);
+
+    if (isNaN(dateObj)) return "";
+
     const options = {
       year: "numeric",
       month: "long",
@@ -105,10 +112,10 @@ module.exports = function (eleventyConfig) {
     };
 
     // Calculate offset in milliseconds
-    const offsetMs = date.getTimezoneOffset() * 60 * 1000;
+    const offsetMs = dateObj.getTimezoneOffset() * 60 * 1000;
 
     // Create a new Date object adjusted for offset
-    const adjustedDate = new Date(date.getTime() + offsetMs);
+    const adjustedDate = new Date(dateObj.getTime() + offsetMs);
 
     return adjustedDate.toLocaleDateString(locale, options);
   });
@@ -389,5 +396,8 @@ module.exports = function (eleventyConfig) {
       input: "src",
       output: "public",
     },
+    markdownTemplateEngine: "njk",
+    htmlTemplateEngine: "njk",
+    dataTemplateEngine: "njk",
   };
 };

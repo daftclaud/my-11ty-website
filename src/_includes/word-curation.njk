@@ -1,15 +1,27 @@
 ---
 layout: base.njk
 eleventyComputed:
-  title: "Word Curations | {{ date | formatDate }}"
+  title: "Colección de Palabras"
 ---
+
+{%- if curation -%}
+  {%- set date = curation.data.date -%}
+  {%- set words = curation.data.words -%}
+{%- endif -%}
+
+{% set baseUrl = '/es' if locale == 'es' else '' %}
 
 <blockquote
   cite="https://www.goodreads.com/quotes/9894290-our-language-one-of-our-most-precious-natural-resources-in"
 >
-  “Our language, one of our most precious natural resources, deserves at least
-  as much protection as our woodlands, streams and whooping cranes.”
-  <p class="center-text">- James Lipton</p>
+  {% if locale == 'es' %}
+    "Nuestro lenguaje, uno de nuestros recursos naturales más valiosos, merece al menos tanta protección como nuestros bosques, ríos y grullas trompeteras."
+    <p class="center-text">- James Lipton</p>
+  {% else %}
+    “Our language, one of our most precious natural resources, deserves at least
+    as much protection as our woodlands, streams and whooping cranes.”
+    <p class="center-text">- James Lipton</p>
+  {% endif %}
 </blockquote>
 
 {% include 'curation.njk' %} {% set previousCuration = collections.word_curation |
@@ -18,13 +30,13 @@ getNextCuration(date) %}
 
 <div class="navigation">
   {% if previousCuration %}
-  <a href="{{ previousCuration.url }}">Previous Curation</a>
+  <a href="{{ baseUrl }}{{ previousCuration.url }}">{% if locale == 'es' %}Curación anterior{% else %}Previous Curation{% endif %}</a>
   {% endif %} {% if nextCuration %}
-  <a href="{{ nextCuration.url }}">Next Curation</a>
+  <a href="{{ baseUrl }}{{ nextCuration.url }}">{% if locale == 'es' %}Curación siguiente{% else %}Next Curation{% endif %}</a>
   {% endif %}
 </div>
 
-{% calendar { year: 2025, collection: collections.word_curation } %}
+{% calendar { year: 2025, collection: collections.word_curation, baseUrl: baseUrl, locale: locale or 'en' } %}
 
 <style>
   .navigation {

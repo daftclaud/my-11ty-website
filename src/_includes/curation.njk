@@ -1,16 +1,26 @@
+{% if baseUrl is defined %}
+  {% set curationBaseUrl = baseUrl %}
+{% elseif locale == 'es' %}
+  {% set curationBaseUrl = '/es' %}
+{% else %}
+  {% set curationBaseUrl = '' %}
+{% endif %}
+
+{% set curationWords = words or [] %}
+
 <article class="content">
   <header>
     <h2>
-      Words from <time>{{ date | formatDate }}</time>
+      {% if locale == 'es' %}Palabras de{% else %}Words from{% endif %} <time>{{ date | formatDate }}</time>
     </h2>
   </header>
-  {% for entry in words %}
+  {% for entry in curationWords %}
   <section class="word-entry">
     <div class="word">{{ entry.word }}</div>
     <div class="definition">{{ entry.definition }}</div>
     {% if entry.source %}
     <div class="source">
-      {{ 'wordCurations.source' | t(locale or 'en') }}: <a href="/word-curations/?source={{ entry.source | urlencode }}" class="source-link">{{ entry.source }}</a>
+      {{ 'wordCurations.source' | t(locale or 'en') }}: <a href="{{ curationBaseUrl }}/word-curations/?source={{ entry.source | urlencode }}" class="source-link">{{ entry.source }}</a>
       {% import 'macros/categoryBadge.njk' as badge %}
       {{ badge.categoryBadge(entry.source, sourceCategories, locale) }}
     </div>

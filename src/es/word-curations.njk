@@ -4,6 +4,8 @@ locale: es
 permalink: /es/word-curations/
 ---
 
+{% set baseUrl = '/es' %}
+
 <style>
   .hero-quote {
     background: #ffffff;
@@ -1608,13 +1610,13 @@ permalink: /es/word-curations/
 
   <div class="navigation">
     {% if previousCuration %}
-    <a href="{{ previousCuration.url }}">Curación anterior</a>
+    <a href="{{ baseUrl }}{{ previousCuration.url }}">Curación anterior</a>
     {% endif %} {% if nextCuration %}
-    <a href="{{ nextCuration.url }}">Curación siguiente</a>
+    <a href="{{ baseUrl }}{{ nextCuration.url }}">Curación siguiente</a>
     {% endif %}
   </div>
 
-  {% calendar { year: 2025, collection: collections.word_curation } %}
+  {% calendar { year: 2025, collection: collections.word_curation, baseUrl: '/es', locale: locale or 'es' } %}
 </div>
 
 <div id="overviewView" class="content-view" style="display: none">

@@ -6,21 +6,37 @@ module.exports = class {
   }
 
   render(data) {
-    const { year, month, collection } = data;
-    const monthNames = [
-      "JAN",
-      "FEB",
-      "MAR",
-      "APR",
-      "MAY",
-      "JUN",
-      "JUL",
-      "AUG",
-      "SEP",
-      "OCT",
-      "NOV",
-      "DEC",
-    ];
+    const { year, month, collection, baseUrl = "", locale = "en" } = data;
+
+    const monthNames = locale === "es"
+      ? [
+          "ENE",
+          "FEB",
+          "MAR",
+          "ABR",
+          "MAY",
+          "JUN",
+          "JUL",
+          "AGO",
+          "SEP",
+          "OCT",
+          "NOV",
+          "DIC",
+        ]
+      : [
+          "JAN",
+          "FEB",
+          "MAR",
+          "APR",
+          "MAY",
+          "JUN",
+          "JUL",
+          "AUG",
+          "SEP",
+          "OCT",
+          "NOV",
+          "DEC",
+        ];
 
     const availableDates = collection.map(item => item.fileSlug);
 
@@ -52,7 +68,7 @@ module.exports = class {
       if (availableDates.includes(getPaddedDate(year, month + 1, day))) {
         calendarHTML += `
           <div class="month-day-container active">
-            <a href="/word-curations/${getPaddedDate(year, month + 1, day)}">${day}</a>
+            <a href="${baseUrl}/word-curations/${getPaddedDate(year, month + 1, day)}">${day}</a>
           </div>
         `;
       } else {

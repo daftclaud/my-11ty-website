@@ -10,27 +10,44 @@ module.exports = class {
   render(data) {
     const currentYear = data.year || new Date().getFullYear();
     const curations = data.collection || [];
-    const monthNames = [
-      "JAN",
-      "FEB",
-      "MAR",
-      "APR",
-      "MAY",
-      "JUN",
-      "JUL",
-      "AUG",
-      "SEP",
-      "OCT",
-      "NOV",
-      "DEC",
-    ];
+    const locale = data.locale || "en";
+    const baseUrl = data.baseUrl || "";
+    const monthNames = locale === "es"
+      ? [
+          "ENE",
+          "FEB",
+          "MAR",
+          "ABR",
+          "MAY",
+          "JUN",
+          "JUL",
+          "AGO",
+          "SEP",
+          "OCT",
+          "NOV",
+          "DIC",
+        ]
+      : [
+          "JAN",
+          "FEB",
+          "MAR",
+          "APR",
+          "MAY",
+          "JUN",
+          "JUL",
+          "AUG",
+          "SEP",
+          "OCT",
+          "NOV",
+          "DEC",
+        ];
     const years = Array.from({ length: 7 }, (_, i) => currentYear - i);
 
     // Generate the HTML for all years
     const allYearsHTML = years.map(year => {
       const monthsHtml = monthNames.map((_, index) => {
         const month = new Month();
-        return month.render({ year, month: index, collection: curations });
+        return month.render({ year, month: index, collection: curations, baseUrl, locale });
       }).join('');
 
       return `
@@ -51,7 +68,7 @@ module.exports = class {
           ).join('')}
         </select>
         <div class="calendar-hint">
-          <p>💡 Click on any highlighted date to view that day's word curation</p>
+          <p>${locale === "es" ? "💡 Haz clic en cualquier fecha resaltada para ver la curación de palabras de ese día" : "💡 Click on any highlighted date to view that day's word curation"}</p>
         </div>
       </div>
       ${allYearsHTML}

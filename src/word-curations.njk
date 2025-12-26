@@ -4,6 +4,8 @@ locale: en
 permalink: /word-curations/
 ---
 
+{% set baseUrl = '' %}
+
 <style>
   .hero-quote {
     background: #ffffff;
@@ -1612,7 +1614,7 @@ permalink: /word-curations/
     {% endif %}
   </div>
 
-  {% calendar { year: 2025, collection: collections.word_curation } %}
+  {% calendar { year: 2025, collection: collections.word_curation, baseUrl: baseUrl, locale: locale or 'en' } %}
 </div>
 
 <div id="overviewView" class="content-view" style="display: none">
