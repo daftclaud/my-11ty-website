@@ -438,18 +438,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
   /* Dark mode tweaks */
   [data-theme="dark"] .pen-filters {
-    background: var(--clr-main-bg);
-    border: 2px solid var(--clr-border);
+    background: var(--clr-nav-bg);
+    border-color: var(--clr-border);
   }
 
   [data-theme="dark"] .filter-toggle {
-    background: var(--clr-main-bg);
+    background: var(--clr-nav-bg);
     border-color: var(--clr-border);
     color: var(--clr-link);
   }
 
-  [data-theme="dark"] .filters-container {
-    background: var(--clr-main-bg);
+  [data-theme="dark"] .filter-toggle:hover {
+    background: #2a2a3e;
+    border-color: var(--clr-link);
+  }
+
+  [data-theme="dark"] .filter-toggle:focus {
+    border-color: var(--clr-link);
+    box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
   }
 
   [data-theme="dark"] .filter-group label,
