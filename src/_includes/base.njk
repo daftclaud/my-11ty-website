@@ -195,50 +195,21 @@
 
   .flag-icon {
     display: inline-block;
-    width: 16px;
-    height: 12px;
-    image-rendering: pixelated;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: crisp-edges;
+    width: 20px;
+    height: 15px;
+    margin-right: 6px;
     vertical-align: middle;
-    margin-right: 4px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
   .flag-us {
-    background: linear-gradient(to bottom, 
-      #B22234 0%, #B22234 7.69%, 
-      #FFFFFF 7.69%, #FFFFFF 15.38%,
-      #B22234 15.38%, #B22234 23.07%,
-      #FFFFFF 23.07%, #FFFFFF 30.76%,
-      #B22234 30.76%, #B22234 38.45%,
-      #FFFFFF 38.45%, #FFFFFF 46.14%,
-      #B22234 46.14%, #B22234 53.83%,
-      #FFFFFF 53.83%, #FFFFFF 61.52%,
-      #B22234 61.52%, #B22234 69.21%,
-      #FFFFFF 69.21%, #FFFFFF 76.9%,
-      #B22234 76.9%, #B22234 84.59%,
-      #FFFFFF 84.59%, #FFFFFF 92.28%,
-      #B22234 92.28%, #B22234 100%
-    );
-    position: relative;
-  }
-
-  .flag-us::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 40%;
-    height: 53.83%;
-    background: #3C3B6E;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3Cpath fill='%23B22234' d='M0 0h60v30H0z'/%3E%3Cpath stroke='%23fff' stroke-width='2.31' d='M0 3.46h60M0 8.08h60M0 12.69h60M0 17.31h60M0 21.92h60M0 26.54h60'/%3E%3Cpath fill='%233C3B6E' d='M0 0h24 16v16.15H0z'/%3E%3C/svg%3E");
   }
 
   .flag-mx {
-    background: linear-gradient(to right,
-      #006847 0%, #006847 33.33%,
-      #FFFFFF 33.33%, #FFFFFF 66.66%,
-      #CE1126 66.66%, #CE1126 100%
-    );
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30'%3E%3Cpath fill='%23006847' d='M0 0h20v30H0z'/%3E%3Cpath fill='%23fff' d='M20 0h20v30H20z'/%3E%3Cpath fill='%23CE1126' d='M40 0h20v30H40z'/%3E%3Cpath fill='%238B4513' d='M25 12c0-1 1-2 2-2h6c1 0 2 1 2 2v3h-10v-3z'/%3E%3Cpath fill='%23FFD700' d='M27 9c0-.5.4-1 1-1h4c.6 0 1 .5 1 1v2h-6V9zm2 3l-1 2 1.5 1 1.5-1-1-2h-1z'/%3E%3C/svg%3E");
   }
 
   @media (max-width: 768px) {
