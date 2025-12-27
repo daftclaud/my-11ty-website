@@ -1,6 +1,6 @@
 {
-  "total_entries": 3084,
-  "unique_sources": 100,
+  "total_entries": 3085,
+  "unique_sources": 101,
   "categories": {
     "Personal": {
       "total": 1991,
@@ -20,14 +20,15 @@
       }
     },
     "Non-fiction Books": {
-      "total": 55,
+      "total": 56,
       "sources": {
         "Ruido - Daniel Kahneman, Oliver Siboney, Cass R. Sunstein": 27,
         "The Phoenix Project - Gene Kim": 14,
         "Libro sobre Responsabilidad Social Empresarial": 8,
         "\"John Green's Anthropocene: Reviewed\"": 4,
         "Designing the Future - Jay W. Forrester": 1,
-        "This is Lean - Niklas Modig and Pär Åhlström": 1
+        "This is Lean - Niklas Modig and Pär Åhlström": 1,
+        "PRI - Crónica del Fin": 1
       }
     },
     "Books/Novels": {
