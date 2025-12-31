@@ -1,6 +1,6 @@
 {
-  "total_entries": 3090,
-  "unique_sources": 102,
+  "total_entries": 3091,
+  "unique_sources": 103,
   "categories": {
     "Personal": {
       "total": 1991,
@@ -124,7 +124,7 @@
       }
     },
     "Movies/TV/Anime": {
-      "total": 24,
+      "total": 25,
       "sources": {
         "Love is Blind - Mexico": 3,
         "Mashle - Anime": 3,
@@ -139,7 +139,8 @@
         "Last Week Tonight": 1,
         "Netflix - Pasta Chefs Table": 1,
         "Sherlock Holmes Movie": 1,
-        "The Basement Yard Podcast": 1
+        "The Basement Yard Podcast": 1,
+        "Culinary Class Wars - Netflix": 1
       }
     },
     "Music": {
