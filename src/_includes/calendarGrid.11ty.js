@@ -41,7 +41,21 @@ module.exports = class {
           "NOV",
           "DEC",
         ];
-    const years = Array.from({ length: 7 }, (_, i) => currentYear - i);
+    
+    // Find the earliest year in the collection
+    let earliestYear = currentYear;
+    if (curations.length > 0) {
+      const firstCuration = curations[0];
+      if (firstCuration.data && firstCuration.data.date) {
+        earliestYear = firstCuration.data.date.getFullYear();
+      }
+    }
+    
+    // Generate years from currentYear down to earliestYear
+    const years = [];
+    for (let y = currentYear; y >= earliestYear; y--) {
+      years.push(y);
+    }
 
     // Generate the HTML for all years
     const allYearsHTML = years.map(year => {
