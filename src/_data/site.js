@@ -4,6 +4,7 @@ module.exports = {
   url: "https://daftclaud.github.io",
   author: "Claudio Del Valle",
   description: "Personal website featuring word curations, pen collection, and insights from Monterrey, Mexico.",
+  currentYear: new Date().getFullYear(),
   
   // Localization settings
   defaultLocale: "en",

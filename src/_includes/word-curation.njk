@@ -10,6 +10,10 @@ eleventyComputed:
 {%- endif -%}
 
 {% set baseUrl = '/es' if locale == 'es' else '' %}
+{% set calendarYear = site.currentYear %}
+{% if date and date.getFullYear() > calendarYear %}
+  {% set calendarYear = date.getFullYear() %}
+{% endif %}
 
 <blockquote
   cite="https://www.goodreads.com/quotes/9894290-our-language-one-of-our-most-precious-natural-resources-in"
@@ -36,7 +40,12 @@ getNextCuration(date) %}
   {% endif %}
 </div>
 
-{% calendar { year: 2025, collection: collections.word_curation, baseUrl: baseUrl, locale: locale or 'en' } %}
+{% calendar {
+  year: calendarYear,
+  collection: collections.word_curation,
+  baseUrl: baseUrl,
+  locale: locale or 'en'
+} %}
 
 <style>
   .navigation {

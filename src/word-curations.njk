@@ -1600,6 +1600,10 @@ permalink: /word-curations/
   collections.word_curation | getPreviousCuration(latestCuration.date) %} {% set
   nextCuration = collections.word_curation |
   getNextCuration(latestCuration.date) %}
+  {% set calendarYear = site.currentYear %}
+  {% if date and date.getFullYear() > calendarYear %}
+    {% set calendarYear = date.getFullYear() %}
+  {% endif %}
 
   <div class="navigation">
     {% if previousCuration %}
@@ -1609,7 +1613,12 @@ permalink: /word-curations/
     {% endif %}
   </div>
 
-  {% calendar { year: 2025, collection: collections.word_curation, baseUrl: baseUrl, locale: locale or 'en' } %}
+  {% calendar {
+    year: calendarYear,
+    collection: collections.word_curation,
+    baseUrl: baseUrl,
+    locale: locale or 'en'
+  } %}
 </div>
 
 <div id="overviewView" class="content-view" style="display: none">
