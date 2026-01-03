@@ -1,6 +1,6 @@
 {
-  "total_entries": 3100,
-  "unique_sources": 104,
+  "total_entries": 3101,
+  "unique_sources": 105,
   "categories": {
     "Personal": {
       "total": 1991,
@@ -124,7 +124,7 @@
       }
     },
     "Movies/TV/Anime": {
-      "total": 25,
+      "total": 26,
       "sources": {
         "Love is Blind - Mexico": 3,
         "Mashle - Anime": 3,
@@ -140,7 +140,8 @@
         "Netflix - Pasta Chefs Table": 1,
         "Sherlock Holmes Movie": 1,
         "The Basement Yard Podcast": 1,
-        "Culinary Class Wars - Netflix": 1
+        "Culinary Class Wars - Netflix": 1,
+        "Hell's Paradise - Anime": 1
       }
     },
     "Music": {
