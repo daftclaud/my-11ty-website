@@ -1,5 +1,5 @@
 {
-  "total_entries": 3102,
+  "total_entries": 3103,
   "unique_sources": 105,
   "categories": {
     "Personal": {
@@ -100,7 +100,7 @@
       }
     },
     "News/Press": {
-      "total": 28,
+      "total": 29,
       "sources": {
         "El Horizonte": 17,
         "Milenio - Crucigrama": 3,
@@ -109,7 +109,7 @@
         "NYT Puzzle": 2,
         "New York Times - Article": 1,
         "Milenio - Periódico": 1,
-        "PRI - Crónica del Fin": 1
+        "PRI - Crónica del Fin": 2
       }
     },
     "Museums/Places": {
