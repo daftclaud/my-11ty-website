@@ -11,8 +11,9 @@ eleventyComputed:
 
 {% set baseUrl = '/es' if locale == 'es' else '' %}
 {% set calendarYear = site.currentYear %}
-{% if date and date.getFullYear() > calendarYear %}
-  {% set calendarYear = date.getFullYear() %}
+{% if date %}
+  {% set dateYear = date.getFullYear() %}
+  {% set calendarYear = dateYear %}
 {% endif %}
 
 <blockquote
@@ -28,26 +29,133 @@ eleventyComputed:
   {% endif %}
 </blockquote>
 
-{% include 'curation.njk' %} {% set previousCuration = collections.word_curation |
-getPreviousCuration(date) %} {% set nextCuration = collections.word_curation |
-getNextCuration(date) %}
-
-<div class="navigation">
-  {% if previousCuration %}
-  <a href="{{ baseUrl }}{{ previousCuration.url }}">{% if locale == 'es' %}Curación anterior{% else %}Previous Curation{% endif %}</a>
-  {% endif %} {% if nextCuration %}
-  <a href="{{ baseUrl }}{{ nextCuration.url }}">{% if locale == 'es' %}Curación siguiente{% else %}Next Curation{% endif %}</a>
-  {% endif %}
+<div class="view-toggle-container" style="margin: 40px 0 30px 0; text-align: center;">
+  <div class="view-toggle" style="display: inline-flex; gap: 0; background: #fff; border: 3px solid #ff00ff; border-radius: 8px; overflow: hidden;">
+    <a class="view-toggle-btn" href="{{ baseUrl }}/word-curations/?view=words" style="padding: 12px 30px; background: #fff; border-right: 2px solid #ff00ff; text-decoration: none; font-family: var(--ff-body); font-weight: bold; font-size: 1em; color: #ff00ff;">
+      {% if locale == 'es' %}Últimas Palabras{% else %}Latest Words{% endif %}
+    </a>
+    <a class="view-toggle-btn" href="{{ baseUrl }}/word-curations/?view=search" style="padding: 12px 30px; background: #fff; border-right: 2px solid #ff00ff; text-decoration: none; font-family: var(--ff-body); font-weight: bold; font-size: 1em; color: #ff00ff;">
+      {% if locale == 'es' %}Buscar{% else %}Search{% endif %}
+    </a>
+    <a class="view-toggle-btn" href="{{ baseUrl }}/word-curations/?view=overview" style="padding: 12px 30px; background: #fff; text-decoration: none; font-family: var(--ff-body); font-weight: bold; font-size: 1em; color: #ff00ff;">
+      {% if locale == 'es' %}Resumen{% else %}Overview{% endif %}
+    </a>
+  </div>
+  <p style="margin-top: 10px; font-size: 0.9em; color: var(--clr-text);">{% if locale == 'es' %}Ver la página de índice para alternar estas vistas.{% else %}Open the index page to toggle these views.{% endif %}</p>
 </div>
 
-{% calendar {
-  year: calendarYear,
-  collection: collections.word_curation,
-  baseUrl: baseUrl,
-  locale: locale or 'en'
-} %}
+<div id="curationDetail">
+  <div id="curationContent">
+    <p style="text-align: center; margin: 40px 0;">
+      {% if locale == 'es' %}
+        Esta curación ahora se muestra desde la vista dinámica principal de word-curations.
+        <a href="{{ baseUrl }}/word-curations/">Ir a word-curations</a>
+      {% else %}
+        This curation now renders from the main dynamic word-curations view.
+        <a href="{{ baseUrl }}/word-curations/">Go to word-curations</a>
+      {% endif %}
+    </p>
+  </div>
+
+  {% set previousCuration = collections.word_curation | getPreviousCuration(date) %}
+  {% set nextCuration = collections.word_curation | getNextCuration(date) %}
+
+  <div class="navigation" id="curationNav">
+    {% if previousCuration %}
+    <a href="{{ baseUrl }}{{ previousCuration.url }}">{% if locale == 'es' %}Curación anterior{% else %}Previous Curation{% endif %}</a>
+    {% endif %} {% if nextCuration %}
+    <a href="{{ baseUrl }}{{ nextCuration.url }}">{% if locale == 'es' %}Curación siguiente{% else %}Next Curation{% endif %}</a>
+    {% endif %}
+  </div>
+
+  <div id="curationCalendar">
+    {% calendar {
+      year: calendarYear,
+      collection: collections.word_curation,
+      baseUrl: baseUrl,
+      locale: locale or 'en'
+    } %}
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("curationDetail");
+    if (!container) return;
+
+    const contentEl = document.getElementById("curationContent");
+    const navEl = document.getElementById("curationNav");
+    const calendarEl = document.getElementById("curationCalendar");
+
+    if (!contentEl || !navEl || !calendarEl) return;
+
+    function enhanceLinks(root) {
+      root.querySelectorAll('a[href*="/word-curations/"]').forEach((link) => {
+        link.addEventListener("click", (evt) => {
+          if (evt.metaKey || evt.ctrlKey || evt.shiftKey || evt.button !== 0) {
+            return;
+          }
+          evt.preventDefault();
+          const url = link.getAttribute("href");
+          if (!url) return;
+          loadCuration(url);
+        });
+      });
+    }
+
+    let hasNavigated = false;
+
+    async function loadCuration(url) {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          window.location.href = url;
+          return;
+        }
+        const html = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+
+        const newContent = doc.getElementById("curationContent");
+        const newNav = doc.getElementById("curationNav");
+        const newCalendar = doc.getElementById("curationCalendar");
+
+        if (newContent && newNav && newCalendar) {
+          contentEl.innerHTML = newContent.innerHTML;
+          navEl.innerHTML = newNav.innerHTML;
+          calendarEl.innerHTML = newCalendar.innerHTML;
+
+          enhanceLinks(navEl);
+          enhanceLinks(calendarEl);
+
+          window.history.pushState({}, "", url);
+          hasNavigated = true;
+          container.scrollIntoView({ behavior: "smooth", block: "start" });
+        } else {
+          window.location.href = url;
+        }
+      } catch (err) {
+        window.location.href = url;
+      }
+    }
+
+    enhanceLinks(navEl);
+    enhanceLinks(calendarEl);
+
+    window.addEventListener("popstate", () => {
+      if (hasNavigated) {
+        loadCuration(window.location.pathname);
+      }
+    });
+  });
+</script>
 
 <style>
+  /* Mini index nav styles */
+  .view-toggle-container .view-toggle-btn:hover {
+    background: #fff9e6;
+  }
+
   .navigation {
     display: flex;
     justify-content: space-between;

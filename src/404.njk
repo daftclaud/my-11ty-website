@@ -1,0 +1,24 @@
+---
+permalink: /404.html
+layout: base.njk
+title: Page Not Found
+---
+
+<article class="content">
+  <h2>Page not found</h2>
+  <p>If you were looking for a specific word curation, hang tight—we'll redirect you.</p>
+  <p><a href="/word-curations/">Go to word curations</a></p>
+</article>
+
+<script>
+  (function redirectWordCurationDeepLink() {
+    const path = window.location.pathname || "";
+    const match = path.match(/^\/(es\/)?word-curations\/(\d{4}-\d{2}-\d{2})/);
+    if (!match) return;
+
+    const prefix = match[1] || ""; // e.g., "es/" or ""
+    const date = match[2];
+    const target = `/${prefix}word-curations/?date=${date}`;
+    window.location.replace(target);
+  })();
+</script>

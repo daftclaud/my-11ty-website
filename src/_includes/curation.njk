@@ -11,7 +11,11 @@
 <article class="content">
   <header>
     <h2>
-      {% if locale == 'es' %}Palabras de{% else %}Words from{% endif %} <time>{{ date | formatDate }}</time>
+      {% if date %}
+        {% if locale == 'es' %}Palabras de{% else %}Words from{% endif %} <time>{{ date | formatDate }}</time>
+      {% else %}
+        {% if locale == 'es' %}Palabras{% else %}Words{% endif %}
+      {% endif %}
     </h2>
   </header>
   {% for entry in curationWords %}

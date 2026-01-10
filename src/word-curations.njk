@@ -14,6 +14,8 @@ permalink: /word-curations/
     margin: 0 0 40px 0;
     border-radius: 5px;
     box-shadow: 0 2px 8px rgba(255, 0, 255, 0.1);
+    display: block !important;
+    visibility: visible !important;
   }
 
   .hero-quote blockquote {
@@ -44,6 +46,8 @@ permalink: /word-curations/
     font-size: 1.05em;
     line-height: 1.8;
     margin: 30px 0;
+    display: block !important;
+    visibility: visible !important;
   }
 
   .intro-text p {
@@ -59,6 +63,8 @@ permalink: /word-curations/
     z-index: 50;
     padding: 15px 0;
     border-bottom: 2px solid #ff00ff;
+    display: block !important;
+    visibility: visible !important;
   }
 
   @media (min-width: 600px) {
@@ -1551,6 +1557,79 @@ permalink: /word-curations/
   [data-theme="dark"] #pageInfo {
     color: var(--clr-text);
   }
+
+  /* Word Entry Styles */
+  section.word-entry {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .word {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+  }
+
+  .definition {
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+
+  .source {
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .source .translate-toggle {
+    margin-left: auto;
+  }
+
+  .source-link {
+    color: var(--clr-link);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .source-link:hover {
+    text-decoration: underline;
+  }
+
+  .explanation {
+    margin-top: 10px;
+  }
+
+  .usage-example {
+    margin-top: 10px;
+    font-style: italic;
+    color: #555;
+  }
+
+  /* Dark mode for word entries */
+  [data-theme="dark"] section.word-entry {
+    background: var(--clr-main-bg);
+    border-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .word {
+    color: var(--clr-link);
+  }
+
+  [data-theme="dark"] .definition {
+    color: var(--clr-text);
+  }
+
+  [data-theme="dark"] .source,
+  [data-theme="dark"] .usage-example {
+    color: var(--clr-text);
+    opacity: 0.8;
+  }
 </style>
 
 <div class="hero-quote">
@@ -1585,7 +1664,7 @@ permalink: /word-curations/
 <div class="view-toggle-container">
   <div class="view-toggle">
     <button class="view-toggle-btn active" data-view="words">
-      Latest Words
+      By Date
     </button>
     <button class="view-toggle-btn" data-view="search">Search</button>
     <button class="view-toggle-btn" data-view="overview">Overview</button>
@@ -1593,32 +1672,291 @@ permalink: /word-curations/
 </div>
 
 <div id="wordsView" class="content-view">
-  {% set latestCuration =
-  collections.word_curation[collections.word_curation.length - 1] %} {% set
-  words = latestCuration.data.words %} {% set date = latestCuration.data.date %}
-  {% include 'curation.njk' %} {% set previousCuration =
-  collections.word_curation | getPreviousCuration(latestCuration.date) %} {% set
-  nextCuration = collections.word_curation |
-  getNextCuration(latestCuration.date) %}
-  {% set calendarYear = site.currentYear %}
-  {% if date and date.getFullYear() > calendarYear %}
-    {% set calendarYear = date.getFullYear() %}
+  {% set latestCuration = collections.word_curation[collections.word_curation.length - 1] %}
+
+  {% if latestCuration and latestCuration.data %}
+    {% set words = latestCuration.data.words %}
+    {% set date = latestCuration.data.date %}
+  {% else %}
+    {% set words = [] %}
+    {% set date = null %}
   {% endif %}
 
-  <div class="navigation">
-    {% if previousCuration %}
-    <a href="{{ previousCuration.url }}">Previous Curation</a>
-    {% endif %} {% if nextCuration %}
-    <a href="{{ nextCuration.url }}">Next Curation</a>
+  {% set previousCuration = collections.word_curation | getPreviousCuration(latestCuration.date if latestCuration else null) %}
+  {% set nextCuration = collections.word_curation | getNextCuration(latestCuration.date if latestCuration else null) %}
+  {% set calendarYear = site.currentYear %}
+  {% if date %}
+    {% set dateYear = date.getFullYear() %}
+    {% if dateYear > calendarYear %}
+      {% set calendarYear = dateYear %}
     {% endif %}
+    {% set currentDateStr = date.toISOString().slice(0,10) %}
+  {% else %}
+    {% set currentDateStr = '' %}
+  {% endif %}
+
+  <div id="curationDetail" data-current-date="{{ currentDateStr }}">
+    <div id="curationContent">
+      <p style="text-align: center; margin: 40px 0;">Loading latest words...</p>
+    </div>
+
+    <div class="navigation" id="curationNav">
+      {% if previousCuration and previousCuration.data and previousCuration.data.date %}
+      <a href="{{ baseUrl }}/word-curations/{{ previousCuration.data.date.toISOString().slice(0, 10) }}/">Previous Curation</a>
+      {% endif %} {% if nextCuration and nextCuration.data and nextCuration.data.date %}
+      <a href="{{ baseUrl }}/word-curations/{{ nextCuration.data.date.toISOString().slice(0, 10) }}/">Next Curation</a>
+      {% endif %}
+    </div>
+
+    <div id="curationCalendar">
+      {% calendar {
+        year: calendarYear,
+        collection: collections.word_curation,
+        baseUrl: baseUrl,
+        locale: locale or 'en'
+      } %}
+    </div>
   </div>
 
-  {% calendar {
-    year: calendarYear,
-    collection: collections.word_curation,
-    baseUrl: baseUrl,
-    locale: locale or 'en'
-  } %}
+  <script>
+    const CUR_LOCALE = "{{ locale or 'en' }}";
+    const CUR_BASE_API = "/word-curations";
+    const CUR_BASE_PATH = "{{ baseUrl }}/word-curations";
+    const CUR_INITIAL_DATE = "{{ currentDateStr }}";
+    const SOURCE_CATEGORIES = {{ wordCategoriesPage.sourcesByCategory | dump | safe }};
+    const UNCATEGORIZED_LABEL = "{{ 'Uncategorized' if (locale or 'en') == 'en' else 'Sin categoría' }}";
+
+    {% raw %}
+    document.addEventListener("DOMContentLoaded", () => {
+      const locale = CUR_LOCALE;
+      const baseApi = CUR_BASE_API;
+      const basePath = CUR_BASE_PATH;
+      const container = document.getElementById("curationDetail");
+      const contentEl = document.getElementById("curationContent");
+      const navEl = document.getElementById("curationNav");
+      const calendarEl = document.getElementById("curationCalendar");
+
+      if (!container || !contentEl || !navEl || !calendarEl) return;
+
+      const state = {
+        indexLoaded: false,
+        dates: [],
+        years: [],
+        cache: {}, // date -> curation
+        yearCache: {}, // year -> payload
+        currentDate: container.getAttribute("data-current-date") || CUR_INITIAL_DATE || null,
+      };
+
+      // If URL has a date, prefer it so deep links render the right curation
+      function getUrlDate() {
+        const params = new URLSearchParams(window.location.search || "");
+        const fromQuery = params.get("date");
+        if (fromQuery) return fromQuery;
+        return parseDateFromHref(window.location.pathname);
+      }
+
+      const urlDate = getUrlDate();
+      if (urlDate) {
+        state.currentDate = urlDate;
+      }
+
+      function parseDateFromHref(href) {
+        const match = href && href.match(/(\d{4}-\d{2}-\d{2})/);
+        return match ? match[1] : null;
+      }
+
+      function slugify(str = "") {
+        return str.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+      }
+
+      function getCategoryForSource(source) {
+        if (!source) return null;
+        for (const cat in SOURCE_CATEGORIES) {
+          const sources = SOURCE_CATEGORIES[cat] || {};
+          if (Object.prototype.hasOwnProperty.call(sources, source)) {
+            return cat;
+          }
+        }
+        return null;
+      }
+
+      async function ensureIndex() {
+        if (state.indexLoaded) return;
+        const res = await fetch(`${baseApi}/index.json`);
+        if (!res.ok) return;
+        const json = await res.json();
+        state.dates = json.dates || [];
+        state.years = json.years || [];
+        if (!state.currentDate && json.latestDate) {
+          state.currentDate = json.latestDate;
+        }
+        state.indexLoaded = true;
+      }
+
+      async function ensureYear(year) {
+        if (state.yearCache[year]) return;
+        try {
+          const res = await fetch(`${baseApi}/${year}.json`);
+          if (!res.ok) {
+            console.warn(`Year ${year} data not found`);
+            return;
+          }
+          const json = await res.json();
+          state.yearCache[year] = json;
+          (json.curations || []).forEach((c) => {
+            state.cache[c.date] = c;
+          });
+        } catch (error) {
+          console.warn(`Failed to load year ${year}:`, error);
+        }
+      }
+
+      function formatDateDisplay(dateStr) {
+        try {
+          // Avoid timezone shifts; treat the date string as UTC midnight and display in UTC
+          const d = new Date(`${dateStr}T00:00:00Z`);
+          return d.toLocaleDateString(locale === "es" ? "es-MX" : "en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            timeZone: "UTC",
+          });
+        } catch (e) {
+          return dateStr;
+        }
+      }
+
+      function renderCuration(curation) {
+        if (!curation) return;
+        const wordsHtml = (curation.words || [])
+          .map((entry) => {
+            const source = entry.source
+              ? `<div class="source">Source: <a href="${baseApi}/?source=${encodeURIComponent(
+                  entry.source
+                )}" class="source-link">${entry.source}</a>${(() => {
+                  const category = getCategoryForSource(entry.source);
+                  const badgeLabel = category || UNCATEGORIZED_LABEL;
+                  const badgeHref = `/sources/#${slugify(badgeLabel)}`;
+                  return ` <a class="category-badge" href="${badgeHref}" data-category="${badgeLabel}">${badgeLabel}</a>`;
+                })()}</div>`
+              : "";
+            const usage = entry.usage_example
+              ? `<div class="usage-example">Usage Example: ${entry.usage_example}</div>`
+              : "";
+            const explanation = entry.explanation
+              ? `<div class="explanation">${entry.explanation}</div>`
+              : "";
+            return `
+              <section class="word-entry">
+                <div class="word">${entry.word || ""}</div>
+                <div class="definition">${entry.definition || ""}</div>
+                ${source}
+                ${explanation}
+                ${usage}
+              </section>
+            `;
+          })
+          .join("");
+
+        contentEl.innerHTML = `
+          <header>
+            <h2>${locale === "es" ? "Palabras de" : "Words from"} <time>${formatDateDisplay(
+          curation.date
+        )}</time></h2>
+          </header>
+          ${wordsHtml}
+        `;
+      }
+
+      function updateNav(dateStr) {
+        if (!state.dates.length) return;
+        const idx = state.dates.indexOf(dateStr);
+        const prev = idx > 0 ? state.dates[idx - 1] : null;
+        const next = idx >= 0 && idx < state.dates.length - 1 ? state.dates[idx + 1] : null;
+        navEl.innerHTML = `
+          ${prev ? `<a href="${basePath}/${prev}/">${locale === "es" ? "Curación anterior" : "Previous Curation"}</a>` : ""}
+          ${next ? `<a href="${basePath}/${next}/">${locale === "es" ? "Curación siguiente" : "Next Curation"}</a>` : ""}
+        `;
+        enhanceLinks(navEl);
+      }
+
+      async function loadCurationByDate(dateStr, pushState = true) {
+        if (!dateStr) return;
+        await ensureIndex();
+        const year = dateStr.slice(0, 4);
+        await ensureYear(year);
+        const curation = state.cache[dateStr];
+        if (!curation) {
+          window.location.href = `${basePath}/${dateStr}/`;
+          return;
+        }
+        state.currentDate = dateStr;
+        renderCuration(curation);
+        updateNav(dateStr);
+        if (pushState) {
+          window.history.pushState({ date: dateStr }, "", `${basePath}/${dateStr}/`);
+        }
+        container.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      function enhanceLinks(root) {
+        root.querySelectorAll('a[href*="/word-curations/"]').forEach((link) => {
+          link.addEventListener("click", (evt) => {
+            if (evt.metaKey || evt.ctrlKey || evt.shiftKey || evt.button !== 0) return;
+            const dateStr = parseDateFromHref(link.getAttribute("href"));
+            if (!dateStr) return;
+            evt.preventDefault();
+            loadCurationByDate(dateStr, true);
+          });
+        });
+      }
+
+      enhanceLinks(navEl);
+      enhanceLinks(calendarEl);
+
+      // Initial load: sync cache with current date if present
+      const initialDate = state.currentDate;
+      if (initialDate) {
+        // If the initial curation exists in DOM but not in cache, hydrate it
+        state.cache[initialDate] = state.cache[initialDate] || {
+          date: initialDate,
+          words: [],
+        };
+      }
+
+      ensureIndex().then(() => {
+        // Check if we're at the base URL
+        const isBaseUrl = window.location.pathname === basePath || window.location.pathname === `${basePath}/`;
+        if (state.currentDate) {
+          if (isBaseUrl) {
+            // At base URL - just load content without changing URL
+            const year = state.currentDate.slice(0, 4);
+            ensureYear(year).then(() => {
+              const curation = state.cache[state.currentDate];
+              if (curation && curation.words && curation.words.length > 0) {
+                renderCuration(curation);
+                updateNav(state.currentDate);
+              } else {
+                // Show message if no data available
+                contentEl.innerHTML = '<p style="text-align: center; margin: 40px 0;">No curation data available for this date.</p>';
+              }
+            });
+          } else {
+            // At specific date URL - load normally
+            loadCurationByDate(state.currentDate, false);
+          }
+        }
+      });
+
+      window.addEventListener("popstate", (evt) => {
+        const dateStr = evt.state?.date || getUrlDate();
+        if (dateStr) {
+          loadCurationByDate(dateStr, false);
+        }
+      });
+    });
+    {% endraw %}
+  </script>
 </div>
 
 <div id="overviewView" class="content-view" style="display: none">
@@ -1998,17 +2336,18 @@ permalink: /word-curations/
 
 <script type="application/json" id="allWordsDataScript">
   [
-  {%- for curation in collections.word_curation %}
-    {%- set outerLoopLast = loop.last -%}
+  {%- set allWords = [] -%}
+  {%- for curation in collections.word_curation -%}
     {%- for word in curation.data.words -%}
-      {
-        "word": "{{ word.word }}",
-        "definition": "{{ word.definition | replace('"', '\\"') }}",
-        "source": "{{ word.source or 'Unknown' }}",
-        "date": "{{ curation.data.date | formatDate }}"
-      }{{ "," if not (loop.last and outerLoopLast) }}
+      {%- set _ = allWords.push({
+        word: word.word,
+        definition: word.definition,
+        source: word.source or 'Unknown',
+        date: curation.data.date | formatDate
+      }) -%}
     {%- endfor -%}
-  {%- endfor %}
+  {%- endfor -%}
+  {{ allWords | dump | safe }}
   ]
 </script>
 
@@ -2538,9 +2877,10 @@ permalink: /word-curations/
       });
     });
 
-    // Handle URL parameters for automatic filtering
+    // Handle URL parameters for automatic filtering and initial view selection
     const urlParams = new URLSearchParams(window.location.search);
     const sourceParam = urlParams.get('source');
+    const viewParam = urlParams.get('view');
     
     if (sourceParam) {
       // Switch to search view
@@ -2573,6 +2913,43 @@ permalink: /word-curations/
               searchResultsList.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
           }, 100);
+        }
+      }
+    } else if (viewParam) {
+      // Initialize view from ?view=words|search|overview
+      const targetBtn = document.querySelector(`.view-toggle-btn[data-view="${viewParam}"]`);
+      if (targetBtn) {
+        // Update button states
+        toggleBtns.forEach((b) => b.classList.remove("active"));
+        targetBtn.classList.add("active");
+
+        // Hide all, then show selected
+        wordsView.style.display = "none";
+        searchView.style.display = "none";
+        overviewView.style.display = "none";
+
+        if (viewParam === 'words') {
+          wordsView.style.display = "";
+        } else if (viewParam === 'search') {
+          searchView.style.display = "";
+          if (!window.searchInitialized) {
+            if (allWords && allWords.length > 0) {
+              updateSearchResults();
+            }
+            window.searchInitialized = true;
+          } else {
+            displaySearchResults();
+          }
+          document.getElementById("searchView").scrollIntoView({ behavior: 'smooth' });
+        } else if (viewParam === 'overview') {
+          overviewView.style.display = "";
+          if (!window.overviewInitialized) {
+            setTimeout(function () {
+              initializeOverview();
+              window.overviewInitialized = true;
+            }, 50);
+          }
+          document.getElementById("overviewView").scrollIntoView({ behavior: 'smooth' });
         }
       }
     }

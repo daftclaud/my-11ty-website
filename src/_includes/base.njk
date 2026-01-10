@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% set pageUrl = page.url or '' %}
 <html lang="{{ locale or 'en' | t('lang') }}">
   <head>
     <meta charset="UTF-8" />
@@ -9,16 +10,16 @@
     <meta name="title" content="{% if title %}{{ title }} | {% endif %}Claudio Del Valle">
     <meta name="description" content="{% if description %}{{ description }}{% else %}Personal website featuring word curations, pen collection, and insights from Monterrey, Mexico. Exploring language, writing instruments, and Rocket League.{% endif %}">
     <meta name="author" content="Claudio Del Valle">
-    <link rel="canonical" href="https://daftclaud.github.io{{ page.url }}">
+    <link rel="canonical" href="https://daftclaud.github.io{{ pageUrl }}">
     
     {# Alternate language links #}
-    <link rel="alternate" hreflang="en" href="https://daftclaud.github.io{{ page.url | replace('/es/', '/') | replace('/es', '') }}" />
-    <link rel="alternate" hreflang="es-MX" href="https://daftclaud.github.io/es{{ page.url | replace('/es/', '/') | replace('/es', '') }}" />
-    <link rel="alternate" hreflang="x-default" href="https://daftclaud.github.io{{ page.url | replace('/es/', '/') | replace('/es', '') }}" />
+    <link rel="alternate" hreflang="en" href="https://daftclaud.github.io{{ pageUrl | replace('/es/', '/') | replace('/es', '') }}" />
+    <link rel="alternate" hreflang="es-MX" href="https://daftclaud.github.io/es{{ pageUrl | replace('/es/', '/') | replace('/es', '') }}" />
+    <link rel="alternate" hreflang="x-default" href="https://daftclaud.github.io{{ pageUrl | replace('/es/', '/') | replace('/es', '') }}" />
     
     {# Open Graph / Facebook #}
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://daftclaud.github.io{{ page.url }}">
+    <meta property="og:url" content="https://daftclaud.github.io{{ pageUrl }}">
     <meta property="og:title" content="{% if title %}{{ title }} | {% endif %}Claudio Del Valle">
     <meta property="og:description" content="{% if description %}{{ description }}{% else %}Personal website featuring word curations, pen collection, and insights from Monterrey, Mexico.{% endif %}">
     <meta property="og:image" content="https://daftclaud.github.io/assets/me.jfif">
@@ -27,7 +28,7 @@
     
     {# Twitter #}
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:url" content="https://daftclaud.github.io{{ page.url }}">
+    <meta name="twitter:url" content="https://daftclaud.github.io{{ pageUrl }}">
     <meta name="twitter:title" content="{% if title %}{{ title }} | {% endif %}Claudio Del Valle">
     <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}Personal website featuring word curations, pen collection, and insights from Monterrey, Mexico.{% endif %}">
     <meta name="twitter:image" content="https://daftclaud.github.io/assets/me.jfif">
@@ -62,10 +63,10 @@
       <h1>{{ 'home.heroTitle' | t(locale or 'en') }}</h1>
       <nav aria-label="Main navigation">
         {% set baseUrl = '/es' if locale == 'es' else '' %}
-        <a href="{{ baseUrl }}/" class="{{ 'active' if '/' ==  page.url or '/es/' == page.url }}">{{ 'nav.home' | t(locale or 'en') }}</a>
-        <a href="{{ baseUrl }}/about" class="{{ 'active' if 'about' in  page.url }}">{{ 'nav.about' | t(locale or 'en') }}</a>
-        <a href="{{ baseUrl }}/word-curations" class="{{ 'active' if 'curations' in  page.url }}">{{ 'nav.wordCurations' | t(locale or 'en') }}</a>
-        <a href="{{ baseUrl }}/pens" class="{{ 'active' if 'pens' in  page.url }}">{{ 'nav.pens' | t(locale or 'en') }}</a>
+        <a href="{{ baseUrl }}/" class="{{ 'active' if '/' ==  pageUrl or '/es/' == pageUrl }}">{{ 'nav.home' | t(locale or 'en') }}</a>
+        <a href="{{ baseUrl }}/about" class="{{ 'active' if pageUrl and 'about' in  pageUrl }}">{{ 'nav.about' | t(locale or 'en') }}</a>
+        <a href="{{ baseUrl }}/word-curations" class="{{ 'active' if pageUrl and 'curations' in  pageUrl }}">{{ 'nav.wordCurations' | t(locale or 'en') }}</a>
+        <a href="{{ baseUrl }}/pens" class="{{ 'active' if pageUrl and 'pens' in  pageUrl }}">{{ 'nav.pens' | t(locale or 'en') }}</a>
       </nav>
       {{ content | safe }}
       <footer>

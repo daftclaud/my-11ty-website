@@ -31,7 +31,8 @@ permalink: /
     <h3>{{ 'home.latestWordCuration' | t(locale) }}</h3>
     {% if collections.recentWordCurations.length > 0 %}
       {% set curation = collections.recentWordCurations[0] %}
-      <a href="{{ curation.url }}" class="latest-curation-link">
+      {% set curationDate = curation.data.date.toISOString().slice(0, 10) %}
+      <a href="/word-curations/{{ curationDate }}/" class="latest-curation-link">
         <div class="latest-curation">
           <div class="curation-date">{{ curation.data.date | formatDate('en-US') }}</div>
           <ul class="words-list">

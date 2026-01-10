@@ -1,5 +1,6 @@
 node_modules/
 public/
+public/word-curations-generated/
 
 # Environment variables
 .env

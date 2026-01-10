@@ -58,6 +58,8 @@ module.exports = class {
     }
 
     // Generate the HTML for all years
+    // Use the data.year (calendarYear from template) to determine which year to show
+    const displayYear = data.year || currentYear;
     const allYearsHTML = years.map(year => {
       const monthsHtml = monthNames.map((_, index) => {
         const month = new Month();
@@ -65,7 +67,7 @@ module.exports = class {
       }).join('');
 
       return `
-        <div class="year-container" data-year="${year}" style="${year === currentYear ? '' : 'display: none;'}">
+        <div class="year-container" data-year="${year}" style="${year === displayYear ? '' : 'display: none;'}">
           <h2 class="center-text">${year}</h2>
           <div class="calendar-grid">
             ${monthsHtml}
@@ -78,7 +80,7 @@ module.exports = class {
       <div class="calendar-controls">
         <select id="yearSelect">
           ${years.map(
-            y => `<option value="${y}" ${y === currentYear ? "selected" : ""}>${y}</option>`
+            y => `<option value="${y}" ${y === displayYear ? "selected" : ""}>${y}</option>`
           ).join('')}
         </select>
         <div class="calendar-hint">

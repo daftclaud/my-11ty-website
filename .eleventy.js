@@ -103,7 +103,7 @@ module.exports = function (eleventyConfig) {
     // Coerce strings or other objects into Date
     const dateObj = date instanceof Date ? date : new Date(date);
 
-    if (isNaN(dateObj)) return "";
+    if (isNaN(dateObj) || !dateObj.getTime || isNaN(dateObj.getTime())) return "";
 
     const options = {
       year: "numeric",
@@ -138,10 +138,14 @@ module.exports = function (eleventyConfig) {
     return null;
   });
 
+  // Navigation helpers that compare by time value to avoid Date object identity issues
   eleventyConfig.addFilter("getPreviousCuration", function (collection, date) {
-    const currentIndex = collection.findIndex(
-      (curation) => curation.date === date
-    );
+    if (!date) return null;
+    const targetTime = new Date(date).getTime();
+    const currentIndex = collection.findIndex((curation) => {
+      const curTime = new Date(curation.date).getTime();
+      return curTime === targetTime;
+    });
     if (currentIndex > 0) {
       return collection[currentIndex - 1];
     }
@@ -149,10 +153,13 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("getNextCuration", function (collection, date) {
-    const currentIndex = collection.findIndex(
-      (curation) => curation.date === date
-    );
-    if (currentIndex < collection.length - 1) {
+    if (!date) return null;
+    const targetTime = new Date(date).getTime();
+    const currentIndex = collection.findIndex((curation) => {
+      const curTime = new Date(curation.date).getTime();
+      return curTime === targetTime;
+    });
+    if (currentIndex >= 0 && currentIndex < collection.length - 1) {
       return collection[currentIndex + 1];
     }
     return null;
@@ -174,6 +181,9 @@ module.exports = function (eleventyConfig) {
     // Process all curations
     collection.forEach((curation) => {
       const date = curation.data.date;
+      if (!date || !(date instanceof Date) || isNaN(date.getTime())) {
+        return; // Skip curations with invalid dates
+      }
       const year = date.getFullYear();
       const month = date.toLocaleString("en-US", {
         month: "long",
@@ -254,6 +264,9 @@ module.exports = function (eleventyConfig) {
     const dailyBreakdown = {};
     allWords.forEach((wordData) => {
       const date = wordData.date;
+      if (!date || !(date instanceof Date) || isNaN(date.getTime())) {
+        return; // Skip words with invalid dates
+      }
       const year = date.getFullYear();
       const month = String(date.getMonth() + 1).padStart(2, '0');
       const day = String(date.getDate()).padStart(2, '0');

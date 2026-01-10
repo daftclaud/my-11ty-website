@@ -1,4 +1,6 @@
 {
-    "layout": "word-curation.njk",
-    "tags": "word_curation"
+    "tags": "word_curation",
+    "layout": null,
+    "permalink": false,
+    "eleventyExcludeFromCollections": false
 }
