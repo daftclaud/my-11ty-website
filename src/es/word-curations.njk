@@ -1595,14 +1595,34 @@ permalink: /es/word-curations/
         color: var(--clr-link);
         text-decoration: none;
         font-weight: 500;
-      }
+    cursor: pointer;
+  }
 
-      .source-link:hover {
-        text-decoration: underline;
-      }
+  .source-link:hover {
+    text-decoration: underline;
+  }
 
-      .explanation {
-        margin-top: 10px;
+  .category-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff4500 100%);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 8px;
+    transition: all 0.2s ease;
+  }
+
+  .category-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 75, 0, 0.3);
+  }
+
+  [data-theme="dark"] .category-badge {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff4500 100%);
+    box-shadow: 0 2px 8px rgba(255, 75, 0, 0.2);
       }
 
       .usage-example {
@@ -1729,6 +1749,21 @@ permalink: /es/word-curations/
     const SOURCE_CATEGORIES = {{ wordCategoriesPage.sourcesByCategory | dump | safe }};
     const UNCATEGORIZED_LABEL = "{{ 'Sin categoría' if (locale or 'es') == 'es' else 'Uncategorized' }}";
 
+    function getCategoryForSource(source) {
+      if (!source) return null;
+      for (const cat in SOURCE_CATEGORIES) {
+        const sources = SOURCE_CATEGORIES[cat] || {};
+        if (Object.prototype.hasOwnProperty.call(sources, source)) {
+          return cat;
+        }
+      }
+      return null;
+    }
+
+    function slugify(str = "") {
+      return str.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    }
+
     {% raw %}
     document.addEventListener("DOMContentLoaded", () => {
       const locale = CUR_LOCALE;
@@ -1766,21 +1801,6 @@ permalink: /es/word-curations/
       function parseDateFromHref(href) {
         const match = href && href.match(/(\d{4}-\d{2}-\d{2})/);
         return match ? match[1] : null;
-      }
-
-      function slugify(str = "") {
-        return str.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-      }
-
-      function getCategoryForSource(source) {
-        if (!source) return null;
-        for (const cat in SOURCE_CATEGORIES) {
-          const sources = SOURCE_CATEGORIES[cat] || {};
-          if (Object.prototype.hasOwnProperty.call(sources, source)) {
-            return cat;
-          }
-        }
-        return null;
       }
 
       async function ensureIndex() {
@@ -2754,22 +2774,34 @@ permalink: /es/word-curations/
 
       // Display results
       resultsList.innerHTML = pageResults.map(word => {
-        const lang = detectLanguage(word.definition);
-        const langLabel = lang === 'spanish' ? 'Español' : lang === 'english' ? 'Inglés' : lang.charAt(0).toUpperCase() + lang.slice(1);
+        const category = getCategoryForSource(word.source);
+        const badgeLabel = category || UNCATEGORIZED_LABEL;
+        const badgeHref = `/sources/#${slugify(badgeLabel)}`;
+        const categoryBadge = `<a class="category-badge" href="${badgeHref}" data-category="${badgeLabel}">${badgeLabel}</a>`;
+        const source = `<div class="source">Fuente: <a href="#" class="source-link" data-source="${word.source}" title="Haz clic para filtrar por esta fuente">${word.source}</a>${categoryBadge}</div>`;
         return `
-          <div class="word-item">
-            <div class="word-item-header">
-              <div class="word-item-title">${word.word}</div>
-              <div class="word-item-meta">
-                <span class="word-item-source">${word.source}</span>
-                <span class="word-item-language ${lang}">${langLabel}</span>
-              </div>
-            </div>
-            <div class="word-item-definition">${word.definition}</div>
+          <section class="word-entry">
+            <div class="word">${word.word}</div>
+            <div class="definition">${word.definition}</div>
+            ${source}
             <div class="word-item-date">Encontrada el ${word.date}</div>
-          </div>
+          </section>
         `;
       }).join('');
+
+      // Add event listeners to source links
+      resultsList.querySelectorAll('.source-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const source = e.target.getAttribute('data-source');
+          const sourceFilter = document.getElementById('searchSourceFilter');
+          if (sourceFilter) {
+            sourceFilter.value = source;
+            sourceFilter.dispatchEvent(new Event('change'));
+            document.getElementById('searchResultsList').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
 
       // Show/hide pagination controls
       if (totalPages > 1) {
