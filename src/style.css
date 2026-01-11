@@ -445,33 +445,7 @@ section {
   transform: rotate(45deg);
 }
 
-/* Desktop: show controls on hover or when expanded */
-@media (min-width: 769px) {
-  .bottom-controls {
-    position: fixed;
-    bottom: 20px;
-    right: 80px;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
-    background: transparent;
-    padding: 0;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    pointer-events: none;
-  }
-  
-  .controls-toggle-btn:hover + .bottom-controls,
-  .bottom-controls:hover {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
-}
+/* Desktop: follow the same toggle behavior (no hover reveal) */
 
 /* Extra small screens: reduce control sizes */
 @media (max-width: 400px) {
