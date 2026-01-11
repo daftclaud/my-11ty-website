@@ -2335,20 +2335,18 @@ permalink: /word-curations/
 </div>
 
 <script type="application/json" id="allWordsDataScript">
-  [
-  {%- set allWords = [] -%}
-  {%- for curation in collections.word_curation -%}
-    {%- for word in curation.data.words -%}
-      {%- set _ = allWords.push({
-        word: word.word,
-        definition: word.definition,
-        source: word.source or 'Unknown',
-        date: curation.data.date | formatDate
-      }) -%}
-    {%- endfor -%}
+{%- set allWords = [] -%}
+{%- for curation in collections.word_curation -%}
+  {%- for word in curation.data.words -%}
+    {%- set _ = allWords.push({
+      word: word.word,
+      definition: word.definition,
+      source: word.source or 'Unknown',
+      date: curation.data.date | formatDate
+    }) -%}
   {%- endfor -%}
-  {{ allWords | dump | safe }}
-  ]
+{%- endfor -%}
+{{ allWords | dump | safe }}
 </script>
 
 <style>
