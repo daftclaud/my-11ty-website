@@ -67,6 +67,24 @@ permalink: /word-curations/
     visibility: visible !important;
   }
 
+  /* Very small screens: reduce sticky overhead */
+  @media (max-width: 400px) {
+    .view-toggle-container {
+      padding: 10px 0;
+      top: 52px;
+    }
+  }
+
+  /* Landscape phones: make it non-sticky to save space */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .view-toggle-container {
+      position: static;
+      padding: 8px 0;
+      margin: 20px 0 15px 0;
+      border-bottom: none;
+    }
+  }
+
   @media (min-width: 600px) {
     .view-toggle-container {
       position: static;
@@ -96,6 +114,13 @@ permalink: /word-curations/
     font-size: 1em;
     color: #ff00ff;
     transition: all 0.2s;
+  }
+
+  @media (max-width: 400px) {
+    .view-toggle-btn {
+      padding: 10px 20px;
+      font-size: 0.9em;
+    }
   }
 
   .view-toggle-btn:last-child {

@@ -288,7 +288,18 @@ document.addEventListener('DOMContentLoaded', function() {
     .filter-toggle {
       top: auto;
       bottom: 20px;
-      right: 70px; /* theme toggle is at right: 15px; sit just to its left */
+      right: 78px; /* Increased spacing from theme toggle */
+    }
+  }
+
+  /* Extra small screens: adjust filter toggle */
+  @media (max-width: 400px) {
+    .filter-toggle {
+      bottom: 15px !important;
+      right: 70px !important;
+      width: 42px;
+      height: 42px;
+      font-size: 0.9em;
     }
 
     .filters-container {
@@ -339,6 +350,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     .filter-results {
       margin-left: auto;
+    }
+  }
+
+  /* Landscape phone optimization */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .filter-toggle {
+      bottom: 10px !important;
+      right: 58px !important;
+      width: 38px;
+      height: 38px;
+      font-size: 0.85em;
+    }
+    
+    .pen-filters {
+      font-size: 0.9em;
     }
   }
 
