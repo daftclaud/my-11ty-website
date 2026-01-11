@@ -83,11 +83,28 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
+html {
+  scroll-padding-top: 80px;
+}
+
+@media (max-width: 600px) {
+  html {
+    scroll-padding-top: 100px;
+  }
+}
+
 /* Set core body defaults */
 body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+}
+
+/* Better mobile typography */
+@media (max-width: 600px) {
+  body {
+    line-height: 1.6;
+  }
 }
 
 /* A elements that don't have a class get default styles */
@@ -123,6 +140,20 @@ select {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* Optimize animations on low-end devices */
+@media (max-width: 600px) and (prefers-reduced-motion: no-preference) {
+  * {
+    transition-duration: 0.15s !important;
+  }
+  
+  .pen-item:hover,
+  .pen-card:hover,
+  .theme-toggle:hover,
+  .filter-toggle:hover {
+    transition-duration: 0.1s !important;
   }
 }
 
@@ -168,6 +199,17 @@ h3 {
   font-family: var(--ff-heading);
   font-weight: bolder;
   line-height: 1.1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+@media (max-width: 600px) {
+  h1,
+  h2,
+  h3 {
+    line-height: 1.2;
+  }
 }
 
 strong {
@@ -488,6 +530,20 @@ a:not([class]):focus {
 a:not([class]):focus {
   outline: 2px solid var(--clr-link);
   outline-offset: 2px;
+}
+
+/* Enhanced focus states for better accessibility */
+[data-theme="dark"] *:focus-visible {
+  outline: 2px solid var(--clr-link);
+  outline-offset: 3px;
+}
+
+[data-theme="dark"] button:focus-visible,
+[data-theme="dark"] select:focus-visible,
+[data-theme="dark"] a:focus-visible {
+  outline: 3px solid var(--clr-link);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px rgba(0, 212, 255, 0.2);
 }
 
 /* Improve link contrast in dark mode */

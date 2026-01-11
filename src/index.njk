@@ -168,9 +168,20 @@ eleventyExcludeFromCollections: true
     outline-offset: 4px;
     border-radius: 8px;
   }
+  
+  .latest-curation-link:focus-visible {
+    outline: 3px solid #00ffff;
+    outline-offset: 4px;
+    box-shadow: 0 0 0 6px rgba(0, 255, 255, 0.15);
+  }
 
   [data-theme="dark"] .latest-curation-link:focus {
     outline-color: #00d4ff;
+  }
+  
+  [data-theme="dark"] .latest-curation-link:focus-visible {
+    outline-color: #00d4ff;
+    box-shadow: 0 0 0 6px rgba(0, 212, 255, 0.2);
   }
 
   .latest-curation {
@@ -255,14 +266,21 @@ eleventyExcludeFromCollections: true
   /* Pens Grid Styles */
   .pens-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 15px;
   }
   
   @media (min-width: 480px) {
     .pens-grid {
-      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 18px;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .pens-grid {
+      grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+      gap: 12px;
     }
   }
   
@@ -295,6 +313,12 @@ eleventyExcludeFromCollections: true
   .pen-card:focus {
     outline: 3px solid #ff00ff;
     outline-offset: 2px;
+  }
+  
+  .pen-card:focus-visible {
+    outline: 4px solid #ff00ff;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 7px rgba(255, 0, 255, 0.15);
   }
   
   [data-theme="dark"] .pen-card {

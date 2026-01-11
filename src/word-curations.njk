@@ -588,6 +588,29 @@ permalink: /word-curations/
     border-radius: 10px;
     overflow: hidden;
   }
+  
+  /* Scrollable table container on mobile */
+  @media (max-width: 768px) {
+    .activity-table,
+    .repeated-table {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 0, 255, 0.3) transparent;
+    }
+    
+    .activity-table thead,
+    .activity-table tbody,
+    .activity-table tr,
+    .repeated-table thead,
+    .repeated-table tbody,
+    .repeated-table tr {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+  }
 
   .activity-table th {
     background: #00ffff;
@@ -662,6 +685,21 @@ permalink: /word-curations/
     border-radius: 10px;
     height: 250px;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+  }
+  
+  @media (max-width: 768px) {
+    .alphabet-chart {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 0, 255, 0.4) rgba(0, 0, 0, 0.05);
+      padding: 15px 10px;
+    }
+    
+    .letter-bar {
+      scroll-snap-align: start;
+      min-width: 35px;
+    }
   }
 
   .letter-bar {
@@ -1010,8 +1048,21 @@ permalink: /word-curations/
     margin: 30px 0;
     overflow-x: auto;
     padding: 10px 0;
-    scrollbar-width: none;
+    scrollbar-width: thin;
     -ms-overflow-style: none;
+    scroll-snap-type: x proximity;
+  }
+  
+  /* Show scrollbar hint on mobile */
+  @media (max-width: 768px) {
+    .year-container .calendar-grid {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 0, 255, 0.3) transparent;
+    }
+    
+    .month {
+      scroll-snap-align: start;
+    }
   }
 
   .year-container .calendar-grid::-webkit-scrollbar {
@@ -1075,6 +1126,21 @@ permalink: /word-curations/
     width: 30px;
     transition: all 0.2s;
   }
+  
+  /* Larger touch targets on mobile */
+  @media (max-width: 768px) {
+    .month .month-day-container {
+      height: 36px;
+      line-height: 36px;
+      width: 36px;
+      font-size: 80%;
+    }
+    
+    .month .month-blank-day-container {
+      height: 36px;
+      width: 36px;
+    }
+  }
 
   .month .month-day-container.active {
     background-color: #00ffff;
@@ -1113,7 +1179,7 @@ permalink: /word-curations/
   }
 
   #yearSelect {
-    padding: 10px 15px;
+    padding: 12px 16px;
     border: 2px solid #ff00ff;
     border-radius: 5px;
     background: #fff;
@@ -1123,6 +1189,16 @@ permalink: /word-curations/
     font-family: var(--ff-body);
     margin: 20px 0 30px 0;
     transition: all 0.2s;
+    min-height: 44px;
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 600px) {
+    #yearSelect {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 1.05rem;
+    }
   }
 
   #yearSelect:hover {
