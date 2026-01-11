@@ -41,7 +41,8 @@
   </head>
   <body>
     <a href="#main-content" class="skip-link">{{ 'common.skipToContent' | t(locale or 'en') }}</a>
-    <div class="top-controls">
+    <button class="controls-toggle-btn" aria-label="Toggle controls menu" aria-expanded="false" id="controlsToggle">⚙️</button>
+    <div class="bottom-controls">
       <div class="language-switcher">
         {% if locale == 'es' %}
           <a href="{{ page.url | replace('/es/', '/') | replace('/es', '') }}" hreflang="en" class="lang-link"><span class="flag-icon flag-us"></span> EN</a>
@@ -74,6 +75,43 @@
       </footer>
     </main>
     
+    <script>
+      // Controls menu toggle functionality
+      (function() {
+        const toggleBtn = document.getElementById('controlsToggle');
+        const bottomControls = document.querySelector('.bottom-controls');
+        
+        console.log('Toggle btn found:', toggleBtn);
+        console.log('Bottom controls found:', bottomControls);
+        
+        if (toggleBtn && bottomControls) {
+          toggleBtn.addEventListener('click', () => {
+            console.log('Button clicked!');
+            toggleBtn.classList.toggle('expanded');
+            toggleBtn.setAttribute('aria-expanded', toggleBtn.classList.contains('expanded'));
+            console.log('Expanded:', toggleBtn.classList.contains('expanded'));
+          });
+          
+          // Close menu when a link is clicked
+          bottomControls.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+              toggleBtn.classList.remove('expanded');
+              toggleBtn.setAttribute('aria-expanded', 'false');
+            });
+          });
+          
+          // Close menu when clicking outside
+          document.addEventListener('click', (e) => {
+            if (!toggleBtn.contains(e.target) && !bottomControls.contains(e.target)) {
+              toggleBtn.classList.remove('expanded');
+              toggleBtn.setAttribute('aria-expanded', 'false');
+            }
+          });
+        } else {
+          console.error('Could not find toggleBtn or bottomControls');
+        }
+      })();
+    </script>
     <script>
       // Dark mode toggle functionality
       (function() {
@@ -227,4 +265,5 @@
 </style>
 
 {# removed translate-all-controls styles per request #}
+
 
