@@ -1,6 +1,6 @@
 {
-  "total_entries": 3109,
-  "unique_sources": 106,
+  "total_entries": 3110,
+  "unique_sources": 107,
   "categories": {
     "Personal": {
       "total": 1991,
@@ -125,7 +125,7 @@
       }
     },
     "Movies/TV/Anime": {
-      "total": 26,
+      "total": 27,
       "sources": {
         "Love is Blind - Mexico": 3,
         "Mashle - Anime": 3,
@@ -142,7 +142,8 @@
         "Sherlock Holmes Movie": 1,
         "The Basement Yard Podcast": 1,
         "Culinary Class Wars - Netflix": 1,
-        "Hell's Paradise - Anime": 1
+        "Hell's Paradise - Anime": 1,
+        "Wake Up Dead Man - Netflix": 1
       }
     },
     "Music": {
