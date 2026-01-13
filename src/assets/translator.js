@@ -1,10 +1,13 @@
 // Client-side Translator integration for on-demand definition translations
 // Requires Chrome built-in AI Translator API (behind flags on localhost).
+// Uses Chrome Prompt API for generating word translation suggestions.
 // Gracefully no-ops if unsupported.
 
 (function () {
   const hasTranslator = typeof self !== 'undefined' && !!self.Translator;
   const hasLanguageDetector = typeof self !== 'undefined' && !!self.LanguageDetector;
+  const hasAI = typeof self !== 'undefined' && !!self.LanguageModel;
+  const aiPromptCache = new Map(); // Cache AI-generated suggestions
 
   function normalizeLang(lang) {
     if (!lang) return 'en';
@@ -74,6 +77,57 @@
     }
   }
 
+  // Generate word translation suggestions using the Prompt API
+  async function generateWordTranslationSuggestions(word, targetLang) {
+    if (!hasAI) return [];
+    
+    const cacheKey = `${word}|${targetLang}`;
+    if (aiPromptCache.has(cacheKey)) {
+      return aiPromptCache.get(cacheKey);
+    }
+
+    try {
+      // Check availability first
+      const availability = await self.LanguageModel.availability();
+      console.log('LanguageModel availability:', availability);
+      if (availability === 'unavailable') {
+        console.warn('LanguageModel is unavailable');
+        return [];
+      }
+
+      const targetLangName = getLangDisplay(targetLang);
+      const sourceLangName = getLangDisplay(docLang);
+      
+      const prompt = `Provide 3-5 concise word translation suggestions for "${word}" from ${sourceLangName} to ${targetLangName}. 
+Format as a simple list, one suggestion per line, without numbering or extra formatting.
+Each suggestion should be a single word or short phrase.
+If uncertain, provide your best guess.`;
+
+      const session = await self.LanguageModel.create({
+        topK: 1,
+        temperature: 0.3,
+      });
+
+      const stream = await session.promptStreaming(prompt);
+      let fullResponse = '';
+      for await (const chunk of stream) {
+        fullResponse += chunk;
+      }
+      
+      const suggestions = fullResponse
+        .split('\n')
+        .map(s => s.trim())
+        .filter(s => s.length > 0 && s.length < 50)
+        .slice(0, 5);
+
+      aiPromptCache.set(cacheKey, suggestions);
+      return suggestions;
+    } catch (e) {
+      console.warn('Word translation suggestion failed:', e);
+      return [];
+    }
+  }
+
   function makeButtonLabel(targetLang) {
     const name = getLangDisplay(targetLang);
     if (docLang === 'es') return `Traducir a ${name}`;
@@ -94,6 +148,9 @@
 
       const sourceRow = section.querySelector('.source');
       const defBody = section.querySelector('.definition');
+      const wordDiv = section.querySelector('.word');
+      const word = wordDiv ? (wordDiv.textContent || wordDiv.innerText || '').trim() : '';
+      
       if (!defBody || !sourceRow) continue;
 
       const original = document.createElement('div');
@@ -104,6 +161,15 @@
       const translated = document.createElement('div');
       translated.className = 'definition-translated';
       translated.style.display = 'none';
+
+      // Container for word suggestions (next to the word)
+      const wordSuggestionsContainer = document.createElement('div');
+      wordSuggestionsContainer.className = 'word-suggestions-container';
+      wordSuggestionsContainer.style.display = 'none';
+      wordSuggestionsContainer.style.marginTop = '10px';
+      wordSuggestionsContainer.style.fontSize = '0.9em';
+      wordSuggestionsContainer.style.color = '#666';
+      wordDiv.parentNode.insertBefore(wordSuggestionsContainer, wordDiv.nextSibling);
 
       const btn = document.createElement('button');
       btn.type = 'button';
@@ -171,9 +237,31 @@
           translated.style.display = '';
           original.style.display = 'none';
           btn.textContent = docLang === 'es' ? 'Ver original' : 'Show original';
-          btn.disabled = false;
+          
+          // Fetch and display word suggestions
+          if (hasAI && word) {
+            try {
+              console.log('Generating suggestions for word:', word, 'target lang:', lastTargetLang);
+              const suggestions = await generateWordTranslationSuggestions(word, lastTargetLang);
+              console.log('Suggestions received:', suggestions);
+              if (suggestions.length > 0) {
+                const suggestionsHtml = suggestions.map(sugg => `<span style="display: inline-block; margin-right: 8px; padding: 2px 6px; background: #e8f4f8; border-radius: 3px;">${escapeHtml(sugg)}</span>`).join('');
+                wordSuggestionsContainer.innerHTML = `<div style="font-weight: 600; margin-bottom: 5px;">${docLang === 'es' ? 'Sugerencias:' : 'Suggestions:'}</div><div>${suggestionsHtml}</div>`;
+                wordSuggestionsContainer.style.display = 'block';
+                console.log('Word suggestions displayed');
+              } else {
+                console.log('No suggestions returned');
+              }
+            } catch (e) {
+              console.warn('Failed to generate word suggestions:', e);
+            }
+          } else {
+            console.log('AI not available or no word:', hasAI, word);
+          }
+          
           hasTranslated = true;
           showingTranslated = true;
+          btn.disabled = false;
         } catch (e) {
           btn.disabled = false;
           if (e && e.name === 'NotSupportedError') {
@@ -192,6 +280,12 @@
         }
       }
 
+      function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+      }
+
       btn.addEventListener('click', async () => {
         if (!hasTranslator) {
           btn.title = 'Translation not supported in this browser.';
@@ -199,11 +293,15 @@
         }
         if (hasTranslated && showingTranslated) {
           section.__translateState.showOriginal();
+          wordSuggestionsContainer.style.display = 'none';
         } else if (hasTranslated && !showingTranslated) {
           translated.style.display = '';
           original.style.display = 'none';
           showingTranslated = true;
           btn.textContent = docLang === 'es' ? 'Ver original' : 'Show original';
+          if (wordSuggestionsContainer.innerHTML) {
+            wordSuggestionsContainer.style.display = '';
+          }
         } else {
           await doTranslate();
         }
@@ -215,6 +313,16 @@
     const globalTarget = defaultTarget;
     if (hasTranslator) {
       injectItems(globalTarget);
+      
+      // Watch for dynamically added word-entry elements
+      const observer = new MutationObserver((mutations) => {
+        injectItems(globalTarget);
+      });
+      
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
     }
   }
 
