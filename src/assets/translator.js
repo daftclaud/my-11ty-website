@@ -6,7 +6,17 @@
 (function () {
   const hasTranslator = typeof self !== 'undefined' && !!self.Translator;
   const hasLanguageDetector = typeof self !== 'undefined' && !!self.LanguageDetector;
-  const hasAI = typeof self !== 'undefined' && !!self.LanguageModel;
+
+  function getAI() {
+    if (typeof globalThis !== 'undefined' && globalThis.ai) return globalThis.ai;
+    if (typeof window !== 'undefined' && window.ai) return window.ai;
+    return null;
+  }
+
+  function hasLanguageModel() {
+    const aiHandle = getAI();
+    return !!(aiHandle && aiHandle.languageModel && typeof aiHandle.languageModel.create === 'function');
+  }
   const aiPromptCache = new Map(); // Cache AI-generated suggestions
 
   function normalizeLang(lang) {
@@ -79,8 +89,9 @@
 
   // Generate word translation suggestions using the Prompt API
   async function generateWordTranslationSuggestions(word, targetLang) {
-    if (!hasAI) return [];
-    
+    const aiHandle = getAI();
+    if (!aiHandle || !aiHandle.languageModel) return [];
+
     const cacheKey = `${word}|${targetLang}`;
     if (aiPromptCache.has(cacheKey)) {
       return aiPromptCache.get(cacheKey);
@@ -88,7 +99,7 @@
 
     try {
       // Check availability first
-      const availability = await self.LanguageModel.availability();
+      const availability = await aiHandle.languageModel.availability();
       console.log('LanguageModel availability:', availability);
       if (availability === 'unavailable') {
         console.warn('LanguageModel is unavailable');
@@ -103,7 +114,7 @@ Format as a simple list, one suggestion per line, without numbering or extra for
 Each suggestion should be a single word or short phrase.
 If uncertain, provide your best guess.`;
 
-      const session = await self.LanguageModel.create({
+      const session = await aiHandle.languageModel.create({
         topK: 1,
         temperature: 0.3,
       });
@@ -162,6 +173,15 @@ If uncertain, provide your best guess.`;
       translated.className = 'definition-translated';
       translated.style.display = 'none';
 
+      // Inline container for the word translation
+      const wordTranslation = document.createElement('span');
+      wordTranslation.className = 'word-translation';
+      wordTranslation.style.display = 'none';
+      wordTranslation.style.marginLeft = '8px';
+      wordTranslation.style.fontSize = '0.95em';
+      wordTranslation.style.color = '#555';
+      wordDiv.parentNode.insertBefore(wordTranslation, wordDiv.nextSibling);
+
       // Container for word suggestions (next to the word)
       const wordSuggestionsContainer = document.createElement('div');
       wordSuggestionsContainer.className = 'word-suggestions-container';
@@ -169,7 +189,7 @@ If uncertain, provide your best guess.`;
       wordSuggestionsContainer.style.marginTop = '10px';
       wordSuggestionsContainer.style.fontSize = '0.9em';
       wordSuggestionsContainer.style.color = '#666';
-      wordDiv.parentNode.insertBefore(wordSuggestionsContainer, wordDiv.nextSibling);
+      wordTranslation.parentNode.insertBefore(wordSuggestionsContainer, wordTranslation.nextSibling);
 
       const btn = document.createElement('button');
       btn.type = 'button';
@@ -237,9 +257,21 @@ If uncertain, provide your best guess.`;
           translated.style.display = '';
           original.style.display = 'none';
           btn.textContent = docLang === 'es' ? 'Ver original' : 'Show original';
+
+          // Translate the word label itself for quick reference
+          if (word) {
+            try {
+              const wordOut = await translator.translate(word);
+              wordTranslation.textContent = `→ ${wordOut}`;
+              wordTranslation.style.display = '';
+            } catch (e) {
+              console.warn('Failed to translate word label:', e);
+              wordTranslation.style.display = 'none';
+            }
+          }
           
           // Fetch and display word suggestions
-          if (hasAI && word) {
+          if (hasLanguageModel() && word) {
             try {
               console.log('Generating suggestions for word:', word, 'target lang:', lastTargetLang);
               const suggestions = await generateWordTranslationSuggestions(word, lastTargetLang);
@@ -256,7 +288,7 @@ If uncertain, provide your best guess.`;
               console.warn('Failed to generate word suggestions:', e);
             }
           } else {
-            console.log('AI not available or no word:', hasAI, word);
+            console.log('AI not available or no word:', hasLanguageModel(), word);
           }
           
           hasTranslated = true;
@@ -294,6 +326,7 @@ If uncertain, provide your best guess.`;
         if (hasTranslated && showingTranslated) {
           section.__translateState.showOriginal();
           wordSuggestionsContainer.style.display = 'none';
+          wordTranslation.style.display = 'none';
         } else if (hasTranslated && !showingTranslated) {
           translated.style.display = '';
           original.style.display = 'none';
@@ -301,6 +334,9 @@ If uncertain, provide your best guess.`;
           btn.textContent = docLang === 'es' ? 'Ver original' : 'Show original';
           if (wordSuggestionsContainer.innerHTML) {
             wordSuggestionsContainer.style.display = '';
+          }
+          if (wordTranslation.textContent) {
+            wordTranslation.style.display = '';
           }
         } else {
           await doTranslate();
