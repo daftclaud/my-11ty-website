@@ -36,6 +36,9 @@ eleventyExcludeFromCollections: true
       View Full Profile on Tracker Network →
     </a>
   </div>
+  <div class="stats-updated">
+    Last updated: {{ rocket_league_stats.lastUpdated | formatDate('en-US') }}
+  </div>
 
   <div class="ranks-section">
     <h3>Current Rank - Ranked Duel 1v1</h3>
@@ -191,6 +194,17 @@ eleventyExcludeFromCollections: true
     color: #0066cc;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 102, 204, 0.4);
+  }
+
+  .stats-updated {
+    text-align: center;
+    color: #666666;
+    font-size: 0.9em;
+    margin-top: 6px;
+  }
+
+  [data-theme="dark"] .stats-updated {
+    color: #b0b0b0;
   }
 
   [data-theme="dark"] .profile-link {

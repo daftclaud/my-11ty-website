@@ -3,16 +3,106 @@ const chromium = require('@sparticuz/chromium');
 const fs = require('fs');
 const path = require('path');
 
-async function fetchRocketLeagueStats() {
-  let browser;
+function fileExists(p) {
   try {
-    console.log('🚀 Launching browser...');
-    browser = await puppeteer.launch({ 
+    return !!p && fs.existsSync(p);
+  } catch {
+    return false;
+  }
+}
+
+function isServerlessEnv() {
+  return !!(
+    process.env.AWS_REGION ||
+    process.env.AWS_EXECUTION_ENV ||
+    process.env.NETLIFY ||
+    process.env.VERCEL
+  );
+}
+
+function getLocalBrowserCandidates() {
+  const candidates = [];
+
+  if (process.env.PUPPETEER_EXECUTABLE_PATH) {
+    candidates.push(process.env.PUPPETEER_EXECUTABLE_PATH);
+  }
+  if (process.env.CHROME_EXECUTABLE_PATH) {
+    candidates.push(process.env.CHROME_EXECUTABLE_PATH);
+  }
+
+  if (process.platform === 'win32') {
+    candidates.push(
+      'C:/Program Files/Google/Chrome/Application/chrome.exe',
+      'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe',
+      'C:/Program Files/Microsoft/Edge/Application/msedge.exe',
+      'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'
+    );
+  } else if (process.platform === 'darwin') {
+    candidates.push(
+      '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+      '/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge'
+    );
+  } else if (process.platform === 'linux') {
+    candidates.push(
+      '/usr/bin/google-chrome',
+      '/usr/bin/chromium-browser',
+      '/usr/bin/chromium'
+    );
+  }
+
+  return candidates.filter(fileExists);
+}
+
+async function resolveLaunchOptions() {
+  // Use Lambda/Vercel-friendly Chromium in serverless envs
+  if (isServerlessEnv()) {
+    return {
       args: chromium.args,
       defaultViewport: chromium.defaultViewport,
       executablePath: await chromium.executablePath(),
       headless: chromium.headless,
-    });
+    };
+  }
+
+  // Local dev: prefer a system-installed Chrome/Edge
+  const candidates = getLocalBrowserCandidates();
+  if (candidates.length > 0) {
+    const chosen = candidates[0];
+    console.log(`🧭 Using local browser: ${chosen}`);
+    return {
+      args: [
+        // Keep args minimal for local; no Lambda flags
+      ],
+      executablePath: chosen,
+      headless: 'new',
+    };
+  }
+
+  // Final fallback: try @sparticuz/chromium even locally (may fail on Windows)
+  try {
+    const execPath = await chromium.executablePath();
+    if (fileExists(execPath)) {
+      console.log(`🧭 Fallback to chromium binary: ${execPath}`);
+      return {
+        args: chromium.args,
+        defaultViewport: chromium.defaultViewport,
+        executablePath: execPath,
+        headless: chromium.headless,
+      };
+    }
+  } catch {}
+
+  throw new Error(
+    'Could not find a Chrome/Edge executable. Set PUPPETEER_EXECUTABLE_PATH or CHROME_EXECUTABLE_PATH to a valid browser binary.'
+  );
+}
+
+async function fetchRocketLeagueStats() {
+  let browser;
+  try {
+    console.log('🚀 Launching browser...');
+    const launchOptions = await resolveLaunchOptions();
+    browser = await puppeteer.launch(launchOptions);
     
     const page = await browser.newPage();
     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');

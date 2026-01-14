@@ -37,6 +37,9 @@ permalink: /es/about/
       {{ 'about.viewFullProfile' | t(locale) }}
     </a>
   </div>
+  <div class="stats-updated">
+    {{ 'about.lastUpdated' | t(locale) }}: {{ rocket_league_stats.lastUpdated | formatDate('es-MX') }}
+  </div>
 
   <div class="ranks-section">
     <h3>{{ 'about.currentRank' | t(locale) }}</h3>
@@ -192,6 +195,17 @@ permalink: /es/about/
     color: #0066cc;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 102, 204, 0.4);
+  }
+
+  .stats-updated {
+    text-align: center;
+    color: #666666;
+    font-size: 0.9em;
+    margin-top: 6px;
+  }
+
+  [data-theme="dark"] .stats-updated {
+    color: #b0b0b0;
   }
 
   [data-theme="dark"] .profile-link {

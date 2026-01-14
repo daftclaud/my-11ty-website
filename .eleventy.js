@@ -111,13 +111,8 @@ module.exports = function (eleventyConfig) {
       day: "numeric",
     };
 
-    // Calculate offset in milliseconds
-    const offsetMs = dateObj.getTimezoneOffset() * 60 * 1000;
-
-    // Create a new Date object adjusted for offset
-    const adjustedDate = new Date(dateObj.getTime() + offsetMs);
-
-    return adjustedDate.toLocaleDateString(locale, options);
+    // Let toLocaleDateString handle timezone conversion based on system locale/timezone
+    return dateObj.toLocaleDateString(locale, options);
   });
 
   eleventyConfig.addFilter("formatNumber", function (num) {

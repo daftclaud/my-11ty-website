@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node -r dotenv/config node_modules/@11ty/eleventy/cmd.js --serve",
     "build": "node -r dotenv/config node_modules/@11ty/eleventy/cmd.js",
-    "translate": "node translate-content.js"
+    "translate": "node translate-content.js",
+    "fetch:rl": "node fetch_rocket_league_stats.js"
   },
   "keywords": [],
   "author": "",
