@@ -1,6 +1,6 @@
 {
-  "total_entries": 3120,
-  "unique_sources": 108,
+  "total_entries": 3121,
+  "unique_sources": 109,
   "categories": {
     "Personal": {
       "total": 1991,
@@ -88,7 +88,7 @@
       }
     },
     "Web/Social/Apps": {
-      "total": 34,
+      "total": 35,
       "sources": {
         "TikTok": 13,
         "Wordle": 10,
@@ -98,7 +98,8 @@
         "Definition of imbue": 1,
         "Instagram reels": 1,
         "Slack": 1,
-        "Video Deep Learning con Pepe Cantoral PhD.": 1
+        "Video Deep Learning con Pepe Cantoral PhD.": 1,
+        "Facebook": 1
       }
     },
     "News/Press": {
