@@ -301,11 +301,9 @@ module.exports = function (eleventyConfig) {
     const randomWord = allWords[Math.floor(Math.random() * allWords.length)];
 
     // Calculate days collecting
-    const firstDate = collection[0].data.date;
-    const lastDate = collection[collection.length - 1].data.date;
-    const daysCollecting = Math.floor(
-      (lastDate - firstDate) / (1000 * 60 * 60 * 24)
-    );
+    const daysCollecting = sortedWords.length > 0 ? Math.floor(
+      (sortedWords[sortedWords.length - 1].date - sortedWords[0].date) / (1000 * 60 * 60 * 24)
+    ) : 0;
 
     // Count distinct words and find most repeated
     const wordFrequency = {};
