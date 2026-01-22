@@ -187,47 +187,6 @@ document.addEventListener('DOMContentLoaded', function() {
     margin-bottom: 1em;
   }
 
-  .filter-toggle {
-    position: fixed;
-    top: 20px;
-    right: 80px; /* sits left of dark mode toggle */
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid var(--clr-border);
-    background: var(--clr-main-bg);
-    cursor: pointer;
-    font-family: var(--ff-body);
-    font-size: 1em;
-    font-weight: 600;
-    color: var(--clr-link);
-    transition: all 0.3s ease;
-    align-items: center;
-    gap: 0.5em;
-    justify-content: center;
-    display: flex;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .filter-toggle:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  }
-
-  .filter-toggle:focus {
-    outline: 2px solid var(--clr-border);
-    outline-offset: 2px;
-  }
-
-  .filter-toggle-icon {
-    font-size: 1.2em;
-  }
-
-  .filter-toggle-text {
-    display: none; /* hide text to match compact toggle near theme button */
-  }
-
   .filters-container {
     display: flex;
     flex-wrap: wrap;
@@ -255,6 +214,15 @@ document.addEventListener('DOMContentLoaded', function() {
     background: white;
     cursor: pointer;
     font-size: 0.95em;
+    min-height: 44px;
+  }
+
+  @media (max-width: 600px) {
+    .filter-group select {
+      padding: 0.75em 1em;
+      font-size: 1rem;
+      width: 100%;
+    }
   }
 
   .filter-group select:hover {
@@ -278,32 +246,20 @@ document.addEventListener('DOMContentLoaded', function() {
     min-width: 0;
   }
 
-  /* Mobile: show filters directly */
+  /* Mobile: responsive layout */
   @media (max-width: 600px) {
     .pen-filters {
-      padding: 1em;
+      padding: 0;
       background: white;
       border: 2px solid #ddd;
       border-radius: 8px;
-      margin: 1em 0;
-    }
-
-    .filter-toggle {
-      display: none;
     }
 
     .filters-container {
       flex-direction: column;
       align-items: stretch;
       gap: 1em;
-      padding: 0;
-    }
-
-    .filters-container.expanded {
-      max-height: none;
-      opacity: 1;
-      padding: 0;
-      border-top: none;
+      padding: 1em;
     }
 
     .filter-group {
@@ -441,22 +397,6 @@ document.addEventListener('DOMContentLoaded', function() {
     border-color: var(--clr-border);
   }
 
-  [data-theme="dark"] .filter-toggle {
-    background: var(--clr-nav-bg);
-    border-color: var(--clr-border);
-    color: var(--clr-link);
-  }
-
-  [data-theme="dark"] .filter-toggle:hover {
-    background: #2a2a3e;
-    border-color: var(--clr-link);
-  }
-
-  [data-theme="dark"] .filter-toggle:focus {
-    border-color: var(--clr-link);
-    box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.2);
-  }
-
   [data-theme="dark"] .filter-group label,
   [data-theme="dark"] .filter-results {
     color: var(--clr-text);
@@ -466,6 +406,15 @@ document.addEventListener('DOMContentLoaded', function() {
     background: var(--clr-main-bg);
     color: var(--clr-text);
     border-color: var(--clr-border);
+  }
+
+  [data-theme="dark"] .filter-group select:hover {
+    border-color: var(--clr-link);
+  }
+
+  [data-theme="dark"] .filter-group select:focus {
+    border-color: var(--clr-link);
+    box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.1);
   }
 
   [data-theme="dark"] .pen-item {
