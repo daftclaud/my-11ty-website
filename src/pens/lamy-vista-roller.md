@@ -3,9 +3,9 @@ title: "LAMY Vista: Transparent Design with Safari DNA"
 description: "The LAMY Vista is a distinctive rollerball pen featuring the iconic Safari design in a transparent body. Its clear construction showcases the inner workings while maintaining the ergonomic excellence that made the Safari famous."
 image: "/assets/pens/lamy-vista-roller.webp"
 caption: "The LAMY Vista Rollerball Pen"
-brand: "LAMY"
+brand: "Lamy"
 type: "Rollerball"
-date: 2026-01-26
+date: 2024-12-15
 ---
 
 ## Design and Build
