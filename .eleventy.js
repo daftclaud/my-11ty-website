@@ -394,13 +394,13 @@ module.exports = function (eleventyConfig) {
   // Sorted pen collection (newest first) for the main pens page
   eleventyConfig.addCollection("pensSorted", function(collectionApi) {
     return collectionApi.getFilteredByTag("pen")
-      .sort((a, b) => b.date - a.date); // Descending: newest pens first
+      .sort((a, b) => b.date - a.date);
   });
 
-  // Recent pens for home page (6 most recent)
+  // Recent pens for home page
   eleventyConfig.addCollection("recentPens", function(collectionApi) {
     return collectionApi.getFilteredByTag("pen")
-      .sort((a, b) => b.date - a.date) // Descending: newest pens first
+      .sort((a, b) => b.date - a.date)
       .slice(0, 6);
   });
 
