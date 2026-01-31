@@ -54,6 +54,7 @@ eleventyExcludeFromCollections: true
   <div class="activity-section pens-section">
     <h3>Latest Pens Added</h3>
     {% if collections.recentPens.length > 0 %}
+      {# Display pens in grid: newest first (top-left), oldest last (bottom-right) #}
       <div class="pens-grid">
         {% for pen in collections.recentPens %}
           <a href="{{ pen.url }}" class="pen-card">

@@ -392,8 +392,9 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("recentPens", function(collectionApi) {
+    // Get the 6 most recent pens, sorted by date in descending order (newest first)
     return collectionApi.getFilteredByTag("pen")
-      .sort((a, b) => b.data.date - a.data.date)
+      .sort((a, b) => b.data.date - a.data.date) // Descending: newest pens first
       .slice(0, 6);
   });
 
