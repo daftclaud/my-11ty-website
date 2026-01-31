@@ -48,7 +48,7 @@ permalink: /es/pens/
   </div>
 
   <section class="pen-list">
-      {% for post in collections.pen %}
+      {% for post in collections.pensSorted %}
       <article class="pen-item" data-brand="{{ post.data.brand }}" data-type="{{ post.data.type }}">
         <div class="pen-item-image">
           <img src="{{ post.data.image }}" alt="{{ post.data.title }} miniatura" loading="lazy" decoding="async" />
