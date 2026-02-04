@@ -1,6 +1,6 @@
 {
-  "total_entries": 3127,
-  "unique_sources": 109,
+  "total_entries": 3128,
+  "unique_sources": 110,
   "categories": {
     "Personal": {
       "total": 1991,
@@ -20,7 +20,7 @@
       }
     },
     "Non-fiction Books": {
-      "total": 56,
+      "total": 57,
       "sources": {
         "Ruido - Daniel Kahneman, Oliver Siboney, Cass R. Sunstein": 27,
         "The Phoenix Project - Gene Kim": 14,
@@ -28,7 +28,8 @@
         "\"John Green's Anthropocene: Reviewed\"": 4,
         "Designing the Future - Jay W. Forrester": 1,
         "This is Lean - Niklas Modig and Pär Åhlström": 1,
-        "PRI - Crónica del Fin": 1
+        "PRI - Crónica del Fin": 1,
+        "La Vaca Sagrada - Tarun Chopra": 1
       }
     },
     "Books/Novels": {
