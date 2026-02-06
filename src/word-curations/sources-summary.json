@@ -1,5 +1,5 @@
 {
-  "total_entries": 3129,
+  "total_entries": 3130,
   "unique_sources": 110,
   "categories": {
     "Personal": {
@@ -33,7 +33,7 @@
       }
     },
     "Books/Novels": {
-      "total": 955,
+      "total": 956,
       "sources": {
         "Children of Memory - Novel by Adrian Tchaikovsky": 131,
         "Nexus - Yuval Noah Harari": 86,
@@ -70,7 +70,7 @@
         "The Phoenix Project - Gene Kim": 1,
         "Foundation - Isaac Asimov": 25,
         "Harry Potter and the Deathly Hallows": 1,
-        "Foundation and Empire - Isaac Asimov": 10
+        "Foundation and Empire - Isaac Asimov": 11
       }
     },
     "Short Stories": {
