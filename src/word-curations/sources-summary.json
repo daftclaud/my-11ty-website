@@ -1,6 +1,6 @@
 {
-  "total_entries": 3130,
-  "unique_sources": 110,
+  "total_entries": 3131,
+  "unique_sources": 111,
   "categories": {
     "Personal": {
       "total": 1991,
@@ -128,7 +128,7 @@
       }
     },
     "Movies/TV/Anime": {
-      "total": 27,
+      "total": 28,
       "sources": {
         "Love is Blind - Mexico": 3,
         "Mashle - Anime": 3,
@@ -146,7 +146,8 @@
         "The Basement Yard Podcast": 1,
         "Culinary Class Wars - Netflix": 1,
         "Hell's Paradise - Anime": 1,
-        "Wake Up Dead Man - Netflix": 1
+        "Wake Up Dead Man - Netflix": 1,
+        "Planet Earth - David Attenborough": 1
       }
     },
     "Music": {
