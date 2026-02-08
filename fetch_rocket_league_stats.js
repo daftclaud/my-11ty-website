@@ -121,6 +121,11 @@ async function fetchRocketLeagueStats() {
     
     const stats = parseStats(html);
     
+    // Validate that we actually got data (check if rank is not 'Unknown')
+    if (stats.rankedDuel.rank === 'Unknown' && stats.rankedDuel.rating === 0) {
+      throw new Error('Failed to parse stats - got default values. HTML parsing may have failed.');
+    }
+    
     const outputPath = path.join(__dirname, 'rocket_league_stats.json');
     fs.writeFileSync(outputPath, JSON.stringify(stats, null, 2));
     console.log('✅ Rocket League stats fetched successfully!');
@@ -129,7 +134,15 @@ async function fetchRocketLeagueStats() {
     return stats;
   } catch (error) {
     console.error('❌ Error fetching stats:', error.message);
+    console.error('Stack:', error.stack);
     if (browser) await browser.close();
+    
+    // Don't overwrite existing stats file on error - keep the committed version
+    const outputPath = path.join(__dirname, 'rocket_league_stats.json');
+    if (fs.existsSync(outputPath)) {
+      console.log('ℹ️ Keeping existing stats file due to fetch error');
+    }
+    
     throw error;
   }
 }
