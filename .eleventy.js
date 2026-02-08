@@ -23,6 +23,12 @@ function runSpanishWordDetection() {
 
 // Fetch Rocket League stats before build
 function fetchRocketLeagueStats() {
+  // Skip fetching on Vercel/Netlify - use committed stats file instead
+  if (process.env.VERCEL || process.env.NETLIFY || process.env.CI) {
+    console.log("⏭️ Skipping Rocket League stats fetch in CI/deployment environment");
+    return;
+  }
+  
   const fetchScript = path.join(__dirname, "fetch_rocket_league_stats.js");
   
   try {
