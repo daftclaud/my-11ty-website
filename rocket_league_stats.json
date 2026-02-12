@@ -1,7 +1,7 @@
 {
   "rankedDuel": {
     "rank": "Platinum III",
-    "rating": 777,
+    "rating": 769,
     "division": "",
     "percentile": "Top 7.0%"
   },
@@ -12,9 +12,9 @@
   },
   "lifetime": {
     "wins": 6412,
-    "goals": 50462,
-    "shots": 80126,
-    "saves": 37670,
+    "goals": 50463,
+    "shots": 80130,
+    "saves": 37671,
     "goalShotRatio": 63,
     "winsRank": "Top 6.0%",
     "goalsRank": "Top 0.2%",
@@ -22,5 +22,5 @@
     "savesRank": "Top 0.3%",
     "goalShotRatioRank": "Top 2.5%"
   },
-  "lastUpdated": "2026-02-11T12:15:08.667Z"
+  "lastUpdated": "2026-02-12T12:13:37.256Z"
 }
