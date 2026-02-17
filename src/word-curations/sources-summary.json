@@ -1,6 +1,6 @@
 {
-  "total_entries": 3135,
-  "unique_sources": 112,
+  "total_entries": 3136,
+  "unique_sources": 113,
   "categories": {
     "Personal": {
       "total": 1991,
@@ -20,7 +20,7 @@
       }
     },
     "Non-fiction Books": {
-      "total": 57,
+      "total": 58,
       "sources": {
         "Ruido - Daniel Kahneman, Oliver Siboney, Cass R. Sunstein": 27,
         "The Phoenix Project - Gene Kim": 14,
@@ -29,7 +29,8 @@
         "Designing the Future - Jay W. Forrester": 1,
         "This is Lean - Niklas Modig and Pär Åhlström": 1,
         "PRI - Crónica del Fin": 1,
-        "La Vaca Sagrada - Tarun Chopra": 1
+        "La Vaca Sagrada - Tarun Chopra": 1,
+        "Freakonomics - Book by Stephen J. Dubner and Steven Levitt": 1
       }
     },
     "Books/Novels": {
