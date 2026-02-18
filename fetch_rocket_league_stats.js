@@ -127,7 +127,6 @@ async function fetchRocketLeagueStats() {
       const debugHtmlPath = path.join(__dirname, 'debug_html.txt');
       try {
         fs.writeFileSync(debugHtmlPath, html);
-        console.log(`📄 HTML saved to ${debugHtmlPath} for debugging`);
       } catch (err) {
         console.warn('⚠️ Failed to save debug HTML:', err.message);
       }
