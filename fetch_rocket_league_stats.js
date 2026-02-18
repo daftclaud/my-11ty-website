@@ -119,10 +119,21 @@ async function fetchRocketLeagueStats() {
     
     const html = await page.content();
     
+    // Save HTML for debugging purposes
+    const debugHtmlPath = path.join(__dirname, 'debug_html.txt');
+    fs.writeFileSync(debugHtmlPath, html);
+    console.log(`📄 HTML saved to ${debugHtmlPath} for debugging`);
+    
     const stats = parseStats(html);
     
     // Validate that we actually got data (check if rank is not 'Unknown')
     if (stats.rankedDuel.rank === 'Unknown' && stats.rankedDuel.rating === 0) {
+      // Log diagnostic information
+      console.log('🔍 Diagnostic Info:');
+      console.log('  - HTML length:', html.length);
+      console.log('  - Contains "Ranked Duel 1v1":', html.includes('Ranked Duel 1v1'));
+      console.log('  - Contains "peak-rating":', html.includes('peak-rating'));
+      console.log('  - HTML saved to debug_html.txt for inspection');
       throw new Error('Failed to parse stats - got default values. HTML parsing may have failed.');
     }
     
@@ -182,6 +193,9 @@ function parseStats(html) {
     stats.rankedDuel.rank = duelMatch[1];
     stats.rankedDuel.rating = parseInt(duelMatch[2]);
     stats.rankedDuel.percentile = `Top ${duelMatch[3]}%`;
+    console.log('✓ Parsed Ranked Duel stats');
+  } else {
+    console.log('✗ Failed to parse Ranked Duel stats');
   }
 
   // Extract Peak Rating - look for the peak-rating section
@@ -190,6 +204,9 @@ function parseStats(html) {
     stats.peakRating.rank = peakMatch[1];
     stats.peakRating.rating = parseInt(peakMatch[2]);
     stats.peakRating.season = `Season ${peakMatch[3]}`;
+    console.log('✓ Parsed Peak Rating stats');
+  } else {
+    console.log('✗ Failed to parse Peak Rating stats');
   }
 
   // Extract Lifetime Stats - looking for title="Wins" pattern
@@ -197,30 +214,45 @@ function parseStats(html) {
   if (winsMatch) {
     stats.lifetime.wins = parseInt(winsMatch[1].replace(/,/g, ''));
     stats.lifetime.winsRank = `Top ${winsMatch[2]}%`;
+    console.log('✓ Parsed Wins stats');
+  } else {
+    console.log('✗ Failed to parse Wins stats');
   }
 
   const goalsMatch = html.match(/title="Goals".*?value">([\d,]+)<.*?Top\s+([\d.]+)%/s);
   if (goalsMatch) {
     stats.lifetime.goals = parseInt(goalsMatch[1].replace(/,/g, ''));
     stats.lifetime.goalsRank = `Top ${goalsMatch[2]}%`;
+    console.log('✓ Parsed Goals stats');
+  } else {
+    console.log('✗ Failed to parse Goals stats');
   }
 
   const shotsMatch = html.match(/title="Shots".*?value">([\d,]+)<.*?Top\s+([\d.]+)%/s);
   if (shotsMatch) {
     stats.lifetime.shots = parseInt(shotsMatch[1].replace(/,/g, ''));
     stats.lifetime.shotsRank = `Top ${shotsMatch[2]}%`;
+    console.log('✓ Parsed Shots stats');
+  } else {
+    console.log('✗ Failed to parse Shots stats');
   }
 
   const savesMatch = html.match(/title="Saves".*?value">([\d,]+)<.*?Top\s+([\d.]+)%/s);
   if (savesMatch) {
     stats.lifetime.saves = parseInt(savesMatch[1].replace(/,/g, ''));
     stats.lifetime.savesRank = `Top ${savesMatch[2]}%`;
+    console.log('✓ Parsed Saves stats');
+  } else {
+    console.log('✗ Failed to parse Saves stats');
   }
 
   const ratioMatch = html.match(/title="Goal Shot Ratio".*?value">([\d.]+)<.*?Top\s+([\d.]+)%/s);
   if (ratioMatch) {
     stats.lifetime.goalShotRatio = parseFloat(ratioMatch[1]);
     stats.lifetime.goalShotRatioRank = `Top ${ratioMatch[2]}%`;
+    console.log('✓ Parsed Goal Shot Ratio stats');
+  } else {
+    console.log('✗ Failed to parse Goal Shot Ratio stats');
   }
 
   return stats;
