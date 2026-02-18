@@ -123,20 +123,21 @@ async function fetchRocketLeagueStats() {
     
     // Validate that we actually got data (check if rank is not 'Unknown')
     if (stats.rankedDuel.rank === 'Unknown' && stats.rankedDuel.rating === 0) {
-      // Save HTML for debugging only when parsing fails
-      const debugHtmlPath = path.join(__dirname, 'debug_html.txt');
-      try {
-        fs.writeFileSync(debugHtmlPath, html);
-      } catch (err) {
-        console.warn('⚠️ Failed to save debug HTML:', err.message);
-      }
-      
       // Log diagnostic information
       console.log('🔍 Diagnostic Info:');
       console.log('  - HTML length:', html.length);
       console.log('  - Contains "Ranked Duel 1v1":', html.includes('Ranked Duel 1v1'));
       console.log('  - Contains "peak-rating":', html.includes('peak-rating'));
-      console.log(`  - HTML saved to ${debugHtmlPath} for inspection`);
+      
+      // Save HTML for debugging only when parsing fails
+      const debugHtmlPath = path.join(__dirname, 'debug_html.txt');
+      try {
+        fs.writeFileSync(debugHtmlPath, html);
+        console.log(`  - HTML saved to ${debugHtmlPath} for inspection`);
+      } catch (err) {
+        console.warn('  - ⚠️ Failed to save debug HTML:', err.message);
+      }
+      
       throw new Error('Failed to parse stats - got default values. HTML parsing may have failed.');
     }
     
