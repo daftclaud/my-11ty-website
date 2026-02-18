@@ -5,5 +5,8 @@ public/word-curations-generated/
 # Environment variables
 .env
 
+# Debug files
+debug_html.txt
+
 # Translation cache (optional - you may want to commit these)
 # src/_translations/
