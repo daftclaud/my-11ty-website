@@ -232,7 +232,7 @@ if (require.main === module) {
     .then(() => process.exit(0))
     .catch((error) => {
       console.error(error);
-      console.log('⚠️ Failed to fetch stats, preserving existing data. Workflow will succeed.');
+      console.warn('⚠️ Failed to fetch stats, preserving existing data. Workflow will succeed.');
       // Exit with success since we keep existing stats file on error
       process.exit(0);
     });
