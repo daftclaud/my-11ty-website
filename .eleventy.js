@@ -115,9 +115,10 @@ module.exports = function (eleventyConfig) {
       year: "numeric",
       month: "long",
       day: "numeric",
+      timeZone: "America/Chicago",
     };
 
-    // Let toLocaleDateString handle timezone conversion based on system locale/timezone
+    // Format date in America/Chicago timezone (CST/CDT - close to Monterrey, Mexico)
     return dateObj.toLocaleDateString(locale, options);
   });
 
