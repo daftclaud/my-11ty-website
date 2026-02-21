@@ -115,10 +115,10 @@ module.exports = function (eleventyConfig) {
       year: "numeric",
       month: "long",
       day: "numeric",
-      timeZone: "America/Chicago",
+      timeZone: "UTC",
     };
 
-    // Format date in America/Chicago timezone (CST/CDT - close to Monterrey, Mexico)
+    // Use UTC to avoid timezone shifts (dates in YAML are date-only, treated as midnight UTC)
     return dateObj.toLocaleDateString(locale, options);
   });
 
@@ -394,13 +394,21 @@ module.exports = function (eleventyConfig) {
   // Add collections for recent items
   eleventyConfig.addCollection("recentWordCurations", function(collectionApi) {
     return collectionApi.getFilteredByTag("word_curation")
-      .sort((a, b) => b.data.date - a.data.date)
+      .sort((a, b) => {
+        const dateA = a.data.date ? a.data.date.getTime() : 0;
+        const dateB = b.data.date ? b.data.date.getTime() : 0;
+        return dateB - dateA; // descending order
+      })
       .slice(0, 1);
   });
 
   eleventyConfig.addCollection("recentPens", function(collectionApi) {
     return collectionApi.getFilteredByTag("pen")
-      .sort((a, b) => b.data.date - a.data.date)
+      .sort((a, b) => {
+        const dateA = a.data.date ? a.data.date.getTime() : 0;
+        const dateB = b.data.date ? b.data.date.getTime() : 0;
+        return dateB - dateA; // descending order
+      })
       .slice(0, 6);
   });
 
