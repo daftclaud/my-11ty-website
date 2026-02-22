@@ -58,7 +58,8 @@ const categoryKeywords = {
   'Music': ['Song', 'Juan Gabriel'],
   'Personal': [
     'My old website', 'Yo', 'Honey', 'Mi papá', 'Paty Alvarez', 'Alan Zorrilla', 'Thomas Ojeda',
-    'Adrian Marcelo', 'Elon Musk', 'Work', 'Coty - Globant', 'Alejandro - Guia en Cusco', 'Domenica'
+    'Adrian Marcelo', 'Elon Musk', 'Work', 'Coty - Globant', 'Alejandro - Guia en Cusco', 'Domenica',
+    'Carlos Rodriguez'
   ],
   'Events/Sports': ['soccer game', 'Rayados', 'Mazatlán', 'NBA', 'Baseball', 'Fox NFL', 'Liga MX'],
   'Academic/Work': ['Masters class', 'homework', 'Paper', 'Tarea de maestría'],
