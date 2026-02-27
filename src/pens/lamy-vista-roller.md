@@ -5,7 +5,7 @@ image: "/assets/pens/lamy-vista-roller.webp"
 caption: "The LAMY Vista Rollerball Pen"
 brand: "Lamy"
 type: "Rollerball"
-date: 2024-12-15
+date: 2026-02-27
 ---
 
 ## Design and Build
