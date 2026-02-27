@@ -40,6 +40,7 @@ const categoryKeywords = {
     'How High We Go in the Dark - Sequoia Nagamatsu',
     'Harry Potter', 'Stories of Your Life and Others - Ted Chiang',
     'Tres enigmas para la Organización - Eduardo Mendoza',
+    'Tarun Chopra',
     // Former Non-fiction Books keywords merged here
     'Evolution', 'Instinct', 'Anarchy', 'Nexus', 'Ruido', 'Singularity', 'Reviewed', 'Project',
     'The Phoenix Project - Gene Kim', 'Balanced Scorecard Evolution',
@@ -47,19 +48,19 @@ const categoryKeywords = {
   ],
   'Movies/TV/Anime': [
     'TV', 'Anime', 'Movie', 'Podcast', 'Love is Blind', 'Last Week Tonight', 'Netflix',
-    'A Few Good Men', 'Exhuma', 'PRI - Crónica del Fin', 'Frieren', 'Debo, puedo y quiero'
+    'A Few Good Men', 'Exhuma', 'PRI - Crónica del Fin', 'Frieren', 'Debo, puedo y quiero', 'David Attenborough'
   ],
   'News/Press': ['Periódico', 'NYT', 'New York Times', 'Milenio', 'El Horizonte', 'Magazine', 'El noticiero'],
   'Web/Social/Apps': [
     'TikTok', 'Wordle', 'Reddit', 'Slack', 'Wiki', 'Instagram', 'YouTube', 'ChatGPT', 'AltavozMX',
-    'Video Deep Learning con Pepe Cantoral PhD.', 'Definition of imbue'
+    'Video Deep Learning con Pepe Cantoral PhD.', 'Definition of imbue', 'Facebook'
   ],
   'Podcasts': ['Podcast'],
   'Music': ['Song', 'Juan Gabriel'],
   'Personal': [
     'My old website', 'Yo', 'Honey', 'Mi papá', 'Paty Alvarez', 'Alan Zorrilla', 'Thomas Ojeda',
     'Adrian Marcelo', 'Elon Musk', 'Work', 'Coty - Globant', 'Alejandro - Guia en Cusco', 'Domenica',
-    'Carlos Rodriguez'
+    'Carlos Rodriguez', 'Beatriz Janet'
   ],
   'Events/Sports': ['soccer game', 'Rayados', 'Mazatlán', 'NBA', 'Baseball', 'Fox NFL', 'Liga MX'],
   'Academic/Work': ['Masters class', 'homework', 'Paper', 'Tarea de maestría'],
