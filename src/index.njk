@@ -33,7 +33,8 @@ eleventyExcludeFromCollections: true
     <h3>Latest Word Curation</h3>
     {% if collections.recentWordCurations.length > 0 %}
       {% set curation = collections.recentWordCurations[0] %}
-      <a href="{{ curation.url }}" class="latest-curation-link">
+      {% set curationDate = curation.data.date.toISOString().slice(0, 10) %}
+      <a href="/word-curations/?date={{ curationDate }}" class="latest-curation-link">
         <div class="latest-curation">
           <div class="curation-date">{{ curation.data.date | formatDate }}</div>
           <ul class="words-list">
