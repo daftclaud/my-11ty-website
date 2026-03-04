@@ -1,6 +1,6 @@
 {
-  "total_entries": 3152,
-  "unique_sources": 116,
+  "total_entries": 3153,
+  "unique_sources": 117,
   "categories": {
     "Personal": {
       "total": 1994,
@@ -23,7 +23,7 @@
       }
     },
     "Non-fiction Books": {
-      "total": 70,
+      "total": 71,
       "sources": {
         "Ruido - Daniel Kahneman, Oliver Siboney, Cass R. Sunstein": 27,
         "The Phoenix Project - Gene Kim": 14,
@@ -33,7 +33,8 @@
         "This is Lean - Niklas Modig and Pär Åhlström": 1,
         "PRI - Crónica del Fin": 1,
         "La Vaca Sagrada - Tarun Chopra": 1,
-        "Freakonomics - Book by Stephen J. Dubner and Steven Levitt": 13
+        "Freakonomics - Book by Stephen J. Dubner and Steven Levitt": 13,
+        "The Undoing Project - Book by Michael Lewis": 1
       }
     },
     "Books/Novels": {
