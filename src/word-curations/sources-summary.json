@@ -1,6 +1,6 @@
 {
-  "total_entries": 3154,
-  "unique_sources": 117,
+  "total_entries": 3155,
+  "unique_sources": 118,
   "categories": {
     "Personal": {
       "total": 1994,
@@ -134,7 +134,7 @@
       }
     },
     "Movies/TV/Anime": {
-      "total": 28,
+      "total": 29,
       "sources": {
         "Love is Blind - Mexico": 3,
         "Mashle - Anime": 3,
@@ -153,7 +153,8 @@
         "Culinary Class Wars - Netflix": 1,
         "Hell's Paradise - Anime": 1,
         "Wake Up Dead Man - Netflix": 1,
-        "Planet Earth - David Attenborough": 1
+        "Planet Earth - David Attenborough": 1,
+        "Scent of a Woman - Movie": 1
       }
     },
     "Music": {
