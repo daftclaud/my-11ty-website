@@ -1,5 +1,5 @@
 {
-  "total_entries": 3158,
+  "total_entries": 3159,
   "unique_sources": 118,
   "categories": {
     "Personal": {
@@ -85,13 +85,13 @@
       }
     },
     "Academic/Work": {
-      "total": 6,
+      "total": 7,
       "sources": {
         "Paper on Strategy by Michael E. Porter": 2,
         "Data Visualization - Masters class": 1,
         "NLP homework": 1,
         "Tarea de maestría": 1,
-        "Work": 1
+        "Work": 2
       }
     },
     "Web/Social/Apps": {
