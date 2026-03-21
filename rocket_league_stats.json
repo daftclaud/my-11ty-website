@@ -1,7 +1,7 @@
 {
   "rankedDuel": {
     "rank": "Diamond I",
-    "rating": 834,
+    "rating": 803,
     "division": "",
     "percentile": "Top 4.0%"
   },
@@ -12,9 +12,9 @@
   },
   "lifetime": {
     "wins": 6482,
-    "goals": 51014,
-    "shots": 81021,
-    "saves": 38077,
+    "goals": 51022,
+    "shots": 81040,
+    "saves": 38080,
     "goalShotRatio": 63,
     "winsRank": "Top 7.0%",
     "goalsRank": "Top 0.2%",
@@ -22,5 +22,5 @@
     "savesRank": "Top 0.3%",
     "goalShotRatioRank": "Top 1.8%"
   },
-  "lastUpdated": "2026-03-20T12:09:52.833Z"
+  "lastUpdated": "2026-03-21T12:06:52.898Z"
 }
