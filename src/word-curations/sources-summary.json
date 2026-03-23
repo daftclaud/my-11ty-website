@@ -1,5 +1,5 @@
 {
-  "total_entries": 3175,
+  "total_entries": 3176,
   "unique_sources": 119,
   "categories": {
     "Personal": {
@@ -23,7 +23,7 @@
       }
     },
     "Non-fiction Books": {
-      "total": 88,
+      "total": 89,
       "sources": {
         "Ruido - Daniel Kahneman, Oliver Siboney, Cass R. Sunstein": 27,
         "The Phoenix Project - Gene Kim": 14,
@@ -34,7 +34,7 @@
         "PRI - Crónica del Fin": 1,
         "La Vaca Sagrada - Tarun Chopra": 1,
         "Freakonomics - Book by Stephen J. Dubner and Steven Levitt": 13,
-        "The Undoing Project - Book by Michael Lewis": 16,
+        "The Undoing Project - Book by Michael Lewis": 17,
         "A Programmer's Introduction to Mathematics - book by Jeremy Kun": 2
       }
     },
