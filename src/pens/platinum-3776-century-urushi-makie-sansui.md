@@ -29,7 +29,7 @@ The Platinum 3776 Century Urushi Maki-e Sansui is a masterpiece of Japanese penm
 
 ## Gallery
 
-![Platinum 3776 Century Urushi Maki-e Sansui](https://www.jetpens.com/images/a/000/324/32413.jpg)
+![Platinum 3776 Century Urushi Maki-e Sansui](https://static2.jetpens.com/images/a/000/205/205720.jpg?auto=format&blend64=d2F0ZXJtYXJrMi5wbmc&q=80&usm=20&w=1200&s=c140e2f38ebcbf85387bf9568db17f5d)
 
 ## Links
 
@@ -38,3 +38,5 @@ The Platinum 3776 Century Urushi Maki-e Sansui is a masterpiece of Japanese penm
 ## Notes
 
 This pen is a collector's item and a celebration of Japanese craftsmanship. The urushi lacquer and maki-e process make each pen unique. Only a limited number are produced, making it highly sought after by enthusiasts and collectors.
+
+Special thanks to my friend Jose who acquired this for me in his trip to Japan.
