@@ -192,7 +192,7 @@ function parseStats(html) {
 
   // Extract Ranked Duel 1v1 current stats - more flexible pattern
   // Look for the Ranked Duel 1v1 section with the rating value
-  const duelMatch = html.match(/Ranked Duel 1v1.*?alt="([^"]+)".*?class="value">(\d+)<.*?Bottom\s+([\d.]+)%/s);
+  const duelMatch = html.match(/Ranked Duel 1v1.*?alt="([^"]+)".*?class="value">(\d+)<.*?Top\s+([\d.]+)%/s);
   if (duelMatch) {
     stats.rankedDuel.rank = duelMatch[1];
     stats.rankedDuel.rating = parseInt(duelMatch[2]);
