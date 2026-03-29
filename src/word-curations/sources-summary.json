@@ -1,6 +1,6 @@
 {
-  "total_entries": 3179,
-  "unique_sources": 119,
+  "total_entries": 3180,
+  "unique_sources": 120,
   "categories": {
     "Personal": {
       "total": 1995,
@@ -167,13 +167,14 @@
       }
     },
     "Events/Sports": {
-      "total": 10,
+      "total": 11,
       "sources": {
         "Liga MX": 2,
         "NBA": 4,
         "Rayados vs Mazatlán soccer game": 2,
         "Baseball": 1,
-        "Fox NFL": 1
+        "Fox NFL": 1,
+        "Amistoso Internacional - México vs Portugal": 1
       }
     }
   }
