@@ -109,7 +109,8 @@ module.exports = function() {
       for (let i = 0; i < lines.length; i++) {
         const line = lines[i];
         if (line.match(/^\s+source:/)) {
-          const source = line.replace(/^\s+source:\s*/, '').trim();
+          const raw = line.replace(/^\s+source:\s*/, '').trim();
+          const source = raw.replace(/^["'](.+)["']$/, '$1');
           const canonicalSource = canonicalize(source);
           if (canonicalSource && !mapping[canonicalSource]) {
             mapping[canonicalSource] = categorizeSource(canonicalSource);
