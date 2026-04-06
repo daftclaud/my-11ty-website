@@ -44,11 +44,13 @@ const categoryKeywords = {
     // Former Non-fiction Books keywords merged here
     'Evolution', 'Instinct', 'Anarchy', 'Nexus', 'Ruido', 'Singularity', 'Reviewed', 'Project',
     'The Phoenix Project - Gene Kim', 'Balanced Scorecard Evolution',
-    'The Real Daft Punk', 'This is Lean', 'Designing the Future', 'Libro sobre Responsabilidad Social Empresarial'
+    'The Real Daft Punk', 'This is Lean', 'Designing the Future', 'Libro sobre Responsabilidad Social Empresarial',
+    'Jeremy Kun'
   ],
   'Movies/TV/Anime': [
     'TV', 'Anime', 'Movie', 'Podcast', 'Love is Blind', 'Last Week Tonight', 'Netflix',
-    'A Few Good Men', 'Exhuma', 'PRI - Crónica del Fin', 'Frieren', 'Debo, puedo y quiero', 'David Attenborough'
+    'A Few Good Men', 'Exhuma', 'PRI - Crónica del Fin', 'Frieren', 'Debo, puedo y quiero', 'David Attenborough',
+    'Finding Harry'
   ],
   'News/Press': ['Periódico', 'NYT', 'New York Times', 'Milenio', 'El Horizonte', 'Magazine', 'El noticiero'],
   'Web/Social/Apps': [
@@ -60,9 +62,9 @@ const categoryKeywords = {
   'Personal': [
     'My old website', 'Yo', 'Honey', 'Mi papá', 'Paty Alvarez', 'Alan Zorrilla', 'Thomas Ojeda',
     'Adrian Marcelo', 'Elon Musk', 'Work', 'Coty - Globant', 'Alejandro - Guia en Cusco', 'Domenica',
-    'Carlos Rodriguez', 'Beatriz Janet'
+    'Carlos Rodriguez', 'Carlos Rodríguez', 'Beatriz Janet'
   ],
-  'Events/Sports': ['soccer game', 'Rayados', 'Mazatlán', 'NBA', 'Baseball', 'Fox NFL', 'Liga MX'],
+  'Events/Sports': ['soccer game', 'Rayados', 'Mazatlán', 'NBA', 'Baseball', 'Fox NFL', 'Liga MX', 'Amistoso Internacional', 'Congreso de Oftalmología'],
   'Academic/Work': ['Masters class', 'homework', 'Paper', 'Tarea de maestría'],
   'Museums/Places': ['Museo', 'Vinicola', 'House of Guinness']
 };
@@ -149,7 +151,8 @@ module.exports = function() {
           }
         } else if (line.match(/^\s+source:/)) {
           if (currentWord) {
-            currentWord.source = line.replace(/^\s+source:\s*/, '').trim();
+            const raw = line.replace(/^\s+source:\s*/, '').trim();
+            currentWord.source = raw.replace(/^["'](.+)["']$/, '$1');
           }
         }
       }
