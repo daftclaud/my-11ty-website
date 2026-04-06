@@ -1,5 +1,5 @@
 {
-  "total_entries": 3184,
+  "total_entries": 3185,
   "unique_sources": 122,
   "categories": {
     "Personal": {
@@ -18,12 +18,13 @@
         "Elon Musk": 1,
         "Thomas Ojeda": 1,
         "Domenica - amiga": 1,
-        "Carlos": 2,
+        "Carlos Rodriguez": 1,
+        "Carlos Rodríguez": 1,
         "Beatriz Janet": 1
       }
     },
     "Non-fiction Books": {
-      "total": 94,
+      "total": 91,
       "sources": {
         "Ruido - Daniel Kahneman, Oliver Siboney, Cass R. Sunstein": 27,
         "The Phoenix Project - Gene Kim": 14,
@@ -34,13 +35,11 @@
         "PRI - Crónica del Fin": 1,
         "La Vaca Sagrada - Tarun Chopra": 1,
         "Freakonomics - Book by Stephen J. Dubner and Steven Levitt": 13,
-        "The Undoing Project - Book by Michael Lewis": 21,
-        "A Programmer's Introduction to Mathematics - book by Jeremy Kun": 2,
-        "Finding Harry: The Craft Behind The Magic": 1
+        "The Undoing Project - Book by Michael Lewis": 21
       }
     },
     "Books/Novels": {
-      "total": 961,
+      "total": 963,
       "sources": {
         "Children of Memory - Novel by Adrian Tchaikovsky": 131,
         "Nexus - Yuval Noah Harari": 86,
@@ -75,7 +74,7 @@
         "Harry Potter and the Prisoner of Azkaban": 1,
         "Tres enigmas para la Organización - Eduardo Mendoza": 1,
         "The Phoenix Project - Gene Kim": 1,
-        "Foundation - Isaac Asimov": 25,
+        "A Programmer's Introduction to Mathematics - book by Jeremy Kun": 2,
         "Harry Potter and the Deathly Hallows": 1,
         "Foundation and Empire - Isaac Asimov": 14,
         "Project Hail Mary - Novel by Andy Weir": 2
@@ -137,7 +136,7 @@
       }
     },
     "Movies/TV/Anime": {
-      "total": 30,
+      "total": 31,
       "sources": {
         "Love is Blind - Mexico": 3,
         "Mashle - Anime": 3,
@@ -157,7 +156,8 @@
         "Hell's Paradise - Anime": 1,
         "Wake Up Dead Man - Netflix": 1,
         "Planet Earth - David Attenborough": 1,
-        "Scent of a Woman - Movie": 2
+        "Scent of a Woman - Movie": 2,
+        "Finding Harry: The Craft Behind The Magic": 1
       }
     },
     "Music": {
@@ -169,14 +169,15 @@
       }
     },
     "Events/Sports": {
-      "total": 11,
+      "total": 12,
       "sources": {
         "Liga MX": 2,
         "NBA": 4,
         "Rayados vs Mazatlán soccer game": 2,
         "Baseball": 1,
         "Fox NFL": 1,
-        "Amistoso Internacional - México vs Portugal": 1
+        "Amistoso Internacional - México vs Portugal": 1,
+        "Congreso de Oftalmología": 1
       }
     }
   }
