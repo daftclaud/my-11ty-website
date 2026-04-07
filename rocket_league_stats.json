@@ -11,10 +11,10 @@
     "season": "Season 33"
   },
   "lifetime": {
-    "wins": 6499,
-    "goals": 51166,
-    "shots": 81252,
-    "saves": 38181,
+    "wins": 6501,
+    "goals": 51182,
+    "shots": 81284,
+    "saves": 38185,
     "goalShotRatio": 63,
     "winsRank": "Top 7.0%",
     "goalsRank": "Top 0.2%",
@@ -22,5 +22,5 @@
     "savesRank": "Top 0.3%",
     "goalShotRatioRank": "Top 2.0%"
   },
-  "lastUpdated": "2026-04-06T12:17:02.139Z"
+  "lastUpdated": "2026-04-07T12:18:20.497Z"
 }
