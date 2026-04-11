@@ -1,5 +1,5 @@
 {
-  "total_entries": 3186,
+  "total_entries": 3187,
   "unique_sources": 122,
   "categories": {
     "Personal": {
@@ -39,7 +39,7 @@
       }
     },
     "Books/Novels": {
-      "total": 965,
+      "total": 966,
       "sources": {
         "Children of Memory - Novel by Adrian Tchaikovsky": 131,
         "Nexus - Yuval Noah Harari": 86,
@@ -77,7 +77,7 @@
         "A Programmer's Introduction to Mathematics - book by Jeremy Kun": 2,
         "Harry Potter and the Deathly Hallows": 1,
         "Foundation and Empire - Isaac Asimov": 14,
-        "Project Hail Mary - Novel by Andy Weir": 4
+        "Project Hail Mary - Novel by Andy Weir": 5
       }
     },
     "Short Stories": {
