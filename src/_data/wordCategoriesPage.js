@@ -50,7 +50,9 @@ const categoryKeywords = {
   'Movies/TV/Anime': [
     'TV', 'Anime', 'Movie', 'Podcast', 'Love is Blind', 'Last Week Tonight', 'Netflix',
     'A Few Good Men', 'Exhuma', 'PRI - Crónica del Fin', 'Frieren', 'Debo, puedo y quiero', 'David Attenborough',
-    'Finding Harry'
+    'Finding Harry',
+    // Trust Me is a Netflix drama series
+    'Trust Me'
   ],
   'News/Press': ['Periódico', 'NYT', 'New York Times', 'Milenio', 'El Horizonte', 'Magazine', 'El noticiero'],
   'Web/Social/Apps': [
