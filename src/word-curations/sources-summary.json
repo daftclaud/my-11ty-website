@@ -1,6 +1,6 @@
 {
-  "total_entries": 3187,
-  "unique_sources": 122,
+  "total_entries": 3188,
+  "unique_sources": 123,
   "categories": {
     "Personal": {
       "total": 1995,
@@ -136,7 +136,7 @@
       }
     },
     "Movies/TV/Anime": {
-      "total": 31,
+      "total": 32,
       "sources": {
         "Love is Blind - Mexico": 3,
         "Mashle - Anime": 3,
@@ -157,7 +157,8 @@
         "Wake Up Dead Man - Netflix": 1,
         "Planet Earth - David Attenborough": 1,
         "Scent of a Woman - Movie": 2,
-        "Finding Harry: The Craft Behind The Magic": 1
+        "Finding Harry: The Craft Behind The Magic": 1,
+        "Trust Me - Drama series": 1
       }
     },
     "Music": {
