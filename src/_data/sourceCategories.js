@@ -23,8 +23,6 @@ const canonical = {
   'La Paty': 'Paty Alvarez',
   'Mi mentee Thomas': 'Thomas Ojeda',
   'Chamba': 'Work',
-  // Shows / streaming
-  'Trust Me - Drama series': 'Trust Me - Netflix',
 };
 
 // Category keyword lists
