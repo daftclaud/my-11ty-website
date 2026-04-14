@@ -1,0 +1,242 @@
+{
+  "Project Hail Mary - Novel by Andy Weir": {
+    "genres": ["Science Fiction", "Adventure"],
+    "publishedYear": 2021,
+    "blurbEn": "A lone astronaut wakes with no memory and must piece together a desperate mission to save the Earth from extinction.",
+    "blurbEs": "Un astronauta despierta sin memoria y debe reconstruir una misión desesperada para salvar a la Tierra de la extinción."
+  },
+  "The Undoing Project - Book by Michael Lewis": {
+    "genres": ["Non-Fiction", "Psychology"],
+    "publishedYear": 2016,
+    "blurbEn": "The story of Daniel Kahneman and Amos Tversky, whose unlikely friendship revolutionized our understanding of human judgment and bias.",
+    "blurbEs": "La historia de Kahneman y Tversky, cuya improbable amistad transformó la comprensión de los sesgos cognitivos."
+  },
+  "A Programmer's Introduction to Mathematics - book by Jeremy Kun": {
+    "genres": ["Technology", "Academic"],
+    "publishedYear": 2018,
+    "blurbEn": "A bridge between software engineering and mathematics, using programming as the lens to illuminate key mathematical ideas.",
+    "blurbEs": "Un puente entre la ingeniería de software y las matemáticas, usando la programación para iluminar conceptos clave."
+  },
+  "Freakonomics - Book by Stephen J. Dubner and Steven Levitt": {
+    "genres": ["Non-Fiction", "Economics"],
+    "publishedYear": 2005,
+    "blurbEn": "An economist's unconventional lens applied to everyday life, revealing surprising hidden truths through data.",
+    "blurbEs": "La mirada no convencional de un economista sobre la vida cotidiana, revelando verdades sorprendentes a través de los datos."
+  },
+  "Foundation and Empire - Isaac Asimov": {
+    "genres": ["Science Fiction"],
+    "publishedYear": 1952,
+    "blurbEn": "The growing Foundation faces its greatest threat: a mutant conqueror whose rise no mathematical model can predict.",
+    "blurbEs": "La Fundación enfrenta su mayor amenaza: un conquistador mutante que ningún modelo matemático puede predecir."
+  },
+  "La Vaca Sagrada - Tarun Chopra": {
+    "genres": ["Business"],
+    "publishedYear": null,
+    "blurbEn": "A business parable about challenging the unexamined assumptions and entrenched habits that quietly hold organizations back.",
+    "blurbEs": "Una parábola empresarial sobre desafiar los supuestos no cuestionados y los hábitos arraigados que frenan a las organizaciones."
+  },
+  "Foundation - Isaac Asimov": {
+    "genres": ["Science Fiction"],
+    "publishedYear": 1951,
+    "blurbEn": "A mathematician engineers a program to preserve civilization across a thousand years of looming galactic dark age.",
+    "blurbEs": "Un matemático diseña un programa para preservar la civilización a través de mil años de oscuridad galáctica."
+  },
+  "Harry Potter and the Deathly Hallows": {
+    "genres": ["Fantasy"],
+    "publishedYear": 2007,
+    "blurbEn": "The final battle against Voldemort as Harry hunts the last Horcruxes and uncovers the legend of the Deathly Hallows.",
+    "blurbEs": "La batalla final contra Voldemort mientras Harry destruye los últimos Horrocruxes y descubre la leyenda de las Reliquias."
+  },
+  "The Phoenix Project - Gene Kim": {
+    "genres": ["Business", "Technology"],
+    "publishedYear": 2013,
+    "blurbEn": "A novel about an IT manager who must rescue a failing project, uncovering the principles of DevOps along the way.",
+    "blurbEs": "Una novela sobre un gerente de IT que rescata un proyecto fallido y descubre los principios de DevOps en el camino."
+  },
+  "Tres enigmas para la Organización - Eduardo Mendoza": {
+    "genres": ["Humor", "Literary Fiction"],
+    "publishedYear": 2018,
+    "blurbEn": "Eduardo Mendoza's sharp satire drops his bumbling detective into the absurd world of corporate consulting.",
+    "blurbEs": "La afilada sátira de Eduardo Mendoza sitúa a su torpe detective en el absurdo mundo de la consultoría corporativa."
+  },
+  "El Gigante Enterrado - Kazuo Ishiguro": {
+    "genres": ["Literary Fiction", "Fantasy"],
+    "publishedYear": 2015,
+    "blurbEn": "An elderly couple journeys across a misty post-Arthurian England where a collective amnesia has erased the past.",
+    "blurbEs": "Una pareja de ancianos recorre una neblinosa Inglaterra post-artúrica donde una amnesia colectiva ha borrado el pasado."
+  },
+  "Ruido - Daniel Kahneman, Oliver Siboney, Cass R. Sunstein": {
+    "genres": ["Non-Fiction", "Psychology"],
+    "publishedYear": 2021,
+    "blurbEn": "An eye-opening look at how random variability in human judgment leads to unfair and often dangerous inconsistencies.",
+    "blurbEs": "Un análisis revelador de cómo la variabilidad aleatoria en el juicio humano genera inconsistencias injustas y peligrosas."
+  },
+  "El Infinito en un Junco - Irene Vallejo": {
+    "genres": ["Non-Fiction", "History"],
+    "publishedYear": 2019,
+    "blurbEn": "A lyrical, deeply researched history of how humans invented books, from papyrus scrolls in ancient Egypt to the printing press.",
+    "blurbEs": "Una historia lírica y documentada sobre la invención de los libros, desde los papiros del antiguo Egipto hasta la imprenta."
+  },
+  "Never Let Me Go - Kazuo Ishiguro": {
+    "genres": ["Literary Fiction", "Science Fiction"],
+    "publishedYear": 2005,
+    "blurbEn": "Three friends raised at an idyllic English school gradually confront the disturbing truth about their existence.",
+    "blurbEs": "Tres amigos criados en una idílica escuela inglesa van confrontando gradualmente la perturbadora verdad sobre su existencia."
+  },
+  "Not the End of the World - Hannah Ritchie": {
+    "genres": ["Non-Fiction", "Environmental Science"],
+    "publishedYear": 2024,
+    "blurbEn": "A data scientist makes the compelling case that humanity is already making measurable progress on its greatest environmental challenges.",
+    "blurbEs": "Una científica de datos argumenta que la humanidad ya está logrando avances reales en sus grandes desafíos ambientales."
+  },
+  "How High We Go in the Dark - Sequoia Nagamatsu": {
+    "genres": ["Science Fiction"],
+    "publishedYear": 2022,
+    "blurbEn": "Linked stories spanning centuries after an ancient virus is unleashed in the Arctic, exploring grief, love, and resilience.",
+    "blurbEs": "Relatos entrelazados a lo largo de siglos tras liberar un virus ancestral en el Ártico, explorando el duelo y la resiliencia."
+  },
+  "The Wind-Up Bird Chronicle - Haruki Murakami": {
+    "genres": ["Literary Fiction"],
+    "publishedYear": 1994,
+    "blurbEn": "A man's search for his missing cat pulls him deeper into a labyrinthine mystery touching on war, violence, and the self.",
+    "blurbEs": "La búsqueda de un hombre por su gato desaparecido lo arrastra a un laberinto de misterio que roza la guerra y la identidad."
+  },
+  "Harry Potter and the Half-blood Prince": {
+    "genres": ["Fantasy"],
+    "publishedYear": 2005,
+    "blurbEn": "Harry and Dumbledore probe Voldemort's hidden past as the darkest chapter of the war begins to unfold.",
+    "blurbEs": "Harry y Dumbledore exploran el pasado oculto de Voldemort mientras comienza el capítulo más oscuro de la guerra."
+  },
+  "Sophie's World - Jostein Gaarder": {
+    "genres": ["Philosophy", "Literary Fiction"],
+    "publishedYear": 1991,
+    "blurbEn": "A teenage girl in Norway receives mysterious letters that take her through the entire history of Western philosophy.",
+    "blurbEs": "Una adolescente noruega recibe cartas misteriosas que la llevan a través de toda la historia de la filosofía occidental."
+  },
+  "The Catcher in the Rye - J.D. Salinger": {
+    "genres": ["Literary Fiction"],
+    "publishedYear": 1951,
+    "blurbEn": "A teenager's candid, rebellious account of a few days adrift in New York after being expelled from prep school.",
+    "blurbEs": "El relato sincero y rebelde de un adolescente a la deriva en Nueva York tras ser expulsado de su internado."
+  },
+  "Zen and the Art of Motorcycle Maintenance - Robert M. Pirsig": {
+    "genres": ["Philosophy"],
+    "publishedYear": 1974,
+    "blurbEn": "A cross-country motorcycle trip becomes a philosophical inquiry into Quality and the roots of Western rationalism.",
+    "blurbEs": "Un viaje en motocicleta se convierte en una exploración del concepto de Calidad y las raíces del racionalismo occidental."
+  },
+  "Around the World in Eighty Days - Jules Verne": {
+    "genres": ["Adventure", "Classic Fiction"],
+    "publishedYear": 1872,
+    "blurbEn": "Phileas Fogg bets everything on circumnavigating the globe in just eighty days, with a detective hot on his heels.",
+    "blurbEs": "Phileas Fogg apuesta todo a dar la vuelta al mundo en ochenta días, perseguido por un detective que desconfía de él."
+  },
+  "Anarchy, State, and Utopia - Robert Nozick": {
+    "genres": ["Philosophy", "Political Theory"],
+    "publishedYear": 1974,
+    "blurbEn": "A landmark libertarian argument that only a minimal state can be justified without violating individual rights.",
+    "blurbEs": "Un influyente argumento libertario que defiende el Estado mínimo como única forma de organización política justificable."
+  },
+  "The Singularity is Nearer - Ray Kurzweil": {
+    "genres": ["Non-Fiction", "Technology"],
+    "publishedYear": 2024,
+    "blurbEn": "Kurzweil updates his singularity predictions, arguing that AI will soon merge with and amplify human intelligence.",
+    "blurbEs": "Kurzweil actualiza sus predicciones sobre la singularidad, argumentando que la IA pronto se fusionará con la inteligencia humana."
+  },
+  "La Caza del Carnero Salvaje - Haruki Murakami": {
+    "genres": ["Literary Fiction"],
+    "publishedYear": 1982,
+    "blurbEn": "A young man is blackmailed into an impossible quest across Japan for a sheep bearing a strange star-shaped birthmark.",
+    "blurbEs": "Un joven es chantajeado para emprender una búsqueda imposible por Japón de una oveja con una marca de estrella."
+  },
+  "The Language Instinct - Steven Pinker": {
+    "genres": ["Non-Fiction", "Linguistics"],
+    "publishedYear": 1994,
+    "blurbEn": "A compelling argument that language is a biological adaptation—a unique instinct shaped by natural selection in every human.",
+    "blurbEs": "Un argumento convincente de que el lenguaje es una adaptación biológica, un instinto único moldeado por la selección natural."
+  },
+  "Benjamin Franklin - Walter Isaacson": {
+    "genres": ["Biography", "History"],
+    "publishedYear": 2003,
+    "blurbEn": "A richly detailed portrait of America's first great self-made man—inventor, diplomat, satirist, and founding father.",
+    "blurbEs": "Un retrato rico y detallado del primer gran hombre hecho a sí mismo de América: inventor, diplomático y padre fundador."
+  },
+  "Harry Potter Wiki": {
+    "genres": ["Reference", "Fantasy"],
+    "publishedYear": null,
+    "blurbEn": "The fan-maintained online encyclopedia covering every corner of J.K. Rowling's Wizarding World.",
+    "blurbEs": "La enciclopedia en línea mantenida por fans que cubre cada rincón del mundo mágico de J.K. Rowling."
+  },
+  "El Juego del Angel - Carlos Ruiz Zafón": {
+    "genres": ["Literary Fiction", "Mystery"],
+    "publishedYear": 2008,
+    "blurbEn": "A struggling writer in Barcelona makes a Faustian deal and descends into a gothic labyrinth of obsession and dark bargains.",
+    "blurbEs": "Un escritor en apuros en Barcelona hace un pacto fáustico y desciende a un laberinto gótico de obsesión y misterio."
+  },
+  "Harry Potter and the Goblet of Fire": {
+    "genres": ["Fantasy"],
+    "publishedYear": 2000,
+    "blurbEn": "Harry is unexpectedly entered in the perilous Triwizard Tournament, forcing him to face dangers far beyond his years.",
+    "blurbEs": "Harry es inscrito inesperadamente en el peligroso Torneo de los Tres Magos, enfrentando peligros muy por encima de su edad."
+  },
+  "Balanced Scorecard Evolution - Book by Paul R. Niven": {
+    "genres": ["Business"],
+    "publishedYear": 2014,
+    "blurbEn": "A practical guide to adapting the Balanced Scorecard strategic framework to the realities of today's organizations.",
+    "blurbEs": "Una guía práctica para adaptar el Cuadro de Mando Integral a las realidades de las organizaciones actuales."
+  },
+  "Designing the Future - Jay W. Forrester": {
+    "genres": ["Systems Thinking", "Technology"],
+    "publishedYear": 2009,
+    "blurbEn": "The father of system dynamics reflects on how feedback modeling can help societies navigate complexity and long-term challenges.",
+    "blurbEs": "El padre de la dinámica de sistemas reflexiona sobre cómo los modelos de retroalimentación pueden ayudar a las sociedades a gestionar su complejidad."
+  },
+  "Stories of Your Life and Others - Ted Chiang": {
+    "genres": ["Science Fiction", "Short Stories"],
+    "publishedYear": 2002,
+    "blurbEn": "Eight luminous, rigorous stories probing the limits of language, mathematics, religion, and what it means to be human.",
+    "blurbEs": "Ocho brillantes relatos que exploran los límites del lenguaje, las matemáticas, la religión y la condición humana."
+  },
+  "El Fin del Mundo y un Despiadado País de las Maravillas - Haruki Murakami": {
+    "genres": ["Literary Fiction", "Science Fiction"],
+    "publishedYear": 1985,
+    "blurbEn": "Two parallel narratives—a cyberpunk thriller and a quiet dreamscape—converge in Murakami's most structurally daring novel.",
+    "blurbEs": "Dos narrativas paralelas —una cyberpunk y un sereno paisaje onírico— convergen en la novela estructuralmente más audaz de Murakami."
+  },
+  "Nexus - Yuval Noah Harari": {
+    "genres": ["Non-Fiction", "History", "Technology"],
+    "publishedYear": 2024,
+    "blurbEn": "A sweeping history of how information networks have shaped human societies, from cave paintings to the age of AI.",
+    "blurbEs": "Una historia abarcadora de cómo las redes de información han moldeado a las sociedades humanas, desde las cavernas hasta la IA."
+  },
+  "The Road - Novel by Cormac McCarthy": {
+    "genres": ["Literary Fiction", "Post-Apocalyptic"],
+    "publishedYear": 2006,
+    "blurbEn": "A father and son walk through a burned America after an unexplained catastrophe, clinging to each other and to hope.",
+    "blurbEs": "Un padre y su hijo caminan por una América calcinada, aferrados el uno al otro y a una esperanza que se afina cada día."
+  },
+  "Harry Potter and the Prisoner of Azkaban": {
+    "genres": ["Fantasy"],
+    "publishedYear": 1999,
+    "blurbEn": "Harry discovers that a dangerous escaped prisoner may be connected to his parents' fate in ways he never imagined.",
+    "blurbEs": "Harry descubre que un peligroso prisionero fugado puede estar conectado al destino de sus padres de maneras que jamás imaginó."
+  },
+  "Libro sobre Responsabilidad Social Empresarial": {
+    "genres": ["Business", "Academic"],
+    "publishedYear": null,
+    "blurbEn": "An exploration of how businesses can integrate social and environmental responsibility into their core strategy.",
+    "blurbEs": "Una exploración de cómo las empresas pueden integrar la responsabilidad social y ambiental en su estrategia central."
+  },
+  "The Physician - Novel by Noah Gordon": {
+    "genres": ["Historical Fiction"],
+    "publishedYear": 1986,
+    "blurbEn": "A medieval English orphan disguises himself as a Jew to study medicine under the legendary physician Ibn Sina in Persia.",
+    "blurbEs": "Un huérfano inglés medieval se disfraza de judío para estudiar medicina bajo la leyenda persa Ibn Sina en Persia."
+  },
+  "Children of Memory - Novel by Adrian Tchaikovsky": {
+    "genres": ["Science Fiction"],
+    "publishedYear": 2022,
+    "blurbEn": "The conclusion to the Children of Time trilogy probes the nature of memory and consciousness across diverse forms of evolved intelligence.",
+    "blurbEs": "El cierre de la trilogía Children of Time explora la memoria y la conciencia a través de diversas formas de inteligencia evolucionada."
+  }
+}

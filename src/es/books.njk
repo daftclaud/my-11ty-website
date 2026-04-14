@@ -135,18 +135,74 @@ permalink: /es/books/
     opacity: 0.9;
   }
 
-  .book-source {
-    margin-top: 10px;
-    font-size: 0.78rem;
-    opacity: 0.75;
-    border-top: 1px dashed var(--clr-border-dashed);
-    padding-top: 8px;
-    overflow-wrap: anywhere;
+  .book-genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 0 0 8px;
+  }
+
+  .book-genre-chip {
+    font-size: 0.72rem;
+    border: 1px solid var(--clr-border);
+    border-radius: 999px;
+    padding: 2px 8px;
+    opacity: 0.8;
+    white-space: nowrap;
+  }
+
+  .book-blurb {
+    font-size: 0.84rem;
+    line-height: 1.5;
+    opacity: 0.85;
+    margin: 0 0 10px;
+    font-style: italic;
   }
 
   @media (max-width: 600px) {
     .books-grid {
       grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .book-card {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .book-cover-wrap {
+      aspect-ratio: unset;
+      width: 90px;
+      min-width: 90px;
+      height: auto;
+      border-bottom: none;
+      border-right: 2px solid var(--clr-border);
+    }
+
+    .book-cover-link {
+      height: 100%;
+    }
+
+    .book-content {
+      padding: 10px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .book-title {
+      font-size: 0.9rem;
+    }
+
+    .book-author {
+      font-size: 0.8rem;
+    }
+
+    .book-meta {
+      font-size: 0.75rem;
+    }
+
+    .book-genre-chip {
+      font-size: 0.68rem;
     }
   }
 </style>
@@ -197,13 +253,22 @@ permalink: /es/books/
               {% if book.author %}
                 <p class="book-author">de {{ book.author }}</p>
               {% endif %}
+              {% if book.genres.length %}
+                <div class="book-genres">
+                  {% for genre in book.genres %}
+                    <span class="book-genre-chip">{{ genre }}</span>
+                  {% endfor %}
+                </div>
+              {% endif %}
+              {% if book.blurbEs %}
+                <p class="book-blurb">{{ book.blurbEs }}</p>
+              {% endif %}
               <div class="book-meta">
                 <div>{{ book.wordsCount }} palabra{% if book.wordsCount != 1 %}s{% endif %} curada{% if book.wordsCount != 1 %}s{% endif %} de esta fuente</div>
                 {% if book.firstSeen %}
                   <div>Ventana de lectura: {{ book.firstSeen | formatDate('es-MX') }} a {{ book.lastSeen | formatDate('es-MX') }}</div>
                 {% endif %}
               </div>
-              <div class="book-source">Fuente: {{ book.source }}</div>
             </div>
           </article>
         {% endfor %}

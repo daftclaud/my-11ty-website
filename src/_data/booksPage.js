@@ -1,5 +1,6 @@
 const wordCategoriesPage = require('./wordCategoriesPage');
 const bookCovers = require('./bookCovers.json');
+const bookMeta = require('./bookMeta.json');
 
 function parseSource(source) {
   const clean = (source || '').trim();
@@ -52,12 +53,18 @@ module.exports = function () {
       .filter(Boolean)
       .sort();
 
+    const meta = bookMeta[source] || {};
+
     return {
       source,
       title,
       author,
       coverPath: (bookCovers[source] && bookCovers[source].coverPath) || null,
       infoUrl: (bookCovers[source] && bookCovers[source].infoUrl) || buildFallbackInfoUrl(title, author),
+      genres: meta.genres || [],
+      publishedYear: meta.publishedYear || null,
+      blurbEn: meta.blurbEn || '',
+      blurbEs: meta.blurbEs || '',
       wordsCount: entries.length,
       firstSeen: dates[0] || null,
       lastSeen: dates[dates.length - 1] || null,
