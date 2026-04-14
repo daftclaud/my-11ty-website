@@ -67,6 +67,7 @@
         <a href="{{ baseUrl }}/" class="{{ 'active' if '/' ==  pageUrl or '/es/' == pageUrl }}">{{ 'nav.home' | t(locale or 'en') }}</a>
         <a href="{{ baseUrl }}/about" class="{{ 'active' if pageUrl and 'about' in  pageUrl }}">{{ 'nav.about' | t(locale or 'en') }}</a>
         <a href="{{ baseUrl }}/word-curations" class="{{ 'active' if pageUrl and 'curations' in  pageUrl }}">{{ 'nav.wordCurations' | t(locale or 'en') }}</a>
+        <a href="{{ baseUrl }}/books" class="{{ 'active' if pageUrl and 'books' in pageUrl }}">{{ 'nav.books' | t(locale or 'en') }}</a>
         <a href="{{ baseUrl }}/pens" class="{{ 'active' if pageUrl and 'pens' in  pageUrl }}">{{ 'nav.pens' | t(locale or 'en') }}</a>
       </nav>
       {{ content | safe }}

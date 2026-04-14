@@ -1,0 +1,154 @@
+---
+layout: base.njk
+locale: es
+title: Libros
+description: Un estante de libros construido con mis fuentes de Coleccion de Palabras.
+permalink: /es/books/
+---
+
+<style>
+  .books-intro {
+    margin: 0 0 24px;
+    line-height: 1.7;
+  }
+
+  .books-stats {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 22px;
+    border: 2px solid var(--clr-border);
+    border-radius: 999px;
+    padding: 8px 14px;
+    background: color-mix(in srgb, var(--clr-main-bg) 88%, var(--clr-nav-bg) 12%);
+  }
+
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 16px;
+  }
+
+  .book-card {
+    border: 2px solid var(--clr-border);
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--clr-main-bg);
+    box-shadow: 2px 2px 0 color-mix(in srgb, var(--clr-text) 45%, transparent);
+  }
+
+  .book-cover-wrap {
+    aspect-ratio: 2 / 3;
+    background:
+      linear-gradient(135deg, color-mix(in srgb, var(--clr-main-bg) 70%, var(--clr-nav-bg) 30%), var(--clr-main-bg)),
+      repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.12) 0 10px, rgba(0, 0, 0, 0.08) 10px 20px);
+    display: grid;
+    place-items: center;
+    border-bottom: 2px solid var(--clr-border);
+    position: relative;
+  }
+
+  .book-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+  }
+
+  .book-cover-placeholder {
+    font-size: 0.95rem;
+    text-align: center;
+    padding: 14px;
+    opacity: 0.85;
+  }
+
+  .book-content {
+    padding: 12px;
+  }
+
+  .book-title {
+    margin: 0 0 8px;
+    font-size: 1.05rem;
+    line-height: 1.35;
+    color: var(--clr-heading);
+  }
+
+  .book-author {
+    margin: 0 0 10px;
+    font-size: 0.92rem;
+    opacity: 0.88;
+  }
+
+  .book-meta {
+    font-size: 0.82rem;
+    display: grid;
+    gap: 6px;
+    opacity: 0.9;
+  }
+
+  .book-source {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    opacity: 0.75;
+    border-top: 1px dashed var(--clr-border-dashed);
+    padding-top: 8px;
+    overflow-wrap: anywhere;
+  }
+
+  @media (max-width: 600px) {
+    .books-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<h1>Libros</h1>
+<p class="books-intro">
+  Un estante practico creado con tus fuentes de <strong>Books/Novels</strong> dentro de Coleccion de Palabras.
+  Las portadas se consultan en Open Library cuando estan disponibles.
+</p>
+<div class="books-stats">
+  <strong>{{ booksPage.totalBooks }}</strong>
+  <span>libros registrados</span>
+</div>
+
+{% if booksPage.books.length %}
+  <section class="books-grid" aria-label="Lista de libros">
+    {% for book in booksPage.books %}
+      <article class="book-card">
+        <div class="book-cover-wrap">
+          {% if book.coverPath %}
+            <img
+              class="book-cover"
+              src="{{ book.coverPath }}"
+              alt="Portada de {{ book.title }}"
+              loading="lazy"
+              decoding="async"
+              style="display: block;"
+            />
+          {% else %}
+            <div class="book-cover-placeholder">Portada no disponible</div>
+          {% endif %}
+        </div>
+        <div class="book-content">
+          <h2 class="book-title">{{ book.title }}</h2>
+          {% if book.author %}
+            <p class="book-author">de {{ book.author }}</p>
+          {% endif %}
+          <div class="book-meta">
+            <div>{{ book.wordsCount }} palabra{% if book.wordsCount != 1 %}s{% endif %} curada{% if book.wordsCount != 1 %}s{% endif %} de esta fuente</div>
+            {% if book.firstSeen %}
+              <div>Primera vez: {{ book.firstSeen | formatDate('es-MX') }}</div>
+            {% endif %}
+            {% if book.lastSeen %}
+              <div>Ultima vez: {{ book.lastSeen | formatDate('es-MX') }}</div>
+            {% endif %}
+          </div>
+          <div class="book-source">Fuente: {{ book.source }}</div>
+        </div>
+      </article>
+    {% endfor %}
+  </section>
+{% else %}
+  <p>Aun no se encontraron libros en Books/Novels.</p>
+{% endif %}

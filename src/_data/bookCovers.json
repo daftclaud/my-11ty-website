@@ -1,0 +1,312 @@
+{
+  "Project Hail Mary - Novel by Andy Weir": {
+    "title": "Project Hail Mary",
+    "author": "Andy Weir",
+    "coverPath": "/assets/book-covers/project-hail-mary-andy-weir.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:10:44.823Z"
+  },
+  "The Undoing Project - Book by Michael Lewis": {
+    "title": "The Undoing Project",
+    "author": "Michael Lewis",
+    "coverPath": "/assets/book-covers/the-undoing-project-michael-lewis.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:10:46.027Z"
+  },
+  "A Programmer's Introduction to Mathematics - book by Jeremy Kun": {
+    "title": "A Programmer's Introduction to Mathematics",
+    "author": "Jeremy Kun",
+    "coverPath": "/assets/book-covers/a-programmer-s-introduction-to-mathematics-jeremy-kun.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:10:49.435Z"
+  },
+  "Freakonomics - Book by Stephen J. Dubner and Steven Levitt": {
+    "title": "Freakonomics",
+    "author": "Stephen J. Dubner and Steven Levitt",
+    "coverPath": null,
+    "status": "missing",
+    "checkedAt": "2026-04-14T02:10:53.697Z"
+  },
+  "Foundation and Empire - Isaac Asimov": {
+    "title": "Foundation and Empire",
+    "author": "Isaac Asimov",
+    "coverPath": "/assets/book-covers/foundation-and-empire-isaac-asimov.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:10:54.868Z"
+  },
+  "La Vaca Sagrada - Tarun Chopra": {
+    "title": "La Vaca Sagrada",
+    "author": "Tarun Chopra",
+    "coverPath": null,
+    "status": "missing",
+    "checkedAt": "2026-04-14T02:10:56.686Z"
+  },
+  "Foundation - Isaac Asimov": {
+    "title": "Foundation",
+    "author": "Isaac Asimov",
+    "coverPath": "/assets/book-covers/foundation-isaac-asimov.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:10:58.208Z"
+  },
+  "Harry Potter and the Deathly Hallows": {
+    "title": "Harry Potter and the Deathly Hallows",
+    "author": "",
+    "coverPath": "/assets/book-covers/harry-potter-and-the-deathly-hallows-na.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:10:58.677Z"
+  },
+  "The Phoenix Project - Gene Kim": {
+    "title": "The Phoenix Project",
+    "author": "Gene Kim",
+    "coverPath": "/assets/book-covers/the-phoenix-project-gene-kim.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:10:59.598Z"
+  },
+  "Tres enigmas para la Organización - Eduardo Mendoza": {
+    "title": "Tres enigmas para la Organización",
+    "author": "Eduardo Mendoza",
+    "coverPath": null,
+    "status": "missing",
+    "checkedAt": "2026-04-14T02:11:00.326Z"
+  },
+  "El Gigante Enterrado - Kazuo Ishiguro": {
+    "title": "El Gigante Enterrado",
+    "author": "Kazuo Ishiguro",
+    "coverPath": null,
+    "status": "missing",
+    "checkedAt": "2026-04-14T02:11:01.985Z"
+  },
+  "Ruido - Daniel Kahneman, Oliver Siboney, Cass R. Sunstein": {
+    "title": "Ruido",
+    "author": "Daniel Kahneman, Oliver Siboney, Cass R. Sunstein",
+    "coverPath": null,
+    "status": "missing",
+    "checkedAt": "2026-04-14T02:11:03.560Z"
+  },
+  "El Infinito en un Junco - Irene Vallejo": {
+    "title": "El Infinito en un Junco",
+    "author": "Irene Vallejo",
+    "coverPath": "/assets/book-covers/el-infinito-en-un-junco-irene-vallejo.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:11:04.636Z"
+  },
+  "Never Let Me Go - Kazuo Ishiguro": {
+    "title": "Never Let Me Go",
+    "author": "Kazuo Ishiguro",
+    "coverPath": "/assets/book-covers/never-let-me-go-kazuo-ishiguro.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:11:07.963Z"
+  },
+  "Not the End of the World - Hannah Ritchie": {
+    "title": "Not the End of the World",
+    "author": "Hannah Ritchie",
+    "coverPath": "/assets/book-covers/not-the-end-of-the-world-hannah-ritchie.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:11:09.139Z"
+  },
+  "How High We Go in the Dark - Sequoia Nagamatsu": {
+    "title": "How High We Go in the Dark",
+    "author": "Sequoia Nagamatsu",
+    "coverPath": "/assets/book-covers/how-high-we-go-in-the-dark-sequoia-nagamatsu.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:11:10.737Z"
+  },
+  "The Wind-Up Bird Chronicle - Haruki Murakami": {
+    "title": "The Wind-Up Bird Chronicle",
+    "author": "Haruki Murakami",
+    "coverPath": "/assets/book-covers/the-wind-up-bird-chronicle-haruki-murakami.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:11:14.228Z"
+  },
+  "Harry Potter and the Half-blood Prince": {
+    "title": "Harry Potter and the Half-blood Prince",
+    "author": "",
+    "coverPath": "/assets/book-covers/harry-potter-and-the-half-blood-prince-na.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:11:15.044Z"
+  },
+  "Sophie's World - Jostein Gaarder": {
+    "title": "Sophie's World",
+    "author": "Jostein Gaarder",
+    "coverPath": "/assets/book-covers/sophie-s-world-jostein-gaarder.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:11:15.836Z"
+  },
+  "The Catcher in the Rye - J.D. Salinger": {
+    "title": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "coverPath": "/assets/book-covers/the-catcher-in-the-rye-j-d-salinger.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:11:16.642Z"
+  },
+  "Zen and the Art of Motorcycle Maintenance - Robert M. Pirsig": {
+    "title": "Zen and the Art of Motorcycle Maintenance",
+    "author": "Robert M. Pirsig",
+    "coverPath": "/assets/book-covers/zen-and-the-art-of-motorcycle-maintenance-robert-m-pirsig.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:11:17.474Z"
+  },
+  "Around the World in Eighty Days - Jules Verne": {
+    "title": "Around the World in Eighty Days",
+    "author": "Jules Verne",
+    "coverPath": null,
+    "status": "missing",
+    "checkedAt": "2026-04-14T02:11:20.665Z"
+  },
+  "Anarchy, State, and Utopia - Robert Nozick": {
+    "title": "Anarchy, State, and Utopia",
+    "author": "Robert Nozick",
+    "coverPath": "/assets/book-covers/anarchy-state-and-utopia-robert-nozick.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:11:21.524Z"
+  },
+  "The Singularity is Nearer - Ray Kurzweil": {
+    "title": "The Singularity is Nearer",
+    "author": "Ray Kurzweil",
+    "coverPath": "/assets/book-covers/the-singularity-is-nearer-ray-kurzweil.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:11:24.003Z"
+  },
+  "La Caza del Carnero Salvaje - Haruki Murakami": {
+    "title": "La Caza del Carnero Salvaje",
+    "author": "Haruki Murakami",
+    "coverPath": "/assets/book-covers/la-caza-del-carnero-salvaje-haruki-murakami.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:11:24.877Z"
+  },
+  "The Language Instinct - Steven Pinker": {
+    "title": "The Language Instinct",
+    "author": "Steven Pinker",
+    "coverPath": "/assets/book-covers/the-language-instinct-steven-pinker.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:11:25.747Z"
+  },
+  "Benjamin Franklin - Walter Isaacson": {
+    "title": "Benjamin Franklin",
+    "author": "Walter Isaacson",
+    "coverPath": "/assets/book-covers/benjamin-franklin-walter-isaacson.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:11:26.571Z"
+  },
+  "Harry Potter Wiki": {
+    "title": "Harry Potter Wiki",
+    "author": "",
+    "coverPath": null,
+    "status": "missing",
+    "checkedAt": "2026-04-14T02:11:28.834Z"
+  },
+  "El Juego del Angel - Carlos Ruiz Zafón": {
+    "title": "El Juego del Angel",
+    "author": "Carlos Ruiz Zafón",
+    "coverPath": "/assets/book-covers/el-juego-del-angel-carlos-ruiz-zaf-n.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:11:31.164Z"
+  },
+  "Harry Potter and the Goblet of Fire": {
+    "title": "Harry Potter and the Goblet of Fire",
+    "author": "",
+    "coverPath": "/assets/book-covers/harry-potter-and-the-goblet-of-fire-na.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:11:32.041Z"
+  },
+  "Balanced Scorecard Evolution - Book by Paul R. Niven": {
+    "title": "Balanced Scorecard Evolution",
+    "author": "Paul R. Niven",
+    "coverPath": null,
+    "status": "missing",
+    "checkedAt": "2026-04-14T02:11:33.948Z"
+  },
+  "Designing the Future - Jay W. Forrester": {
+    "title": "Designing the Future",
+    "author": "Jay W. Forrester",
+    "coverPath": null,
+    "status": "missing",
+    "checkedAt": "2026-04-14T02:11:36.073Z"
+  },
+  "Stories of Your Life and Others - Ted Chiang": {
+    "title": "Stories of Your Life and Others",
+    "author": "Ted Chiang",
+    "coverPath": "/assets/book-covers/stories-of-your-life-and-others-ted-chiang.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:11:37.480Z"
+  },
+  "El Fin del Mundo y un Despiadado País de las Maravillas - Haruki Murakami": {
+    "title": "El Fin del Mundo y un Despiadado País de las Maravillas",
+    "author": "Haruki Murakami",
+    "coverPath": "/assets/book-covers/el-fin-del-mundo-y-un-despiadado-pa-s-de-las-maravillas-haruki-murakami.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:11:38.389Z"
+  },
+  "Nexus - Yuval Noah Harari": {
+    "title": "Nexus",
+    "author": "Yuval Noah Harari",
+    "coverPath": "/assets/book-covers/nexus-yuval-noah-harari.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:11:39.492Z"
+  },
+  "The Road - Novel by Cormac McCarthy": {
+    "title": "The Road",
+    "author": "Cormac McCarthy",
+    "coverPath": "/assets/book-covers/the-road-cormac-mccarthy.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:11:41.460Z"
+  },
+  "Harry Potter and the Prisoner of Azkaban": {
+    "title": "Harry Potter and the Prisoner of Azkaban",
+    "author": "",
+    "coverPath": "/assets/book-covers/harry-potter-and-the-prisoner-of-azkaban-na.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:11:42.396Z"
+  },
+  "Libro sobre Responsabilidad Social Empresarial": {
+    "title": "Libro sobre Responsabilidad Social Empresarial",
+    "author": "",
+    "coverPath": null,
+    "status": "missing",
+    "checkedAt": "2026-04-14T02:11:44.277Z"
+  },
+  "The Physician - Novel by Noah Gordon": {
+    "title": "The Physician",
+    "author": "Noah Gordon",
+    "coverPath": "/assets/book-covers/the-physician-noah-gordon.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:11:44.973Z"
+  },
+  "Children of Memory - Novel by Adrian Tchaikovsky": {
+    "title": "Children of Memory",
+    "author": "Adrian Tchaikovsky",
+    "coverPath": "/assets/book-covers/children-of-memory-adrian-tchaikovsky.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:11:45.781Z"
+  }
+}
