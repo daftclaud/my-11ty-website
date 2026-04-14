@@ -18,6 +18,13 @@ function slugify(value) {
     .slice(0, 120);
 }
 
+function normalizeForSearch(value) {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .trim();
+}
+
 async function fetchWithTimeout(url, timeoutMs = 6000) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -53,38 +60,91 @@ async function fetchJsonWithRetry(url, maxAttempts = 3) {
   return null;
 }
 
+function mapOpenLibraryDoc(doc) {
+  if (!doc) return null;
+
+  const coverId = doc.cover_i;
+  const isbn = Array.isArray(doc.isbn) && doc.isbn.length ? doc.isbn[0] : null;
+  const url = coverId
+    ? `https://covers.openlibrary.org/b/id/${coverId}-L.jpg`
+    : (isbn ? `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg` : null);
+
+  if (!url) return null;
+
+  const key = doc.key || (doc.edition_key && doc.edition_key[0] ? `/books/${doc.edition_key[0]}` : null);
+
+  return {
+    provider: 'openlibrary',
+    url,
+    infoUrl: key ? `https://openlibrary.org${key}` : null,
+  };
+}
+
+async function resolveOpenLibraryCover(title, author) {
+  const normalizedTitle = normalizeForSearch(title);
+  const normalizedAuthor = normalizeForSearch(author);
+
+  const candidateParams = [
+    (() => {
+      const p = new URLSearchParams({ title: normalizedTitle, limit: '5' });
+      if (normalizedAuthor) p.set('author', normalizedAuthor);
+      return p;
+    })(),
+    new URLSearchParams({ title: normalizedTitle, limit: '5' }),
+    new URLSearchParams({ q: `${normalizedTitle} ${normalizedAuthor}`.trim(), limit: '5' }),
+  ];
+
+  for (const params of candidateParams) {
+    const openLibrary = await fetchJsonWithRetry(`https://openlibrary.org/search.json?${params.toString()}`);
+    const docs = (openLibrary && openLibrary.docs) || [];
+    for (const doc of docs) {
+      const mapped = mapOpenLibraryDoc(doc);
+      if (mapped) {
+        return mapped;
+      }
+    }
+  }
+
+  return null;
+}
+
+async function resolveGoogleBooksCover(title, author) {
+  const normalizedTitle = normalizeForSearch(title);
+  const normalizedAuthor = normalizeForSearch(author);
+
+  const strictQuery = [normalizedTitle ? `intitle:${normalizedTitle}` : '', normalizedAuthor ? `inauthor:${normalizedAuthor}` : '']
+    .filter(Boolean)
+    .join(' ');
+
+  const queries = [strictQuery, `${normalizedTitle} ${normalizedAuthor}`.trim(), normalizedTitle].filter(Boolean);
+
+  for (const query of queries) {
+    const googleParams = new URLSearchParams({ q: query, maxResults: '5' });
+    const googleBooks = await fetchJsonWithRetry(`https://www.googleapis.com/books/v1/volumes?${googleParams.toString()}`);
+    const items = (googleBooks && googleBooks.items) || [];
+
+    for (const item of items) {
+      const links = item && item.volumeInfo && item.volumeInfo.imageLinks;
+      const thumbnail = links && (links.thumbnail || links.smallThumbnail);
+      if (!thumbnail) continue;
+
+      return {
+        provider: 'google-books',
+        url: thumbnail.replace('http://', 'https://'),
+        infoUrl: (item.volumeInfo && item.volumeInfo.infoLink) || null,
+      };
+    }
+  }
+
+  return null;
+}
+
 async function resolveCoverUrl(title, author) {
-  const params = new URLSearchParams({ title, limit: '1' });
-  if (author) {
-    params.set('author', author);
-  }
+  const openLibrary = await resolveOpenLibraryCover(title, author);
+  if (openLibrary) return openLibrary;
 
-  const openLibrary = await fetchJsonWithRetry(`https://openlibrary.org/search.json?${params.toString()}`);
-  const first = openLibrary && openLibrary.docs && openLibrary.docs[0];
-  if (first && first.cover_i) {
-    return {
-      provider: 'openlibrary',
-      url: `https://covers.openlibrary.org/b/id/${first.cover_i}-L.jpg`,
-    };
-  }
-
-  const q = [`intitle:${title}`];
-  if (author) {
-    q.push(`inauthor:${author}`);
-  }
-
-  const googleParams = new URLSearchParams({ q: q.join(' '), maxResults: '1' });
-  const googleBooks = await fetchJsonWithRetry(`https://www.googleapis.com/books/v1/volumes?${googleParams.toString()}`);
-  const item = googleBooks && googleBooks.items && googleBooks.items[0];
-  const links = item && item.volumeInfo && item.volumeInfo.imageLinks;
-  const thumbnail = links && (links.thumbnail || links.smallThumbnail);
-
-  if (thumbnail) {
-    return {
-      provider: 'google-books',
-      url: thumbnail.replace('http://', 'https://'),
-    };
-  }
+  const googleBooks = await resolveGoogleBooksCover(title, author);
+  if (googleBooks) return googleBooks;
 
   return null;
 }
@@ -166,6 +226,7 @@ async function main() {
         title: book.title,
         author: book.author,
         coverPath: null,
+        infoUrl: null,
         status: 'missing',
         checkedAt: new Date().toISOString(),
       };
@@ -184,6 +245,7 @@ async function main() {
         title: book.title,
         author: book.author,
         coverPath: null,
+        infoUrl: null,
         status: 'missing',
         checkedAt: new Date().toISOString(),
       };
@@ -198,6 +260,7 @@ async function main() {
       title: book.title,
       author: book.author,
       coverPath,
+      infoUrl: resolved.infoUrl || null,
       provider: resolved.provider,
       status: 'ok',
       checkedAt: new Date().toISOString(),

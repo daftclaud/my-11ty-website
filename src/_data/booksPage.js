@@ -15,6 +15,32 @@ function parseSource(source) {
   return { title: clean, author: '' };
 }
 
+function parseDate(dateStr) {
+  if (!dateStr) return null;
+  const parsed = new Date(`${dateStr}T00:00:00Z`);
+  if (Number.isNaN(parsed.getTime())) return null;
+  return parsed;
+}
+
+function estimateYear(firstSeen, lastSeen) {
+  const start = parseDate(firstSeen);
+  const end = parseDate(lastSeen);
+
+  if (start && end) {
+    const midpoint = new Date(Math.floor((start.getTime() + end.getTime()) / 2));
+    return midpoint.getUTCFullYear();
+  }
+
+  if (start) return start.getUTCFullYear();
+  if (end) return end.getUTCFullYear();
+  return null;
+}
+
+function buildFallbackInfoUrl(title, author) {
+  const q = `${title || ''} ${author || ''} book`;
+  return `https://www.google.com/search?q=${encodeURIComponent(q.trim())}`;
+}
+
 module.exports = function () {
   const data = wordCategoriesPage();
   const booksBucket = (data.sourcesByCategory && data.sourcesByCategory['Books/Novels']) || {};
@@ -31,9 +57,11 @@ module.exports = function () {
       title,
       author,
       coverPath: (bookCovers[source] && bookCovers[source].coverPath) || null,
+      infoUrl: (bookCovers[source] && bookCovers[source].infoUrl) || buildFallbackInfoUrl(title, author),
       wordsCount: entries.length,
       firstSeen: dates[0] || null,
       lastSeen: dates[dates.length - 1] || null,
+      estimatedYear: estimateYear(dates[0] || null, dates[dates.length - 1] || null),
     };
   }).sort((a, b) => {
     if (a.lastSeen && b.lastSeen) {
@@ -42,8 +70,46 @@ module.exports = function () {
     return a.title.localeCompare(b.title);
   });
 
+  const grouped = {};
+
+  books.forEach((book) => {
+    const year = book.estimatedYear;
+    if (!year) return;
+    if (!grouped[year]) {
+      grouped[year] = [];
+    }
+    grouped[year].push(book);
+  });
+
+  const booksByYear = Object.entries(grouped)
+    .map(([yearStr, items]) => {
+      const sortedItems = items.slice().sort((a, b) => {
+        if (a.firstSeen && b.firstSeen && a.firstSeen !== b.firstSeen) {
+          return a.firstSeen.localeCompare(b.firstSeen);
+        }
+        if (a.lastSeen && b.lastSeen && a.lastSeen !== b.lastSeen) {
+          return a.lastSeen.localeCompare(b.lastSeen);
+        }
+        return a.title.localeCompare(b.title);
+      });
+
+      const withOrder = sortedItems.map((book, index) => ({
+        ...book,
+        estimatedOrder: index + 1,
+      }));
+
+      return {
+        year: Number(yearStr),
+        totalBooks: withOrder.length,
+        totalWords: withOrder.reduce((acc, book) => acc + (book.wordsCount || 0), 0),
+        books: withOrder,
+      };
+    })
+    .sort((a, b) => b.year - a.year);
+
   return {
     totalBooks: books.length,
     books,
+    booksByYear,
   };
 };

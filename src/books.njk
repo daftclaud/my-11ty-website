@@ -29,6 +29,55 @@ permalink: /books/
     gap: 16px;
   }
 
+  .year-section {
+    margin: 28px 0 36px;
+    border-top: 2px dashed var(--clr-border-dashed);
+    padding-top: 20px;
+  }
+
+  .year-header {
+    margin-bottom: 14px;
+  }
+
+  .year-title-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+
+  .year-title {
+    margin: 0;
+    color: var(--clr-heading);
+    font-size: 1.4rem;
+  }
+
+  .year-stats {
+    font-size: 0.82rem;
+    border: 1px solid var(--clr-border);
+    border-radius: 999px;
+    padding: 4px 10px;
+    opacity: 0.9;
+  }
+
+  .book-cover-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .book-title-link {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+
+  .book-title-link:hover {
+    opacity: 0.85;
+  }
+
   .book-card {
     border: 2px solid var(--clr-border);
     border-radius: 10px;
@@ -104,51 +153,63 @@ permalink: /books/
 
 <h1>Books</h1>
 <p class="books-intro">
-  A practical shelf built from your <strong>Books/Novels</strong> sources in Word Curations.
-  Covers are fetched from Open Library when available.
+  Here are the books I have read over the years, organized by estimated reading year.
 </p>
 <div class="books-stats">
   <strong>{{ booksPage.totalBooks }}</strong>
   <span>books tracked</span>
 </div>
 
-{% if booksPage.books.length %}
-  <section class="books-grid" aria-label="Books list">
-    {% for book in booksPage.books %}
-      <article class="book-card">
-        <div class="book-cover-wrap">
-          {% if book.coverPath %}
-            <img
-              class="book-cover"
-              src="{{ book.coverPath }}"
-              alt="Cover for {{ book.title }}"
-              loading="lazy"
-              decoding="async"
-              style="display: block;"
-            />
-          {% else %}
-            <div class="book-cover-placeholder">Cover unavailable</div>
-          {% endif %}
+{% if booksPage.booksByYear.length %}
+  {% for yearGroup in booksPage.booksByYear %}
+    <section class="year-section" aria-label="Books read in {{ yearGroup.year }}">
+      <div class="year-header">
+        <div class="year-title-row">
+          <h2 class="year-title">{{ yearGroup.year }}</h2>
+          <span class="year-stats">{{ yearGroup.totalBooks }} books · {{ yearGroup.totalWords }} curated words</span>
         </div>
-        <div class="book-content">
-          <h2 class="book-title">{{ book.title }}</h2>
-          {% if book.author %}
-            <p class="book-author">by {{ book.author }}</p>
-          {% endif %}
-          <div class="book-meta">
-            <div>{{ book.wordsCount }} word{% if book.wordsCount != 1 %}s{% endif %} curated from this source</div>
-            {% if book.firstSeen %}
-              <div>First seen: {{ book.firstSeen | formatDate('en-US') }}</div>
-            {% endif %}
-            {% if book.lastSeen %}
-              <div>Last seen: {{ book.lastSeen | formatDate('en-US') }}</div>
-            {% endif %}
-          </div>
-          <div class="book-source">Source key: {{ book.source }}</div>
-        </div>
-      </article>
-    {% endfor %}
-  </section>
+      </div>
+
+      <div class="books-grid" aria-label="Books list for {{ yearGroup.year }}">
+        {% for book in yearGroup.books %}
+          <article class="book-card">
+            <div class="book-cover-wrap">
+              {% if book.coverPath %}
+                <a href="{{ book.infoUrl }}" target="_blank" rel="noopener noreferrer" class="book-cover-link" aria-label="Learn more about {{ book.title }}">
+                  <img
+                    class="book-cover"
+                    src="{{ book.coverPath }}"
+                    alt="Cover for {{ book.title }}"
+                    loading="lazy"
+                    decoding="async"
+                    style="display: block;"
+                  />
+                </a>
+              {% else %}
+                <div class="book-cover-placeholder">Cover unavailable</div>
+              {% endif %}
+            </div>
+            <div class="book-content">
+              <h3 class="book-title">
+                {{ book.estimatedOrder }}.
+                <a href="{{ book.infoUrl }}" target="_blank" rel="noopener noreferrer" class="book-title-link">{{ book.title }}</a>
+              </h3>
+              {% if book.author %}
+                <p class="book-author">by {{ book.author }}</p>
+              {% endif %}
+              <div class="book-meta">
+                <div>{{ book.wordsCount }} word{% if book.wordsCount != 1 %}s{% endif %} curated from this source</div>
+                {% if book.firstSeen %}
+                  <div>Reading window: {{ book.firstSeen | formatDate('en-US') }} to {{ book.lastSeen | formatDate('en-US') }}</div>
+                {% endif %}
+              </div>
+              <div class="book-source">Source key: {{ book.source }}</div>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+    </section>
+  {% endfor %}
 {% else %}
   <p>No books were found in Books/Novels yet.</p>
 {% endif %}

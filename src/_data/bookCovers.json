@@ -26,9 +26,11 @@
   "Freakonomics - Book by Stephen J. Dubner and Steven Levitt": {
     "title": "Freakonomics",
     "author": "Stephen J. Dubner and Steven Levitt",
-    "coverPath": null,
-    "status": "missing",
-    "checkedAt": "2026-04-14T02:10:53.697Z"
+    "coverPath": "/assets/book-covers/freakonomics-stephen-j-dubner-and-steven-levitt.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL278022W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:24:24.173Z"
   },
   "Foundation and Empire - Isaac Asimov": {
     "title": "Foundation and Empire",
@@ -41,9 +43,11 @@
   "La Vaca Sagrada - Tarun Chopra": {
     "title": "La Vaca Sagrada",
     "author": "Tarun Chopra",
-    "coverPath": null,
-    "status": "missing",
-    "checkedAt": "2026-04-14T02:10:56.686Z"
+    "coverPath": "/assets/book-covers/la-vaca-sagrada-tarun-chopra.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL35031808W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:24:30.412Z"
   },
   "Foundation - Isaac Asimov": {
     "title": "Foundation",
@@ -73,22 +77,27 @@
     "title": "Tres enigmas para la Organización",
     "author": "Eduardo Mendoza",
     "coverPath": null,
+    "infoUrl": null,
     "status": "missing",
-    "checkedAt": "2026-04-14T02:11:00.326Z"
+    "checkedAt": "2026-04-14T02:24:31.996Z"
   },
   "El Gigante Enterrado - Kazuo Ishiguro": {
     "title": "El Gigante Enterrado",
     "author": "Kazuo Ishiguro",
-    "coverPath": null,
-    "status": "missing",
-    "checkedAt": "2026-04-14T02:11:01.985Z"
+    "coverPath": "/assets/book-covers/el-gigante-enterrado-kazuo-ishiguro.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL17333499W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:24:33.943Z"
   },
   "Ruido - Daniel Kahneman, Oliver Siboney, Cass R. Sunstein": {
     "title": "Ruido",
     "author": "Daniel Kahneman, Oliver Siboney, Cass R. Sunstein",
-    "coverPath": null,
-    "status": "missing",
-    "checkedAt": "2026-04-14T02:11:03.560Z"
+    "coverPath": "/assets/book-covers/ruido-daniel-kahneman-oliver-siboney-cass-r-sunstein.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL37654507W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:24:35.107Z"
   },
   "El Infinito en un Junco - Irene Vallejo": {
     "title": "El Infinito en un Junco",
@@ -165,9 +174,11 @@
   "Around the World in Eighty Days - Jules Verne": {
     "title": "Around the World in Eighty Days",
     "author": "Jules Verne",
-    "coverPath": null,
-    "status": "missing",
-    "checkedAt": "2026-04-14T02:11:20.665Z"
+    "coverPath": "/assets/book-covers/around-the-world-in-eighty-days-jules-verne.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL24776232W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:24:36.858Z"
   },
   "Anarchy, State, and Utopia - Robert Nozick": {
     "title": "Anarchy, State, and Utopia",
@@ -213,8 +224,9 @@
     "title": "Harry Potter Wiki",
     "author": "",
     "coverPath": null,
+    "infoUrl": null,
     "status": "missing",
-    "checkedAt": "2026-04-14T02:11:28.834Z"
+    "checkedAt": "2026-04-14T02:24:41.788Z"
   },
   "El Juego del Angel - Carlos Ruiz Zafón": {
     "title": "El Juego del Angel",
@@ -235,16 +247,20 @@
   "Balanced Scorecard Evolution - Book by Paul R. Niven": {
     "title": "Balanced Scorecard Evolution",
     "author": "Paul R. Niven",
-    "coverPath": null,
-    "status": "missing",
-    "checkedAt": "2026-04-14T02:11:33.948Z"
+    "coverPath": "/assets/book-covers/balanced-scorecard-evolution-paul-r-niven.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL17408858W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:24:43.112Z"
   },
   "Designing the Future - Jay W. Forrester": {
     "title": "Designing the Future",
     "author": "Jay W. Forrester",
-    "coverPath": null,
-    "status": "missing",
-    "checkedAt": "2026-04-14T02:11:36.073Z"
+    "coverPath": "/assets/book-covers/designing-the-future-jay-w-forrester.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL1871256W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-14T02:24:44.699Z"
   },
   "Stories of Your Life and Others - Ted Chiang": {
     "title": "Stories of Your Life and Others",
@@ -290,8 +306,9 @@
     "title": "Libro sobre Responsabilidad Social Empresarial",
     "author": "",
     "coverPath": null,
+    "infoUrl": null,
     "status": "missing",
-    "checkedAt": "2026-04-14T02:11:44.277Z"
+    "checkedAt": "2026-04-14T02:24:50.118Z"
   },
   "The Physician - Novel by Noah Gordon": {
     "title": "The Physician",
