@@ -1,9 +1,9 @@
 {
-  "total_entries": 3193,
-  "unique_sources": 123,
+  "total_entries": 3194,
+  "unique_sources": 124,
   "categories": {
     "Personal": {
-      "total": 1995,
+      "total": 1996,
       "sources": {
         "My old website": 1951,
         "Stories of Your Life and Others - Ted Chiang": 18,
@@ -20,7 +20,8 @@
         "Domenica - amiga": 1,
         "Carlos Rodriguez": 1,
         "Carlos Rodríguez": 1,
-        "Beatriz Janet": 1
+        "Beatriz Janet": 1,
+        "Convo con Paris y LJ": 1
       }
     },
     "Non-fiction Books": {
