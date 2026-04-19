@@ -9,7 +9,8 @@
     "translate": "node translate-content.js",
     "fetch:rl": "node fetch_rocket_league_stats.js",
     "fetch:books": "node fetch_book_covers.js",
-    "import:firestore:books": "node import_firestore_books.js"
+    "import:firestore:books": "node import_firestore_books.js",
+    "import:firestore:words": "node import_firestore_words.js"
   },
   "keywords": [],
   "author": "",
