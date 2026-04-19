@@ -209,12 +209,62 @@ permalink: /es/books/
 
 <h1>Libros</h1>
 <p class="books-intro">
-  Aqui comparto los libros que he leido a lo largo de los anos, organizados por año estimado de lectura.
+  Aqui comparto los libros que he leido a lo largo de los años, organizados por año.
 </p>
 <div class="books-stats">
   <strong>{{ booksPage.totalBooks }}</strong>
-  <span>libros registrados</span>
+  <span>libros completados</span>
 </div>
+
+{% if booksPage.currentlyReading and booksPage.currentlyReading.length %}
+  <section class="year-section" aria-label="Leyendo ahora">
+    <div class="year-header">
+      <div class="year-title-row">
+        <h2 class="year-title">Leyendo Ahora</h2>
+      </div>
+    </div>
+    <div class="books-grid" aria-label="Lista de lectura actual">
+      {% for book in booksPage.currentlyReading %}
+        <article class="book-card">
+          <div class="book-cover-wrap">
+            {% if book.coverPath %}
+              <a href="{{ book.infoUrl }}" target="_blank" rel="noopener noreferrer" class="book-cover-link" aria-label="Ver mas sobre {{ book.title }}">
+                <img
+                  class="book-cover"
+                  src="{{ book.coverPath }}"
+                  alt="Portada de {{ book.title }}"
+                  loading="lazy"
+                  decoding="async"
+                  style="display: block;"
+                />
+              </a>
+            {% else %}
+              <div class="book-cover-placeholder">Portada no disponible</div>
+            {% endif %}
+          </div>
+          <div class="book-content">
+            <h3 class="book-title">
+              <a href="{{ book.infoUrl }}" target="_blank" rel="noopener noreferrer" class="book-title-link">{{ book.title }}</a>
+            </h3>
+            {% if book.author %}
+              <p class="book-author">de {{ book.author }}</p>
+            {% endif %}
+            {% if book.genres.length %}
+              <div class="book-genres">
+                {% for genre in book.genres %}
+                  <span class="book-genre-chip">{{ genre }}</span>
+                {% endfor %}
+              </div>
+            {% endif %}
+            {% if book.blurbEs %}
+              <p class="book-blurb">{{ book.blurbEs }}</p>
+            {% endif %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
 
 {% if booksPage.booksByYear.length %}
   {% for yearGroup in booksPage.booksByYear %}
@@ -222,7 +272,7 @@ permalink: /es/books/
       <div class="year-header">
         <div class="year-title-row">
           <h2 class="year-title">{{ yearGroup.year }}</h2>
-          <span class="year-stats">{{ yearGroup.totalBooks }} libros · {{ yearGroup.totalWords }} palabras curadas</span>
+          <span class="year-stats">{{ yearGroup.totalBooks }} libros</span>
         </div>
       </div>
 
@@ -263,12 +313,6 @@ permalink: /es/books/
               {% if book.blurbEs %}
                 <p class="book-blurb">{{ book.blurbEs }}</p>
               {% endif %}
-              <div class="book-meta">
-                <div>{{ book.wordsCount }} palabra{% if book.wordsCount != 1 %}s{% endif %} curada{% if book.wordsCount != 1 %}s{% endif %} de esta fuente</div>
-                {% if book.firstSeen %}
-                  <div>Ventana de lectura: {{ book.firstSeen | formatDate('es-MX') }} a {{ book.lastSeen | formatDate('es-MX') }}</div>
-                {% endif %}
-              </div>
             </div>
           </article>
         {% endfor %}
@@ -276,5 +320,5 @@ permalink: /es/books/
     </section>
   {% endfor %}
 {% else %}
-  <p>Aun no se encontraron libros en Books/Novels.</p>
+  <p>Aun no se han agregado libros completados.</p>
 {% endif %}
