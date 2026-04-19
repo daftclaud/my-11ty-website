@@ -1,5 +1,5 @@
 {
-  "total_entries": 3194,
+  "total_entries": 3195,
   "unique_sources": 124,
   "categories": {
     "Personal": {
@@ -40,7 +40,7 @@
       }
     },
     "Books/Novels": {
-      "total": 970,
+      "total": 971,
       "sources": {
         "Children of Memory - Novel by Adrian Tchaikovsky": 131,
         "Nexus - Yuval Noah Harari": 86,
@@ -76,7 +76,7 @@
         "Tres enigmas para la Organización - Eduardo Mendoza": 1,
         "The Phoenix Project - Gene Kim": 1,
         "A Programmer's Introduction to Mathematics - book by Jeremy Kun": 2,
-        "Harry Potter and the Deathly Hallows": 1,
+        "Harry Potter and the Deathly Hallows": 2,
         "Foundation and Empire - Isaac Asimov": 14,
         "Project Hail Mary - Novel by Andy Weir": 5
       }
