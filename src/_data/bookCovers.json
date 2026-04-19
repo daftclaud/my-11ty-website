@@ -76,10 +76,11 @@
   "Tres enigmas para la Organización - Eduardo Mendoza": {
     "title": "Tres enigmas para la Organización",
     "author": "Eduardo Mendoza",
-    "coverPath": null,
-    "infoUrl": null,
-    "status": "missing",
-    "checkedAt": "2026-04-14T02:24:31.996Z"
+    "coverPath": "/assets/book-covers/tres-enigmas-eduardo-mendoza.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL38072124W",
+    "provider": "google-books",
+    "status": "ok",
+    "checkedAt": "2026-04-19T00:00:00.000Z"
   },
   "El Gigante Enterrado - Kazuo Ishiguro": {
     "title": "El Gigante Enterrado",
@@ -318,6 +319,24 @@
     "status": "ok",
     "checkedAt": "2026-04-14T02:11:44.973Z"
   },
+  "Children of Time - Novel by Adrian Tchaikovsky": {
+    "title": "Children of Time",
+    "author": "Adrian Tchaikovsky",
+    "coverPath": "/assets/book-covers/children-of-time-adrian-tchaikovsky.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL17373843W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T00:00:00.000Z"
+  },
+  "Children of Ruin - Novel by Adrian Tchaikovsky": {
+    "title": "Children of Ruin",
+    "author": "Adrian Tchaikovsky",
+    "coverPath": "/assets/book-covers/children-of-ruin-adrian-tchaikovsky.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL20079532W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T00:00:00.000Z"
+  },
   "Children of Memory - Novel by Adrian Tchaikovsky": {
     "title": "Children of Memory",
     "author": "Adrian Tchaikovsky",
@@ -325,5 +344,113 @@
     "provider": "openlibrary",
     "status": "ok",
     "checkedAt": "2026-04-14T02:11:45.781Z"
+  },
+  "A Wild Sheep Chase - Haruki Murakami": {
+    "title": "A Wild Sheep Chase",
+    "author": "Haruki Murakami",
+    "coverPath": "/assets/book-covers/a-wild-sheep-chase-haruki-murakami.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL2625441W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T15:54:47.242Z"
+  },
+  "Pachinko - Min Jin Lee": {
+    "title": "Pachinko",
+    "author": "Min Jin Lee",
+    "coverPath": "/assets/book-covers/pachinko-min-jin-lee.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL17762217W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T15:54:48.278Z"
+  },
+  "Noise - Daniel Kahneman": {
+    "title": "Noise",
+    "author": "Daniel Kahneman",
+    "coverPath": "/assets/book-covers/noise-daniel-kahneman.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL17962180W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T15:54:49.437Z"
+  },
+  "This Is Lean - Niklas Modig and Par Ahlstrom": {
+    "title": "This Is Lean",
+    "author": "Niklas Modig and Par Ahlstrom",
+    "coverPath": "/assets/book-covers/this-is-lean-niklas-modig-and-par-ahlstrom.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL34592676W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T15:54:51.804Z"
+  },
+  "Death's End - Cixin Liu": {
+    "title": "Death's End",
+    "author": "Cixin Liu",
+    "coverPath": "/assets/book-covers/death-s-end-cixin-liu.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL17610507W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T15:54:52.605Z"
+  },
+  "Harry Potter and the Philosopher's Stone - J.K. Rowling": {
+    "title": "Harry Potter and the Philosopher's Stone",
+    "author": "J.K. Rowling",
+    "coverPath": "/assets/book-covers/harry-potter-and-the-philosopher-s-stone-j-k-rowling.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL82563W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T15:54:53.103Z"
+  },
+  "Maniac - Benjamin Labatut": {
+    "title": "Maniac",
+    "author": "Benjamin Labatut",
+    "coverPath": "/assets/book-covers/maniac-benjamin-labatut.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL34388805W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T15:54:53.956Z"
+  },
+  "Harry Potter and the Chamber of Secrets - J.K. Rowling": {
+    "title": "Harry Potter and the Chamber of Secrets",
+    "author": "J.K. Rowling",
+    "coverPath": "/assets/book-covers/harry-potter-and-the-chamber-of-secrets-j-k-rowling.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL82537W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T15:54:54.600Z"
+  },
+  "Zero to One - Peter Thiel": {
+    "title": "Zero to One",
+    "author": "Peter Thiel",
+    "coverPath": "/assets/book-covers/zero-to-one-peter-thiel.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL17078706W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T15:54:55.589Z"
+  },
+  "Hypermedia Systems - Carson Gross": {
+    "title": "Hypermedia Systems",
+    "author": "Carson Gross",
+    "coverPath": "/assets/book-covers/hypermedia-systems-carson-gross.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL12026866W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T15:54:56.618Z"
+  },
+  "Snow Crash - Neal Stephenson": {
+    "title": "Snow Crash",
+    "author": "Neal Stephenson",
+    "coverPath": "/assets/book-covers/snow-crash-neal-stephenson.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL38501W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T15:54:59.221Z"
+  },
+  "Anna Karenina - Leo Tolstoy": {
+    "title": "Anna Karenina",
+    "author": "Leo Tolstoy",
+    "coverPath": "/assets/book-covers/anna-karenina-leo-tolstoy.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL26380516W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T15:55:00.194Z"
   }
 }
