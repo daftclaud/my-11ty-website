@@ -113,6 +113,34 @@ const curatedBooksByYear = [
       { title: 'Stories of Your Life and Others', author: 'Ted Chiang' },
     ],
   },
+  {
+    year: 2020,
+    books: [
+      { title: 'Atlas Shrugged', author: 'Ayn Rand' },
+      { title: 'Sapiens', author: 'Yuval Noah Harari' },
+      { title: 'Dune', author: 'Frank Herbert' },
+      { title: 'Nudge', author: 'Richard H. Thaler & Cass R. Sunstein' },
+      { title: 'Dune Messiah', author: 'Frank Herbert' },
+      { title: 'The Design of Everyday Things', author: 'Don Norman' },
+    ],
+  },
+  {
+    year: 2019,
+    books: [
+      { title: 'The Fountainhead', author: 'Ayn Rand' },
+      { title: 'Steve Jobs', author: 'Walter Isaacson' },
+      { title: 'Brave New World', author: 'Aldous Huxley' },
+      { title: 'The Coddling of the American Mind', author: 'Greg Lukianoff & Jonathan Haidt' },
+      { title: 'Lord of the Flies', author: 'William Golding' },
+      { title: 'All Minus One', author: 'John Stuart Mill, Edited by Richard V. Reeves & Jonathan Haidt' },
+      { title: 'To Kill A Mockingbird', author: 'Harper Lee' },
+      { title: 'Zen and the Art of Motorcycle Maintenance', author: 'Robert M. Pirsig' },
+      { title: 'The Righteous Mind', author: 'Jonathan Haidt' },
+      { title: 'Thinking, Fast and Slow', author: 'Daniel Kahneman' },
+      { title: '11/22/63', author: 'Stephen King' },
+      { title: '21 Lessons for the 21st Century', author: 'Yuval Noah Harari' },
+    ],
+  },
 ];
 
 const currentlyReading = [

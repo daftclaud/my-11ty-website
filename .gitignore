@@ -5,6 +5,13 @@ public/word-curations-generated/
 # Environment variables
 .env
 
+# Firebase credentials (local use only)
+firebase-service-account*.json
+*firebase*service*account*.json
+
+# One-time migration outputs
+migration-output/
+
 # Debug files
 debug_html.txt
 

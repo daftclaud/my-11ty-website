@@ -452,5 +452,131 @@
     "provider": "openlibrary",
     "status": "ok",
     "checkedAt": "2026-04-19T15:55:00.194Z"
+  },
+  "Atlas Shrugged - Ayn Rand": {
+    "title": "Atlas Shrugged",
+    "author": "Ayn Rand",
+    "coverPath": "/assets/book-covers/atlas-shrugged-ayn-rand.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL731644W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T16:21:17.336Z"
+  },
+  "Dune - Frank Herbert": {
+    "title": "Dune",
+    "author": "Frank Herbert",
+    "coverPath": "/assets/book-covers/dune-frank-herbert.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL893415W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T16:21:18.145Z"
+  },
+  "Nudge - Richard H. Thaler & Cass R. Sunstein": {
+    "title": "Nudge",
+    "author": "Richard H. Thaler & Cass R. Sunstein",
+    "coverPath": "/assets/book-covers/nudge-richard-h-thaler-cass-r-sunstein.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL3936258W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T16:21:33.861Z"
+  },
+  "The Design of Everyday Things - Don Norman": {
+    "title": "The Design of Everyday Things",
+    "author": "Don Norman",
+    "coverPath": "/assets/book-covers/the-design-of-everyday-things-don-norman.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL17570127W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T16:21:34.903Z"
+  },
+  "The Fountainhead - Ayn Rand": {
+    "title": "The Fountainhead",
+    "author": "Ayn Rand",
+    "coverPath": "/assets/book-covers/the-fountainhead-ayn-rand.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL731663W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T16:21:40.069Z"
+  },
+  "Steve Jobs - Walter Isaacson": {
+    "title": "Steve Jobs",
+    "author": "Walter Isaacson",
+    "coverPath": "/assets/book-covers/steve-jobs-walter-isaacson.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL16085155W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T16:21:43.177Z"
+  },
+  "Brave New World - Aldous Huxley": {
+    "title": "Brave New World",
+    "author": "Aldous Huxley",
+    "coverPath": "/assets/book-covers/brave-new-world-aldous-huxley.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL64365W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T16:21:44.123Z"
+  },
+  "The Coddling of the American Mind - Greg Lukianoff & Jonathan Haidt": {
+    "title": "The Coddling of the American Mind",
+    "author": "Greg Lukianoff & Jonathan Haidt",
+    "coverPath": "/assets/book-covers/the-coddling-of-the-american-mind-greg-lukianoff-jonathan-haidt.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL19664112W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T16:21:45.217Z"
+  },
+  "Lord of the Flies - William Golding": {
+    "title": "Lord of the Flies",
+    "author": "William Golding",
+    "coverPath": "/assets/book-covers/lord-of-the-flies-william-golding.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL455327W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T16:21:46.151Z"
+  },
+  "All Minus One - John Stuart Mill, Edited by Richard V. Reeves & Jonathan Haidt": {
+    "title": "All Minus One",
+    "author": "John Stuart Mill, Edited by Richard V. Reeves & Jonathan Haidt",
+    "coverPath": "/assets/book-covers/all-minus-one-john-stuart-mill-edited-by-richard-v-reeves-jonathan-haidt.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL20698719W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T16:21:47.444Z"
+  },
+  "To Kill A Mockingbird - Harper Lee": {
+    "title": "To Kill A Mockingbird",
+    "author": "Harper Lee",
+    "coverPath": "/assets/book-covers/to-kill-a-mockingbird-harper-lee.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL3140822W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T16:21:48.824Z"
+  },
+  "The Righteous Mind - Jonathan Haidt": {
+    "title": "The Righteous Mind",
+    "author": "Jonathan Haidt",
+    "coverPath": "/assets/book-covers/the-righteous-mind-jonathan-haidt.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL16568840W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T16:21:49.343Z"
+  },
+  "Thinking, Fast and Slow - Daniel Kahneman": {
+    "title": "Thinking, Fast and Slow",
+    "author": "Daniel Kahneman",
+    "coverPath": "/assets/book-covers/thinking-fast-and-slow-daniel-kahneman.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL15992072W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T16:21:50.295Z"
+  },
+  "11/22/63 - Stephen King": {
+    "title": "11/22/63",
+    "author": "Stephen King",
+    "coverPath": "/assets/book-covers/11-22-63-stephen-king.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL16002468W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-04-19T16:21:51.793Z"
   }
 }
