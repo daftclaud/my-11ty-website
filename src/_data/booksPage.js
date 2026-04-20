@@ -75,6 +75,7 @@ const curatedBooksByYear = [
       { title: 'The Language Instinct', author: 'Steven Pinker' },
       { title: 'A Wild Sheep Chase', author: 'Haruki Murakami' },
       { title: 'The Singularity Is Near', author: 'Ray Kurzweil' },
+      { title: 'Harry Potter and the Goblet of Fire', author: 'J.K. Rowling' },
       { title: 'Harry Potter and the Order of the Phoenix', author: 'J.K. Rowling' },
       { title: 'Harry Potter and the Half-Blood Prince', author: 'J.K. Rowling' },
       { title: 'Around the World in Eighty Days', author: 'Jules Verne' },
