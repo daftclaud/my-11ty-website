@@ -250,5 +250,167 @@
     "publishedYear": 2022,
     "blurbEn": "The conclusion to the Children of Time trilogy probes the nature of memory and consciousness across diverse forms of evolved intelligence.",
     "blurbEs": "El cierre de la trilogía Children of Time explora la memoria y la conciencia a través de diversas formas de inteligencia evolucionada."
+  },
+  "A Wild Sheep Chase - Haruki Murakami": {
+    "genres": ["Literary Fiction", "Magical Realism"],
+    "publishedYear": 1982,
+    "blurbEn": "A Tokyo adman's quiet life is shattered when a mysterious photo leads him into a surreal hunt for a sheep tied to dangerous power.",
+    "blurbEs": "La vida tranquila de un publicista en Tokio se rompe cuando una foto misteriosa lo arrastra a una busqueda surrealista de una oveja ligada al poder."
+  },
+  "Pachinko - Min Jin Lee": {
+    "genres": ["Historical Fiction", "Literary Fiction"],
+    "publishedYear": 2017,
+    "blurbEn": "A multigenerational saga follows a Korean family in Japan as they endure discrimination, sacrifice, and shifting ideas of identity and belonging.",
+    "blurbEs": "Una saga de varias generaciones sigue a una familia coreana en Japon mientras enfrenta discriminacion, sacrificios y nuevas formas de entender la identidad."
+  },
+  "Noise - Daniel Kahneman": {
+    "genres": ["Non-Fiction", "Psychology"],
+    "publishedYear": 2021,
+    "blurbEn": "Kahneman, Sibony, and Sunstein examine why equally qualified people make wildly different judgments and how to reduce that costly variability.",
+    "blurbEs": "Kahneman, Sibony y Sunstein explican por que personas igualmente calificadas toman juicios muy distintos y como reducir esa variabilidad costosa."
+  },
+  "This Is Lean - Niklas Modig and Par Ahlstrom": {
+    "genres": ["Business", "Operations"],
+    "publishedYear": 2012,
+    "blurbEn": "A concise introduction to lean thinking that focuses on flow efficiency, customer value, and practical ways to improve everyday work systems.",
+    "blurbEs": "Una introduccion clara al pensamiento lean enfocada en la eficiencia de flujo, el valor al cliente y mejoras practicas en el trabajo diario."
+  },
+  "Death's End - Cixin Liu": {
+    "genres": ["Science Fiction"],
+    "publishedYear": 2010,
+    "blurbEn": "Humanity's final confrontation with cosmic forces stretches across eras as impossible choices determine whether civilization can survive.",
+    "blurbEs": "La confrontacion final de la humanidad con fuerzas cosmicas se extiende por eras, y decisiones imposibles definen si la civilizacion sobrevive."
+  },
+  "Harry Potter and the Philosopher's Stone - J.K. Rowling": {
+    "genres": ["Fantasy"],
+    "publishedYear": 1997,
+    "blurbEn": "An orphaned boy discovers he is a wizard and enters Hogwarts, where friendship and courage awaken him to a larger magical conflict.",
+    "blurbEs": "Un nino huerfano descubre que es mago y entra a Hogwarts, donde la amistad y el valor lo despiertan a un conflicto magico mayor."
+  },
+  "Maniac - Benjamin Labatut": {
+    "genres": ["Literary Fiction", "Science"],
+    "publishedYear": 2023,
+    "blurbEn": "A feverish literary portrait of scientific genius and moral peril centered on John von Neumann and the birth of modern computation.",
+    "blurbEs": "Un retrato literario intenso del genio cientifico y el riesgo moral alrededor de John von Neumann y el nacimiento de la computacion moderna."
+  },
+  "Harry Potter and the Chamber of Secrets - J.K. Rowling": {
+    "genres": ["Fantasy"],
+    "publishedYear": 1998,
+    "blurbEn": "Harry's second year at Hogwarts turns dangerous as a hidden chamber is opened and an old evil begins targeting students.",
+    "blurbEs": "El segundo ano de Harry en Hogwarts se vuelve peligroso cuando se abre una camara oculta y un mal antiguo comienza a atacar estudiantes."
+  },
+  "Zero to One - Peter Thiel": {
+    "genres": ["Business", "Technology"],
+    "publishedYear": 2014,
+    "blurbEn": "Thiel argues that real innovation comes from building unique products that create new markets instead of competing in crowded ones.",
+    "blurbEs": "Thiel sostiene que la verdadera innovacion surge al crear productos unicos que abren mercados nuevos, no al competir en mercados saturados."
+  },
+  "Hypermedia Systems - Carson Gross": {
+    "genres": ["Technology", "Web Development"],
+    "publishedYear": 2023,
+    "blurbEn": "A modern web development guide that re-centers hypermedia, HTML-first architecture, and simpler interactive systems over heavy front-end complexity.",
+    "blurbEs": "Una guia moderna de desarrollo web que vuelve a centrar la hipermedia y la arquitectura basada en HTML frente a la complejidad excesiva del front-end."
+  },
+  "Snow Crash - Neal Stephenson": {
+    "genres": ["Science Fiction", "Cyberpunk"],
+    "publishedYear": 1992,
+    "blurbEn": "A hacker-swordsman and a teenage courier race through a fractured America and a virtual metaverse to stop a mind-infecting threat.",
+    "blurbEs": "Un hacker espadachin y una joven mensajera recorren una America fragmentada y un metaverso virtual para detener una amenaza que infecta la mente."
+  },
+  "Anna Karenina - Leo Tolstoy": {
+    "genres": ["Classic Fiction", "Literary Fiction"],
+    "publishedYear": 1878,
+    "blurbEn": "Tolstoy interweaves love, marriage, faith, and social pressure in imperial Russia through the tragic path of Anna and the search for meaning.",
+    "blurbEs": "Tolstoi entrelaza amor, matrimonio, fe y presion social en la Rusia imperial mediante el destino tragico de Anna y una busqueda de sentido."
+  },
+  "Atlas Shrugged - Ayn Rand": {
+    "genres": ["Philosophy", "Political Fiction"],
+    "publishedYear": 1957,
+    "blurbEn": "As innovators disappear from a collapsing economy, a railroad executive and an inventor uncover a radical strike against mediocrity and coercion.",
+    "blurbEs": "Mientras innovadores desaparecen de una economia en crisis, una ejecutiva ferroviaria y un inventor descubren una huelga radical contra la mediocridad."
+  },
+  "Dune - Frank Herbert": {
+    "genres": ["Science Fiction", "Epic"],
+    "publishedYear": 1965,
+    "blurbEn": "On the desert planet Arrakis, Paul Atreides is thrust into a struggle over power, prophecy, ecology, and the most valuable resource in the galaxy.",
+    "blurbEs": "En el planeta desertico Arrakis, Paul Atreides entra en una lucha por poder, profecia, ecologia y el recurso mas valioso de la galaxia."
+  },
+  "Nudge - Richard H. Thaler & Cass R. Sunstein": {
+    "genres": ["Non-Fiction", "Behavioral Economics"],
+    "publishedYear": 2008,
+    "blurbEn": "Thaler and Sunstein show how small design choices in policies and products can steer better decisions without removing freedom.",
+    "blurbEs": "Thaler y Sunstein muestran como pequenos cambios de diseno en politicas y productos pueden guiar mejores decisiones sin quitar libertad."
+  },
+  "Dune Messiah - Frank Herbert": {
+    "genres": ["Science Fiction", "Epic"],
+    "publishedYear": 1969,
+    "blurbEn": "Years after seizing imperial power, Paul Atreides confronts conspiracy, fanaticism, and the terrible cost of seeing too far into the future.",
+    "blurbEs": "Anos despues de tomar el poder imperial, Paul Atreides enfrenta conspiraciones, fanatismo y el alto costo de ver demasiado el futuro."
+  },
+  "The Design of Everyday Things - Don Norman": {
+    "genres": ["Design", "Non-Fiction"],
+    "publishedYear": 1988,
+    "blurbEn": "Norman explains why products confuse users and how human-centered design principles can make everyday tools intuitive and safer.",
+    "blurbEs": "Norman explica por que los productos confunden a la gente y como el diseno centrado en personas vuelve las herramientas mas intuitivas y seguras."
+  },
+  "The Fountainhead - Ayn Rand": {
+    "genres": ["Literary Fiction", "Philosophy"],
+    "publishedYear": 1943,
+    "blurbEn": "An uncompromising architect battles conformity and corruption, defending creative independence at great personal cost.",
+    "blurbEs": "Un arquitecto inflexible combate el conformismo y la corrupcion, defendiendo la independencia creativa a un alto costo personal."
+  },
+  "Steve Jobs - Walter Isaacson": {
+    "genres": ["Biography", "Business"],
+    "publishedYear": 2011,
+    "blurbEn": "Based on extensive interviews, this biography traces Jobs's intense personality and the design-driven vision behind Apple and Pixar.",
+    "blurbEs": "Basada en entrevistas extensas, esta biografia recorre la personalidad intensa de Jobs y su vision de diseno detras de Apple y Pixar."
+  },
+  "Brave New World - Aldous Huxley": {
+    "genres": ["Classic Fiction", "Dystopian"],
+    "publishedYear": 1932,
+    "blurbEn": "In a future built on engineered happiness and social conditioning, dissent exposes the human cost of comfort without freedom.",
+    "blurbEs": "En un futuro de felicidad fabricada y condicionamiento social, la disidencia revela el costo humano del confort sin libertad."
+  },
+  "The Coddling of the American Mind - Greg Lukianoff & Jonathan Haidt": {
+    "genres": ["Non-Fiction", "Psychology"],
+    "publishedYear": 2018,
+    "blurbEn": "Lukianoff and Haidt argue that certain cultural and educational trends are making younger generations less resilient and more polarized.",
+    "blurbEs": "Lukianoff y Haidt sostienen que ciertas tendencias culturales y educativas estan reduciendo la resiliencia y aumentando la polarizacion."
+  },
+  "Lord of the Flies - William Golding": {
+    "genres": ["Classic Fiction", "Allegory"],
+    "publishedYear": 1954,
+    "blurbEn": "Stranded schoolboys attempt to govern themselves on a deserted island, only to descend into fear, tribalism, and violence.",
+    "blurbEs": "Un grupo de ninos varados intenta autogobernarse en una isla desierta, pero cae en miedo, tribalismo y violencia."
+  },
+  "All Minus One - John Stuart Mill, Edited by Richard V. Reeves & Jonathan Haidt": {
+    "genres": ["Philosophy", "Political Theory"],
+    "publishedYear": 2018,
+    "blurbEn": "A concise edition of Mill's defense of free speech, arguing that silencing dissent harms truth-seeking societies.",
+    "blurbEs": "Una edicion breve de la defensa de la libertad de expresion de Mill, que argumenta que silenciar disensos perjudica la verdad publica."
+  },
+  "To Kill A Mockingbird - Harper Lee": {
+    "genres": ["Classic Fiction", "Literary Fiction"],
+    "publishedYear": 1960,
+    "blurbEn": "Through a child's eyes in the American South, a lawyer's defense of a Black man exposes the moral failures of a segregated town.",
+    "blurbEs": "A traves de los ojos de una nina en el sur de EE. UU., la defensa de un hombre negro revela las fallas morales de un pueblo segregado."
+  },
+  "The Righteous Mind - Jonathan Haidt": {
+    "genres": ["Non-Fiction", "Psychology"],
+    "publishedYear": 2012,
+    "blurbEn": "Haidt maps the moral intuitions behind political and religious divides, explaining why good people so often disagree.",
+    "blurbEs": "Haidt traza las intuiciones morales detras de divisiones politicas y religiosas, explicando por que personas buenas discrepan tanto."
+  },
+  "Thinking, Fast and Slow - Daniel Kahneman": {
+    "genres": ["Non-Fiction", "Psychology"],
+    "publishedYear": 2011,
+    "blurbEn": "Kahneman presents two modes of thought and the systematic biases that shape decisions, from daily choices to major judgments.",
+    "blurbEs": "Kahneman presenta dos modos de pensamiento y los sesgos sistematicos que influyen en decisiones cotidianas y juicios importantes."
+  },
+  "11/22/63 - Stephen King": {
+    "genres": ["Historical Fiction", "Science Fiction"],
+    "publishedYear": 2011,
+    "blurbEn": "A teacher travels to the past to stop JFK's assassination, but history resists every attempt to be rewritten.",
+    "blurbEs": "Un maestro viaja al pasado para evitar el asesinato de JFK, pero la historia se resiste a cada intento de ser reescrita."
   }
 }
