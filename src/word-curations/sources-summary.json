@@ -1,5 +1,5 @@
 {
-  "total_entries": 3196,
+  "total_entries": 3197,
   "unique_sources": 124,
   "categories": {
     "Personal": {
@@ -40,7 +40,7 @@
       }
     },
     "Books/Novels": {
-      "total": 972,
+      "total": 973,
       "sources": {
         "Children of Memory - Novel by Adrian Tchaikovsky": 131,
         "Nexus - Yuval Noah Harari": 86,
@@ -70,7 +70,7 @@
         "The Catcher in the Rye - J.D. Salinger": 4,
         "The Real Daft Punk - Book by Harris Rosen": 3,
         "El Infinito en un Junco - Irene Vallejo": 2,
-        "El Gigante Enterrado - Kazuo Ishiguro": 7,
+        "El Gigante Enterrado - Kazuo Ishiguro": 8,
         "Harry Potter Wiki": 1,
         "Harry Potter and the Prisoner of Azkaban": 1,
         "Tres enigmas para la Organización - Eduardo Mendoza": 1,
