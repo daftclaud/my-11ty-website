@@ -1,5 +1,5 @@
 {
-  "total_entries": 3200,
+  "total_entries": 3201,
   "unique_sources": 124,
   "categories": {
     "Personal": {
@@ -171,10 +171,10 @@
       }
     },
     "Events/Sports": {
-      "total": 12,
+      "total": 13,
       "sources": {
         "Liga MX": 2,
-        "NBA": 4,
+        "NBA": 5,
         "Rayados vs Mazatlán soccer game": 2,
         "Baseball": 1,
         "Fox NFL": 1,
