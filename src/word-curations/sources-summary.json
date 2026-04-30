@@ -1,5 +1,5 @@
 {
-  "total_entries": 3202,
+  "total_entries": 3203,
   "unique_sources": 124,
   "categories": {
     "Personal": {
@@ -98,11 +98,11 @@
       }
     },
     "Web/Social/Apps": {
-      "total": 38,
+      "total": 39,
       "sources": {
         "TikTok": 16,
         "Wordle": 10,
-        "Reddit": 2,
+        "Reddit": 3,
         "AltavozMX": 1,
         "ChatGPT": 4,
         "Definition of imbue": 1,
