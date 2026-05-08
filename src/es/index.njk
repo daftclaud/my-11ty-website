@@ -23,9 +23,12 @@ permalink: /es/
     {{ 'home.takeLook' | t(locale) }} <a href="/es/pens">{{ 'home.pensPage' | t(locale) }}</a> {{ 'home.pensText' | t(locale) }}
   </p>
   <br />
-  <p>
-    Actualmente estoy leyendo <a href="/es/books">El Gigante Enterrado</a> de Kazuo Ishiguro.
-  </p>
+  {% set currentBook = booksPage.currentlyReading[0] %}
+  {% if currentBook %}
+    <p>
+      Actualmente estoy leyendo <a href="/es/books">{{ currentBook.title }}</a> de {{ currentBook.author }}.
+    </p>
+  {% endif %}
 </div>
 
 <section class="recent-activity">

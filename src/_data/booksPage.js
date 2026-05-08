@@ -61,6 +61,7 @@ const curatedBooksByYear = [
   {
     year: 2026,
     books: [
+      { title: 'El Gigante Enterrado', author: 'Kazuo Ishiguro' },
       { title: 'Foundation', author: 'Isaac Asimov' },
       { title: 'Freakonomics', author: 'Steven D. Levitt and Stephen J. Dubner' },
       { title: 'The Undoing Project', author: 'Michael Lewis' },
@@ -115,6 +116,12 @@ const curatedBooksByYear = [
     ],
   },
   {
+    year: 2023,
+    books: [
+      { title: 'Flowers for Algernon', author: 'Daniel Keyes' },
+    ],
+  },
+  {
     year: 2020,
     books: [
       { title: 'Atlas Shrugged', author: 'Ayn Rand' },
@@ -146,8 +153,8 @@ const curatedBooksByYear = [
 
 const currentlyReading = [
   {
-    title: 'El Gigante Enterrado',
-    author: 'Kazuo Ishiguro',
+    title: 'Los Hermanos Karamazov',
+    author: 'Fyodor Dostoevsky',
   },
 ];
 

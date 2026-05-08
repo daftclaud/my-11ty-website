@@ -204,7 +204,10 @@ async function main() {
 
   const manifest = readManifest();
   const booksData = booksPage();
-  const books = booksData.books || [];
+  const books = [
+    ...(booksData.books || []),
+    ...(booksData.currentlyReading || []),
+  ];
 
   let created = 0;
   let skipped = 0;

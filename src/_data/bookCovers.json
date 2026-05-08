@@ -578,5 +578,23 @@
     "provider": "openlibrary",
     "status": "ok",
     "checkedAt": "2026-04-19T16:21:51.793Z"
+  },
+  "Flowers for Algernon - Daniel Keyes": {
+    "title": "Flowers for Algernon",
+    "author": "Daniel Keyes",
+    "coverPath": "/assets/book-covers/flowers-for-algernon-daniel-keyes.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL515754W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-05-08T18:51:33.455Z"
+  },
+  "Los Hermanos Karamazov - Fyodor Dostoevsky": {
+    "title": "Los Hermanos Karamazov",
+    "author": "Fyodor Dostoevsky",
+    "coverPath": "/assets/book-covers/los-hermanos-karamazov-fyodor-dostoevsky.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL24819354W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-05-08T18:51:51.096Z"
   }
 }

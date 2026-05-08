@@ -412,5 +412,17 @@
     "publishedYear": 2011,
     "blurbEn": "A teacher travels to the past to stop JFK's assassination, but history resists every attempt to be rewritten.",
     "blurbEs": "Un maestro viaja al pasado para evitar el asesinato de JFK, pero la historia se resiste a cada intento de ser reescrita."
+  },
+  "Flowers for Algernon - Daniel Keyes": {
+    "genres": ["Science Fiction", "Literary Fiction"],
+    "publishedYear": 1966,
+    "blurbEn": "A man with an intellectual disability undergoes an experimental procedure that rapidly increases his intelligence, transforming his life in unexpected and tragic ways.",
+    "blurbEs": "Un hombre con discapacidad intelectual se somete a un procedimiento experimental que aumenta rapidamente su inteligencia, transformando su vida de maneras inesperadas y tragicas."
+  },
+  "Los Hermanos Karamazov - Fyodor Dostoevsky": {
+    "genres": ["Classic Fiction", "Philosophy"],
+    "publishedYear": 1880,
+    "blurbEn": "A profound family drama that explores faith, doubt, freedom, and moral responsibility through the conflict of three brothers and their father.",
+    "blurbEs": "Un drama familiar profundo que explora la fe, la duda, la libertad y la responsabilidad moral a traves del conflicto entre tres hermanos y su padre."
   }
 }
