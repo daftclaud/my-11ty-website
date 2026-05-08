@@ -1,6 +1,6 @@
 {
-  "total_entries": 3206,
-  "unique_sources": 124,
+  "total_entries": 3207,
+  "unique_sources": 125,
   "categories": {
     "Personal": {
       "total": 1996,
@@ -82,9 +82,10 @@
       }
     },
     "Short Stories": {
-      "total": 7,
+      "total": 8,
       "sources": {
-        "After the Quake - Short story by Haruki Murakami": 7
+        "After the Quake - Short story by Haruki Murakami": 7,
+        "Honey": 1
       }
     },
     "Academic/Work": {
