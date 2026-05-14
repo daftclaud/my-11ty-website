@@ -279,6 +279,14 @@
     "status": "ok",
     "checkedAt": "2026-04-14T02:11:38.389Z"
   },
+  "Hard-Boiled Wonderland and the End of the World - Haruki Murakami": {
+    "title": "Hard-Boiled Wonderland and the End of the World",
+    "author": "Haruki Murakami",
+    "coverPath": "/assets/book-covers/el-fin-del-mundo-y-un-despiadado-pa-s-de-las-maravillas-haruki-murakami.jpg",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-05-14T00:00:00.000Z"
+  },
   "Nexus - Yuval Noah Harari": {
     "title": "Nexus",
     "author": "Yuval Noah Harari",
@@ -596,5 +604,185 @@
     "provider": "openlibrary",
     "status": "ok",
     "checkedAt": "2026-05-08T18:51:51.096Z"
+  },
+  "The Idiot - Fyodor Dostoevsky": {
+    "title": "The Idiot",
+    "author": "Fyodor Dostoevsky",
+    "coverPath": "/assets/book-covers/the-idiot-fyodor-dostoevsky.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL20906897W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-05-14T17:27:10.265Z"
+  },
+  "Crime and Punishment - Fyodor Dostoevsky": {
+    "title": "Crime and Punishment",
+    "author": "Fyodor Dostoevsky",
+    "coverPath": "/assets/book-covers/crime-and-punishment-fyodor-dostoevsky.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL32525579W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-05-14T17:27:11.265Z"
+  },
+  "The Death of Ivan Ilyich - Leo Tolstoy": {
+    "title": "The Death of Ivan Ilyich",
+    "author": "Leo Tolstoy",
+    "coverPath": "/assets/book-covers/the-death-of-ivan-ilyich-leo-tolstoy.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL16563010W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-05-14T17:27:12.051Z"
+  },
+  "Cloud Atlas - David Mitchell": {
+    "title": "Cloud Atlas",
+    "author": "David Mitchell",
+    "coverPath": "/assets/book-covers/cloud-atlas-david-mitchell.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL482454W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-05-14T17:27:13.464Z"
+  },
+  "Good Strategy Bad Strategy: The Difference and Why It Matters - Richard P. Rumelt": {
+    "title": "Good Strategy Bad Strategy: The Difference and Why It Matters",
+    "author": "Richard P. Rumelt",
+    "coverPath": "/assets/book-covers/good-strategy-bad-strategy-the-difference-and-why-it-matters-richard-p-rumelt.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL16149072W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-05-14T17:27:14.750Z"
+  },
+  "Leonardo da Vinci - Walter Isaacson": {
+    "title": "Leonardo da Vinci",
+    "author": "Walter Isaacson",
+    "coverPath": "/assets/book-covers/leonardo-da-vinci-walter-isaacson.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL17802920W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-05-14T17:27:15.682Z"
+  },
+  "When We Cease to Understand the World (Un verdor terrible) - Benjamin Labatut": {
+    "title": "When We Cease to Understand the World (Un verdor terrible)",
+    "author": "Benjamin Labatut",
+    "coverPath": "/assets/book-covers/when-we-cease-to-understand-the-world-un-verdor-terrible-benjamin-labatut.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL22681620W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-05-14T17:45:00.000Z"
+  },
+  "The Three-Body Problem - Liu Cixin": {
+    "title": "The Three-Body Problem",
+    "author": "Liu Cixin",
+    "coverPath": "/assets/book-covers/the-three-body-problem-liu-cixin.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL16314245W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-05-14T17:27:22.516Z"
+  },
+  "The Dark Forest - Liu Cixin": {
+    "title": "The Dark Forest",
+    "author": "Liu Cixin",
+    "coverPath": "/assets/book-covers/the-dark-forest-liu-cixin.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL16314245W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-05-14T17:27:23.436Z"
+  },
+  "East of Eden - John Steinbeck": {
+    "title": "East of Eden",
+    "author": "John Steinbeck",
+    "coverPath": "/assets/book-covers/east-of-eden-john-steinbeck.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL23166W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-05-14T17:27:24.585Z"
+  },
+  "Norwegian Wood - Haruki Murakami": {
+    "title": "Norwegian Wood",
+    "author": "Haruki Murakami",
+    "coverPath": "/assets/book-covers/norwegian-wood-haruki-murakami.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL2625457W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-05-14T17:27:25.362Z"
+  },
+  "1Q84 - Haruki Murakami": {
+    "title": "1Q84",
+    "author": "Haruki Murakami",
+    "coverPath": "/assets/book-covers/1q84-haruki-murakami.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL15029001W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-05-14T17:27:26.473Z"
+  },
+  "After Dark - Haruki Murakami": {
+    "title": "After Dark",
+    "author": "Haruki Murakami",
+    "coverPath": "/assets/book-covers/after-dark-haruki-murakami.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL34780178W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-05-14T17:27:27.201Z"
+  },
+  "Harry Potter and the Order of the Phoenix - J.K. Rowling": {
+    "title": "Harry Potter and the Order of the Phoenix",
+    "author": "J.K. Rowling",
+    "coverPath": "/assets/book-covers/harry-potter-and-the-order-of-the-phoenix-j-k-rowling.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL82548W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-05-14T17:35:54.868Z"
+  },
+  "Colorless Tsukuru Tazaki and His Years of Pilgrimage - Haruki Murakami": {
+    "title": "Colorless Tsukuru Tazaki and His Years of Pilgrimage",
+    "author": "Haruki Murakami",
+    "coverPath": "/assets/book-covers/colorless-tsukuru-tazaki-and-his-years-of-pilgrimage-haruki-murakami.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL27736864W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-05-14T17:35:55.933Z"
+  },
+  "Kafka on the Shore - Haruki Murakami": {
+    "title": "Kafka on the Shore",
+    "author": "Haruki Murakami",
+    "coverPath": "/assets/book-covers/kafka-on-the-shore-haruki-murakami.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL24488211W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-05-14T17:35:56.959Z"
+  },
+  "After the Quake - Haruki Murakami": {
+    "title": "After the Quake",
+    "author": "Haruki Murakami",
+    "coverPath": "/assets/book-covers/after-the-quake-haruki-murakami.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL2625407W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-05-14T17:35:58.321Z"
+  },
+  "Sapiens - Yuval Noah Harari": {
+    "title": "Sapiens",
+    "author": "Yuval Noah Harari",
+    "coverPath": "/assets/book-covers/sapiens-yuval-noah-harari.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL17075811W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-05-14T17:35:59.155Z"
+  },
+  "Dune Messiah - Frank Herbert": {
+    "title": "Dune Messiah",
+    "author": "Frank Herbert",
+    "coverPath": "/assets/book-covers/dune-messiah-frank-herbert.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL893526W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-05-14T17:36:00.104Z"
+  },
+  "21 Lessons for the 21st Century - Yuval Noah Harari": {
+    "title": "21 Lessons for the 21st Century",
+    "author": "Yuval Noah Harari",
+    "coverPath": "/assets/book-covers/21-lessons-for-the-21st-century-yuval-noah-harari.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL17917961W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-05-14T17:36:01.041Z"
   }
 }

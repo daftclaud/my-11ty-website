@@ -419,6 +419,102 @@
     "blurbEn": "A man with an intellectual disability undergoes an experimental procedure that rapidly increases his intelligence, transforming his life in unexpected and tragic ways.",
     "blurbEs": "Un hombre con discapacidad intelectual se somete a un procedimiento experimental que aumenta rapidamente su inteligencia, transformando su vida de maneras inesperadas y tragicas."
   },
+  "The Idiot - Fyodor Dostoevsky": {
+    "genres": ["Classic Fiction", "Philosophy"],
+    "publishedYear": 1869,
+    "blurbEn": "Prince Myshkin returns to Russia with radical compassion and innocence, colliding with vanity, desire, and cruelty in a society unable to understand him.",
+    "blurbEs": "El principe Myshkin regresa a Rusia con una compasion e inocencia radicales, chocando con la vanidad, el deseo y la crueldad de una sociedad incapaz de comprenderlo."
+  },
+  "Crime and Punishment - Fyodor Dostoevsky": {
+    "genres": ["Classic Fiction", "Psychological Fiction"],
+    "publishedYear": 1866,
+    "blurbEn": "After committing a murder he believes is morally justified, a destitute student spirals through paranoia, guilt, and a painful search for redemption.",
+    "blurbEs": "Tras cometer un asesinato que cree moralmente justificable, un estudiante empobrecido cae en paranoia y culpa, iniciando una dolorosa busqueda de redencion."
+  },
+  "The Death of Ivan Ilyich - Leo Tolstoy": {
+    "genres": ["Classic Fiction", "Novella"],
+    "publishedYear": 1886,
+    "blurbEn": "A respected judge confronts terminal illness and realizes his carefully ordered life may have been built on shallow social conventions.",
+    "blurbEs": "Un juez respetado enfrenta una enfermedad terminal y descubre que su vida cuidadosamente ordenada pudo haberse construido sobre convenciones vacias."
+  },
+  "Cloud Atlas - David Mitchell": {
+    "genres": ["Literary Fiction", "Science Fiction"],
+    "publishedYear": 2004,
+    "blurbEn": "Six interlinked stories across centuries reveal how power, violence, and resistance echo through time in different forms.",
+    "blurbEs": "Seis historias entrelazadas a traves de siglos muestran como el poder, la violencia y la resistencia se repiten en distintas formas."
+  },
+  "Good Strategy Bad Strategy: The Difference and Why It Matters - Richard P. Rumelt": {
+    "genres": ["Business", "Strategy"],
+    "publishedYear": 2011,
+    "blurbEn": "Rumelt separates real strategy from empty slogans and explains how diagnosis, coherent choices, and focused action create competitive advantage.",
+    "blurbEs": "Rumelt separa la estrategia real de los slogans vacios y explica como el diagnostico, las decisiones coherentes y la accion enfocada crean ventaja competitiva."
+  },
+  "Leonardo da Vinci - Walter Isaacson": {
+    "genres": ["Biography", "History"],
+    "publishedYear": 2017,
+    "blurbEn": "A detailed portrait of Leonardo's relentless curiosity, connecting his notebooks, inventions, and art to the habits that fueled his genius.",
+    "blurbEs": "Un retrato detallado de la curiosidad incansable de Leonardo, conectando sus cuadernos, inventos y arte con los habitos que impulsaron su genio."
+  },
+  "When We Cease to Understand the World (Un verdor terrible) - Benjamin Labatut": {
+    "genres": ["Literary Fiction", "Science"],
+    "publishedYear": 2020,
+    "blurbEn": "Labatut blends fact and fiction to trace brilliant scientific minds whose discoveries open terrifying ethical and existential abysses.",
+    "blurbEs": "Labatut mezcla hecho y ficcion para seguir a mentes cientificas brillantes cuyas ideas abren abismos eticos y existenciales."
+  },
+  "The Three-Body Problem - Liu Cixin": {
+    "genres": ["Science Fiction", "Hard Science Fiction"],
+    "publishedYear": 2006,
+    "blurbEn": "A secret first-contact project during China's Cultural Revolution sets in motion a cosmic crisis that threatens humanity's future.",
+    "blurbEs": "Un proyecto secreto de primer contacto durante la Revolucion Cultural china desencadena una crisis cosmica que amenaza el futuro de la humanidad."
+  },
+  "The Dark Forest - Liu Cixin": {
+    "genres": ["Science Fiction", "Hard Science Fiction"],
+    "publishedYear": 2008,
+    "blurbEn": "Facing an inevitable alien invasion, humanity builds desperate long-term plans while confronting the chilling logic of cosmic survival.",
+    "blurbEs": "Ante una invasion alienigena inevitable, la humanidad diseña planes a largo plazo mientras enfrenta la logica aterradora de la supervivencia cosmica."
+  },
+  "East of Eden - John Steinbeck": {
+    "genres": ["Classic Fiction", "Literary Fiction"],
+    "publishedYear": 1952,
+    "blurbEn": "Through two families in California's Salinas Valley, Steinbeck retells themes of Cain and Abel, freedom, and moral choice across generations.",
+    "blurbEs": "A traves de dos familias en el valle de Salinas, Steinbeck reescribe temas de Cain y Abel, libertad y eleccion moral entre generaciones."
+  },
+  "Norwegian Wood - Haruki Murakami": {
+    "genres": ["Literary Fiction", "Coming-of-Age"],
+    "publishedYear": 1987,
+    "blurbEn": "A nostalgic and intimate story of first love, grief, and emotional fragility in student-era Tokyo during the late 1960s.",
+    "blurbEs": "Una historia nostalgica e intima sobre primer amor, duelo y fragilidad emocional en el Tokio estudiantil de finales de los anos sesenta."
+  },
+  "Colorless Tsukuru Tazaki and His Years of Pilgrimage - Haruki Murakami": {
+    "genres": ["Literary Fiction", "Psychological Fiction"],
+    "publishedYear": 2013,
+    "blurbEn": "Years after being abruptly rejected by his closest friends, Tsukuru returns to his past to understand the wound that shaped his life.",
+    "blurbEs": "Anos despues de ser rechazado de forma abrupta por sus amigos mas cercanos, Tsukuru vuelve al pasado para entender la herida que marco su vida."
+  },
+  "1Q84 - Haruki Murakami": {
+    "genres": ["Literary Fiction", "Speculative Fiction"],
+    "publishedYear": 2009,
+    "blurbEn": "Two lonely lives move toward each other in an uncanny parallel Tokyo where memory, identity, and reality begin to fracture.",
+    "blurbEs": "Dos vidas solitarias avanzan una hacia la otra en un Tokio paralelo e inquietante donde memoria, identidad y realidad empiezan a fracturarse."
+  },
+  "Kafka on the Shore - Haruki Murakami": {
+    "genres": ["Literary Fiction", "Magical Realism"],
+    "publishedYear": 2002,
+    "blurbEn": "A runaway teenager and an aging man who can talk with cats follow intertwined paths through prophecy, dreams, and metaphysical mystery.",
+    "blurbEs": "Un adolescente fugitivo y un anciano que puede hablar con gatos siguen caminos entrelazados entre profecia, suenos y misterio metafisico."
+  },
+  "After Dark - Haruki Murakami": {
+    "genres": ["Literary Fiction"],
+    "publishedYear": 2004,
+    "blurbEn": "Over one sleepless night in Tokyo, strangers briefly connect as hidden traumas and quiet loneliness surface beneath neon light.",
+    "blurbEs": "Durante una noche sin sueno en Tokio, desconocidos se cruzan mientras traumas ocultos y soledades silenciosas emergen bajo el neon."
+  },
+  "After the Quake - Haruki Murakami": {
+    "genres": ["Short Stories", "Literary Fiction"],
+    "publishedYear": 2000,
+    "blurbEn": "Six stories set after the Kobe earthquake explore emotional aftershocks, dislocation, and fragile attempts to reconnect with meaning.",
+    "blurbEs": "Seis cuentos ambientados tras el terremoto de Kobe exploran replicas emocionales, desarraigo y fragiles intentos por recuperar sentido."
+  },
   "Los Hermanos Karamazov - Fyodor Dostoevsky": {
     "genres": ["Classic Fiction", "Philosophy"],
     "publishedYear": 1880,

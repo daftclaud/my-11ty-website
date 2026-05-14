@@ -16,6 +16,12 @@ function normalizeText(value) {
     .trim();
 }
 
+const STOPWORDS = new Set([
+  'the', 'and', 'for', 'with', 'from', 'into', 'onto', 'over', 'under', 'after', 'before',
+  'his', 'her', 'their', 'its', 'that', 'this', 'those', 'these', 'years', 'year', 'book',
+  'novel', 'story', 'stories', 'world', 'end', 'beginning', 'part', 'edition',
+]);
+
 function getMatchScore(candidateKey, title, author) {
   const candidateNorm = normalizeText(candidateKey);
   const titleNorm = normalizeText(title);
@@ -26,9 +32,16 @@ function getMatchScore(candidateKey, title, author) {
   let score = 0;
   if (candidateNorm.includes(titleNorm)) score += 10;
 
-  const titleTokens = titleNorm.split(' ').filter((token) => token.length > 2);
+  const titleTokens = titleNorm
+    .split(' ')
+    .filter((token) => token.length > 2 && !STOPWORDS.has(token));
+
+  let matchedTitleTokens = 0;
   titleTokens.forEach((token) => {
-    if (candidateNorm.includes(token)) score += 1;
+    if (candidateNorm.includes(token)) {
+      score += 1;
+      matchedTitleTokens += 1;
+    }
   });
 
   if (authorNorm) {
@@ -38,22 +51,38 @@ function getMatchScore(candidateKey, title, author) {
     });
   }
 
-  return score;
+  return { score, hasTitleMatch: candidateNorm.includes(titleNorm) || matchedTitleTokens > 0 };
+}
+
+function resolveDataKey(sourceMap, title, author) {
+  const exactKey = `${title} - ${author || ''}`.trim();
+  if (sourceMap && Object.prototype.hasOwnProperty.call(sourceMap, exactKey)) {
+    return exactKey;
+  }
+
+  const titleOnlyKey = `${title}`.trim();
+  if (sourceMap && Object.prototype.hasOwnProperty.call(sourceMap, titleOnlyKey)) {
+    return titleOnlyKey;
+  }
+
+  return findBestData(sourceMap, title, author);
 }
 
 function findBestData(sourceMap, title, author) {
   let bestKey = null;
   let bestScore = 0;
+  let bestHasTitleMatch = false;
 
   Object.keys(sourceMap || {}).forEach((key) => {
-    const score = getMatchScore(key, title, author);
+    const { score, hasTitleMatch } = getMatchScore(key, title, author);
     if (score > bestScore) {
       bestScore = score;
       bestKey = key;
+      bestHasTitleMatch = hasTitleMatch;
     }
   });
 
-  if (bestScore < 5) return null;
+  if (bestScore < 6 || !bestHasTitleMatch) return null;
   return bestKey;
 }
 
@@ -119,6 +148,22 @@ const curatedBooksByYear = [
     year: 2023,
     books: [
       { title: 'Flowers for Algernon', author: 'Daniel Keyes' },
+      { title: 'The Idiot', author: 'Fyodor Dostoevsky' },
+      { title: 'Crime and Punishment', author: 'Fyodor Dostoevsky' },
+      { title: 'The Death of Ivan Ilyich', author: 'Leo Tolstoy' },
+      { title: 'Cloud Atlas', author: 'David Mitchell' },
+      { title: 'Good Strategy Bad Strategy: The Difference and Why It Matters', author: 'Richard P. Rumelt' },
+      { title: 'Leonardo da Vinci', author: 'Walter Isaacson' },
+      { title: 'When We Cease to Understand the World (Un verdor terrible)', author: 'Benjamin Labatut' },
+      { title: 'The Three-Body Problem', author: 'Liu Cixin' },
+      { title: 'The Dark Forest', author: 'Liu Cixin' },
+      { title: 'East of Eden', author: 'John Steinbeck' },
+      { title: 'Norwegian Wood', author: 'Haruki Murakami' },
+      { title: 'Colorless Tsukuru Tazaki and His Years of Pilgrimage', author: 'Haruki Murakami' },
+      { title: '1Q84', author: 'Haruki Murakami' },
+      { title: 'Kafka on the Shore', author: 'Haruki Murakami' },
+      { title: 'After Dark', author: 'Haruki Murakami' },
+      { title: 'After the Quake', author: 'Haruki Murakami' },
     ],
   },
   {
@@ -160,8 +205,8 @@ const currentlyReading = [
 
 module.exports = function () {
   const enrichBook = (book, order, year) => {
-    const coverKey = findBestData(bookCovers, book.title, book.author);
-    const metaKey = findBestData(bookMeta, book.title, book.author);
+    const coverKey = resolveDataKey(bookCovers, book.title, book.author);
+    const metaKey = resolveDataKey(bookMeta, book.title, book.author);
     const cover = coverKey ? bookCovers[coverKey] : null;
     const meta = metaKey ? bookMeta[metaKey] : null;
 
