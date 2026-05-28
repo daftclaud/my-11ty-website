@@ -1,5 +1,5 @@
 {
-  "total_entries": 3225,
+  "total_entries": 3226,
   "unique_sources": 126,
   "categories": {
     "Personal": {
@@ -100,7 +100,7 @@
       }
     },
     "Web/Social/Apps": {
-      "total": 41,
+      "total": 42,
       "sources": {
         "TikTok": 17,
         "Wordle": 10,
@@ -108,7 +108,7 @@
         "AltavozMX": 1,
         "ChatGPT": 4,
         "Definition of imbue": 1,
-        "Instagram reels": 1,
+        "Instagram reels": 2,
         "Slack": 1,
         "Video Deep Learning con Pepe Cantoral PhD.": 1,
         "Facebook": 1
