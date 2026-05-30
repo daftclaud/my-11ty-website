@@ -1,6 +1,6 @@
 {
-  "total_entries": 3227,
-  "unique_sources": 126,
+  "total_entries": 3228,
+  "unique_sources": 127,
   "categories": {
     "Personal": {
       "total": 1996,
@@ -173,7 +173,7 @@
       }
     },
     "Events/Sports": {
-      "total": 13,
+      "total": 14,
       "sources": {
         "Liga MX": 2,
         "NBA": 5,
@@ -181,7 +181,8 @@
         "Baseball": 1,
         "Fox NFL": 1,
         "Amistoso Internacional - México vs Portugal": 1,
-        "Congreso de Oftalmología": 1
+        "Congreso de Oftalmología": 1,
+        "Champions League": 1
       }
     }
   }
