@@ -1,5 +1,5 @@
 {
-  "total_entries": 3233,
+  "total_entries": 3234,
   "unique_sources": 127,
   "categories": {
     "Personal": {
@@ -40,7 +40,7 @@
       }
     },
     "Books/Novels": {
-      "total": 1002,
+      "total": 1003,
       "sources": {
         "Children of Memory - Novel by Adrian Tchaikovsky": 131,
         "Nexus - Yuval Noah Harari": 86,
@@ -79,7 +79,7 @@
         "Harry Potter and the Deathly Hallows": 1,
         "Foundation and Empire - Isaac Asimov": 14,
         "Project Hail Mary - Novel by Andy Weir": 5,
-        "Los hermanos Karamazov - Novela de Fyodor Dostoievski": 21
+        "Los hermanos Karamazov - Novela de Fyodor Dostoievski": 22
       }
     },
     "Short Stories": {
