@@ -40,7 +40,7 @@
       }
     },
     "Books/Novels": {
-      "total": 1004,
+      "total": 1003,
       "sources": {
         "Children of Memory - Novel by Adrian Tchaikovsky": 131,
         "Nexus - Yuval Noah Harari": 86,
@@ -79,8 +79,7 @@
         "Harry Potter and the Deathly Hallows": 1,
         "Foundation and Empire - Isaac Asimov": 14,
         "Project Hail Mary - Novel by Andy Weir": 5,
-        "Los hermanos Karamazov - Novela de Fyodor Dostoievski": 22,
-        "Arcanoix": 1
+        "Los hermanos Karamazov - Novela de Fyodor Dostoievski": 22
       }
     },
     "Short Stories": {
@@ -101,7 +100,7 @@
       }
     },
     "Web/Social/Apps": {
-      "total": 42,
+      "total": 43,
       "sources": {
         "TikTok": 17,
         "Wordle": 10,
@@ -112,7 +111,8 @@
         "Instagram reels": 2,
         "Slack": 1,
         "Video Deep Learning con Pepe Cantoral PhD.": 1,
-        "Facebook": 1
+        "Facebook": 1,
+        "Arcanoix": 1
       }
     },
     "News/Press": {
