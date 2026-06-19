@@ -190,70 +190,111 @@ function parseStats(html) {
     lastUpdated: new Date().toISOString()
   };
 
-  // Extract Ranked Duel 1v1 current stats - more flexible pattern
-  // Look for the Ranked Duel 1v1 section with the rating value
-  const duelMatch = html.match(/Ranked Duel 1v1.*?alt="([^"]+)".*?class="value">(\d+)<.*?Top\s+([\d.]+)%/s);
+  function parseLifetimeStat(title) {
+    const escapedTitle = title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const valueRegex = new RegExp(
+      `title="${escapedTitle}"[^>]*>[\\s\\S]{0,300}?class="value">([\\d,.]+)<`,
+      's'
+    );
+    const valueMatch = html.match(valueRegex);
+    if (!valueMatch) {
+      return null;
+    }
+
+    // Percentiles are often hidden behind expandable UI, so keep this optional.
+    const surroundingStart = Math.max(0, valueMatch.index - 400);
+    const surroundingEnd = Math.min(html.length, valueMatch.index + 600);
+    const surrounding = html.slice(surroundingStart, surroundingEnd);
+    const percentileMatch = surrounding.match(/Top\s+([\d.]+)%/);
+
+    return {
+      value: valueMatch[1],
+      percentile: percentileMatch ? `Top ${percentileMatch[1]}%` : ''
+    };
+  }
+
+  // Extract Ranked Duel 1v1 current stats from the current-rating block.
+  const duelMatch = html.match(
+    /Ranked Duel 1v1[\s\S]{0,3000}?Current[\s\S]{0,1200}?alt="([^"]+)"[\s\S]{0,700}?class="value">([\d,]+)</s
+  );
   if (duelMatch) {
     stats.rankedDuel.rank = duelMatch[1];
-    stats.rankedDuel.rating = parseInt(duelMatch[2]);
-    stats.rankedDuel.percentile = `Top ${duelMatch[3]}%`;
+    stats.rankedDuel.rating = parseInt(duelMatch[2].replace(/,/g, ''), 10);
+
+    const duelWindowStart = Math.max(0, duelMatch.index - 300);
+    const duelWindowEnd = Math.min(html.length, duelMatch.index + 900);
+    const duelWindow = html.slice(duelWindowStart, duelWindowEnd);
+    const duelPercentileMatch = duelWindow.match(/Top\s+([\d.]+)%/);
+    if (duelPercentileMatch) {
+      stats.rankedDuel.percentile = `Top ${duelPercentileMatch[1]}%`;
+    }
+
     console.log('✓ Parsed Ranked Duel stats');
   } else {
     console.log('✗ Failed to parse Ranked Duel stats');
   }
 
-  // Extract Peak Rating - look for the peak-rating section
-  const peakMatch = html.match(/peak-rating.*?alt="([^"]+)".*?value">(\d{3,4})<.*?Season\s+(\d+)/s);
+  // Extract Peak Rating from dedicated widget area before Ranked Duel section.
+  const peakWidgetStart = html.indexOf('peak-rating-widget');
+  const rankedSectionStart = html.indexOf('Ranked Duel 1v1');
+  const peakSection =
+    peakWidgetStart >= 0 && rankedSectionStart > peakWidgetStart
+      ? html.slice(peakWidgetStart, rankedSectionStart)
+      : html;
+
+  const peakMatch = peakSection.match(
+    /Peak Rating[\s\S]{0,2500}?alt="([^"]+)"[\s\S]{0,1200}?class="value">([\d,]+)<[\s\S]{0,700}?(?:Season\s*(\d+))/s
+  );
   if (peakMatch) {
     stats.peakRating.rank = peakMatch[1];
-    stats.peakRating.rating = parseInt(peakMatch[2]);
+    stats.peakRating.rating = parseInt(peakMatch[2].replace(/,/g, ''), 10);
     stats.peakRating.season = `Season ${peakMatch[3]}`;
     console.log('✓ Parsed Peak Rating stats');
   } else {
     console.log('✗ Failed to parse Peak Rating stats');
   }
 
-  // Extract Lifetime Stats - looking for title="Wins" pattern
-  const winsMatch = html.match(/title="Wins".*?value">([\d,]+)<.*?Top\s+([\d.]+)%/s);
+  // Extract Lifetime Stats from stat cards by title and value.
+  const winsMatch = parseLifetimeStat('Wins');
   if (winsMatch) {
-    stats.lifetime.wins = parseInt(winsMatch[1].replace(/,/g, ''));
-    stats.lifetime.winsRank = `Top ${winsMatch[2]}%`;
+    stats.lifetime.wins = parseInt(winsMatch.value.replace(/,/g, ''), 10);
+    stats.lifetime.winsRank = winsMatch.percentile;
     console.log('✓ Parsed Wins stats');
   } else {
     console.log('✗ Failed to parse Wins stats');
   }
 
-  const goalsMatch = html.match(/title="Goals".*?value">([\d,]+)<.*?Top\s+([\d.]+)%/s);
+  const goalsMatch = parseLifetimeStat('Goals');
   if (goalsMatch) {
-    stats.lifetime.goals = parseInt(goalsMatch[1].replace(/,/g, ''));
-    stats.lifetime.goalsRank = `Top ${goalsMatch[2]}%`;
+    stats.lifetime.goals = parseInt(goalsMatch.value.replace(/,/g, ''), 10);
+    stats.lifetime.goalsRank = goalsMatch.percentile;
     console.log('✓ Parsed Goals stats');
   } else {
     console.log('✗ Failed to parse Goals stats');
   }
 
-  const shotsMatch = html.match(/title="Shots".*?value">([\d,]+)<.*?Top\s+([\d.]+)%/s);
+  const shotsMatch = parseLifetimeStat('Shots');
   if (shotsMatch) {
-    stats.lifetime.shots = parseInt(shotsMatch[1].replace(/,/g, ''));
-    stats.lifetime.shotsRank = `Top ${shotsMatch[2]}%`;
+    stats.lifetime.shots = parseInt(shotsMatch.value.replace(/,/g, ''), 10);
+    stats.lifetime.shotsRank = shotsMatch.percentile;
     console.log('✓ Parsed Shots stats');
   } else {
     console.log('✗ Failed to parse Shots stats');
   }
 
-  const savesMatch = html.match(/title="Saves".*?value">([\d,]+)<.*?Top\s+([\d.]+)%/s);
+  const savesMatch = parseLifetimeStat('Saves');
   if (savesMatch) {
-    stats.lifetime.saves = parseInt(savesMatch[1].replace(/,/g, ''));
-    stats.lifetime.savesRank = `Top ${savesMatch[2]}%`;
+    stats.lifetime.saves = parseInt(savesMatch.value.replace(/,/g, ''), 10);
+    stats.lifetime.savesRank = savesMatch.percentile;
     console.log('✓ Parsed Saves stats');
   } else {
     console.log('✗ Failed to parse Saves stats');
   }
 
-  const ratioMatch = html.match(/title="Goal Shot Ratio".*?value">([\d.]+)<.*?Top\s+([\d.]+)%/s);
+  const ratioMatch = parseLifetimeStat('Goal Shot Ratio');
   if (ratioMatch) {
-    stats.lifetime.goalShotRatio = parseFloat(ratioMatch[1]);
-    stats.lifetime.goalShotRatioRank = `Top ${ratioMatch[2]}%`;
+    stats.lifetime.goalShotRatio = parseFloat(ratioMatch.value.replace(/,/g, ''));
+    stats.lifetime.goalShotRatioRank = ratioMatch.percentile;
     console.log('✓ Parsed Goal Shot Ratio stats');
   } else {
     console.log('✗ Failed to parse Goal Shot Ratio stats');
