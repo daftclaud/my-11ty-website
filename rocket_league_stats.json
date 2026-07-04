@@ -1,7 +1,7 @@
 {
   "rankedDuel": {
-    "rank": "Platinum III",
-    "rating": 769,
+    "rank": "Diamond I",
+    "rating": 821,
     "division": "",
     "percentile": ""
   },
@@ -11,16 +11,16 @@
     "season": "Season 33"
   },
   "lifetime": {
-    "wins": 6624,
-    "goals": 52177,
-    "shots": 82883,
-    "saves": 38897,
-    "goalShotRatio": 63,
+    "wins": 6632,
+    "goals": 52223,
+    "shots": 82964,
+    "saves": 38928,
+    "goalShotRatio": 62.9,
     "winsRank": "",
     "goalsRank": "",
     "shotsRank": "",
     "savesRank": "",
     "goalShotRatioRank": ""
   },
-  "lastUpdated": "2026-07-03T12:37:34.026Z"
+  "lastUpdated": "2026-07-04T04:54:15.731Z"
 }
