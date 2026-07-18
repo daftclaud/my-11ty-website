@@ -1,5 +1,5 @@
 {
-  "total_entries": 3248,
+  "total_entries": 3249,
   "unique_sources": 128,
   "categories": {
     "Personal": {
@@ -100,9 +100,9 @@
       }
     },
     "Web/Social/Apps": {
-      "total": 43,
+      "total": 44,
       "sources": {
-        "TikTok": 17,
+        "TikTok": 18,
         "Wordle": 10,
         "Reddit": 4,
         "AltavozMX": 1,
