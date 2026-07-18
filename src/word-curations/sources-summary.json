@@ -1,6 +1,6 @@
 {
   "total_entries": 3250,
-  "unique_sources": 129,
+  "unique_sources": 128,
   "categories": {
     "Personal": {
       "total": 1996,
@@ -40,7 +40,7 @@
       }
     },
     "Books/Novels": {
-      "total": 1016,
+      "total": 1017,
       "sources": {
         "Children of Memory - Novel by Adrian Tchaikovsky": 131,
         "Nexus - Yuval Noah Harari": 86,
@@ -79,7 +79,7 @@
         "Harry Potter and the Deathly Hallows": 1,
         "Foundation and Empire - Isaac Asimov": 14,
         "Project Hail Mary - Novel by Andy Weir": 5,
-        "Los hermanos Karamazov - Novela de Fyodor Dostoievski": 35
+        "Los hermanos Karamazov - Novela de Fyodor Dostoievski": 36
       }
     },
     "Short Stories": {
@@ -90,14 +90,13 @@
       }
     },
     "Academic/Work": {
-      "total": 8,
+      "total": 7,
       "sources": {
         "Paper on Strategy by Michael E. Porter": 2,
         "Data Visualization - Masters class": 1,
         "NLP homework": 1,
         "Tarea de maestría": 1,
-        "Work": 2,
-        "Definición de andurrial": 1
+        "Work": 2
       }
     },
     "Web/Social/Apps": {
