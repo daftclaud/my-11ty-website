@@ -90,6 +90,7 @@ const curatedBooksByYear = [
   {
     year: 2026,
     books: [
+      { title: 'Los Hermanos Karamazov', author: 'Fyodor Dostoevsky' },
       { title: 'El Gigante Enterrado', author: 'Kazuo Ishiguro' },
       { title: 'Foundation', author: 'Isaac Asimov' },
       { title: 'Freakonomics', author: 'Steven D. Levitt and Stephen J. Dubner' },
@@ -198,8 +199,8 @@ const curatedBooksByYear = [
 
 const currentlyReading = [
   {
-    title: 'Los Hermanos Karamazov',
-    author: 'Fyodor Dostoevsky',
+    title: 'Between Two Fires',
+    author: 'Christopher Buehlman',
   },
 ];
 

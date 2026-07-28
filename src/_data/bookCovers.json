@@ -784,5 +784,14 @@
     "provider": "openlibrary",
     "status": "ok",
     "checkedAt": "2026-05-14T17:36:01.041Z"
+  },
+  "Between Two Fires - Christopher Buehlman": {
+    "title": "Between Two Fires",
+    "author": "Christopher Buehlman",
+    "coverPath": "/assets/book-covers/between-two-fires-christopher-buehlman.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL19329975W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-07-28T22:42:40.294Z"
   }
 }
