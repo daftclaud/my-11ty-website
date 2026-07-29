@@ -1,6 +1,6 @@
 {
-  "total_entries": 3252,
-  "unique_sources": 128,
+  "total_entries": 3253,
+  "unique_sources": 129,
   "categories": {
     "Personal": {
       "total": 1996,
@@ -40,7 +40,7 @@
       }
     },
     "Books/Novels": {
-      "total": 1019,
+      "total": 1020,
       "sources": {
         "Children of Memory - Novel by Adrian Tchaikovsky": 131,
         "Nexus - Yuval Noah Harari": 86,
@@ -79,7 +79,8 @@
         "Harry Potter and the Deathly Hallows": 1,
         "Foundation and Empire - Isaac Asimov": 14,
         "Project Hail Mary - Novel by Andy Weir": 5,
-        "Los hermanos Karamazov - Novela de Fyodor Dostoievski": 38
+        "Los hermanos Karamazov - Novela de Fyodor Dostoievski": 38,
+        "Between Two Fires - Novel by Christopher Buehlman": 1
       }
     },
     "Short Stories": {
