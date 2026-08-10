@@ -53,9 +53,10 @@
     "title": "Foundation",
     "author": "Isaac Asimov",
     "coverPath": "/assets/book-covers/foundation-isaac-asimov.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL46125W",
     "provider": "openlibrary",
     "status": "ok",
-    "checkedAt": "2026-04-14T02:10:58.208Z"
+    "checkedAt": "2026-07-28T22:57:36.472Z"
   },
   "Harry Potter and the Deathly Hallows": {
     "title": "Harry Potter and the Deathly Hallows",
@@ -793,5 +794,14 @@
     "provider": "openlibrary",
     "status": "ok",
     "checkedAt": "2026-07-28T22:42:40.294Z"
+  },
+  "Cadáver Exquisito - Agustina Bazterrica": {
+    "title": "Cadáver Exquisito",
+    "author": "Agustina Bazterrica",
+    "coverPath": "/assets/book-covers/cad-ver-exquisito-agustina-bazterrica.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL17864836W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-08-10T01:53:49.445Z"
   }
 }
