@@ -1,5 +1,5 @@
 {
-  "total_entries": 3272,
+  "total_entries": 3273,
   "unique_sources": 130,
   "categories": {
     "Personal": {
@@ -131,13 +131,13 @@
       }
     },
     "Museums/Places": {
-      "total": 8,
+      "total": 9,
       "sources": {
         "Museo Leonora Carrington - San Luis Potosí": 3,
         "Alejandro - Guia en Cusco": 1,
         "Coty - Globant": 1,
         "House of Guinness": 1,
-        "Museo Marco": 1,
+        "Museo Marco": 2,
         "Vinicola Clos de Tres Cantos": 1
       }
     },
