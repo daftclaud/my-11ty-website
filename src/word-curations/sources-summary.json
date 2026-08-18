@@ -1,5 +1,5 @@
 {
-  "total_entries": 3274,
+  "total_entries": 3275,
   "unique_sources": 131,
   "categories": {
     "Personal": {
@@ -40,7 +40,7 @@
       }
     },
     "Books/Novels": {
-      "total": 1035,
+      "total": 1036,
       "sources": {
         "Children of Memory - Novel by Adrian Tchaikovsky": 131,
         "Nexus - Yuval Noah Harari": 86,
@@ -82,7 +82,7 @@
         "Los hermanos Karamazov - Novela de Fyodor Dostoievski": 38,
         "Between Two Fires - Novel by Christopher Buehlman": 9,
         "Cadaver Exquisito - Agustina Bazterrica": 6,
-        "Tomorrow, and Tomorrow, and Tomorrow - Novel by Gabrielle Zevin": 1
+        "Tomorrow, and Tomorrow, and Tomorrow - Novel by Gabrielle Zevin": 2
       }
     },
     "Short Stories": {
