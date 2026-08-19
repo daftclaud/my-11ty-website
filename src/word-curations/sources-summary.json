@@ -1,6 +1,6 @@
 {
-  "total_entries": 3277,
-  "unique_sources": 131,
+  "total_entries": 3278,
+  "unique_sources": 132,
   "categories": {
     "Personal": {
       "total": 1996,
@@ -143,7 +143,7 @@
       }
     },
     "Movies/TV/Anime": {
-      "total": 32,
+      "total": 33,
       "sources": {
         "Love is Blind - Mexico": 3,
         "Mashle - Anime": 3,
@@ -165,7 +165,8 @@
         "Planet Earth - David Attenborough": 1,
         "Scent of a Woman - Movie": 2,
         "Finding Harry: The Craft Behind The Magic": 1,
-        "Trust Me - Drama series": 1
+        "Trust Me - Drama series": 1,
+        "1984 Movie": 1
       }
     },
     "Music": {
