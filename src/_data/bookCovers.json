@@ -816,9 +816,10 @@
   "Lonesome Dove - Larry McMurtry": {
     "title": "Lonesome Dove",
     "author": "Larry McMurtry",
-    "coverPath": null,
-    "infoUrl": null,
-    "status": "missing",
-    "checkedAt": "2026-08-28T15:01:47.435Z"
+    "coverPath": "/assets/book-covers/lonesome-dove-larry-mcmurtry.svg",
+    "infoUrl": "https://en.wikipedia.org/wiki/Lonesome_Dove",
+    "provider": "manual",
+    "status": "ok",
+    "checkedAt": "2026-08-28T15:03:00.000Z"
   }
 }
