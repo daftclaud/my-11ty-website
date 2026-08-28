@@ -538,5 +538,11 @@
     "publishedYear": 2022,
     "blurbEn": "Two friends reunite and build a hit video game, navigating decades of creative ambition, collaboration, love, and rivalry in a story about art and connection.",
     "blurbEs": "Dos amigos se reencuentran y crean un videojuego exitoso, atravesando décadas de ambición creativa, colaboración, amor y rivalidad en una historia sobre arte y conexión."
+  },
+  "Lonesome Dove - Larry McMurtry": {
+    "genres": ["Western", "Historical Fiction", "Adventure Fiction"],
+    "publishedYear": 1985,
+    "blurbEn": "Two retired Texas Rangers drive a vast cattle herd from the Rio Grande to Montana, facing danger, loss, and friendship across the untamed American frontier.",
+    "blurbEs": "Dos Rangers de Texas retirados conducen un enorme ganado desde el Río Grande hasta Montana, enfrentando peligro, pérdida y amistad a través de la frontera estadounidense indómita."
   }
 }
