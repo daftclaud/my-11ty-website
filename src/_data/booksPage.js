@@ -201,8 +201,8 @@ const curatedBooksByYear = [
 
 const currentlyReading = [
   {
-    title: 'Tomorrow, and Tomorrow, and Tomorrow',
-    author: 'Gabrielle Zevin',
+    title: 'Lonesome Dove',
+    author: 'Larry McMurtry',
   },
 ];
 

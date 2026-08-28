@@ -812,5 +812,14 @@
     "provider": "openlibrary",
     "status": "ok",
     "checkedAt": "2026-08-16T18:16:51.817Z"
+  },
+  "Lonesome Dove - Larry McMurtry": {
+    "title": "Lonesome Dove",
+    "author": "Larry McMurtry",
+    "coverPath": "/assets/book-covers/lonesome-dove-larry-mcmurtry.svg",
+    "infoUrl": "https://en.wikipedia.org/wiki/Lonesome_Dove",
+    "provider": "manual",
+    "status": "ok",
+    "checkedAt": "2026-08-28T15:03:00.000Z"
   }
 }
