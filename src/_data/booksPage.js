@@ -97,6 +97,7 @@ const curatedBooksByYear = [
       { title: 'Freakonomics', author: 'Steven D. Levitt and Stephen J. Dubner' },
       { title: 'The Undoing Project', author: 'Michael Lewis' },
       { title: 'Project Hail Mary', author: 'Andy Weir' },
+      { title: 'Tomorrow, and Tomorrow, and Tomorrow', author: 'Gabrielle Zevin' },
       { title: 'Between Two Fires', author: 'Christopher Buehlman' },
     ],
   },
