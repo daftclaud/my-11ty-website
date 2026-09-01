@@ -1,5 +1,5 @@
 {
-  "total_entries": 3294,
+  "total_entries": 3295,
   "unique_sources": 133,
   "categories": {
     "Personal": {
@@ -40,7 +40,7 @@
       }
     },
     "Books/Novels": {
-      "total": 1050,
+      "total": 1051,
       "sources": {
         "Children of Memory - Novel by Adrian Tchaikovsky": 131,
         "Nexus - Yuval Noah Harari": 86,
@@ -83,7 +83,7 @@
         "Between Two Fires - Novel by Christopher Buehlman": 9,
         "Cadaver Exquisito - Agustina Bazterrica": 6,
         "Tomorrow, and Tomorrow, and Tomorrow - Novel by Gabrielle Zevin": 14,
-        "Lonesome Dove - Novel by Larry McMurtry": 2
+        "Lonesome Dove - Novel by Larry McMurtry": 3
       }
     },
     "Short Stories": {
