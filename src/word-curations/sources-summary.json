@@ -1,6 +1,6 @@
 {
-  "total_entries": 3299,
-  "unique_sources": 133,
+  "total_entries": 3300,
+  "unique_sources": 134,
   "categories": {
     "Personal": {
       "total": 1996,
@@ -144,7 +144,7 @@
       }
     },
     "Movies/TV/Anime": {
-      "total": 33,
+      "total": 34,
       "sources": {
         "Love is Blind - Mexico": 3,
         "Mashle - Anime": 3,
@@ -167,7 +167,8 @@
         "Scent of a Woman - Movie": 2,
         "Finding Harry: The Craft Behind The Magic": 1,
         "Trust Me - Drama series": 1,
-        "1984 Movie": 1
+        "1984 Movie": 1,
+        "The Staircase - Netflix documentary": 1
       }
     },
     "Music": {
