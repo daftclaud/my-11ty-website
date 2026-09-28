@@ -27,7 +27,17 @@ jobs:
         run: npm ci
 
       - name: Fetch Rocket League stats
+        id: fetch-rl
         run: npm run fetch:rl
+
+      - name: Upload debug HTML on failure
+        if: failure() && steps.fetch-rl.outcome == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: rl-debug-html-${{ github.run_id }}
+          path: debug_html.txt
+          retention-days: 7
+          if-no-files-found: ignore
 
       - name: Check for changes
         id: git-check

@@ -110,26 +110,70 @@ async function fetchRocketLeagueStats() {
     console.log('🌐 Navigating to profile page...');
     await page.goto('https://rocketleague.tracker.network/rocket-league/profile/epic/TKNclaudette/overview', {
       waitUntil: 'networkidle2',
-      timeout: 30000
+      timeout: 60000
     });
-    
-    // Wait for content to load
-    console.log('⏳ Waiting for stats to load...');
-    await new Promise(resolve => setTimeout(resolve, 5000));
-    
+
+    // The page is a Vue SPA: the initial HTML has an empty Vuex store
+    // ("isLoaded":false, "segments":[]). Stats are injected into the DOM only
+    // after the JS bundle fires XHR calls and hydrates the store. A fixed sleep
+    // is unreliable on GitHub-hosted runners where those calls can be slow or
+    // stalled by Cloudflare's bot-mitigation iframe.
+    //
+    // Strategy: poll for a DOM element that only exists once stats have
+    // rendered, with a generous timeout. Fall back to the timed wait so local
+    // dev still works if the selector ever changes.
+    console.log('⏳ Waiting for stats to render in DOM...');
+    const STATS_SELECTOR = '.segment.ranked:not(.empty), [class*="rank-tier"] img, .stat-value, .value';
+    const RANKED_DUEL_SELECTOR = '.segment--standard';
+    const POLL_INTERVAL_MS = 1000;
+    const MAX_WAIT_MS = 45000;
+
+    const statsRendered = await (async () => {
+      const start = Date.now();
+      while (Date.now() - start < MAX_WAIT_MS) {
+        // Check whether "Ranked Duel 1v1" text is now present in the DOM
+        const found = await page.evaluate(() => {
+          return document.body.innerText.includes('Ranked Duel 1v1') ||
+                 document.body.innerText.includes('peak-rating') ||
+                 !!document.querySelector('[class*="peak-rating"]');
+        });
+        if (found) {
+          console.log(`  ✓ Stats content detected after ~${Math.round((Date.now() - start) / 1000)}s`);
+          return true;
+        }
+        await new Promise(r => setTimeout(r, POLL_INTERVAL_MS));
+      }
+      return false;
+    })();
+
+    if (!statsRendered) {
+      console.warn('  ⚠️ Timed out waiting for stats content; proceeding with current DOM (may be incomplete)');
+    }
+
+    // Extra short settle time after detection to let adjacent DOM nodes finish
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
     const html = await page.content();
     
     const stats = parseStats(html);
     
     // Validate that we actually got data (check if rank is not 'Unknown')
     if (stats.rankedDuel.rank === 'Unknown' && stats.rankedDuel.rating === 0) {
-      // Log diagnostic information
+      // Log diagnostic information to help distinguish between:
+      //   (a) Cloudflare/bot-detection stalling DOM hydration
+      //   (b) Tracker returning an empty profile
+      //   (c) A parser defect
       console.log('🔍 Diagnostic Info:');
       console.log('  - HTML length:', html.length);
       console.log('  - Contains "Ranked Duel 1v1":', html.includes('Ranked Duel 1v1'));
       console.log('  - Contains "peak-rating":', html.includes('peak-rating'));
-      
-      // Save HTML for debugging only when parsing fails
+      console.log('  - Contains "isLoaded":false:', html.includes('"isLoaded":false'));
+      console.log('  - Contains "isLoaded":true:', html.includes('"isLoaded":true'));
+      console.log('  - Contains "segments":[]:', html.includes('"segments":[]'));
+      console.log('  - Contains challenge-platform:', html.includes('challenge-platform'));
+
+      // Save HTML for debugging only when parsing fails.
+      // The workflow uploads this file as an artifact when the step fails.
       const debugHtmlPath = path.join(__dirname, 'debug_html.txt');
       try {
         fs.writeFileSync(debugHtmlPath, html);
