@@ -309,9 +309,8 @@ if (require.main === module) {
     .then(() => process.exit(0))
     .catch((error) => {
       console.error(error);
-      console.warn('⚠️ Failed to fetch stats, preserving existing data. Workflow will succeed.');
-      // Exit with success since we keep existing stats file on error
-      process.exit(0);
+      console.warn('⚠️ Failed to fetch stats; preserving existing data and reporting failure to the workflow.');
+      process.exitCode = 1;
     });
 }
 
