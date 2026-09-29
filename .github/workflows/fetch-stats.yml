@@ -1,10 +1,7 @@
 name: Fetch Rocket League Stats
 
 on:
-  schedule:
-    # Run daily at 12:00 UTC (6 AM CST / 7 AM CDT)
-    - cron: '0 12 * * *'
-  workflow_dispatch: # Allow manual trigger
+  workflow_dispatch: # Manual trigger only
 
 permissions:
   contents: write
