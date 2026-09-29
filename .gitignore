@@ -15,5 +15,8 @@ migration-output/
 # Debug files
 debug_html.txt
 
+# Local utility scripts
+update-rl-stats.bat
+
 # Translation cache (optional - you may want to commit these)
 # src/_translations/
