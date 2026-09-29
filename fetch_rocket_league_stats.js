@@ -1,7 +1,13 @@
-const puppeteer = require('puppeteer-core');
+const puppeteerExtra = require('puppeteer-extra');
+const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 const chromium = require('@sparticuz/chromium');
 const fs = require('fs');
 const path = require('path');
+
+// Apply stealth plugin to evade Cloudflare bot-detection fingerprinting.
+// This patches navigator.webdriver, plugins, languages, and ~20 other signals
+// that headless Chromium exposes by default.
+puppeteerExtra.use(StealthPlugin());
 
 function fileExists(p) {
   try {
@@ -102,7 +108,7 @@ async function fetchRocketLeagueStats() {
   try {
     console.log('🚀 Launching browser...');
     const launchOptions = await resolveLaunchOptions();
-    browser = await puppeteer.launch(launchOptions);
+    browser = await puppeteerExtra.launch(launchOptions);
     
     const page = await browser.newPage();
     await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
