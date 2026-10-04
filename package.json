@@ -12,6 +12,9 @@
     "import:firestore:books": "node import_firestore_books.js",
     "import:firestore:words": "node import_firestore_words.js"
   },
+  "engines": {
+    "node": "24.x"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
