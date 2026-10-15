@@ -202,8 +202,8 @@ const curatedBooksByYear = [
 
 const currentlyReading = [
   {
-    title: 'Lonesome Dove',
-    author: 'Larry McMurtry',
+    title: 'The Midnight Library',
+    author: 'Matt Haig',
   },
 ];
 

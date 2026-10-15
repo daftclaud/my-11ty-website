@@ -544,5 +544,11 @@
     "publishedYear": 1985,
     "blurbEn": "Two retired Texas Rangers drive a vast cattle herd from the Rio Grande to Montana, facing danger, loss, and friendship across the untamed American frontier.",
     "blurbEs": "Dos Rangers de Texas retirados conducen un enorme ganado desde el Río Grande hasta Montana, enfrentando peligro, pérdida y amistad a través de la frontera estadounidense indómita."
+  },
+  "The Midnight Library - Matt Haig": {
+    "genres": ["Fantasy", "Literary Fiction"],
+    "publishedYear": 2020,
+    "blurbEn": "Nora Seed finds herself in a library between life and death, where each book offers a chance to experience a different life she might have lived.",
+    "blurbEs": "Nora Seed se encuentra en una biblioteca entre la vida y la muerte, donde cada libro le ofrece la oportunidad de vivir una vida distinta que pudo haber tenido."
   }
 }

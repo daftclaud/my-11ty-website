@@ -816,10 +816,19 @@
   "Lonesome Dove - Larry McMurtry": {
     "title": "Lonesome Dove",
     "author": "Larry McMurtry",
-    "coverPath": "/assets/book-covers/lonesome-dove-larry-mcmurtry.svg",
+    "coverPath": "/assets/book-covers/lonesome-dove-larry-mcmurtry.png",
     "infoUrl": "https://en.wikipedia.org/wiki/Lonesome_Dove",
     "provider": "manual",
     "status": "ok",
-    "checkedAt": "2026-08-28T15:03:00.000Z"
+    "checkedAt": "2026-10-14T23:50:06.000Z"
+  },
+  "The Midnight Library - Matt Haig": {
+    "title": "The Midnight Library",
+    "author": "Matt Haig",
+    "coverPath": "/assets/book-covers/midnight-library-matt-haig.png",
+    "infoUrl": "https://openlibrary.org/search?q=The+Midnight+Library+Matt+Haig",
+    "provider": "manual",
+    "status": "ok",
+    "checkedAt": "2026-10-14T23:50:06.000Z"
   }
 }
