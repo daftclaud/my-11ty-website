@@ -99,6 +99,7 @@ const curatedBooksByYear = [
       { title: 'Project Hail Mary', author: 'Andy Weir' },
       { title: 'Tomorrow, and Tomorrow, and Tomorrow', author: 'Gabrielle Zevin' },
       { title: 'Between Two Fires', author: 'Christopher Buehlman' },
+      { title: 'Lonesome Dove', author: 'Larry McMurtry' },
     ],
   },
   {
