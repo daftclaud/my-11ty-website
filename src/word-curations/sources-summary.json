@@ -1,5 +1,5 @@
 {
-  "total_entries": 3320,
+  "total_entries": 3321,
   "unique_sources": 137,
   "categories": {
     "Personal": {
@@ -40,7 +40,7 @@
       }
     },
     "Books/Novels": {
-      "total": 1068,
+      "total": 1069,
       "sources": {
         "Children of Memory - Novel by Adrian Tchaikovsky": 131,
         "Nexus - Yuval Noah Harari": 86,
@@ -84,7 +84,7 @@
         "Cadaver Exquisito - Agustina Bazterrica": 6,
         "Tomorrow, and Tomorrow, and Tomorrow - Novel by Gabrielle Zevin": 14,
         "Lonesome Dove - Novel by Larry McMurtry": 14,
-        "The Midnight Library Novel by Matt Haig": 6
+        "The Midnight Library Novel by Matt Haig": 7
       }
     },
     "Short Stories": {
