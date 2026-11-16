@@ -1,5 +1,5 @@
 {
-  "total_entries": 3328,
+  "total_entries": 3329,
   "unique_sources": 138,
   "categories": {
     "Personal": {
@@ -40,7 +40,7 @@
       }
     },
     "Books/Novels": {
-      "total": 1076,
+      "total": 1077,
       "sources": {
         "Children of Memory - Novel by Adrian Tchaikovsky": 131,
         "Nexus - Yuval Noah Harari": 86,
@@ -85,7 +85,7 @@
         "Tomorrow, and Tomorrow, and Tomorrow - Novel by Gabrielle Zevin": 14,
         "Lonesome Dove - Novel by Larry McMurtry": 14,
         "The Midnight Library Novel by Matt Haig": 11,
-        "Children of Strife  Book by Adrian Tchaikovsky": 3
+        "Children of Strife  Book by Adrian Tchaikovsky": 4
       }
     },
     "Short Stories": {
