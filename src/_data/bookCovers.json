@@ -830,5 +830,14 @@
     "provider": "manual",
     "status": "ok",
     "checkedAt": "2026-10-14T23:50:06.000Z"
+  },
+  "Children of Strife - Adrian Tchaikovsky": {
+    "title": "Children of Strife",
+    "author": "Adrian Tchaikovsky",
+    "coverPath": "/assets/book-covers/children-of-strife-adrian-tchaikovsky.jpg",
+    "infoUrl": "https://openlibrary.org/works/OL44335925W",
+    "provider": "openlibrary",
+    "status": "ok",
+    "checkedAt": "2026-11-16T21:36:12.414Z"
   }
 }

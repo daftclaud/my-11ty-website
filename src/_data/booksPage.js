@@ -100,6 +100,7 @@ const curatedBooksByYear = [
       { title: 'Tomorrow, and Tomorrow, and Tomorrow', author: 'Gabrielle Zevin' },
       { title: 'Between Two Fires', author: 'Christopher Buehlman' },
       { title: 'Lonesome Dove', author: 'Larry McMurtry' },
+      { title: 'The Midnight Library', author: 'Matt Haig' },
     ],
   },
   {
@@ -203,8 +204,8 @@ const curatedBooksByYear = [
 
 const currentlyReading = [
   {
-    title: 'The Midnight Library',
-    author: 'Matt Haig',
+    title: 'Children of Strife',
+    author: 'Adrian Tchaikovsky',
   },
 ];
 
