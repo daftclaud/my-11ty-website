@@ -3,7 +3,7 @@
     "rank": "Diamond I",
     "rating": 827,
     "division": "",
-    "percentile": ""
+    "percentile": "Top 9.0%"
   },
   "peakRating": {
     "rank": "Diamond II",
@@ -11,16 +11,16 @@
     "season": "Season 33"
   },
   "lifetime": {
-    "wins": 6801,
-    "goals": 53652,
-    "shots": 85158,
-    "saves": 40016,
+    "wins": 6824,
+    "goals": 53846,
+    "shots": 85474,
+    "saves": 40164,
     "goalShotRatio": 63,
-    "winsRank": "",
-    "goalsRank": "",
-    "shotsRank": "",
-    "savesRank": "",
+    "winsRank": "Top 6.0%",
+    "goalsRank": "Top 0.2%",
+    "shotsRank": "Top 0.5%",
+    "savesRank": "Top 0.3%",
     "goalShotRatioRank": ""
   },
-  "lastUpdated": "2026-10-16T22:01:10.947Z"
+  "lastUpdated": "2026-11-16T22:04:33.992Z"
 }
